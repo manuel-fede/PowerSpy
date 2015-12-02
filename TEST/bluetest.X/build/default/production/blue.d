@@ -1,0 +1,1 @@
+ build/default/production/blue.d  build/default/production/blue.p1:  blue.c

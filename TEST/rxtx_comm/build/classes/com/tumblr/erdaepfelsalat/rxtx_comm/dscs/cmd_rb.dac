@@ -1,0 +1,8 @@
+Reads all bytes of data from the device and prints them
+as unsigned byte to stdout. It's default format is decimal.
+
+arguments: <format>
+
+acceptable formats:
+ h: hex
+ b: binary
