@@ -1,0 +1,4 @@
+SOURCES:
+http://fizzed.com/oss/rxtx-for-java
+http://forum.arduino.cc/index.php/topic,46977.0.html
+http://eclipsesource.com/blogs/2012/10/17/serial-communication-in-java-with-raspberry-pi-and-rxtx/

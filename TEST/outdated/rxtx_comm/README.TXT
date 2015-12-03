@@ -1,0 +1,1 @@
+This test software does not work correctly on windows, it needs to use java in 32 bit, not 64 bit.
