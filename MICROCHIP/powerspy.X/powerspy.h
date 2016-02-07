@@ -88,6 +88,12 @@ extern "C" {
 #pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
+    //xc8 gives a warning when converting to lower data types
+    //even when casting to the appropriate type
+#pragma warning push
+#pragma warning disable 752
+#pragma warning enable pop
+
     //print specific defines
 #define _XTAL_FREQ          4000000
 #define RX                  RB1
@@ -95,30 +101,60 @@ extern "C" {
 
 #define IN_FREQ             50
 
-#define CURRENT_VAL_IN      RB0
+#define CURRENT_VAL_IN      RB5
 #define CURRENT_PHA_IN      RA0
-#define CURRENT_MIN         -20
-#define CURRENT_MAX         20
 
 #define VOLTAGE_VAL_IN      RB4
 #define VOLTAGE_PHA_IN      RA1
 
-#define DISPLAY_LAT         RA4
-#define DISPLAY_CLK         RB3
+#define DISPLAY_LAT         RA3
+#define DISPLAY_CLK         RA4
 #define DISPLAY_DATA        RA7
 
 #define SHIFT_DIR_MSBFIRST  1
 #define SHIFT_DIR_LSBFIRST  0
 
 #define STATUS_LED          RA6
-#define BUTTON              RB5
+#define BUTTON              RB3
+    
+#define PWM_OUT_GEN_VOLT    RB0
+#define PWM_IN_REF          RA2
 
 #define SHIFT_REG_LEN       7
-#define CHAR_LEN            8
-#define UCHAR_MAX           255
-#define UCHAR_MIN           0
 
+#define RET_OK              0
+#define RET_NOK             1
 
+    typedef signed char byte;
+    typedef signed char int8_t;
+    typedef unsigned char uint8_t;
+    typedef signed short int16_t;
+    typedef unsigned short uint16_t;
+    typedef signed int int24_t;
+    typedef unsigned int uint24_t;
+    typedef signed long int32_t;
+    typedef unsigned long uint32_t;
+
+    void init();
+    void initADC();
+    void initTMR2();
+    void initTMR1();
+    void initFVR();
+    void initPWMTMR4();
+    void initCOMP1();
+    void initCOMP2();
+    char adc(char src);
+    char readVoltage();
+    float readCurrent();
+    void so(const char data, const char direction);
+    void clearDisplay(byte leng);
+    void interrupt ISR();
+    void main();
+
+    uint16_t curr_start;
+    uint16_t curr_end;
+    uint16_t volt_start;
+    uint16_t volt_end;
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
