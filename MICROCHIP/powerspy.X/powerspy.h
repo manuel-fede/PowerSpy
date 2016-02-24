@@ -20,57 +20,23 @@
  */
 
 /* 
- * File:   
- * Author: 
+ * File:                powerspy.h
+ * Author:              Manuel Federanko
  * Comments:
  * Revision history: 
  */
 
-// This is a guard condition so that contents of this file are not included
-// more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+#include <xc.h>
+#include "types.h"
 
-#include <xc.h> // include processor files - each processor file is guarded.  
-
-// TODO Insert appropriate #include <>
-
-// TODO Insert C++ class definitions if appropriate
-
-// TODO Insert declarations
-
-// Comment a function and leverage automatic documentation with slash star star
-/**
-    <p><b>Function prototype:</b></p>
-  
-    <p><b>Summary:</b></p>
-
-    <p><b>Description:</b></p>
-
-    <p><b>Precondition:</b></p>
-
-    <p><b>Parameters:</b></p>
-
-    <p><b>Returns:</b></p>
-
-    <p><b>Example:</b></p>
-    <code>
- 
-    </code>
-
-    <p><b>Remarks:</b></p>
- */
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
+#ifndef __POWERSPY_H
+#define	__POWERSPY_H
 
 #ifdef	__cplusplus
 extern "C" {
-#endif /* __cplusplus */
+#endif
 
-    // TODO If C++ is being used, regular C code needs function names to have C 
-    // linkage so the functions can be used by the c code. 
-    // pragmas
-#pragma config FOSC = INTOSC    // Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin)
+#pragma config FOSC = INTOSC    // Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin) - needed for 32mhz
 #pragma config WDTE = OFF       // Watchdog Timer Enable (WDT disabled)
 #pragma config PWRTE = OFF      // Power-up Timer Enable (PWRT disabled)
 #pragma config MCLRE = ON       // MCLR Pin Function Select (MCLR/VPP pin function is MCLR)
@@ -116,7 +82,7 @@ extern "C" {
 
 #define STATUS_LED          RA6
 #define BUTTON              RB3
-    
+
 #define PWM_OUT_GEN_VOLT    RB0
 #define PWM_IN_REF          RA2
 
@@ -125,17 +91,52 @@ extern "C" {
 #define RET_OK              0
 #define RET_NOK             1
 
-    typedef signed char byte;
-    typedef signed char int8_t;
-    typedef unsigned char uint8_t;
-    typedef signed short int16_t;
-    typedef unsigned short uint16_t;
-    typedef signed int int24_t;
-    typedef unsigned int uint24_t;
-    typedef signed long int32_t;
-    typedef unsigned long uint32_t;
+#define NRMASK              0b01111111
+#define NR0                 0b01111110
+#define NR1                 0b01000010
+#define NR2                 0b00110111
+#define NR3                 0b01100111
+#define NR4                 0b01001011
+#define NR5                 0b01101101
+#define NR6                 0b01111101
+#define NR7                 0b01000110
+#define NR8                 0b01111111
+#define NR9                 0b01101111
 
-    void init();
+    //shift 1 - 3
+#define BIGMASK             0b001011111111111100011000
+#define SMAMASK             0b000000000000000011100000
+#define MASK                (BIGMASK|SMAMASK)
+
+#define V                   0b000010010100010000000000
+#define WFIRST              0b000000010101010100001000
+#define WSECOND             0b000000000000000011000000
+#define AFIRST              0b000001011000010100011000
+#define ASECOND             0b000000000000000010100000
+
+#define NNR0                0b000000010000011100011000
+#define NNR1                0b000000000000000100001000
+#define NNR2                0b000001001000010000011000
+#define NNR3                0b000001001000000100011000
+#define NNR4                0b000001011000000100001000
+#define NNR5                0b000001011000001100010000
+#define NNR6                0b000001011000011100010000
+#define NNR7                0b000000000000000100011000
+#define NNR8                0b000001011000011100011000
+#define NNR9                0b000001011000001100011000
+
+#define WAIT_T0H            NOP();NOP();NOP();
+#define WAIT_T1H            NOP();NOP();NOP();NOP();NOP();NOP();
+#define WAIT_T0L            NOP();NOP();NOP();NOP();NOP();NOP();NOP();
+#define WAIT_T1L            NOP();NOP();NOP();NOP();
+
+#define LED_LOWBIT()        STATUS_LED=1;WAIT_T0H;STATUS_LED=0;WAIT_T0L;
+#define LED_HIGHBIT()       STATUS_LED=1;WAIT_T1H;STATUS_LED=0;WAIT_T1L;
+
+    //read the time from tmr1
+#define getTime()           (TMR1H<<8|TMR1L)
+
+    void initPins();
     void initADC();
     void initTMR2();
     void initTMR1();
@@ -143,21 +144,18 @@ extern "C" {
     void initPWMTMR4();
     void initCOMP1();
     void initCOMP2();
-    char adc(char src);
-    char readVoltage();
+    uint8_t adc(const int8_t src);
+    uint8_t readVoltage();
     float readCurrent();
-    void so(const char data, const char direction);
-    void clearDisplay(byte leng);
+    void so(const uint8_t data, const uint8_t direction);
+    uint24_t combine(uint24_t nr1, uint24_t nr2);
+    void clearDisplay(uint8_t leng);
     void interrupt ISR();
     void main();
 
-    uint16_t curr_start;
-    uint16_t curr_end;
-    uint16_t volt_start;
-    uint16_t volt_end;
 #ifdef	__cplusplus
 }
-#endif /* __cplusplus */
+#endif
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif
 
