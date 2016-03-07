@@ -49,7 +49,7 @@ extern "C" {
 
     // CONFIG2
 #pragma config WRT = OFF        // Flash Memory Self-Write Protection (Write protection off)
-#pragma config PLLEN = OFF      // PLL Enable (4x PLL disabled)
+#pragma config PLLEN = ON      // PLL Enable (4x PLL disabled)
 #pragma config STVREN = OFF     // Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will not cause a Reset)
 #pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
@@ -90,6 +90,8 @@ extern "C" {
 
 #define RET_OK              0
 #define RET_NOK             1
+    
+#define RECEIVEBUFF_SIZE    8
 
 #define NRMASK              0b01111111
 #define NR0                 0b01111110
@@ -125,13 +127,39 @@ extern "C" {
 #define NNR8                0b000001011000011100011000
 #define NNR9                0b000001011000001100011000
 
-#define WAIT_T0H            NOP();NOP();NOP();
-#define WAIT_T1H            NOP();NOP();NOP();NOP();NOP();NOP();
-#define WAIT_T0L            NOP();NOP();NOP();NOP();NOP();NOP();NOP();
-#define WAIT_T1L            NOP();NOP();NOP();NOP();
+#define WAIT_T0H            NOP();\
+                            NOP();\
+                            NOP();
+#define WAIT_T0L            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();
+#define WAIT_T1H            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();
+#define WAIT_T1L            NOP();\
+                            NOP();\
+                            NOP();\
+                            NOP();
 
-#define LED_LOWBIT()        STATUS_LED=1;WAIT_T0H;STATUS_LED=0;WAIT_T0L;
-#define LED_HIGHBIT()       STATUS_LED=1;WAIT_T1H;STATUS_LED=0;WAIT_T1L;
+#define LED_LOWBIT          {\
+                            STATUS_LED=1;\
+                            WAIT_T0H\
+                            STATUS_LED=0;\
+                            WAIT_T0L\
+                            }
+#define LED_HIGHBIT         {\
+                            STATUS_LED=1;\
+                            WAIT_T1H\
+                            STATUS_LED=0;\
+                            WAIT_T1L\
+                            }
 
     //read the time from tmr1
 #define getTime()           (TMR1H<<8|TMR1L)

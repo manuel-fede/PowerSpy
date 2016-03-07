@@ -36,6 +36,12 @@
 extern "C" {
 #endif
 
+#define SCALE   10
+#define E       2.7182818284590452
+#define PI      3.1415926535897932
+#define PI_2    1.5707963267948966
+#define PI2     6.2831853071795865
+
     void _abs(float *n);
     void _combinatorics(unsigned int *res, unsigned int n);
     void _pow(float *nr, int power);

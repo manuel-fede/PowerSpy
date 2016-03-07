@@ -1,5 +1,25 @@
-Software zu Powerspy
-====================
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<center>
+#Software zu Powerspy
+</center>
+<div class="pagebreak"></div>
 
 ####1. Pinlayout (v. 1.4)
 
@@ -23,6 +43,7 @@ Software zu Powerspy
 |   RB7|     -|      -|    13|                -|PICKit programmer con.|        nur als programmier Pin|
 |   VDD|     -|      -|    14|                -|          Power supply|                               |
 |   VSS|     -|      -|     5|                -|          Power supply|                               |
+
 
 ####2. Strommessung
 Für die Strommessung wird ein dedizierter Chip verwendet, der ACS712.
@@ -61,6 +82,8 @@ PWMPeriod = (PRx+1)\*4\*1/FOSC\*(TMRx Prescale Value)
 welche auf Seite 209 im Datenblatt zu finden ist.
 Mithilfe dieser Formel ist es leicht sich die Frequenz des Controllers auszurechnen. Setzt man PWMPeriod gleich *15kHz*, so kommen **16MHz** für den Controller
 heraus. Daraus folgen folgende Werte für den Tiefpass: R=10kOhm, C=220nF.
+
+<div class="pagebreak"></div>
 
 ####5. Kommunikation mit der Statusled
 Da die Statusled (WS2812B) eine sehr genaue Zeit braucht, um die Daten zu übermitteln wird schlussendliche eine Frequenz von 32MHz gebraucht.

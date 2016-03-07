@@ -5,16 +5,7 @@
  * Created on 12 February 2016, 19:30
  */
 
-
-#define SCALE   20
-#define E       2.7182818284590452
-#define PI      3.1415926535897932
-#define PI_2    1.5707963267948966
-#define PI2     6.2831853071795865
-
-/*
- * 
- */
+#include "math.h"
 
 void _abs(float *n) {
     if (*n < 0) (*n) = -(*n);

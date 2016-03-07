@@ -16,30 +16,6 @@
 #include "powerspy.h"
 
 /*
-void init() {
-    OSCCON = 0b01110000;
-    PORTB = 0;
-    ANSELB = 0;
-    TRISB = 0b00000010;
-    RXDTSEL = 0;
-    TXCKSEL = 0;
-    
-    //Configure TX    RB2 = TX Pin
-    TXEN = 1;
-    SYNC = 0;
-    SPEN = 1;
-
-    CREN = 1;
-    SYNC = 0;
-    SPEN = 1;
-    
-    //SetBaudrate for BT Module to 9600
-    BRGH = 0;
-    BRG16 = 0;
-    SPBRG = 12;
-}
-
-
 void main(void) {
     init();
     for (;;) {
@@ -51,19 +27,23 @@ void main(void) {
 }
  */
 
-//those numbers have 1 byte more than the timer, since we also need negative numbers
-//to signify unset values
-int24_t volt_time;
-int24_t curr_time;
-int24_t delta_t;
-uint16_t led_rest;
-int8_t ovflw;
-
 const uint8_t get_shift_byte[10] = {NR0, NR1, NR2, NR3, NR4, NR5, NR6, NR7, NR8, NR9};
 
-/******************************************************************************/
-/*init methods*****************************************************************/
-/******************************************************************************/
+char receive_buff[RECEIVEBUFF_SIZE] = {0};
+int8_t buffpos = -1;
+int8_t readpos = 0;
+
+//those numbers have 1 byte more than the timer, since we also need negative numbers
+//to signify unset values
+int24_t volt_time = -1;
+int24_t curr_time = -1;
+int24_t delta_t = -1;
+uint16_t led_rest = 0;
+//int8_t ovflw;
+
+/******************************************************************************
+ *init methods*****************************************************************
+ ******************************************************************************/
 
 /*
  * prepare the processor, nothing may be turned on
@@ -209,10 +189,15 @@ void initFVR() {
 }
 
 //see data sheet page 208 and 209
+
 /*
  * used to compare amps signal
  */
 void initPWMTMR4() {
+
+    //see data sheet page 119
+    CCP1SEL = 1; //switch output from RB3 to RB0
+
     //1
     TRISBbits.TRISB0 = 1; //disable output driver for RB0
 
@@ -227,10 +212,10 @@ void initPWMTMR4() {
     //set the duty (1023 = 100%, 0 = 0%)
     //0x7f + 1 + 1 == 511 = 50%
     //8 higher bits
-    CCPR1L = 0x7f;
+    CCPR1L = 0x8E; //Weil besser.... kommen auf 2.48V
     //2 lower bits
-    DC1B0 = 1;
-    DC1B1 = 1;
+    DC1B0 = 0;
+    DC1B1 = 0;
     //5
     //see data sheet page 227, tmr 4 is used
     C1TSEL0 = 1;
@@ -244,7 +229,7 @@ void initPWMTMR4() {
     TMR4ON = 1;
 
     //6
-    while (!TMR4IF); //wait until overflow occured
+    //while (!TMR4IF); //wait until overflow occured
     TMR4IF = 0;
 
     TRISBbits.TRISB0 = 0;
@@ -324,6 +309,34 @@ void initCOMP2() {
     C2IE = 1;
     C2IF = 0;
     C2ON = 1;
+}
+
+/*
+ * Init the USART module for communication with the bt module
+ * the bauderate is 9600
+ */
+void initBT() {
+
+    //select output pin
+    RXDTSEL = 0;
+    TXCKSEL = 0;
+
+    //Configure TX
+    TXEN = 1;
+    SYNC = 0;
+    SPEN = 1;
+
+    //Configure RX
+    CREN = 1;
+    SYNC = 0;
+    SPEN = 1;
+
+    //Set Baudrate for BT Module to 9600
+    BRGH = 0;
+    BRG16 = 0;
+    SPBRG = 51; //Datasheet Page 299
+
+    RCIE = 1;
 }
 
 /******************************************************************************/
@@ -450,14 +463,29 @@ void clearDisplay(uint8_t leng) {
  * - highest bit first
  */
 void sendColour(uint8_t c) {
-    int8_t i;
-    for (i = CHAR_BIT - 1; i >= 0; i--) {
-        if (c & (1 << i)) { //check if bit i is set
-            LED_HIGHBIT();
-        } else {
-            LED_LOWBIT();
-        }
-    }
+    if (c & 0b10000000) LED_HIGHBIT
+    else LED_LOWBIT;
+
+    if (c & 0b01000000) LED_HIGHBIT
+    else LED_LOWBIT;
+
+    if (c & 0b00100000) LED_HIGHBIT
+    else LED_LOWBIT;
+
+    if (c & 0b00010000) LED_HIGHBIT
+    else LED_LOWBIT;
+
+    if (c & 0b00001000) LED_HIGHBIT
+    else LED_LOWBIT;
+
+    if (c & 0b00000100) LED_HIGHBIT
+    else LED_LOWBIT;
+
+    if (c & 0b00000010) LED_HIGHBIT
+    else LED_LOWBIT;
+
+    if (c & 0b00000001) LED_HIGHBIT
+    else LED_LOWBIT;
 }
 
 /******************************************************************************
@@ -471,7 +499,7 @@ void deltaT(int24_t tm_low, int24_t tm_high) {
     di(); //dont do anything with the following values in the isr while they are reset
     volt_time = -1;
     curr_time = -1;
-    ovflw = -1;
+    //ovflw = -1;
     ei();
 
     if (tm_low < tm_high) {
@@ -504,6 +532,14 @@ void setLED(uint8_t g, uint8_t r, uint8_t b) {
 }
 
 void interrupt ISR() {
+    //usart data received
+    if (RCIE && RCIF) {
+        receive_buff[buffpos] = RCREG;
+        buffpos++;
+        if (buffpos == RECEIVEBUFF_SIZE) buffpos = 0;
+        RCIF = 0;
+    }
+
     //in us
     if (TMR1IE && TMR1IF) {
         //if (curr_time >= 0 && volt_time < 0) ovflw = 1;
@@ -533,28 +569,53 @@ void interrupt ISR() {
     }
 }
 
+int8_t charAvailable() {
+    if (buffpos < readpos) {
+        return 8 - readpos + buffpos;
+    }
+    return buffpos - readpos;
+}
+
+char readNext() {
+    char ret = receive_buff[readpos];
+    readpos++;
+    if (readpos == RECEIVEBUFF_SIZE) readpos = 0;
+    return ret;
+}
+
+void sendChar(char c) {
+    TXREG = c;
+    while (!TRMT);
+}
+
 /*
  * main method, guess what it does!
  */
 void main() {
+    float res = 1.2;
     di();
     initPins();
 
-    curr_time = -1;
-    volt_time = -1;
-    delta_t = -1;
-    led_rest = 0;
-
-    initADC();
-    //initTMR2();
-    initTMR1();
-    initFVR();
-    initPWMTMR4();
-    initCOMP1();
-    initCOMP2();
+    //initADC();
+    //initTMR1();
+    //initFVR();
+    //initPWMTMR4();
+    //initCOMP1();
+    //initCOMP2();
+    initBT();
 
     PEIE = 1; //enable peripheral interrupts
     ei();
+    while (1) {
 
-    clearDisplay(SHIFT_REG_LEN);
+        if (charAvailable()) {
+            if (readNext() == 'g') {
+                sendChar((char) 1.2 & 0xff);
+                sendChar(((char) 1.2 >> 8) & 0xff);
+                sendChar(((char) 1.2 >> 16) & 0xff);
+            }
+        }
+    }
+
+    //clearDisplay(SHIFT_REG_LEN);
 }
