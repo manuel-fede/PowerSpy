@@ -4,5 +4,6 @@
 .DS_Store
 /JAVA/test/serial_comm/build/
 /JAVA/test/serial_comm/dist/
-/git_pull.sh
-/git_push.sh
+git_pull.sh
+git_push.sh
+.gitigonre
