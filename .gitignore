@@ -1,9 +1,0 @@
-/MICROCHIP/powerspy.X/build/default/
-/MICROCHIP/powerspy.X/dist/default/
-/MICROCHIP/powerspy.X/nbproject/private/
-.DS_Store
-/JAVA/test/serial_comm/build/
-/JAVA/test/serial_comm/dist/
-git_pull.sh
-git_push.sh
-.gitigonre
