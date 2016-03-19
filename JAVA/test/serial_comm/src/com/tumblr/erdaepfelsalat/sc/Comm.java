@@ -126,8 +126,11 @@ public class Comm {
             @Override
             public Response doCommand(Terminal t, String[] args) {
                 if (selected_port > -1) {
-                    ports[selected_port].openPort();
-                    return new Response("opened port: " + selected_port);
+                    if (ports[selected_port].openPort()) {
+                        return new Response("opened port: " + selected_port);
+                    } else {
+                        return new Response("failed to open port: " + selected_port);
+                    }
                 }
 
                 return new Response("no port selected");
@@ -139,8 +142,11 @@ public class Comm {
             @Override
             public Response doCommand(Terminal t, String[] args) {
                 if (selected_port > -1) {
-                    ports[selected_port].closePort();
-                    return new Response("closed port: " + selected_port);
+                    if (ports[selected_port].closePort()) {
+                        return new Response("closed port: " + selected_port);
+                    } else {
+                        return new Response("failed to close port: " + selected_port);
+                    }
                 }
 
                 return new Response("no port selected");
@@ -223,7 +229,11 @@ class ReadThread extends Thread {
                 System.out.print("read bytes: ");
                 System.out.println(read);
                 System.out.print("received: ");
-                System.out.println(new String(buffer, 0, read));
+                for (int i = 0; i < read; i++) {
+                    System.out.print(Integer.toString(buffer[i]));
+                    System.out.print(", ");
+                }
+                System.out.println();
             }
 
             try {

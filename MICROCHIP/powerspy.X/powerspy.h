@@ -1,29 +1,8 @@
-/* Microchip Technology Inc. and its subsidiaries.  You may use this software 
- * and any derivatives exclusively with Microchip products. 
- * 
- * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".  NO WARRANTIES, WHETHER 
- * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
- * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A 
- * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION 
- * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. 
- *
- * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
- * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
- * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
- * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE 
- * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS 
- * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF 
- * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *
- * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
- * TERMS. 
- */
-
-/* 
+/*
  * File:                powerspy.h
  * Author:              Manuel Federanko
- * Comments:
- * Revision history: 
+ * Comments:            
+ * Revision history:    
  */
 
 #include <xc.h>
@@ -49,7 +28,7 @@ extern "C" {
 
     // CONFIG2
 #pragma config WRT = OFF        // Flash Memory Self-Write Protection (Write protection off)
-#pragma config PLLEN = ON      // PLL Enable (4x PLL disabled)
+#pragma config PLLEN = ON       // PLL Enable (4x PLL disabled)
 #pragma config STVREN = OFF     // Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will not cause a Reset)
 #pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
@@ -61,7 +40,7 @@ extern "C" {
 #pragma warning enable pop
 
     //print specific defines
-#define _XTAL_FREQ          4000000
+#define _XTAL_FREQ          32000000
 #define RX                  RB1
 #define TX                  RB2
 
@@ -90,7 +69,15 @@ extern "C" {
 
 #define RET_OK              0
 #define RET_NOK             1
-    
+
+#define K_CURRENT       'c'
+#define K_REALPOWER     'r'
+#define K_ACTIVEPOWER   'a'
+#define K_REACTIVEPOWER 'R'
+#define K_STRING        's'
+
+#define START_OF_TEXT   2
+#define END_OF_TEXT     3
 #define RECEIVEBUFF_SIZE    8
 
 #define NRMASK              0b01111111
@@ -128,25 +115,25 @@ extern "C" {
 #define NNR9                0b000001011000001100011000
 
 #define WAIT_T0H            NOP();\
-                            NOP();\
-                            NOP();
+                            //NOP();\
+                            //NOP();
 #define WAIT_T0L            NOP();\
                             NOP();\
                             NOP();\
                             NOP();\
                             NOP();\
-                            NOP();\
-                            NOP();
+                            //NOP();\
+                            //NOP();
 #define WAIT_T1H            NOP();\
                             NOP();\
                             NOP();\
-                            NOP();\
-                            NOP();\
-                            NOP();
+                            //NOP();\
+                            //NOP();\
+                            //NOP();
 #define WAIT_T1L            NOP();\
                             NOP();\
-                            NOP();\
-                            NOP();
+                            //NOP();\
+                            //NOP();
 
 #define LED_LOWBIT          {\
                             STATUS_LED=1;\
@@ -178,7 +165,7 @@ extern "C" {
     void so(const uint8_t data, const uint8_t direction);
     uint24_t combine(uint24_t nr1, uint24_t nr2);
     void clearDisplay(uint8_t leng);
-    void interrupt ISR();
+    void __interrupt ISR();
     void main();
 
 #ifdef	__cplusplus

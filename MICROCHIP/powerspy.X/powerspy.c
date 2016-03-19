@@ -10,9 +10,11 @@
 
 
 #include <xc.h>
+#include <stdio.h>
 #include <limits.h>
+#include <math.h>
 #include "types.h"
-#include "math.h"
+#include "message.h"
 #include "powerspy.h"
 
 /*
@@ -28,10 +30,6 @@ void main(void) {
  */
 
 const uint8_t get_shift_byte[10] = {NR0, NR1, NR2, NR3, NR4, NR5, NR6, NR7, NR8, NR9};
-
-char receive_buff[RECEIVEBUFF_SIZE] = {0};
-int8_t buffpos = -1;
-int8_t readpos = 0;
 
 //those numbers have 1 byte more than the timer, since we also need negative numbers
 //to signify unset values
@@ -336,6 +334,10 @@ void initBT() {
     BRG16 = 0;
     SPBRG = 51; //Datasheet Page 299
 
+    while (RCIF) {
+        RCREG;
+    }
+
     RCIE = 1;
 }
 
@@ -464,28 +466,37 @@ void clearDisplay(uint8_t leng) {
  */
 void sendColour(uint8_t c) {
     if (c & 0b10000000) LED_HIGHBIT
-    else LED_LOWBIT;
+    else LED_LOWBIT
 
-    if (c & 0b01000000) LED_HIGHBIT
-    else LED_LOWBIT;
+        if (c & 0b01000000) LED_HIGHBIT
+    else LED_LOWBIT
 
-    if (c & 0b00100000) LED_HIGHBIT
-    else LED_LOWBIT;
+        if (c & 0b00100000) LED_HIGHBIT
+    else LED_LOWBIT
 
-    if (c & 0b00010000) LED_HIGHBIT
-    else LED_LOWBIT;
+        if (c & 0b00010000) LED_HIGHBIT
+    else LED_LOWBIT
 
-    if (c & 0b00001000) LED_HIGHBIT
-    else LED_LOWBIT;
+        if (c & 0b00001000) LED_HIGHBIT
+    else LED_LOWBIT
 
-    if (c & 0b00000100) LED_HIGHBIT
-    else LED_LOWBIT;
+        if (c & 0b00000100) LED_HIGHBIT
+    else LED_LOWBIT
 
-    if (c & 0b00000010) LED_HIGHBIT
-    else LED_LOWBIT;
+        if (c & 0b00000010) LED_HIGHBIT
+    else LED_LOWBIT
 
-    if (c & 0b00000001) LED_HIGHBIT
-    else LED_LOWBIT;
+        if (c & 0b00000001) LED_HIGHBIT
+    else LED_LOWBIT
+    }
+
+void clearArray(char *c, uint8_t leng) {
+    leng--;
+    while (leng != 0) {
+        c[leng] = 0;
+        leng--;
+    }
+    c[0] = 0;
 }
 
 /******************************************************************************
@@ -525,10 +536,13 @@ int ledReset() {
  * reprograms the led to the desired colour
  */
 void setLED(uint8_t g, uint8_t r, uint8_t b) {
+    byte gie = GIE;
+    GIE = 0;
     sendColour(g);
     sendColour(r);
     sendColour(b);
     led_rest = getTime();
+    GIE = gie;
 }
 
 void interrupt ISR() {
@@ -569,30 +583,14 @@ void interrupt ISR() {
     }
 }
 
-int8_t charAvailable() {
-    if (buffpos < readpos) {
-        return 8 - readpos + buffpos;
-    }
-    return buffpos - readpos;
-}
-
-char readNext() {
-    char ret = receive_buff[readpos];
-    readpos++;
-    if (readpos == RECEIVEBUFF_SIZE) readpos = 0;
-    return ret;
-}
-
-void sendChar(char c) {
-    TXREG = c;
-    while (!TRMT);
-}
-
 /*
  * main method, guess what it does!
  */
 void main() {
-    float res = 1.2;
+    char cmd;
+    float f = 1.1111;
+    uint24_t *f_;
+    char buff[10];
     di();
     initPins();
 
@@ -604,18 +602,27 @@ void main() {
     //initCOMP2();
     initBT();
 
-    PEIE = 1; //enable peripheral interrupts
-    ei();
+    PEIE = 1;
+    GIE = 1;
     while (1) {
-
+        sendString("hello");
         if (charAvailable()) {
-            if (readNext() == 'g') {
-                sendChar((char) 1.2 & 0xff);
-                sendChar(((char) 1.2 >> 8) & 0xff);
-                sendChar(((char) 1.2 >> 16) & 0xff);
+            cmd = readNext();
+            switch (cmd) {
+                case 'g':
+                    /*
+                    f_ = (uint24_t *) & f;
+                    sendChar((char) (*f_ >> 16 & 0xff));
+                    sendChar((char) (*f_ >> 8 & 0xff));
+                    sendChar((char) (*f_ & 0xff));
+                     */
+                    sendInt16(0xffff);
+                    break;
+                default:
+                    sendString("error");
+                    break;
             }
         }
+        __delay_ms(1000);
     }
-
-    //clearDisplay(SHIFT_REG_LEN);
 }

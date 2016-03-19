@@ -7,6 +7,8 @@
       <itemPath>powerspy.h</itemPath>
       <itemPath>math.h</itemPath>
       <itemPath>types.h</itemPath>
+      <itemPath>message.h</itemPath>
+      <itemPath>str.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -17,6 +19,8 @@
                    projectFiles="true">
       <itemPath>powerspy.c</itemPath>
       <itemPath>math.c</itemPath>
+      <itemPath>message.c</itemPath>
+      <itemPath>str.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
