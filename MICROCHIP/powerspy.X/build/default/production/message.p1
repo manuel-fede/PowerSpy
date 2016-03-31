@@ -2783,7 +2783,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;message.h: 37: void sendInt24(int24_t i);
 [; ;message.h: 38: void sendInt32(int32_t i);
 [; ;message.h: 39: void sendFloat(float f);
-[; ;message.h: 40: void sendString(char *val);
+[; ;message.h: 40: void sendString(const char *val);
 "12 message.c
 [v _initMessaging `(v ~T0 @X0 1 ef ]
 {
@@ -2991,24 +2991,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _f `f ~T0 @X0 1 r1 ]
 [f ]
 "70
-[v _ptr `*i ~T0 @X0 1 a ]
-[; ;message.c: 70: int *ptr = (int *) &f;
-[e = _ptr -> &U _f `*i ]
+[v _ptr `*um ~T0 @X0 1 a ]
+[; ;message.c: 70: uint24_t *ptr = (uint24_t *) &f;
+[e = _ptr -> &U _f `*um ]
 [; ;message.c: 71: sendChar(2);
 "71
 [e ( _sendChar (1 -> -> 2 `i `uc ]
 [; ;message.c: 72: sendChar('6');
 "72
 [e ( _sendChar (1 -> -> 54 `ui `uc ]
-[; ;message.c: 73: sendChar((char) ((*ptr) >> 16 & 0xff));
+[; ;message.c: 73: sendChar((char) (*ptr >> 16 & 0xff));
 "73
-[e ( _sendChar (1 -> & >> *U _ptr -> 16 `i -> 255 `i `uc ]
+[e ( _sendChar (1 -> & >> *U _ptr -> 16 `i -> -> -> 255 `i `m `um `uc ]
 [; ;message.c: 74: sendChar((char) (*ptr >> 8 & 0xff));
 "74
-[e ( _sendChar (1 -> & >> *U _ptr -> 8 `i -> 255 `i `uc ]
+[e ( _sendChar (1 -> & >> *U _ptr -> 8 `i -> -> -> 255 `i `m `um `uc ]
 [; ;message.c: 75: sendChar((char) (*ptr & 0xff));
 "75
-[e ( _sendChar (1 -> & *U _ptr -> 255 `i `uc ]
+[e ( _sendChar (1 -> & *U _ptr -> -> -> 255 `i `m `um `uc ]
 [; ;message.c: 76: sendChar(3);
 "76
 [e ( _sendChar (1 -> -> 3 `i `uc ]
@@ -3017,11 +3017,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 363 ]
 }
 "79
-[v _sendString `(v ~T0 @X0 1 ef1`*uc ]
+[v _sendString `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;message.c: 79: void sendString(char *val) {
+[; ;message.c: 79: void sendString(const char *val) {
 [e :U _sendString ]
-[v _val `*uc ~T0 @X0 1 r1 ]
+[v _val `*Cuc ~T0 @X0 1 r1 ]
 [f ]
 [; ;message.c: 80: sendChar(2);
 "80
@@ -3044,7 +3044,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 365 ]
 "82
-[e $ != -> *U _val `i -> -> -> 0 `i `uc `i 366  ]
+[e $ != -> *U _val `i -> -> -> 0 `i `Cuc `i 366  ]
 [e :U 367 ]
 [; ;message.c: 85: }
 [; ;message.c: 86: sendChar(3);

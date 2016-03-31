@@ -67,16 +67,16 @@ void sendInt32(int32_t i) {
 }
 
 void sendFloat(float f) {
-    int *ptr = (int *) &f;
+    uint24_t *ptr = (uint24_t *) &f;
     sendChar(START_OF_TEXT);
     sendChar(FLOAT);
-    sendChar((char) ((*ptr) >> 16 & 0xff));
+    sendChar((char) (*ptr >> 16 & 0xff));
     sendChar((char) (*ptr >> 8 & 0xff));
     sendChar((char) (*ptr & 0xff));
     sendChar(END_OF_TEXT);
 }
 
-void sendString(char *val) {
+void sendString(const char *val) {
     sendChar(START_OF_TEXT);
     sendChar(STRING);
     while (*val) {

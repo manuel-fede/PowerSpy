@@ -80,60 +80,49 @@ extern "C" {
 #define END_OF_TEXT     3
 #define RECEIVEBUFF_SIZE    8
 
-#define NRMASK              0b01111111
-#define NR0                 0b01111110
-#define NR1                 0b01000010
-#define NR2                 0b00110111
-#define NR3                 0b01100111
-#define NR4                 0b01001011
-#define NR5                 0b01101101
-#define NR6                 0b01111101
-#define NR7                 0b01000110
-#define NR8                 0b01111111
-#define NR9                 0b01101111
+#define NRMASK              0b10000000
+#define NR0                 0b10000001
+#define NR1                 0b10111101
+#define NR2                 0b11001000
+#define NR3                 0b10011000
+#define NR4                 0b10110100
+#define NR5                 0b10010010
+#define NR6                 0b10000010
+#define NR7                 0b10111001
+#define NR8                 0b10000000
+#define NR9                 0b10010000
 
     //shift 1 - 3
-#define BIGMASK             0b001011111111111100011000
-#define SMAMASK             0b000000000000000011100000
+#define BIGMASK             0b110100000000000011100111
+#define SMAMASK             0b111111111111111100011111
 #define MASK                (BIGMASK|SMAMASK)
 
-#define V                   0b000010010100010000000000
-#define WFIRST              0b000000010101010100001000
-#define WSECOND             0b000000000000000011000000
-#define AFIRST              0b000001011000010100011000
-#define ASECOND             0b000000000000000010100000
+#define V                   0b111101101011101111111111
+#define WFIRST              0b111111101010101011110111
+#define WSECOND             0b111111111111111100111111
+#define AFIRST              0b111110100111101011100111
+#define ASECOND             0b111111111111111101011111
 
-#define NNR0                0b000000010000011100011000
-#define NNR1                0b000000000000000100001000
-#define NNR2                0b000001001000010000011000
-#define NNR3                0b000001001000000100011000
-#define NNR4                0b000001011000000100001000
-#define NNR5                0b000001011000001100010000
-#define NNR6                0b000001011000011100010000
-#define NNR7                0b000000000000000100011000
-#define NNR8                0b000001011000011100011000
-#define NNR9                0b000001011000001100011000
+#define NNR0                0b111111101111100011100111
+#define NNR1                0b111111111111111011110111
+#define NNR2                0b111110110111100111100111
+#define NNR3                0b111110110111110011100111
+#define NNR4                0b111110100111111011110111
+#define NNR5                0b111110100111110011101111
+#define NNR6                0b111110100111100011101111
+#define NNR7                0b111111111111111011100111
+#define NNR8                0b111110100111100011100111
+#define NNR9                0b111110100111110011100111
 
-#define WAIT_T0H            NOP();\
-                            //NOP();\
-                            //NOP();
+#define WAIT_T0H            NOP();
 #define WAIT_T0L            NOP();\
                             NOP();\
-                            NOP();\
-                            NOP();\
-                            NOP();\
-                            //NOP();\
-                            //NOP();
+                            NOP();
 #define WAIT_T1H            NOP();\
                             NOP();\
                             NOP();\
-                            //NOP();\
-                            //NOP();\
-                            //NOP();
-#define WAIT_T1L            NOP();\
-                            NOP();\
-                            //NOP();\
-                            //NOP();
+                            NOP();
+#define WAIT_T1L            NOP();
 
 #define LED_LOWBIT          {\
                             STATUS_LED=1;\
@@ -164,7 +153,7 @@ extern "C" {
     float readCurrent();
     void so(const uint8_t data, const uint8_t direction);
     uint24_t combine(uint24_t nr1, uint24_t nr2);
-    void clearDisplay(uint8_t leng);
+    void clearDisplay(int8_t leng);
     void __interrupt ISR();
     void main();
 

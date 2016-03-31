@@ -10,7 +10,6 @@
 
 
 #include <xc.h>
-#include <stdio.h>
 #include <limits.h>
 #include <math.h>
 #include "types.h"
@@ -453,7 +452,7 @@ uint24_t combine(uint24_t nr1, uint24_t nr2) {
 /*
  * well, clears the display
  */
-void clearDisplay(uint8_t leng) {
+void clearDisplay(int8_t leng) {
     DISPLAY_LAT = 0;
     for (; leng >= 0; leng--)
         so(0, SHIFT_DIR_LSBFIRST);
@@ -468,27 +467,27 @@ void sendColour(uint8_t c) {
     if (c & 0b10000000) LED_HIGHBIT
     else LED_LOWBIT
 
-        if (c & 0b01000000) LED_HIGHBIT
+    if (c & 0b01000000) LED_HIGHBIT
     else LED_LOWBIT
 
-        if (c & 0b00100000) LED_HIGHBIT
+    if (c & 0b00100000) LED_HIGHBIT
     else LED_LOWBIT
 
-        if (c & 0b00010000) LED_HIGHBIT
+    if (c & 0b00010000) LED_HIGHBIT
     else LED_LOWBIT
 
-        if (c & 0b00001000) LED_HIGHBIT
+    if (c & 0b00001000) LED_HIGHBIT
     else LED_LOWBIT
 
-        if (c & 0b00000100) LED_HIGHBIT
+    if (c & 0b00000100) LED_HIGHBIT
     else LED_LOWBIT
 
-        if (c & 0b00000010) LED_HIGHBIT
+    if (c & 0b00000010) LED_HIGHBIT
     else LED_LOWBIT
 
-        if (c & 0b00000001) LED_HIGHBIT
+    if (c & 0b00000001) LED_HIGHBIT
     else LED_LOWBIT
-    }
+}
 
 void clearArray(char *c, uint8_t leng) {
     leng--;
@@ -588,11 +587,9 @@ void interrupt ISR() {
  */
 void main() {
     char cmd;
-    float f = 1.1111;
-    uint24_t *f_;
-    char buff[10];
     di();
     initPins();
+    char err[] = {'e', 'r', 'r', 'o', 'r'};
 
     //initADC();
     //initTMR1();
@@ -605,23 +602,23 @@ void main() {
     PEIE = 1;
     GIE = 1;
     while (1) {
-        sendString("hello");
         if (charAvailable()) {
             cmd = readNext();
             switch (cmd) {
                 case 'g':
-                    /*
-                    f_ = (uint24_t *) & f;
-                    sendChar((char) (*f_ >> 16 & 0xff));
-                    sendChar((char) (*f_ >> 8 & 0xff));
-                    sendChar((char) (*f_ & 0xff));
-                     */
-                    sendInt16(0xffff);
+                    sendInt8(0x11);
+                    sendInt16(0x2222);
+                    sendInt24(0x333333);
+                    sendInt32(0x44444444);
+                    sendFloat(3.141592);
+                    break;
+                case 0:
                     break;
                 default:
                     sendString("error");
                     break;
             }
+            cmd = 0;
         }
         __delay_ms(1000);
     }

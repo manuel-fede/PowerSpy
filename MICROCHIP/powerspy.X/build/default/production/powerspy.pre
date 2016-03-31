@@ -3718,69 +3718,6 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 4 "/Applications/microchip/xc8/v1.36/include/__size_t.h"
-typedef unsigned size_t;
-
-# 7 "/Applications/microchip/xc8/v1.36/include/stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "/Applications/microchip/xc8/v1.36/include/stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "/Applications/microchip/xc8/v1.36/include/errno.h"
-extern int errno;
-
-# 12 "/Applications/microchip/xc8/v1.36/include/conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "/Applications/microchip/xc8/v1.36/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
 # 30 "/Applications/microchip/xc8/v1.36/include/math.h"
 extern double fabs(double);
 extern double floor(double);
@@ -3832,7 +3769,7 @@ void sendInt16(int16_t i);
 void sendInt24(int24_t i);
 void sendInt32(int32_t i);
 void sendFloat(float f);
-void sendString(char *val);
+void sendString(const char *val);
 
 
 # 18 "powerspy.h"
@@ -3860,7 +3797,7 @@ void sendString(char *val);
 #pragma warning disable 752
 #pragma warning enable pop
 
-# 154
+# 143
 void initPins();
 void initADC();
 void initTMR2();
@@ -3874,12 +3811,12 @@ uint8_t readVoltage();
 float readCurrent();
 void so(const uint8_t data, const uint8_t direction);
 uint24_t combine(uint24_t nr1, uint24_t nr2);
-void clearDisplay(uint8_t leng);
+void clearDisplay(int8_t leng);
 void __interrupt ISR();
 void main();
 
-# 32 "powerspy.c"
-const uint8_t get_shift_byte[10] = {0b01111110, 0b01000010, 0b00110111, 0b01100111, 0b01001011, 0b01101101, 0b01111101, 0b01000110, 0b01111111, 0b01101111};
+# 31 "powerspy.c"
+const uint8_t get_shift_byte[10] = {0b10000001, 0b10111101, 0b11001000, 0b10011000, 0b10110100, 0b10010010, 0b10000010, 0b10111001, 0b10000000, 0b10010000};
 
 
 
@@ -3888,7 +3825,7 @@ int24_t curr_time = -1;
 int24_t delta_t = -1;
 uint16_t led_rest = 0;
 
-# 50
+# 49
 void initPins() {
 PORTA = 0b00000000;
 ANSELA = 0b00000111;
@@ -3914,7 +3851,7 @@ IRCF3 = 1;
 SPLLEN = 1;
 }
 
-# 79
+# 78
 void initADC() {
 
 
@@ -3933,10 +3870,10 @@ ADPREF1 = 0;
 ADNREF = 0;
 }
 
-# 101
+# 100
 void initTMR2() {
 
-# 119
+# 118
 T2CKPS0 = 1;
 T2CKPS1 = 0;
 
@@ -3959,10 +3896,10 @@ TMR2IF = 0;
 TMR2ON = 1;
 }
 
-# 144
+# 143
 void initTMR1() {
 
-# 156
+# 155
 TMR1CS0 = 0;
 TMR1CS1 = 0;
 
@@ -3977,17 +3914,17 @@ TMR1IF = 0;
 TMR1ON = 1;
 }
 
-# 173
+# 172
 void initFVR() {
 
-# 183
+# 182
 CDAFVR0 = 0;
 CDAFVR1 = 0;
 FVREN = 1;
 while (!FVRRDY);
 }
 
-# 194
+# 193
 void initPWMTMR4() {
 
 
@@ -4003,7 +3940,7 @@ CCP1CON = 0b00110000;
 
 CCP1CON |= 0b00001100;
 
-# 213
+# 212
 CCPR1L = 0x8E;
 
 DC1B0 = 0;
@@ -4027,7 +3964,7 @@ TMR4IF = 0;
 TRISBbits.TRISB0 = 0;
 }
 
-# 251
+# 250
 void initCOMP1() {
 
 
@@ -4035,7 +3972,7 @@ void initCOMP1() {
 C1NCH0 = 1;
 C1NCH1 = 0;
 
-# 270
+# 269
 C1PCH0 = 0;
 C1PCH1 = 1;
 
@@ -4046,7 +3983,7 @@ C1IF = 0;
 C1ON = 1;
 }
 
-# 284
+# 283
 void initCOMP2() {
 
 
@@ -4054,7 +3991,7 @@ void initCOMP2() {
 C2NCH0 = 0;
 C2NCH1 = 0;
 
-# 302
+# 301
 C2PCH0 = 0;
 C2PCH1 = 0;
 
@@ -4065,7 +4002,7 @@ C2IF = 0;
 C2ON = 1;
 }
 
-# 316
+# 315
 void initBT() {
 
 
@@ -4094,10 +4031,10 @@ RCREG;
 RCIE = 1;
 }
 
-# 354
+# 353
 uint8_t adc(const int8_t src) {
 
-# 375
+# 374
 if (src > 11) return 1;
 
 CHS0 = (bit) (src >> 0) & 0x01;
@@ -4115,20 +4052,20 @@ ADON = 0;
 return 0;
 }
 
-# 399
+# 398
 uint8_t readVoltage() {
 return 230;
 }
 
-# 408
+# 407
 float readCurrent() {
 
-# 415
+# 414
 adc(0);
 return (float) (50 * ADRESH) / 256.0 - 25.0;
 }
 
-# 425
+# 424
 void so(const uint8_t data, const uint8_t direction) {
 signed char c;
 if (direction) {
@@ -4146,47 +4083,47 @@ RA4 = 0;
 }
 }
 
-# 446
+# 445
 uint24_t combine(uint24_t nr1, uint24_t nr2) {
 if (nr1 & nr2) return 0;
-if ((0b001011111111111100011000|0b000000000000000011100000) | ~nr1 != 0xffffff) return 0;
-if ((0b001011111111111100011000|0b000000000000000011100000) | ~nr2 != 0xffffff) return 0;
+if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr1 != 0xffffff) return 0;
+if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr2 != 0xffffff) return 0;
 return (nr1 | nr2);
 }
 
-# 456
-void clearDisplay(uint8_t leng) {
+# 455
+void clearDisplay(int8_t leng) {
 RA3 = 0;
 for (; leng >= 0; leng--)
 so(0, 0);
 RA3 = 1;
 }
 
-# 467
+# 466
 void sendColour(uint8_t c) {
-if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
-if (c & 0b01000000) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b01000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
-if (c & 0b00100000) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b00100000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
-if (c & 0b00010000) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b00010000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
-if (c & 0b00001000) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b00001000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
-if (c & 0b00000100) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b00000100) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
-if (c & 0b00000010) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b00000010) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
-if (c & 0b00000001) { RA6=1; __nop(); __nop(); __nop(); RA6=0; __nop(); __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); __nop(); __nop(); }
+if (c & 0b00000001) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 }
 
 void clearArray(char *c, uint8_t leng) {
@@ -4198,7 +4135,7 @@ leng--;
 c[0] = 0;
 }
 
-# 509
+# 508
 void deltaT(int24_t tm_low, int24_t tm_high) {
 (GIE = 0);
 volt_time = -1;
@@ -4225,7 +4162,7 @@ else return 0;
 return 0;
 }
 
-# 538
+# 537
 void setLED(uint8_t g, uint8_t r, uint8_t b) {
 byte gie = GIE;
 GIE = 0;
@@ -4274,34 +4211,36 @@ TMR2IF = 0;
 }
 }
 
-# 589
+# 588
 void main() {
 char cmd;
-float f = 1.1111;
-uint24_t *f_;
-char buff[10];
 (GIE = 0);
 initPins();
+char err[] = {'e', 'r', 'r', 'o', 'r'};
 
-# 603
+# 600
 initBT();
 
 PEIE = 1;
 GIE = 1;
 while (1) {
-sendString("hello");
 if (charAvailable()) {
 cmd = readNext();
 switch (cmd) {
 case 'g':
-
-# 619
-sendInt16(0xffff);
+sendInt8(0x11);
+sendInt16(0x2222);
+sendInt24(0x333333);
+sendInt32(0x44444444);
+sendFloat(3.141592);
+break;
+case 0:
 break;
 default:
 sendString("error");
 break;
 }
+cmd = 0;
 }
 _delay((unsigned long)((1000)*(32000000/4000.0)));
 }

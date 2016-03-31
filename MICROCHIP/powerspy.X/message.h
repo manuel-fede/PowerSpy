@@ -37,7 +37,7 @@ extern "C" {
     void sendInt24(int24_t i);
     void sendInt32(int32_t i);
     void sendFloat(float f);
-    void sendString(char *val);
+    void sendString(const char *val);
 
 #ifdef	__cplusplus
 }

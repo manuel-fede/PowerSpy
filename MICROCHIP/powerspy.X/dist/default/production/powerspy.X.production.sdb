@@ -63,25 +63,33 @@
 [v _readNext readNext `(uc  1 e 1 0 ]
 "31
 [v _sendChar sendChar `(v  1 e 1 0 ]
+"36
+[v _sendInt8 sendInt8 `(v  1 e 1 0 ]
 "42
 [v _sendInt16 sendInt16 `(v  1 e 1 0 ]
+"50
+[v _sendInt24 sendInt24 `(v  1 e 1 0 ]
+"59
+[v _sendInt32 sendInt32 `(v  1 e 1 0 ]
+"69
+[v _sendFloat sendFloat `(v  1 e 1 0 ]
 "79
 [v _sendString sendString `(v  1 e 1 0 ]
-"50 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"49 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _initPins initPins `(v  1 e 1 0 ]
-"316
+"315
 [v _initBT initBT `(v  1 e 1 0 ]
-"354
+"353
 [v _adc adc `(uc  1 e 1 0 ]
-"425
+"424
 [v _so so `(v  1 e 1 0 ]
-"467
+"466
 [v _sendColour sendColour `(v  1 e 1 0 ]
-"509
+"508
 [v _deltaT deltaT `(v  1 e 1 0 ]
-"548
+"547
 [v _ISR ISR `II(v  1 e 1 0 ]
-"589
+"588
 [v _main main `(v  1 e 1 0 ]
 "13 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/str.c
 [v __strlen _strlen `(uc  1 e 1 0 ]
@@ -305,34 +313,65 @@
 [v _buffpos buffpos `c  1 e 1 0 ]
 "31
 [v _readpos readpos `c  1 e 1 0 ]
-"36 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"35 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _volt_time volt_time `m  1 e 3 0 ]
-"37
+"36
 [v _curr_time curr_time `m  1 e 3 0 ]
-"38
+"37
 [v _delta_t delta_t `m  1 e 3 0 ]
-"39
+"38
 [v _led_rest led_rest `us  1 e 2 0 ]
-"589
+"588
 [v _main main `(v  1 e 1 0 ]
 {
+"592
+[v main@err err `[5]uc  1 a 5 13 ]
+"589
+[v main@cmd cmd `uc  1 a 1 18 ]
 "591
-[v main@f f `f  1 a 3 7 ]
-"590
-[v main@cmd cmd `uc  1 a 1 10 ]
-"628
+[v main@F2917 F2917 `[5]uc  1 s 5 F2917 ]
+"625
 } 0
 "79 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
 [v _sendString sendString `(v  1 e 1 0 ]
 {
-[v sendString@val val `*.25uc  1 p 2 1 ]
+[v sendString@val val `*.25DCCuc  1 p 2 1 ]
 "87
+} 0
+"36
+[v _sendInt8 sendInt8 `(v  1 e 1 0 ]
+{
+[v sendInt8@i i `c  1 a 1 wreg ]
+[v sendInt8@i i `c  1 a 1 wreg ]
+[v sendInt8@i i `c  1 a 1 1 ]
+"41
+} 0
+"59
+[v _sendInt32 sendInt32 `(v  1 e 1 0 ]
+{
+[v sendInt32@i i `l  1 p 4 1 ]
+"67
+} 0
+"50
+[v _sendInt24 sendInt24 `(v  1 e 1 0 ]
+{
+[v sendInt24@i i `m  1 p 3 1 ]
+"57
 } 0
 "42
 [v _sendInt16 sendInt16 `(v  1 e 1 0 ]
 {
 [v sendInt16@i i `s  1 p 2 1 ]
 "48
+} 0
+"69
+[v _sendFloat sendFloat `(v  1 e 1 0 ]
+{
+"70
+[v sendFloat@ptr ptr `*.4um  1 a 1 7 ]
+"69
+[v sendFloat@f f `f  1 p 3 1 ]
+"77
 } 0
 "31
 [v _sendChar sendChar `(v  1 e 1 0 ]
@@ -349,30 +388,30 @@
 [v readNext@ret ret `uc  1 a 1 1 ]
 "29
 } 0
-"50 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"49 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _initPins initPins `(v  1 e 1 0 ]
 {
-"73
+"72
 } 0
-"316
+"315
 [v _initBT initBT `(v  1 e 1 0 ]
 {
-"342
+"341
 } 0
 "17 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
 [v _charAvailable charAvailable `(c  1 e 1 0 ]
 {
 "22
 } 0
-"548 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"547 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"584
+"583
 } 0
-"509
+"508
 [v _deltaT deltaT `(v  1 e 1 0 ]
 {
 [v deltaT@tm_low tm_low `m  1 p 3 0 ]
 [v deltaT@tm_high tm_high `m  1 p 3 3 ]
-"521
+"520
 } 0

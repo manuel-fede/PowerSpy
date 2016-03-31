@@ -27,17 +27,38 @@ import java.io.*;
  */
 public class Test {
 
-    public static void main(String[] args) throws IOException, PackageException {
+    public static void main(String[] args) throws IOException, PackageException, InterruptedException {
         SerialPort[] ports = SerialPort.getCommPorts();
-        SerialPort p = ports[2];
+        SerialPort p = null;
+        byte[] buff = new byte[]{'g'};
+
+        System.out.println("searching");
+        for (SerialPort p_ : ports) {
+            if (p_.getDescriptivePortName().contains("PowerSpy")) {
+                p = p_;
+                break;
+            }
+        }
+        if (p == null) {
+            System.out.println("no ps");
+            return;
+        }
+        System.out.println("connection to " + p.getDescriptivePortName());
         p.openPort();
         PSInputStream is = new PSInputStream(p);
+
+        Thread.sleep(2_000);
+
+        System.out.println("reading...");
+        p.writeBytes(buff, 1);
 
         while (true) {
             is.readPackage();
             if (is.packageFinished()) {
                 System.out.println(is.readObj());
+                p.writeBytes(buff, 1);
             }
+            Thread.sleep(500);
         }
     }
 }

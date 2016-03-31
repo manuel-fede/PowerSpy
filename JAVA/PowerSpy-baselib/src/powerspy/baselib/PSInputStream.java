@@ -19,14 +19,14 @@
 package powerspy.baselib;
 
 import com.fazecast.jSerialComm.SerialPort;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.Arrays;
 
 /**
  *
  * @author redxef
  */
-public class PSInputStream implements IODefs {
+public class PSInputStream extends InputStream implements IODefs {
 
     private final SerialPort source;
     byte[] buffer;
@@ -40,14 +40,24 @@ public class PSInputStream implements IODefs {
         position = 0;
     }
 
+    @Override
     public int available() throws IOException {
         return source.bytesAvailable();
     }
 
-    public byte read() throws IOException {
+    @Override
+    public int read() throws IOException {
         byte[] b = new byte[1];
-        source.readBytes(b, 1);
-        return b[0];
+        int read = source.readBytes(b, 1);
+        if (read > 0) {
+            return b[0] & 0xff;
+        } else {
+            return -1;
+        }
+    }
+
+    private byte read_() throws IOException {
+        return (byte) (read() & 0xff);
     }
 
     public boolean packageStarted() {
@@ -69,8 +79,10 @@ public class PSInputStream implements IODefs {
 
     public boolean readPackage() throws IOException {
         byte read_;
-        while (true) {
-            read_ = read();
+        while (available() > 0) {
+            read_ = read_();
+            //System.out.println("read: " + read_);
+            //System.out.println(Arrays.toString(buffer));
             if (reading) {
                 buffer[position++] = read_;
                 if (read_ == END_OF_TEXT) {
@@ -80,9 +92,11 @@ public class PSInputStream implements IODefs {
             } else {
                 if (read_ == START_OF_TEXT) {
                     buffer[position++] = read_;
+                    reading = true;
                 }
             }
         }
+        return false;
     }
 
     public byte getType() throws PackageException {
@@ -123,7 +137,7 @@ public class PSInputStream implements IODefs {
     private char availableChar() {
         for (int i = 0; i < BUFFER_SIZE; i++) {
             if (buffer[i] == END_OF_TEXT) {
-                return (char) (i - position - 1);
+                return (char) (i - position);
             }
         }
         return (char) -1;
@@ -168,13 +182,13 @@ public class PSInputStream implements IODefs {
 
     public int readInt16() throws PackageException {
         int res = 0;
-        if (!isInt8()) {
+        if (!isInt16()) {
             throw new PackageException("Wrong package type.");
         }
 
         seekFront();
-        res |= (getChar() & 0xff) << 8;
-        res |= getChar() & 0xff;
+        res |= getChar() << 8;
+        res |= getChar();
         clear();
 
         return res;
@@ -187,9 +201,9 @@ public class PSInputStream implements IODefs {
         }
 
         seekFront();
-        res |= (getChar() & 0xff) << 16;
-        res |= (getChar() & 0xff) << 8;
-        res |= getChar() & 0xff;
+        res |= getChar() << 16;
+        res |= getChar() << 8;
+        res |= getChar();
         clear();
 
         return res;
@@ -202,10 +216,10 @@ public class PSInputStream implements IODefs {
         }
 
         seekFront();
-        res |= (getChar() & 0xff) << 24;
-        res |= (getChar() & 0xff) << 16;
-        res |= (getChar() & 0xff) << 8;
-        res |= getChar() & 0xff;
+        res |= getChar() << 24;
+        res |= getChar() << 16;
+        res |= getChar() << 8;
+        res |= getChar();
         clear();
 
         return res;
@@ -218,9 +232,9 @@ public class PSInputStream implements IODefs {
         }
 
         seekFront();
-        res |= (getChar() & 0xff) << 16;
-        res |= (getChar() & 0xff) << 8;
-        res |= getChar() & 0xff;
+        res |= getChar() << 24;
+        res |= getChar() << 16;
+        res |= getChar() << 8;
         clear();
 
         return Float.intBitsToFloat(res);
@@ -228,13 +242,13 @@ public class PSInputStream implements IODefs {
 
     public String readString() throws PackageException {
         StringBuilder sb = new StringBuilder();
-        if (!isFloat()) {
+        if (!isString()) {
             throw new PackageException("Wrong package type.");
         }
 
         seekFront();
         while (availableChar() > 0) {
-            sb.append(getChar());
+            sb.append((char) getChar());
         }
         clear();
 
