@@ -3757,19 +3757,31 @@ typedef unsigned short long uint24_t;
 typedef signed long int32_t;
 typedef unsigned long uint32_t;
 
-# 29 "message.h"
-char receive_buff[8];
+# 30 "message.h"
+char receive_buff[32];
 int8_t buffpos;
-int8_t readpos;
+void initMessaging();
 int8_t charAvailable();
 char readNext();
+char readPackage();
+char packageStarted();
+char packageFinished();
+char getType();
+void seekFront();
+int8_t readInt8();
+int16_t readInt16();
+int24_t readInt24();
+int32_t readInt32();
+float readFloat();
+void readString(char **c);
+void clear();
 void sendChar(char c);
 void sendInt8(int8_t i);
 void sendInt16(int16_t i);
 void sendInt24(int24_t i);
 void sendInt32(int32_t i);
 void sendFloat(float f);
-void sendString(const char *val);
+void sendString(char *val);
 
 
 # 18 "powerspy.h"
@@ -3797,7 +3809,7 @@ void sendString(const char *val);
 #pragma warning disable 752
 #pragma warning enable pop
 
-# 143
+# 141
 void initPins();
 void initADC();
 void initTMR2();
@@ -3815,18 +3827,28 @@ void clearDisplay(int8_t leng);
 void __interrupt ISR();
 void main();
 
-# 31 "powerspy.c"
+# 18 "str.h"
+uint8_t _strlen(char *c);
+void print(char *flw, char *app);
+void reverse(char *c, uint8_t leng);
+void flt_to_str(const float f_, char *c, const uint8_t max_precision);
+
+# 20 "powerspy.c"
 const uint8_t get_shift_byte[10] = {0b10000001, 0b10111101, 0b11001000, 0b10011000, 0b10110100, 0b10010010, 0b10000010, 0b10111001, 0b10000000, 0b10010000};
 
 
 
-int24_t volt_time = -1;
-int24_t curr_time = -1;
-int24_t delta_t = -1;
+int16_t volt_time = -1;
+int16_t curr_time = -1;
+
+# 31
+uint8_t flag = 0;
+
 uint16_t led_rest = 0;
 
-# 49
-void initPins() {
+# 43
+void initPins()
+{
 PORTA = 0b00000000;
 ANSELA = 0b00000111;
 TRISA = 0b00000111;
@@ -3851,8 +3873,9 @@ IRCF3 = 1;
 SPLLEN = 1;
 }
 
-# 78
-void initADC() {
+# 73
+void initADC()
+{
 
 
 ADFM = 0;
@@ -3860,8 +3883,8 @@ ADFM = 0;
 
 
 ADCS0 = 0;
-ADCS1 = 0;
-ADCS2 = 0;
+ADCS1 = 1;
+ADCS2 = 1;
 
 
 
@@ -3870,10 +3893,11 @@ ADPREF1 = 0;
 ADNREF = 0;
 }
 
-# 100
-void initTMR2() {
+# 96
+void initTMR2()
+{
 
-# 118
+# 115
 T2CKPS0 = 1;
 T2CKPS1 = 0;
 
@@ -3896,10 +3920,11 @@ TMR2IF = 0;
 TMR2ON = 1;
 }
 
-# 143
-void initTMR1() {
+# 140
+void initTMR1()
+{
 
-# 155
+# 153
 TMR1CS0 = 0;
 TMR1CS1 = 0;
 
@@ -3914,18 +3939,20 @@ TMR1IF = 0;
 TMR1ON = 1;
 }
 
-# 172
-void initFVR() {
+# 170
+void initFVR()
+{
 
-# 182
+# 181
 CDAFVR0 = 0;
 CDAFVR1 = 0;
 FVREN = 1;
 while (!FVRRDY);
 }
 
-# 193
-void initPWMTMR4() {
+# 192
+void initPWMTMR4()
+{
 
 
 CCP1SEL = 1;
@@ -3942,6 +3969,7 @@ CCP1CON |= 0b00001100;
 
 # 212
 CCPR1L = 0x8E;
+
 
 DC1B0 = 0;
 DC1B1 = 0;
@@ -3964,15 +3992,16 @@ TMR4IF = 0;
 TRISBbits.TRISB0 = 0;
 }
 
-# 250
-void initCOMP1() {
+# 251
+void initCOMP1()
+{
 
 
 
 C1NCH0 = 1;
 C1NCH1 = 0;
 
-# 269
+# 271
 C1PCH0 = 0;
 C1PCH1 = 1;
 
@@ -3983,15 +4012,16 @@ C1IF = 0;
 C1ON = 1;
 }
 
-# 283
-void initCOMP2() {
+# 285
+void initCOMP2()
+{
 
 
 
 C2NCH0 = 0;
 C2NCH1 = 0;
 
-# 301
+# 304
 C2PCH0 = 0;
 C2PCH1 = 0;
 
@@ -4002,8 +4032,9 @@ C2IF = 0;
 C2ON = 1;
 }
 
-# 315
-void initBT() {
+# 318
+void initBT()
+{
 
 
 RXDTSEL = 0;
@@ -4031,10 +4062,11 @@ RCREG;
 RCIE = 1;
 }
 
-# 353
-uint8_t adc(const int8_t src) {
+# 357
+uint8_t adc(const int8_t src)
+{
 
-# 374
+# 379
 if (src > 11) return 1;
 
 CHS0 = (bit) (src >> 0) & 0x01;
@@ -4052,21 +4084,25 @@ ADON = 0;
 return 0;
 }
 
-# 398
-uint8_t readVoltage() {
+# 403
+uint8_t readVoltage()
+{
 return 230;
 }
 
-# 407
-float readCurrent() {
+# 413
+float readCurrent()
+{
 
-# 414
-adc(0);
-return (float) (50 * ADRESH) / 256.0 - 25.0;
+# 421
+adc(7);
+
+return (ADRESH * 5.0 / 256.0) * 5.0 - 12.5;
 }
 
-# 424
-void so(const uint8_t data, const uint8_t direction) {
+# 432
+void so(const uint8_t data, const uint8_t direction)
+{
 signed char c;
 if (direction) {
 for (c = 8 - 1; c >= 0; c--) {
@@ -4083,24 +4119,27 @@ RA4 = 0;
 }
 }
 
-# 445
-uint24_t combine(uint24_t nr1, uint24_t nr2) {
+# 454
+uint24_t combine(uint24_t nr1, uint24_t nr2)
+{
 if (nr1 & nr2) return 0;
 if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr1 != 0xffffff) return 0;
 if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr2 != 0xffffff) return 0;
 return (nr1 | nr2);
 }
 
-# 455
-void clearDisplay(int8_t leng) {
+# 465
+void clearDisplay(int8_t leng)
+{
 RA3 = 0;
 for (; leng >= 0; leng--)
 so(0, 0);
 RA3 = 1;
 }
 
-# 466
-void sendColour(uint8_t c) {
+# 477
+void sendColour(uint8_t c)
+{
 if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
 else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 
@@ -4126,7 +4165,8 @@ if (c & 0b00000001) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop();
 else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 }
 
-void clearArray(char *c, uint8_t leng) {
+void clearArray(char *c, uint8_t leng)
+{
 leng--;
 while (leng != 0) {
 c[leng] = 0;
@@ -4135,113 +4175,133 @@ leng--;
 c[0] = 0;
 }
 
-# 508
-void deltaT(int24_t tm_low, int24_t tm_high) {
-(GIE = 0);
-volt_time = -1;
-curr_time = -1;
+# 522
+uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
+{
+uint16_t res;
 
-(GIE = 1);
+GIE = 0;
+volt_time = 0;
+curr_time = 0;
+GIE = 1;
 
 if (tm_low < tm_high) {
-delta_t = tm_high - tm_low;
+res = tm_high - tm_low;
 } else {
-delta_t = 0x00ffff - tm_low + tm_high;
-}
+res = 0xffff - tm_low + tm_high;
 }
 
-int ledReset() {
+return res;
+}
 
-if (led_rest < (TMR1H<<8|TMR1L)) {
-if ((TMR1H<<8|TMR1L) - led_rest > 200) return 1;
+int ledReset()
+{
+
+if (led_rest < TMR1) {
+if (TMR1 - led_rest > 200) return 1;
 else return 0;
-} else if (led_rest > (TMR1H<<8|TMR1L)) {
-if (0xffff - led_rest + (TMR1H<<8|TMR1L) > 200) return 1;
+} else if (led_rest > TMR1) {
+if (0xffff - led_rest + TMR1 > 200) return 1;
 else return 0;
 }
 return 0;
 }
 
-# 537
-void setLED(uint8_t g, uint8_t r, uint8_t b) {
+# 556
+void setLED(uint8_t g, uint8_t r, uint8_t b)
+{
 byte gie = GIE;
 GIE = 0;
 sendColour(g);
 sendColour(r);
 sendColour(b);
-led_rest = (TMR1H<<8|TMR1L);
+led_rest = TMR1;
 GIE = gie;
 }
 
-void interrupt ISR() {
+void interrupt ISR()
+{
 
 if (RCIE && RCIF) {
 receive_buff[buffpos] = RCREG;
 buffpos++;
-if (buffpos == 8) buffpos = 0;
+buffpos %= 32;
 RCIF = 0;
 }
 
 
 if (TMR1IE && TMR1IF) {
-
-
 TMR1IF = 0;
 }
 
 
 if (C1IE && C1IF) {
-volt_time = (TMR1H<<8|TMR1L);
-if (curr_time >= 0) deltaT(curr_time, volt_time);
+if (!(flag & 0x01)) {
+volt_time = TMR1;
+if (flag & 0x02)
+flag |= 0x08;
+flag |= 0x01;
+}
 
 C1IF = 0;
 }
 
 
 if (C2IE && C2IF) {
-curr_time = (TMR1H<<8|TMR1L);
-if (volt_time >= 0) deltaT(volt_time, curr_time);
-
+if (!(flag & 0x02)) {
+curr_time = TMR1;
+if (flag & 0x01)
+flag |= 0x04;
+flag |= 0x02;
+}
 C2IF = 0;
 }
 
 if (TMR2IE && TMR2IF) {
-
 TMR2IF = 0;
 }
 }
 
-# 588
-void main() {
-char cmd;
-(GIE = 0);
-initPins();
-char err[] = {'e', 'r', 'r', 'o', 'r'};
+# 613
+void main()
+{
+int8_t i;
+uint32_t diff;
 
-# 600
+PEIE = 0;
+GIE = 0;
+
+initPins();
+initADC();
+initTMR1();
+initFVR();
+initPWMTMR4();
+initCOMP1();
+initCOMP2();
 initBT();
+initMessaging();
 
 PEIE = 1;
 GIE = 1;
+
 while (1) {
-if (charAvailable()) {
-cmd = readNext();
-switch (cmd) {
-case 'g':
-sendInt8(0x11);
-sendInt16(0x2222);
-sendInt24(0x333333);
-sendInt32(0x44444444);
-sendFloat(3.141592);
-break;
-case 0:
-break;
-default:
-sendString("error");
-break;
+
+if ((flag & 0x02) && (flag & 0x01)) {
+if (flag & 0x04) {
+diff = deltaT(volt_time, curr_time);
+} else if (flag & 0x08) {
+diff = deltaT(curr_time, volt_time);
 }
-cmd = 0;
+flag = 0;
+
+diff *= 125;
+diff /= 1000;
+sendString("diff/us");
+sendInt32(diff);
 }
-_delay((unsigned long)((1000)*(32000000/4000.0)));
+
+
+
+
 }
 }

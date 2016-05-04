@@ -20,6 +20,7 @@ package powerspy.baselib;
 
 import com.fazecast.jSerialComm.SerialPort;
 import java.io.*;
+import java.util.Arrays;
 
 /**
  *
@@ -27,38 +28,74 @@ import java.io.*;
  */
 public class Test {
 
-    public static void main(String[] args) throws IOException, PackageException, InterruptedException {
-        SerialPort[] ports = SerialPort.getCommPorts();
-        SerialPort p = null;
-        byte[] buff = new byte[]{'g'};
+        static SerialPort p;
 
-        System.out.println("searching");
-        for (SerialPort p_ : ports) {
-            if (p_.getDescriptivePortName().contains("PowerSpy")) {
-                p = p_;
-                break;
-            }
+        static void log(PrintStream ps, char t, Object o)
+        {
+                ps.append("[");
+                ps.append(Long.toString(System.currentTimeMillis()));
+                ps.append("] ");
+                ps.print(t);
+                ps.print(", ");
+                ps.println(o);
+                ps.flush();
         }
-        if (p == null) {
-            System.out.println("no ps");
-            return;
-        }
-        System.out.println("connection to " + p.getDescriptivePortName());
-        p.openPort();
-        PSInputStream is = new PSInputStream(p);
 
-        Thread.sleep(2_000);
+        public static void main(String[] args) throws IOException, PackageException, InterruptedException
+        {
+                char type;
+                Object o;
+                SerialPort[] ports = SerialPort.getCommPorts();
+                byte[] buff = new byte[]{'g'};
+                p = null;
+                PrintStream ps = new PrintStream(new File("/Users/redxef/test.txt"));
+                PrintStream ps2 = new PrintStream(new File("/Users/redxef/test2.txt"));
 
-        System.out.println("reading...");
-        p.writeBytes(buff, 1);
+                System.out.println("searching");
+                for (SerialPort p_ : ports) {
+                        if (p_.getDescriptivePortName().contains("PowerSpy")) {
+                                p = p_;
+                                break;
+                        }
+                }
 
-        while (true) {
-            is.readPackage();
-            if (is.packageFinished()) {
-                System.out.println(is.readObj());
+                if (p == null) {
+                        System.out.println("no ps");
+                        return;
+                }
+                System.out.println("connecting to " + p.getDescriptivePortName());
+                p.openPort();
+                if (p.isOpen()) {
+                        System.out.println("connected");
+                } else {
+                        System.out.println("failed");
+                        System.exit(1);
+                }
+                PSInputStream is = new PSInputStream(p);
+
+                Thread.sleep(2_000);
+
+                System.out.println("reading...");
                 p.writeBytes(buff, 1);
-            }
-            Thread.sleep(500);
+
+                while (true) {
+                        try {
+                                is.readPackage();
+                        } catch (ArrayIndexOutOfBoundsException ex) {
+                                ex.printStackTrace(System.err);
+                                is.clear();
+                        }
+                        if (is.packageFinished()) {
+                                type = (char) is.getType();
+                                o = is.readObj();
+
+                                if (o != null) {
+                                        log(ps, type, o);
+                                        log(System.out, type, o);
+                                }
+                                is.clear();
+                        }
+                        Thread.sleep(0, 500);
+                }
         }
-    }
 }

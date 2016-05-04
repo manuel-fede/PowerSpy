@@ -14,10 +14,11 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-    
-    uint8_t _strlen(char *c);
-    void reverse(char *c, uint8_t leng);
-    void flt_to_str(const float f_, char *c, const uint8_t max_precision);
+
+        uint8_t _strlen(char *c);
+        void print(char *flw, char *app);
+        void reverse(char *c, uint8_t leng);
+        void flt_to_str(const float f_, char *c, const uint8_t max_precision);
 
 #ifdef	__cplusplus
 }

@@ -2766,291 +2766,805 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;types.h: 21: typedef unsigned short long uint24_t;
 [; ;types.h: 22: typedef signed long int32_t;
 [; ;types.h: 23: typedef unsigned long uint32_t;
-"29 message.h
-[v _receive_buff `uc ~T0 @X0 -> 8 `i e ]
-[; ;message.h: 29: char receive_buff[8];
-"30
-[v _buffpos `c ~T0 @X0 1 e ]
-[; ;message.h: 30: int8_t buffpos;
+"30 message.h
+[v _receive_buff `uc ~T0 @X0 -> 32 `i e ]
+[; ;message.h: 30: char receive_buff[32];
 "31
+[v _buffpos `c ~T0 @X0 1 e ]
+[; ;message.h: 31: int8_t buffpos;
+[; ;message.h: 32: void initMessaging();
+[; ;message.h: 33: int8_t charAvailable();
+[; ;message.h: 34: char readNext();
+[; ;message.h: 35: char readPackage();
+[; ;message.h: 36: char packageStarted();
+[; ;message.h: 37: char packageFinished();
+[; ;message.h: 38: char getType();
+[; ;message.h: 39: void seekFront();
+[; ;message.h: 40: int8_t readInt8();
+[; ;message.h: 41: int16_t readInt16();
+[; ;message.h: 42: int24_t readInt24();
+[; ;message.h: 43: int32_t readInt32();
+[; ;message.h: 44: float readFloat();
+[; ;message.h: 45: void readString(char **c);
+[; ;message.h: 46: void clear();
+[; ;message.h: 47: void sendChar(char c);
+[; ;message.h: 48: void sendInt8(int8_t i);
+[; ;message.h: 49: void sendInt16(int16_t i);
+[; ;message.h: 50: void sendInt24(int24_t i);
+[; ;message.h: 51: void sendInt32(int32_t i);
+[; ;message.h: 52: void sendFloat(float f);
+[; ;message.h: 53: void sendString(char *val);
+"18 powerspy.h
+[p x FOSC=INTOSC ]
+"19
+[p x WDTE=OFF ]
+"20
+[p x PWRTE=OFF ]
+"21
+[p x MCLRE=ON ]
+"22
+[p x CP=OFF ]
+"23
+[p x CPD=OFF ]
+"24
+[p x BOREN=OFF ]
+"25
+[p x CLKOUTEN=OFF ]
+"26
+[p x IESO=OFF ]
+"27
+[p x FCMEN=OFF ]
+"30
+[p x WRT=OFF ]
+"31
+[p x PLLEN=ON ]
+"32
+[p x STVREN=OFF ]
+"33
+[p x BORV=LO ]
+"34
+[p x LVP=OFF ]
+"38
+[p k ]
+"39
+[p n 752 ]
+"40
+[p y pop ]
+[; ;powerspy.h: 141: void initPins();
+[; ;powerspy.h: 142: void initADC();
+[; ;powerspy.h: 143: void initTMR2();
+[; ;powerspy.h: 144: void initTMR1();
+[; ;powerspy.h: 145: void initFVR();
+[; ;powerspy.h: 146: void initPWMTMR4();
+[; ;powerspy.h: 147: void initCOMP1();
+[; ;powerspy.h: 148: void initCOMP2();
+[; ;powerspy.h: 149: uint8_t adc(const int8_t src);
+[; ;powerspy.h: 150: uint8_t readVoltage();
+[; ;powerspy.h: 151: float readCurrent();
+[; ;powerspy.h: 152: void so(const uint8_t data, const uint8_t direction);
+[; ;powerspy.h: 153: uint24_t combine(uint24_t nr1, uint24_t nr2);
+[; ;powerspy.h: 154: void clearDisplay(int8_t leng);
+[; ;powerspy.h: 155: void __interrupt ISR();
+[; ;powerspy.h: 156: void main();
+"13 message.c
 [v _readpos `c ~T0 @X0 1 e ]
-[; ;message.h: 31: int8_t readpos;
-[; ;message.h: 32: int8_t charAvailable();
-[; ;message.h: 33: char readNext();
-[; ;message.h: 34: void sendChar(char c);
-[; ;message.h: 35: void sendInt8(int8_t i);
-[; ;message.h: 36: void sendInt16(int16_t i);
-[; ;message.h: 37: void sendInt24(int24_t i);
-[; ;message.h: 38: void sendInt32(int32_t i);
-[; ;message.h: 39: void sendFloat(float f);
-[; ;message.h: 40: void sendString(const char *val);
-"12 message.c
+[; ;message.c: 13: int8_t readpos;
+"14
+[v _reading `uc ~T0 @X0 1 e ]
+[; ;message.c: 14: char reading;
+"16
 [v _initMessaging `(v ~T0 @X0 1 ef ]
+"17
 {
-[; ;message.c: 12: void initMessaging() {
+[; ;message.c: 16: void initMessaging()
+[; ;message.c: 17: {
 [e :U _initMessaging ]
 [f ]
-[; ;message.c: 13: buffpos = -1;
-"13
+[; ;message.c: 18: buffpos = -1;
+"18
 [e = _buffpos -> -U -> 1 `i `c ]
-[; ;message.c: 14: readpos = 0;
-"14
+[; ;message.c: 19: readpos = 0;
+"19
 [e = _readpos -> -> 0 `i `c ]
-[; ;message.c: 15: }
-"15
+[; ;message.c: 20: reading = 0;
+"20
+[e = _reading -> -> 0 `i `uc ]
+[; ;message.c: 21: }
+"21
 [e :UE 350 ]
 }
-"17
+"23
 [v _charAvailable `(c ~T0 @X0 1 ef ]
+"24
 {
-[; ;message.c: 17: int8_t charAvailable() {
+[; ;message.c: 23: int8_t charAvailable()
+[; ;message.c: 24: {
 [e :U _charAvailable ]
 [f ]
-[; ;message.c: 18: if (buffpos < readpos) {
-"18
+[; ;message.c: 25: if (buffpos < readpos) {
+"25
 [e $ ! < -> _buffpos `i -> _readpos `i 352  ]
 {
-[; ;message.c: 19: return 8 - readpos + buffpos;
-"19
-[e ) -> + - -> 8 `i -> _readpos `i -> _buffpos `i `c ]
+[; ;message.c: 26: return 32 - readpos + buffpos;
+"26
+[e ) -> + - -> 32 `i -> _readpos `i -> _buffpos `i `c ]
 [e $UE 351  ]
-"20
+"27
 }
 [e :U 352 ]
-[; ;message.c: 20: }
-[; ;message.c: 21: return buffpos - readpos;
-"21
+[; ;message.c: 27: }
+[; ;message.c: 28: return buffpos - readpos;
+"28
 [e ) -> - -> _buffpos `i -> _readpos `i `c ]
 [e $UE 351  ]
-[; ;message.c: 22: }
-"22
-[e :UE 351 ]
-}
-"24
-[v _readNext `(uc ~T0 @X0 1 ef ]
-{
-[; ;message.c: 24: char readNext() {
-[e :U _readNext ]
-[f ]
-"25
-[v _ret `uc ~T0 @X0 1 a ]
-[; ;message.c: 25: char ret = receive_buff[readpos];
-[e = _ret *U + &U _receive_buff * -> -> _readpos `uc `ux -> -> # *U &U _receive_buff `ui `ux ]
-[; ;message.c: 26: readpos++;
-"26
-[e ++ _readpos -> -> 1 `i `c ]
-[; ;message.c: 27: if (readpos == 8) readpos = 0;
-"27
-[e $ ! == -> _readpos `i -> 8 `i 354  ]
-[e = _readpos -> -> 0 `i `c ]
-[e :U 354 ]
-[; ;message.c: 28: return ret;
-"28
-[e ) _ret ]
-[e $UE 353  ]
 [; ;message.c: 29: }
 "29
-[e :UE 353 ]
+[e :UE 351 ]
 }
 "31
-[v _sendChar `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;message.c: 31: void sendChar(char c) {
-[e :U _sendChar ]
-[v _c `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;message.c: 32: TXREG = c;
+[v _readNext `(uc ~T0 @X0 1 ef ]
 "32
-[e = _TXREG _c ]
-[; ;message.c: 33: while (!TRMT);
-"33
-[e $U 356  ]
-[e :U 357 ]
-[e :U 356 ]
-[e $ ! _TRMT 357  ]
-[e :U 358 ]
-[; ;message.c: 34: }
-"34
-[e :UE 355 ]
-}
-"36
-[v _sendInt8 `(v ~T0 @X0 1 ef1`c ]
 {
-[; ;message.c: 36: void sendInt8(int8_t i) {
-[e :U _sendInt8 ]
-[v _i `c ~T0 @X0 1 r1 ]
+[; ;message.c: 31: char readNext()
+[; ;message.c: 32: {
+[e :U _readNext ]
 [f ]
-[; ;message.c: 37: sendChar(2);
+"33
+[v _ret `uc ~T0 @X0 1 a ]
+[; ;message.c: 33: char ret = receive_buff[readpos++];
+[e = _ret *U + &U _receive_buff * -> -> ++ _readpos -> -> 1 `i `c `uc `ux -> -> # *U &U _receive_buff `ui `ux ]
+[; ;message.c: 34: if (readpos == 32)
+"34
+[e $ ! == -> _readpos `i -> 32 `i 354  ]
+[; ;message.c: 35: readpos = 0;
+"35
+[e = _readpos -> -> 0 `i `c ]
+[e :U 354 ]
+[; ;message.c: 36: return ret;
+"36
+[e ) _ret ]
+[e $UE 353  ]
+[; ;message.c: 37: }
 "37
-[e ( _sendChar (1 -> -> 2 `i `uc ]
-[; ;message.c: 38: sendChar('2');
-"38
-[e ( _sendChar (1 -> -> 50 `ui `uc ]
-[; ;message.c: 39: sendChar(i);
+[e :UE 353 ]
+}
 "39
-[e ( _sendChar (1 -> _i `uc ]
-[; ;message.c: 40: sendChar(3);
+[v _packageStarted `(uc ~T0 @X0 1 ef ]
 "40
-[e ( _sendChar (1 -> -> 3 `i `uc ]
-[; ;message.c: 41: }
+{
+[; ;message.c: 39: char packageStarted()
+[; ;message.c: 40: {
+[e :U _packageStarted ]
+[f ]
 "41
-[e :UE 359 ]
+[v _i `c ~T0 @X0 1 a ]
+[; ;message.c: 41: int8_t i;
+[; ;message.c: 42: for (i = 0; i < 32; i++) {
+"42
+{
+[e = _i -> -> 0 `i `c ]
+[e $ < -> _i `i -> 32 `i 356  ]
+[e $U 357  ]
+[e :U 356 ]
+{
+[; ;message.c: 43: if (receive_buff[i] == 2)
+"43
+[e $ ! == -> *U + &U _receive_buff * -> -> _i `uc `ux -> -> # *U &U _receive_buff `ui `ux `i -> 2 `i 359  ]
+[; ;message.c: 44: return 1;
+"44
+[e ) -> -> 1 `i `uc ]
+[e $UE 355  ]
+[e :U 359 ]
+"45
 }
 "42
-[v _sendInt16 `(v ~T0 @X0 1 ef1`s ]
-{
-[; ;message.c: 42: void sendInt16(int16_t i) {
-[e :U _sendInt16 ]
-[v _i `s ~T0 @X0 1 r1 ]
-[f ]
-[; ;message.c: 43: sendChar(2);
-"43
-[e ( _sendChar (1 -> -> 2 `i `uc ]
-[; ;message.c: 44: sendChar('3');
-"44
-[e ( _sendChar (1 -> -> 51 `ui `uc ]
-[; ;message.c: 45: sendChar((char) (i >> 8 & 0xff));
+[e ++ _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 32 `i 356  ]
+[e :U 357 ]
 "45
-[e ( _sendChar (1 -> & >> -> _i `i -> 8 `i -> 255 `i `uc ]
-[; ;message.c: 46: sendChar((char) (i & 0xff));
+}
+[; ;message.c: 45: }
+[; ;message.c: 46: return 0;
 "46
-[e ( _sendChar (1 -> & -> _i `i -> 255 `i `uc ]
-[; ;message.c: 47: sendChar(3);
+[e ) -> -> 0 `i `uc ]
+[e $UE 355  ]
+[; ;message.c: 47: }
 "47
-[e ( _sendChar (1 -> -> 3 `i `uc ]
-[; ;message.c: 48: }
-"48
+[e :UE 355 ]
+}
+"49
+[v _packageFinished `(uc ~T0 @X0 1 ef ]
+"50
+{
+[; ;message.c: 49: char packageFinished()
+[; ;message.c: 50: {
+[e :U _packageFinished ]
+[f ]
+"51
+[v _i `c ~T0 @X0 1 a ]
+[; ;message.c: 51: int8_t i;
+[; ;message.c: 52: if (!packageStarted())
+"52
+[e $ ! ! != -> ( _packageStarted ..  `i -> -> -> 0 `i `uc `i 361  ]
+[; ;message.c: 53: return 0;
+"53
+[e ) -> -> 0 `i `uc ]
+[e $UE 360  ]
+[e :U 361 ]
+[; ;message.c: 54: for (i = 1; i < 32; i++)
+"54
+{
+[e = _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 32 `i 362  ]
+[e $U 363  ]
+"55
+[e :U 362 ]
+[; ;message.c: 55: if (receive_buff[i] == 3)
+[e $ ! == -> *U + &U _receive_buff * -> -> _i `uc `ux -> -> # *U &U _receive_buff `ui `ux `i -> 3 `i 365  ]
+[; ;message.c: 56: return 1;
+"56
+[e ) -> -> 1 `i `uc ]
+[e $UE 360  ]
+[e :U 365 ]
+"54
+[e ++ _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 32 `i 362  ]
+[e :U 363 ]
+"57
+}
+[; ;message.c: 57: return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 360  ]
+[; ;message.c: 58: }
+"58
 [e :UE 360 ]
 }
-"50
-[v _sendInt24 `(v ~T0 @X0 1 ef1`m ]
-{
-[; ;message.c: 50: void sendInt24(int24_t i) {
-[e :U _sendInt24 ]
-[v _i `m ~T0 @X0 1 r1 ]
-[f ]
-[; ;message.c: 51: sendChar(2);
-"51
-[e ( _sendChar (1 -> -> 2 `i `uc ]
-[; ;message.c: 52: sendChar('4');
-"52
-[e ( _sendChar (1 -> -> 52 `ui `uc ]
-[; ;message.c: 53: sendChar((char) (i >> 16 & 0xff));
-"53
-[e ( _sendChar (1 -> & >> _i -> 16 `i -> -> 255 `i `m `uc ]
-[; ;message.c: 54: sendChar((char) (i >> 8 & 0xff));
-"54
-[e ( _sendChar (1 -> & >> _i -> 8 `i -> -> 255 `i `m `uc ]
-[; ;message.c: 55: sendChar((char) (i & 0xff));
-"55
-[e ( _sendChar (1 -> & _i -> -> 255 `i `m `uc ]
-[; ;message.c: 56: sendChar(3);
-"56
-[e ( _sendChar (1 -> -> 3 `i `uc ]
-[; ;message.c: 57: }
-"57
-[e :UE 361 ]
-}
-"59
-[v _sendInt32 `(v ~T0 @X0 1 ef1`l ]
-{
-[; ;message.c: 59: void sendInt32(int32_t i) {
-[e :U _sendInt32 ]
-[v _i `l ~T0 @X0 1 r1 ]
-[f ]
-[; ;message.c: 60: sendChar(2);
 "60
-[e ( _sendChar (1 -> -> 2 `i `uc ]
-[; ;message.c: 61: sendChar('5');
+[v _getType `(uc ~T0 @X0 1 ef ]
 "61
-[e ( _sendChar (1 -> -> 53 `ui `uc ]
-[; ;message.c: 62: sendChar((char) (i >> 24 & 0xff));
+{
+[; ;message.c: 60: char getType()
+[; ;message.c: 61: {
+[e :U _getType ]
+[f ]
 "62
-[e ( _sendChar (1 -> & >> _i -> 24 `i -> -> 255 `i `l `uc ]
-[; ;message.c: 63: sendChar((char) (i >> 16 & 0xff));
+[v _i `c ~T0 @X0 1 a ]
+[; ;message.c: 62: int8_t i;
+[; ;message.c: 63: for (i = 0; i < 32; i++) {
 "63
-[e ( _sendChar (1 -> & >> _i -> 16 `i -> -> 255 `i `l `uc ]
-[; ;message.c: 64: sendChar((char) (i >> 8 & 0xff));
-"64
-[e ( _sendChar (1 -> & >> _i -> 8 `i -> -> 255 `i `l `uc ]
-[; ;message.c: 65: sendChar((char) (i & 0xff));
-"65
-[e ( _sendChar (1 -> & _i -> -> 255 `i `l `uc ]
-[; ;message.c: 66: sendChar(3);
-"66
-[e ( _sendChar (1 -> -> 3 `i `uc ]
-[; ;message.c: 67: }
-"67
-[e :UE 362 ]
-}
-"69
-[v _sendFloat `(v ~T0 @X0 1 ef1`f ]
 {
-[; ;message.c: 69: void sendFloat(float f) {
-[e :U _sendFloat ]
-[v _f `f ~T0 @X0 1 r1 ]
-[f ]
-"70
-[v _ptr `*um ~T0 @X0 1 a ]
-[; ;message.c: 70: uint24_t *ptr = (uint24_t *) &f;
-[e = _ptr -> &U _f `*um ]
-[; ;message.c: 71: sendChar(2);
-"71
-[e ( _sendChar (1 -> -> 2 `i `uc ]
-[; ;message.c: 72: sendChar('6');
-"72
-[e ( _sendChar (1 -> -> 54 `ui `uc ]
-[; ;message.c: 73: sendChar((char) (*ptr >> 16 & 0xff));
-"73
-[e ( _sendChar (1 -> & >> *U _ptr -> 16 `i -> -> -> 255 `i `m `um `uc ]
-[; ;message.c: 74: sendChar((char) (*ptr >> 8 & 0xff));
-"74
-[e ( _sendChar (1 -> & >> *U _ptr -> 8 `i -> -> -> 255 `i `m `um `uc ]
-[; ;message.c: 75: sendChar((char) (*ptr & 0xff));
-"75
-[e ( _sendChar (1 -> & *U _ptr -> -> -> 255 `i `m `um `uc ]
-[; ;message.c: 76: sendChar(3);
-"76
-[e ( _sendChar (1 -> -> 3 `i `uc ]
-[; ;message.c: 77: }
-"77
-[e :UE 363 ]
-}
-"79
-[v _sendString `(v ~T0 @X0 1 ef1`*Cuc ]
-{
-[; ;message.c: 79: void sendString(const char *val) {
-[e :U _sendString ]
-[v _val `*Cuc ~T0 @X0 1 r1 ]
-[f ]
-[; ;message.c: 80: sendChar(2);
-"80
-[e ( _sendChar (1 -> -> 2 `i `uc ]
-[; ;message.c: 81: sendChar('1');
-"81
-[e ( _sendChar (1 -> -> 49 `ui `uc ]
-[; ;message.c: 82: while (*val) {
-"82
-[e $U 365  ]
-[e :U 366 ]
-{
-[; ;message.c: 83: sendChar(*val);
-"83
-[e ( _sendChar (1 *U _val ]
-[; ;message.c: 84: val++;
-"84
-[e ++ _val * -> -> 1 `i `x -> -> # *U _val `i `x ]
-"85
-}
-[e :U 365 ]
-"82
-[e $ != -> *U _val `i -> -> -> 0 `i `Cuc `i 366  ]
+[e = _i -> -> 0 `i `c ]
+[e $ < -> _i `i -> 32 `i 367  ]
+[e $U 368  ]
 [e :U 367 ]
-[; ;message.c: 85: }
-[; ;message.c: 86: sendChar(3);
+{
+[; ;message.c: 64: if (receive_buff[i] == 2) {
+"64
+[e $ ! == -> *U + &U _receive_buff * -> -> _i `uc `ux -> -> # *U &U _receive_buff `ui `ux `i -> 2 `i 370  ]
+{
+[; ;message.c: 65: return receive_buff[i + 1];
+"65
+[e ) *U + &U _receive_buff * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _receive_buff `ui `ux ]
+[e $UE 366  ]
+"66
+}
+[e :U 370 ]
+"67
+}
+"63
+[e ++ _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 32 `i 367  ]
+[e :U 368 ]
+"67
+}
+[; ;message.c: 66: }
+[; ;message.c: 67: }
+[; ;message.c: 68: return '0';
+"68
+[e ) -> -> 48 `ui `uc ]
+[e $UE 366  ]
+[; ;message.c: 69: }
+"69
+[e :UE 366 ]
+}
+"71
+[v _seekFront `(v ~T0 @X0 1 ef ]
+"72
+{
+[; ;message.c: 71: void seekFront()
+[; ;message.c: 72: {
+[e :U _seekFront ]
+[f ]
+"73
+[v _i `c ~T0 @X0 1 a ]
+[; ;message.c: 73: int8_t i;
+[; ;message.c: 74: for (i = 0; i < 32; i++) {
+"74
+{
+[e = _i -> -> 0 `i `c ]
+[e $ < -> _i `i -> 32 `i 372  ]
+[e $U 373  ]
+[e :U 372 ]
+{
+[; ;message.c: 75: if (receive_buff[i] == 2) {
+"75
+[e $ ! == -> *U + &U _receive_buff * -> -> _i `uc `ux -> -> # *U &U _receive_buff `ui `ux `i -> 2 `i 375  ]
+{
+[; ;message.c: 76: readpos = i + 2;
+"76
+[e = _readpos -> + -> _i `i -> 2 `i `c ]
+"77
+}
+[e :U 375 ]
+"78
+}
+"74
+[e ++ _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 32 `i 372  ]
+[e :U 373 ]
+"78
+}
+[; ;message.c: 77: }
+[; ;message.c: 78: }
+[; ;message.c: 79: }
+"79
+[e :UE 371 ]
+}
+"81
+[v _clear `(v ~T0 @X0 1 ef ]
+"82
+{
+[; ;message.c: 81: void clear()
+[; ;message.c: 82: {
+[e :U _clear ]
+[f ]
+"83
+[v _i `c ~T0 @X0 1 a ]
+[; ;message.c: 83: int8_t i;
+[; ;message.c: 84: for (i = 0; i < 32; i++) {
+"84
+{
+[e = _i -> -> 0 `i `c ]
+[e $ < -> _i `i -> 32 `i 377  ]
+[e $U 378  ]
+[e :U 377 ]
+{
+[; ;message.c: 85: receive_buff[i] = 0;
+"85
+[e = *U + &U _receive_buff * -> -> _i `uc `ux -> -> # *U &U _receive_buff `ui `ux -> -> 0 `i `uc ]
 "86
-[e ( _sendChar (1 -> -> 3 `i `uc ]
-[; ;message.c: 87: }
+}
+"84
+[e ++ _i -> -> 1 `i `c ]
+[e $ < -> _i `i -> 32 `i 377  ]
+[e :U 378 ]
+"86
+}
+[; ;message.c: 86: }
+[; ;message.c: 87: reading = 0;
 "87
-[e :UE 364 ]
+[e = _reading -> -> 0 `i `uc ]
+[; ;message.c: 88: readpos = 0;
+"88
+[e = _readpos -> -> 0 `i `c ]
+[; ;message.c: 89: }
+"89
+[e :UE 376 ]
+}
+"91
+[v _readInt8 `(c ~T0 @X0 1 ef ]
+"92
+{
+[; ;message.c: 91: int8_t readInt8()
+[; ;message.c: 92: {
+[e :U _readInt8 ]
+[f ]
+"93
+[v _res `c ~T0 @X0 1 a ]
+[; ;message.c: 93: int8_t res = 0;
+[e = _res -> -> 0 `i `c ]
+[; ;message.c: 95: seekFront();
+"95
+[e ( _seekFront ..  ]
+[; ;message.c: 96: res = (int8_t) readNext();
+"96
+[e = _res -> ( _readNext ..  `c ]
+[; ;message.c: 97: clear();
+"97
+[e ( _clear ..  ]
+[; ;message.c: 99: return res;
+"99
+[e ) _res ]
+[e $UE 380  ]
+[; ;message.c: 100: }
+"100
+[e :UE 380 ]
+}
+"102
+[v _readInt16 `(s ~T0 @X0 1 ef ]
+"103
+{
+[; ;message.c: 102: int16_t readInt16()
+[; ;message.c: 103: {
+[e :U _readInt16 ]
+[f ]
+"104
+[v _res `s ~T0 @X0 1 a ]
+[; ;message.c: 104: int16_t res = 0;
+[e = _res -> -> 0 `i `s ]
+[; ;message.c: 106: seekFront();
+"106
+[e ( _seekFront ..  ]
+[; ;message.c: 107: res = readNext() << 8;
+"107
+[e = _res -> << -> ( _readNext ..  `i -> 8 `i `s ]
+[; ;message.c: 108: res |= readNext();
+"108
+[e =| _res -> ( _readNext ..  `s ]
+[; ;message.c: 109: clear();
+"109
+[e ( _clear ..  ]
+[; ;message.c: 111: return res;
+"111
+[e ) _res ]
+[e $UE 381  ]
+[; ;message.c: 112: }
+"112
+[e :UE 381 ]
+}
+"114
+[v _readInt24 `(m ~T0 @X0 1 ef ]
+"115
+{
+[; ;message.c: 114: int24_t readInt24()
+[; ;message.c: 115: {
+[e :U _readInt24 ]
+[f ]
+"116
+[v _res `m ~T0 @X0 1 a ]
+[; ;message.c: 116: int24_t res = 0;
+[e = _res -> -> 0 `i `m ]
+[; ;message.c: 118: seekFront();
+"118
+[e ( _seekFront ..  ]
+[; ;message.c: 119: res = readNext() << 16;
+"119
+[e = _res -> << -> ( _readNext ..  `i -> 16 `i `m ]
+[; ;message.c: 120: res |= readNext() << 8;
+"120
+[e =| _res -> << -> ( _readNext ..  `i -> 8 `i `m ]
+[; ;message.c: 121: res |= readNext();
+"121
+[e =| _res -> ( _readNext ..  `m ]
+[; ;message.c: 122: clear();
+"122
+[e ( _clear ..  ]
+[; ;message.c: 124: return res;
+"124
+[e ) _res ]
+[e $UE 382  ]
+[; ;message.c: 125: }
+"125
+[e :UE 382 ]
+}
+"127
+[v _readInt32 `(l ~T0 @X0 1 ef ]
+"128
+{
+[; ;message.c: 127: int32_t readInt32()
+[; ;message.c: 128: {
+[e :U _readInt32 ]
+[f ]
+"129
+[v _res `l ~T0 @X0 1 a ]
+[; ;message.c: 129: int32_t res = 0;
+[e = _res -> -> 0 `i `l ]
+[; ;message.c: 131: seekFront();
+"131
+[e ( _seekFront ..  ]
+[; ;message.c: 132: res = readNext() << 24;
+"132
+[e = _res -> << -> ( _readNext ..  `i -> 24 `i `l ]
+[; ;message.c: 133: res |= readNext() << 16;
+"133
+[e =| _res -> << -> ( _readNext ..  `i -> 16 `i `l ]
+[; ;message.c: 134: res |= readNext() << 8;
+"134
+[e =| _res -> << -> ( _readNext ..  `i -> 8 `i `l ]
+[; ;message.c: 135: res |= readNext();
+"135
+[e =| _res -> ( _readNext ..  `l ]
+[; ;message.c: 136: clear();
+"136
+[e ( _clear ..  ]
+[; ;message.c: 138: return res;
+"138
+[e ) _res ]
+[e $UE 383  ]
+[; ;message.c: 139: }
+"139
+[e :UE 383 ]
+}
+"141
+[v _readFloat `(f ~T0 @X0 1 ef ]
+"142
+{
+[; ;message.c: 141: float readFloat()
+[; ;message.c: 142: {
+[e :U _readFloat ]
+[f ]
+"143
+[v _i `m ~T0 @X0 1 a ]
+[; ;message.c: 143: int24_t i = readInt24();
+[e = _i ( _readInt24 ..  ]
+"144
+[v _res `*f ~T0 @X0 1 a ]
+[; ;message.c: 144: float *res = (float *) & i;
+[e = _res -> &U _i `*f ]
+[; ;message.c: 145: return *res;
+"145
+[e ) *U _res ]
+[e $UE 384  ]
+[; ;message.c: 146: }
+"146
+[e :UE 384 ]
+}
+"148
+[v _readString `(v ~T0 @X0 1 ef1`**uc ]
+"149
+{
+[; ;message.c: 148: void readString(char **c)
+[; ;message.c: 149: {
+[e :U _readString ]
+"148
+[v _c `**uc ~T0 @X0 1 r1 ]
+"149
+[f ]
+[; ;message.c: 151: }
+"151
+[e :UE 385 ]
+}
+"153
+[v __sendchar_ `(v ~T0 @X0 1 ef1`uc ]
+"154
+{
+[; ;message.c: 153: void _sendchar_(char c)
+[; ;message.c: 154: {
+[e :U __sendchar_ ]
+"153
+[v _c `uc ~T0 @X0 1 r1 ]
+"154
+[f ]
+[; ;message.c: 155: TXREG = c;
+"155
+[e = _TXREG _c ]
+[; ;message.c: 156: while (!TRMT);
+"156
+[e $U 387  ]
+[e :U 388 ]
+[e :U 387 ]
+[e $ ! _TRMT 388  ]
+[e :U 389 ]
+[; ;message.c: 157: }
+"157
+[e :UE 386 ]
+}
+"159
+[v _sendInt8 `(v ~T0 @X0 1 ef1`c ]
+"160
+{
+[; ;message.c: 159: void sendInt8(int8_t i)
+[; ;message.c: 160: {
+[e :U _sendInt8 ]
+"159
+[v _i `c ~T0 @X0 1 r1 ]
+"160
+[f ]
+[; ;message.c: 161: _sendchar_(2);
+"161
+[e ( __sendchar_ (1 -> -> 2 `i `uc ]
+[; ;message.c: 162: _sendchar_('2');
+"162
+[e ( __sendchar_ (1 -> -> 50 `ui `uc ]
+[; ;message.c: 163: _sendchar_(i);
+"163
+[e ( __sendchar_ (1 -> _i `uc ]
+[; ;message.c: 164: _sendchar_(3);
+"164
+[e ( __sendchar_ (1 -> -> 3 `i `uc ]
+[; ;message.c: 165: }
+"165
+[e :UE 390 ]
+}
+"167
+[v _sendChar `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;message.c: 167: void sendChar(char i) {
+[e :U _sendChar ]
+[v _i `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;message.c: 168: sendInt8((int8_t) i);
+"168
+[e ( _sendInt8 (1 -> _i `c ]
+[; ;message.c: 169: }
+"169
+[e :UE 391 ]
+}
+"171
+[v _sendInt16 `(v ~T0 @X0 1 ef1`s ]
+"172
+{
+[; ;message.c: 171: void sendInt16(int16_t i)
+[; ;message.c: 172: {
+[e :U _sendInt16 ]
+"171
+[v _i `s ~T0 @X0 1 r1 ]
+"172
+[f ]
+[; ;message.c: 173: _sendchar_(2);
+"173
+[e ( __sendchar_ (1 -> -> 2 `i `uc ]
+[; ;message.c: 174: _sendchar_('3');
+"174
+[e ( __sendchar_ (1 -> -> 51 `ui `uc ]
+[; ;message.c: 175: _sendchar_((char) (i >> 8 & 0xff));
+"175
+[e ( __sendchar_ (1 -> & >> -> _i `i -> 8 `i -> 255 `i `uc ]
+[; ;message.c: 176: _sendchar_((char) (i & 0xff));
+"176
+[e ( __sendchar_ (1 -> & -> _i `i -> 255 `i `uc ]
+[; ;message.c: 177: _sendchar_(3);
+"177
+[e ( __sendchar_ (1 -> -> 3 `i `uc ]
+[; ;message.c: 178: }
+"178
+[e :UE 392 ]
+}
+"180
+[v _sendInt24 `(v ~T0 @X0 1 ef1`m ]
+"181
+{
+[; ;message.c: 180: void sendInt24(int24_t i)
+[; ;message.c: 181: {
+[e :U _sendInt24 ]
+"180
+[v _i `m ~T0 @X0 1 r1 ]
+"181
+[f ]
+[; ;message.c: 182: _sendchar_(2);
+"182
+[e ( __sendchar_ (1 -> -> 2 `i `uc ]
+[; ;message.c: 183: _sendchar_('4');
+"183
+[e ( __sendchar_ (1 -> -> 52 `ui `uc ]
+[; ;message.c: 184: _sendchar_((char) (i >> 16 & 0xff));
+"184
+[e ( __sendchar_ (1 -> & >> _i -> 16 `i -> -> 255 `i `m `uc ]
+[; ;message.c: 185: _sendchar_((char) (i >> 8 & 0xff));
+"185
+[e ( __sendchar_ (1 -> & >> _i -> 8 `i -> -> 255 `i `m `uc ]
+[; ;message.c: 186: _sendchar_((char) (i & 0xff));
+"186
+[e ( __sendchar_ (1 -> & _i -> -> 255 `i `m `uc ]
+[; ;message.c: 187: _sendchar_(3);
+"187
+[e ( __sendchar_ (1 -> -> 3 `i `uc ]
+[; ;message.c: 188: }
+"188
+[e :UE 393 ]
+}
+"190
+[v _sendInt32 `(v ~T0 @X0 1 ef1`l ]
+"191
+{
+[; ;message.c: 190: void sendInt32(int32_t i)
+[; ;message.c: 191: {
+[e :U _sendInt32 ]
+"190
+[v _i `l ~T0 @X0 1 r1 ]
+"191
+[f ]
+[; ;message.c: 192: _sendchar_(2);
+"192
+[e ( __sendchar_ (1 -> -> 2 `i `uc ]
+[; ;message.c: 193: _sendchar_('5');
+"193
+[e ( __sendchar_ (1 -> -> 53 `ui `uc ]
+[; ;message.c: 194: _sendchar_((char) (i >> 24 & 0xff));
+"194
+[e ( __sendchar_ (1 -> & >> _i -> 24 `i -> -> 255 `i `l `uc ]
+[; ;message.c: 195: _sendchar_((char) (i >> 16 & 0xff));
+"195
+[e ( __sendchar_ (1 -> & >> _i -> 16 `i -> -> 255 `i `l `uc ]
+[; ;message.c: 196: _sendchar_((char) (i >> 8 & 0xff));
+"196
+[e ( __sendchar_ (1 -> & >> _i -> 8 `i -> -> 255 `i `l `uc ]
+[; ;message.c: 197: _sendchar_((char) (i & 0xff));
+"197
+[e ( __sendchar_ (1 -> & _i -> -> 255 `i `l `uc ]
+[; ;message.c: 198: _sendchar_(3);
+"198
+[e ( __sendchar_ (1 -> -> 3 `i `uc ]
+[; ;message.c: 199: }
+"199
+[e :UE 394 ]
+}
+"201
+[v _sendFloat `(v ~T0 @X0 1 ef1`f ]
+"202
+{
+[; ;message.c: 201: void sendFloat(float f)
+[; ;message.c: 202: {
+[e :U _sendFloat ]
+"201
+[v _f `f ~T0 @X0 1 r1 ]
+"202
+[f ]
+"203
+[v _ptr `*um ~T0 @X0 1 a ]
+[; ;message.c: 203: uint24_t *ptr = (uint24_t *) & f;
+[e = _ptr -> &U _f `*um ]
+[; ;message.c: 204: _sendchar_(2);
+"204
+[e ( __sendchar_ (1 -> -> 2 `i `uc ]
+[; ;message.c: 205: _sendchar_('6');
+"205
+[e ( __sendchar_ (1 -> -> 54 `ui `uc ]
+[; ;message.c: 206: _sendchar_((char) (*ptr >> 16 & 0xff));
+"206
+[e ( __sendchar_ (1 -> & >> *U _ptr -> 16 `i -> -> -> 255 `i `m `um `uc ]
+[; ;message.c: 207: _sendchar_((char) (*ptr >> 8 & 0xff));
+"207
+[e ( __sendchar_ (1 -> & >> *U _ptr -> 8 `i -> -> -> 255 `i `m `um `uc ]
+[; ;message.c: 208: _sendchar_((char) (*ptr & 0xff));
+"208
+[e ( __sendchar_ (1 -> & *U _ptr -> -> -> 255 `i `m `um `uc ]
+[; ;message.c: 209: _sendchar_(3);
+"209
+[e ( __sendchar_ (1 -> -> 3 `i `uc ]
+[; ;message.c: 210: }
+"210
+[e :UE 395 ]
+}
+"212
+[v _sendString `(v ~T0 @X0 1 ef1`*uc ]
+"213
+{
+[; ;message.c: 212: void sendString(char *val)
+[; ;message.c: 213: {
+[e :U _sendString ]
+"212
+[v _val `*uc ~T0 @X0 1 r1 ]
+"213
+[f ]
+[; ;message.c: 214: _sendchar_(2);
+"214
+[e ( __sendchar_ (1 -> -> 2 `i `uc ]
+[; ;message.c: 215: _sendchar_('1');
+"215
+[e ( __sendchar_ (1 -> -> 49 `ui `uc ]
+[; ;message.c: 216: while (*val) {
+"216
+[e $U 397  ]
+[e :U 398 ]
+{
+[; ;message.c: 217: _sendchar_(*val);
+"217
+[e ( __sendchar_ (1 *U _val ]
+[; ;message.c: 218: val++;
+"218
+[e ++ _val * -> -> 1 `i `x -> -> # *U _val `i `x ]
+"219
+}
+[e :U 397 ]
+"216
+[e $ != -> *U _val `i -> -> -> 0 `i `uc `i 398  ]
+[e :U 399 ]
+[; ;message.c: 219: }
+[; ;message.c: 220: _sendchar_(3);
+"220
+[e ( __sendchar_ (1 -> -> 3 `i `uc ]
+[; ;message.c: 221: }
+"221
+[e :UE 396 ]
 }

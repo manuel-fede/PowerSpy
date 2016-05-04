@@ -33,12 +33,16 @@
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 "44 /Applications/microchip/xc8/v1.36/sources/common/fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
+"27 /Applications/microchip/xc8/v1.36/sources/common/lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"6 /Applications/microchip/xc8/v1.36/sources/common/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "30 /Applications/microchip/xc8/v1.36/sources/common/lttoft.c
 [v ___lttoft __lttoft `(f  1 e 3 0 ]
-"15 /Applications/microchip/xc8/v1.36/sources/common/Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 /Applications/microchip/xc8/v1.36/sources/common/Umul24.c
 [v ___tmul __tmul `(um  1 e 3 0 ]
+"15 /Applications/microchip/xc8/v1.36/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
 "6 /Applications/microchip/xc8/v1.36/sources/pic/eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
@@ -57,52 +61,64 @@
 [v __taylor_cos _taylor_cos `(f  1 e 3 0 ]
 "128
 [v __taylor_sin _taylor_sin `(f  1 e 3 0 ]
-"17 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
-[v _charAvailable charAvailable `(c  1 e 1 0 ]
-"24
-[v _readNext readNext `(uc  1 e 1 0 ]
+"16 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+[v _initMessaging initMessaging `(v  1 e 1 0 ]
 "31
-[v _sendChar sendChar `(v  1 e 1 0 ]
-"36
+[v _readNext readNext `(uc  1 e 1 0 ]
+"39
+[v _packageStarted packageStarted `(uc  1 e 1 0 ]
+"71
+[v _seekFront seekFront `(v  1 e 1 0 ]
+"81
+[v _clear clear `(v  1 e 1 0 ]
+"114
+[v _readInt24 readInt24 `(m  1 e 3 0 ]
+"153
+[v __sendchar_ _sendchar_ `(v  1 e 1 0 ]
+"159
 [v _sendInt8 sendInt8 `(v  1 e 1 0 ]
-"42
-[v _sendInt16 sendInt16 `(v  1 e 1 0 ]
-"50
-[v _sendInt24 sendInt24 `(v  1 e 1 0 ]
-"59
+"190
 [v _sendInt32 sendInt32 `(v  1 e 1 0 ]
-"69
-[v _sendFloat sendFloat `(v  1 e 1 0 ]
-"79
+"212
 [v _sendString sendString `(v  1 e 1 0 ]
-"49 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"43 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _initPins initPins `(v  1 e 1 0 ]
-"315
+"73
+[v _initADC initADC `(v  1 e 1 0 ]
+"140
+[v _initTMR1 initTMR1 `(v  1 e 1 0 ]
+"170
+[v _initFVR initFVR `(v  1 e 1 0 ]
+"192
+[v _initPWMTMR4 initPWMTMR4 `(v  1 e 1 0 ]
+"251
+[v _initCOMP1 initCOMP1 `(v  1 e 1 0 ]
+"285
+[v _initCOMP2 initCOMP2 `(v  1 e 1 0 ]
+"318
 [v _initBT initBT `(v  1 e 1 0 ]
-"353
+"357
 [v _adc adc `(uc  1 e 1 0 ]
-"424
+"432
 [v _so so `(v  1 e 1 0 ]
-"466
+"477
 [v _sendColour sendColour `(v  1 e 1 0 ]
-"508
-[v _deltaT deltaT `(v  1 e 1 0 ]
-"547
+"522
+[v _deltaT deltaT `(us  1 e 2 0 ]
+"567
 [v _ISR ISR `II(v  1 e 1 0 ]
-"588
+"613
 [v _main main `(v  1 e 1 0 ]
 "13 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/str.c
 [v __strlen _strlen `(uc  1 e 1 0 ]
-"22
+"23
 [v _reverse reverse `(v  1 e 1 0 ]
 "414 /Applications/microchip/xc8/v1.36/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "475
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
-"736
-[v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
-"755
-[v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
+"730
+[v _TMR1 TMR1 `VEus  1 e 2 @22 ]
 "933
 [v _PR2 PR2 `VEuc  1 e 1 @27 ]
 "1120
@@ -307,111 +323,129 @@
 [v _TXEN TXEN `VEb  1 e 0 @3317 ]
 "7572
 [v _nWPUEN nWPUEN `VEb  1 e 0 @1199 ]
-"29 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.h
-[v _receive_buff receive_buff `[8]uc  1 e 8 0 ]
-"30
-[v _buffpos buffpos `c  1 e 1 0 ]
-"31
+"13 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
 [v _readpos readpos `c  1 e 1 0 ]
-"35 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
-[v _volt_time volt_time `m  1 e 3 0 ]
-"36
-[v _curr_time curr_time `m  1 e 3 0 ]
-"37
-[v _delta_t delta_t `m  1 e 3 0 ]
-"38
+"14
+[v _reading reading `uc  1 e 1 0 ]
+"30 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.h
+[v _receive_buff receive_buff `[32]uc  1 e 32 0 ]
+"31
+[v _buffpos buffpos `c  1 e 1 0 ]
+"24 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+[v _volt_time volt_time `s  1 e 2 0 ]
+"25
+[v _curr_time curr_time `s  1 e 2 0 ]
+"31
+[v _flag flag `uc  1 e 1 0 ]
+"33
 [v _led_rest led_rest `us  1 e 2 0 ]
-"588
+"613
 [v _main main `(v  1 e 1 0 ]
 {
-"592
-[v main@err err `[5]uc  1 a 5 13 ]
-"589
-[v main@cmd cmd `uc  1 a 1 18 ]
-"591
-[v main@F2917 F2917 `[5]uc  1 s 5 F2917 ]
-"625
+"616
+[v main@diff diff `ul  1 a 4 6 ]
+"654
 } 0
-"79 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+"212 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
 [v _sendString sendString `(v  1 e 1 0 ]
 {
-[v sendString@val val `*.25DCCuc  1 p 2 1 ]
-"87
+[v sendString@val val `*.25uc  1 p 2 3 ]
+"221
 } 0
-"36
-[v _sendInt8 sendInt8 `(v  1 e 1 0 ]
-{
-[v sendInt8@i i `c  1 a 1 wreg ]
-[v sendInt8@i i `c  1 a 1 wreg ]
-[v sendInt8@i i `c  1 a 1 1 ]
-"41
-} 0
-"59
+"190
 [v _sendInt32 sendInt32 `(v  1 e 1 0 ]
 {
-[v sendInt32@i i `l  1 p 4 1 ]
-"67
+[v sendInt32@i i `l  1 p 4 3 ]
+"199
 } 0
-"50
-[v _sendInt24 sendInt24 `(v  1 e 1 0 ]
+"153
+[v __sendchar_ _sendchar_ `(v  1 e 1 0 ]
 {
-[v sendInt24@i i `m  1 p 3 1 ]
-"57
+[v __sendchar_@c c `uc  1 a 1 wreg ]
+[v __sendchar_@c c `uc  1 a 1 wreg ]
+"155
+[v __sendchar_@c c `uc  1 a 1 2 ]
+"157
 } 0
-"42
-[v _sendInt16 sendInt16 `(v  1 e 1 0 ]
+"140 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+[v _initTMR1 initTMR1 `(v  1 e 1 0 ]
 {
-[v sendInt16@i i `s  1 p 2 1 ]
-"48
+"165
 } 0
-"69
-[v _sendFloat sendFloat `(v  1 e 1 0 ]
-{
-"70
-[v sendFloat@ptr ptr `*.4um  1 a 1 7 ]
-"69
-[v sendFloat@f f `f  1 p 3 1 ]
-"77
-} 0
-"31
-[v _sendChar sendChar `(v  1 e 1 0 ]
-{
-[v sendChar@c c `uc  1 a 1 wreg ]
-[v sendChar@c c `uc  1 a 1 wreg ]
-[v sendChar@c c `uc  1 a 1 0 ]
-"34
-} 0
-"24
-[v _readNext readNext `(uc  1 e 1 0 ]
-{
-"25
-[v readNext@ret ret `uc  1 a 1 1 ]
-"29
-} 0
-"49 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"43
 [v _initPins initPins `(v  1 e 1 0 ]
 {
-"72
+"67
 } 0
-"315
+"192
+[v _initPWMTMR4 initPWMTMR4 `(v  1 e 1 0 ]
+{
+"234
+} 0
+"16 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+[v _initMessaging initMessaging `(v  1 e 1 0 ]
+{
+"21
+} 0
+"170 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+[v _initFVR initFVR `(v  1 e 1 0 ]
+{
+"185
+} 0
+"285
+[v _initCOMP2 initCOMP2 `(v  1 e 1 0 ]
+{
+"312
+} 0
+"251
+[v _initCOMP1 initCOMP1 `(v  1 e 1 0 ]
+{
+"279
+} 0
+"318
 [v _initBT initBT `(v  1 e 1 0 ]
 {
-"341
+"345
 } 0
-"17 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
-[v _charAvailable charAvailable `(c  1 e 1 0 ]
+"73
+[v _initADC initADC `(v  1 e 1 0 ]
 {
-"22
+"90
 } 0
-"547 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"522
+[v _deltaT deltaT `(us  1 e 2 0 ]
+{
+"524
+[v deltaT@res res `us  1 a 2 0 ]
+"522
+[v deltaT@tm_low tm_low `us  1 p 2 2 ]
+[v deltaT@tm_high tm_high `us  1 p 2 4 ]
+"538
+} 0
+"15 /Applications/microchip/xc8/v1.36/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 0 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 2 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 6 ]
+"129
+} 0
+"6 /Applications/microchip/xc8/v1.36/sources/common/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 1 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 5 ]
+"6
+[v ___lldiv@divisor divisor `ul  1 p 4 2 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 6 ]
+"31
+} 0
+"567 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"583
-} 0
-"508
-[v _deltaT deltaT `(v  1 e 1 0 ]
-{
-[v deltaT@tm_low tm_low `m  1 p 3 0 ]
-[v deltaT@tm_high tm_high `m  1 p 3 3 ]
-"520
+"608
 } 0

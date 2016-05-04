@@ -26,20 +26,20 @@ extern "C" {
 #pragma config IESO = OFF       // Internal/External Switchover (Internal/External Switchover mode is disabled)
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable (Fail-Safe Clock Monitor is disabled)
 
-    // CONFIG2
+        // CONFIG2
 #pragma config WRT = OFF        // Flash Memory Self-Write Protection (Write protection off)
 #pragma config PLLEN = ON       // PLL Enable (4x PLL disabled)
 #pragma config STVREN = OFF     // Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will not cause a Reset)
 #pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
-    //xc8 gives a warning when converting to lower data types
-    //even when casting to the appropriate type
+        //xc8 gives a warning when converting to lower data types
+        //even when casting to the appropriate type
 #pragma warning push
 #pragma warning disable 752
 #pragma warning enable pop
 
-    //print specific defines
+        //print specific defines
 #define _XTAL_FREQ          32000000
 #define RX                  RB1
 #define TX                  RB2
@@ -74,12 +74,9 @@ extern "C" {
 #define K_REALPOWER     'r'
 #define K_ACTIVEPOWER   'a'
 #define K_REACTIVEPOWER 'R'
-#define K_STRING        's'
 
-#define START_OF_TEXT   2
-#define END_OF_TEXT     3
-#define RECEIVEBUFF_SIZE    8
-
+#define VOLT_TO_AMP_FACT    5
+        
 #define NRMASK              0b10000000
 #define NR0                 0b10000001
 #define NR1                 0b10111101
@@ -92,7 +89,7 @@ extern "C" {
 #define NR8                 0b10000000
 #define NR9                 0b10010000
 
-    //shift 1 - 3
+        //shift 1 - 3
 #define BIGMASK             0b110100000000000011100111
 #define SMAMASK             0b111111111111111100011111
 #define MASK                (BIGMASK|SMAMASK)
@@ -137,25 +134,26 @@ extern "C" {
                             WAIT_T1L\
                             }
 
-    //read the time from tmr1
-#define getTime()           (TMR1H<<8|TMR1L)
+        //read the time from tmr1
+        //#define getTime()           (TMR1H<<8|TMR1L)
+#define getTime()           TMR1
 
-    void initPins();
-    void initADC();
-    void initTMR2();
-    void initTMR1();
-    void initFVR();
-    void initPWMTMR4();
-    void initCOMP1();
-    void initCOMP2();
-    uint8_t adc(const int8_t src);
-    uint8_t readVoltage();
-    float readCurrent();
-    void so(const uint8_t data, const uint8_t direction);
-    uint24_t combine(uint24_t nr1, uint24_t nr2);
-    void clearDisplay(int8_t leng);
-    void __interrupt ISR();
-    void main();
+        void initPins();
+        void initADC();
+        void initTMR2();
+        void initTMR1();
+        void initFVR();
+        void initPWMTMR4();
+        void initCOMP1();
+        void initCOMP2();
+        uint8_t adc(const int8_t src);
+        uint8_t readVoltage();
+        float readCurrent();
+        void so(const uint8_t data, const uint8_t direction);
+        uint24_t combine(uint24_t nr1, uint24_t nr2);
+        void clearDisplay(int8_t leng);
+        void __interrupt ISR();
+        void main();
 
 #ifdef	__cplusplus
 }

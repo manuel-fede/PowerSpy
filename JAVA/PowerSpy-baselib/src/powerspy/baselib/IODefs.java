@@ -31,8 +31,14 @@ public interface IODefs {
     public static final char INT24 = '4';
     public static final char INT32 = '5';
     public static final char FLOAT = '6';
-
+    
+    public static final char K_CURRENT = 'c';
+    public static final char K_REALPOWER = 'r';
+    public static final char K_ACTIVEPOWER = 'a';
+    public static final char K_REACTIVEPOWER = 'R';
+    
+    
     public static final char START_OF_TEXT = 2;
     public static final char END_OF_TEXT = 3;
-    public static final char BUFFER_SIZE = 64;
+    public static final char BUFFER_SIZE = 1024;
 }
