@@ -3818,7 +3818,7 @@ void initFVR();
 void initPWMTMR4();
 void initCOMP1();
 void initCOMP2();
-uint8_t adc(const int8_t src);
+void adc(const int8_t src);
 uint8_t readVoltage();
 float readCurrent();
 void so(const uint8_t data, const uint8_t direction);
@@ -3844,9 +3844,11 @@ int16_t curr_time = -1;
 # 31
 uint8_t flag = 0;
 
+float i_u_offs = -12.5;
+
 uint16_t led_rest = 0;
 
-# 43
+# 45
 void initPins()
 {
 PORTA = 0b00000000;
@@ -3873,7 +3875,7 @@ IRCF3 = 1;
 SPLLEN = 1;
 }
 
-# 73
+# 75
 void initADC()
 {
 
@@ -3891,13 +3893,15 @@ ADCS2 = 1;
 ADPREF0 = 0;
 ADPREF1 = 0;
 ADNREF = 0;
+
+ADON = 1;
 }
 
-# 96
+# 100
 void initTMR2()
 {
 
-# 115
+# 119
 T2CKPS0 = 1;
 T2CKPS1 = 0;
 
@@ -3920,11 +3924,11 @@ TMR2IF = 0;
 TMR2ON = 1;
 }
 
-# 140
+# 144
 void initTMR1()
 {
 
-# 153
+# 157
 TMR1CS0 = 0;
 TMR1CS1 = 0;
 
@@ -3939,18 +3943,21 @@ TMR1IF = 0;
 TMR1ON = 1;
 }
 
-# 170
+# 174
 void initFVR()
 {
 
-# 181
+# 186
+ADFVR0 = 1;
+ADFVR1 = 0;
+
 CDAFVR0 = 0;
 CDAFVR1 = 0;
 FVREN = 1;
 while (!FVRRDY);
 }
 
-# 192
+# 200
 void initPWMTMR4()
 {
 
@@ -3967,12 +3974,13 @@ CCP1CON = 0b00110000;
 
 CCP1CON |= 0b00001100;
 
-# 212
-CCPR1L = 0x8E;
+# 220
+CCPR1L = 0x7f;
 
 
-DC1B0 = 0;
-DC1B1 = 0;
+DC1B0 = 1;
+DC1B1 = 1;
+
 
 
 C1TSEL0 = 1;
@@ -3992,7 +4000,7 @@ TMR4IF = 0;
 TRISBbits.TRISB0 = 0;
 }
 
-# 251
+# 260
 void initCOMP1()
 {
 
@@ -4001,7 +4009,7 @@ void initCOMP1()
 C1NCH0 = 1;
 C1NCH1 = 0;
 
-# 271
+# 280
 C1PCH0 = 0;
 C1PCH1 = 1;
 
@@ -4012,7 +4020,7 @@ C1IF = 0;
 C1ON = 1;
 }
 
-# 285
+# 294
 void initCOMP2()
 {
 
@@ -4021,7 +4029,7 @@ void initCOMP2()
 C2NCH0 = 0;
 C2NCH1 = 0;
 
-# 304
+# 313
 C2PCH0 = 0;
 C2PCH1 = 0;
 
@@ -4032,7 +4040,7 @@ C2IF = 0;
 C2ON = 1;
 }
 
-# 318
+# 327
 void initBT()
 {
 
@@ -4062,45 +4070,51 @@ RCREG;
 RCIE = 1;
 }
 
-# 357
-uint8_t adc(const int8_t src)
+# 366
+void adc(const int8_t src)
 {
 
-# 379
-if (src > 11) return 1;
-
+# 389
 CHS0 = (bit) (src >> 0) & 0x01;
 CHS1 = (bit) (src >> 1) & 0x01;
 CHS2 = (bit) (src >> 2) & 0x01;
 CHS3 = (bit) (src >> 3) & 0x01;
 CHS4 = (bit) (src >> 4) & 0x01;
 
+_delay((unsigned long)((5)*(32000000/4000000.0)));
 
-ADON = 1;
+
 GO_nDONE = 1;
 while (GO_nDONE);
-ADON = 0;
 
-return 0;
 }
 
-# 403
+# 410
 uint8_t readVoltage()
 {
 return 230;
 }
 
-# 413
+# 420
 float readCurrent()
 {
 
-# 421
+# 428
+ADFM = 1;
 adc(7);
 
-return (ADRESH * 5.0 / 256.0) * 5.0 - 12.5;
+return (ADRES * 5.0 / 1024.0) * 5.0 + i_u_offs;
 }
 
-# 432
+float readVdd()
+{
+ADFM = 1;
+adc(0b00011111);
+
+return (1024.0 / ADRES) * 1.024;
+}
+
+# 448
 void so(const uint8_t data, const uint8_t direction)
 {
 signed char c;
@@ -4119,7 +4133,7 @@ RA4 = 0;
 }
 }
 
-# 454
+# 470
 uint24_t combine(uint24_t nr1, uint24_t nr2)
 {
 if (nr1 & nr2) return 0;
@@ -4128,7 +4142,7 @@ if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr2 != 0xffffff) 
 return (nr1 | nr2);
 }
 
-# 465
+# 481
 void clearDisplay(int8_t leng)
 {
 RA3 = 0;
@@ -4137,7 +4151,7 @@ so(0, 0);
 RA3 = 1;
 }
 
-# 477
+# 493
 void sendColour(uint8_t c)
 {
 if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
@@ -4175,7 +4189,7 @@ leng--;
 c[0] = 0;
 }
 
-# 522
+# 538
 uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
 {
 uint16_t res;
@@ -4207,7 +4221,7 @@ else return 0;
 return 0;
 }
 
-# 556
+# 572
 void setLED(uint8_t g, uint8_t r, uint8_t b)
 {
 byte gie = GIE;
@@ -4236,24 +4250,28 @@ TMR1IF = 0;
 
 
 if (C1IE && C1IF) {
-if (!(flag & 0x01)) {
+
 volt_time = TMR1;
 if (flag & 0x02)
 flag |= 0x08;
+if (flag & 0x04)
+flag &= ~0x04;
 flag |= 0x01;
-}
+
 
 C1IF = 0;
 }
 
 
 if (C2IE && C2IF) {
-if (!(flag & 0x02)) {
+
 curr_time = TMR1;
 if (flag & 0x01)
 flag |= 0x04;
+if (flag & 0x08)
+flag &= ~0x08;
 flag |= 0x02;
-}
+
 C2IF = 0;
 }
 
@@ -4262,19 +4280,20 @@ TMR2IF = 0;
 }
 }
 
-# 613
+# 633
 void main()
 {
-int8_t i;
 uint32_t diff;
+float angle;
+float diff_;
 
 PEIE = 0;
 GIE = 0;
 
 initPins();
+initFVR();
 initADC();
 initTMR1();
-initFVR();
 initPWMTMR4();
 initCOMP1();
 initCOMP2();
@@ -4284,24 +4303,32 @@ initMessaging();
 PEIE = 1;
 GIE = 1;
 
+i_u_offs = -readVdd()* 5.0 / 2.0;
+
 while (1) {
 
 if ((flag & 0x02) && (flag & 0x01)) {
-if (flag & 0x04) {
+if (flag & 0x04)
 diff = deltaT(volt_time, curr_time);
-} else if (flag & 0x08) {
+else if (flag & 0x08)
 diff = deltaT(curr_time, volt_time);
-}
+
 flag = 0;
 
 diff *= 125;
 diff /= 1000;
 sendString("diff/us");
 sendInt32(diff);
+
+diff_ = (float) diff;
+diff_ /= 1000;
+diff_ /= 1000;
+angle = cos(2*3.14159265358979323846*50*diff_);
+sendString("angle/rad");
+sendFloat(angle);
 }
 
-
-
-
+sendString("current/ampere");
+sendFloat(readCurrent());
 }
 }

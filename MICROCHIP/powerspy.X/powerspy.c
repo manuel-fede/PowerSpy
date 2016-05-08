@@ -30,6 +30,9 @@ int16_t curr_time = -1;
 //3rd bit: current first
 uint8_t flag = 0;
 
+float i_u_offs = -12.5;
+float i_u_diode_offs = 0.0;
+
 uint16_t led_rest = 0;
 
 /******************************************************************************
@@ -87,6 +90,8 @@ void initADC()
         ADPREF0 = 0;
         ADPREF1 = 0;
         ADNREF = 0;
+
+        ADON = 1;
 }
 
 /*
@@ -177,6 +182,10 @@ void initFVR()
          * |      1|      0|4.096|
          * |      1|      1|    -|
          */
+
+        //set the fvr for adc to 1.024 volts
+        ADFVR0 = 1;
+        ADFVR1 = 0;
         //set FVR Buffer2 for comparing
         CDAFVR0 = 0;
         CDAFVR1 = 0;
@@ -209,11 +218,12 @@ void initPWMTMR4()
         //set the duty (1023 = 100%, 0 = 0%)
         //0x7f + 1 + 1 == 511 = 50%
         //8 higher bits
-        CCPR1L = 0x8E; //Weil besser.... kommen auf 2.48V
-        //CCPR1L = 0x0;
+        CCPR1L = 0x7f; //Weil besser.... kommen auf 2.48V
+
         //2 lower bits
-        DC1B0 = 0;
-        DC1B1 = 0;
+        DC1B0 = 1;
+        DC1B1 = 1;
+
         //5
         //see data sheet page 227, tmr 4 is used
         C1TSEL0 = 1;
@@ -354,7 +364,7 @@ void initBT()
  * 
  * src: the desired channel
  */
-uint8_t adc(const int8_t src)
+void adc(const int8_t src)
 {
         /*
          * src is an char ranging from 0 to 11
@@ -376,7 +386,6 @@ uint8_t adc(const int8_t src)
          * select the channel
          * since the bit combination is sorted we can do this:
          */
-        if (src > 11) return RET_NOK; //return errcode if not a valid src is specified
 
         CHS0 = (bit) (src >> 0) & 0x01;
         CHS1 = (bit) (src >> 1) & 0x01;
@@ -384,13 +393,12 @@ uint8_t adc(const int8_t src)
         CHS3 = (bit) (src >> 3) & 0x01;
         CHS4 = (bit) (src >> 4) & 0x01;
 
+        __delay_us(5);
+
         //convert
-        ADON = 1;
         GO_nDONE = 1;
         while (GO_nDONE);
-        ADON = 0;
-        //the result is in ADRESH
-        return RET_OK;
+        //the result is in ADRESH and ADRESL
 }
 
 /******************************************************************************/
@@ -418,9 +426,18 @@ float readCurrent()
          * to convert from unitless to 0-5V we need to multiply ADRESH with 5
          * and divide it thru 256 since we only use the 8 highest order bits
          */
+        ADFM = 1;
         adc(7);
-        //return (float) (50 * ADRESH) / 256.0 - 25.0;
-        return (ADRESH * 5.0 / 256.0) * 5.0 - 12.5;
+
+        return (ADRES * 5.0 / 1024.0 + i_u_diode_offs) * 5.0 + i_u_offs;
+}
+
+float readVdd()
+{
+        ADFM = 1;
+        adc(0b00011111); //fvr buffer output
+
+        return (1024.0 / ADRES) * 1.024;
 }
 
 /*
@@ -581,24 +598,28 @@ void interrupt ISR()
 
         //volts
         if (C1IE && C1IF) {
-                if (!(flag & 0x01)) { //is volt not set
-                        volt_time = getTime();
-                        if (flag & 0x02) //is current set
-                                flag |= 0x08;
-                        flag |= 0x01;
-                }
+                //if (!(flag & 0x01)) { //is volt not set
+                volt_time = getTime();
+                if (flag & 0x02) //is current set
+                        flag |= 0x08;
+                if (flag & 0x04) //is volts first
+                        flag &= ~0x04;
+                flag |= 0x01;
+                //}
 
                 C1IF = 0;
         }
 
         //amps
         if (C2IE && C2IF) {
-                if (!(flag & 0x02)) { //is current not set
-                        curr_time = getTime();
-                        if (flag & 0x01) //is volt set
-                                flag |= 0x04;
-                        flag |= 0x02;
-                }
+                //if (!(flag & 0x02)) { //is current not set
+                curr_time = getTime();
+                if (flag & 0x01) //is volt set
+                        flag |= 0x04;
+                if (flag & 0x08) //is current first
+                        flag &= ~0x08;
+                flag |= 0x02;
+                //}
                 C2IF = 0;
         }
 
@@ -612,16 +633,17 @@ void interrupt ISR()
  */
 void main()
 {
-        int8_t i;
         uint32_t diff;
+        float angle;
+        float diff_;
 
         PEIE = 0;
         GIE = 0;
 
         initPins();
+        initFVR();
         initADC();
         initTMR1();
-        initFVR();
         initPWMTMR4();
         initCOMP1();
         initCOMP2();
@@ -631,24 +653,32 @@ void main()
         PEIE = 1;
         GIE = 1;
 
-        while (1) {
+        i_u_offs = -readVdd()* 5.0 / 2.0;
 
+        while (1) {
+                // <editor-fold defaultstate="collapsed" desc="handle phase delay">
                 if ((flag & 0x02) && (flag & 0x01)) { //volts and current
-                        if (flag & 0x04) { //volts first
+                        if (flag & 0x04) //volts first
                                 diff = deltaT(volt_time, curr_time);
-                        } else if (flag & 0x08) { //current first
+                        else if (flag & 0x08) //current first
                                 diff = deltaT(curr_time, volt_time);
-                        }
-                        flag = 0;
                         
+                        flag = 0;
+
                         diff *= 125;
                         diff /= 1000;
                         sendString("diff/us");
                         sendInt32(diff);
-                }
-                //sendString("volt");
-                //sendFloat(readCurrent());
-                //readCurrent();
-                //sendInt8(ADRESH);
+                        
+                        diff_ = (float) diff;
+                        diff_ /= 1000;
+                        diff_ /= 1000;
+                        angle = cos(2*M_PI*50*diff_);
+                        sendString("angle/rad");
+                        sendFloat(angle);
+                }// </editor-fold>
+
+                sendString("current/ampere");
+                sendFloat(readCurrent());
         }
 }

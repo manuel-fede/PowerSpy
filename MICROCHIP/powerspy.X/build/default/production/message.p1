@@ -2838,7 +2838,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;powerspy.h: 146: void initPWMTMR4();
 [; ;powerspy.h: 147: void initCOMP1();
 [; ;powerspy.h: 148: void initCOMP2();
-[; ;powerspy.h: 149: uint8_t adc(const int8_t src);
+[; ;powerspy.h: 149: void adc(const int8_t src);
 [; ;powerspy.h: 150: uint8_t readVoltage();
 [; ;powerspy.h: 151: float readCurrent();
 [; ;powerspy.h: 152: void so(const uint8_t data, const uint8_t direction);

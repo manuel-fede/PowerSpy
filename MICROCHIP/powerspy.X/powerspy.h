@@ -146,7 +146,7 @@ extern "C" {
         void initPWMTMR4();
         void initCOMP1();
         void initCOMP2();
-        uint8_t adc(const int8_t src);
+        void adc(const int8_t src);
         uint8_t readVoltage();
         float readCurrent();
         void so(const uint8_t data, const uint8_t direction);
