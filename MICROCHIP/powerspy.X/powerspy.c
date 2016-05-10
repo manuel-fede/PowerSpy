@@ -538,20 +538,10 @@ void clearArray(char *c, uint8_t leng)
  */
 uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
 {
-        uint16_t res;
-
-        GIE = 0;
-        volt_time = 0;
-        curr_time = 0;
-        GIE = 1;
-
-        if (tm_low < tm_high) {
-                res = tm_high - tm_low;
-        } else {
-                res = 0xffff - tm_low + tm_high;
-        }
-
-        return res;
+        if (tm_low < tm_high)
+                return tm_high - tm_low;
+        else
+                return 0xffff - tm_low + tm_high;
 }
 
 int ledReset()
@@ -572,7 +562,7 @@ int ledReset()
  */
 void setLED(uint8_t g, uint8_t r, uint8_t b)
 {
-        byte gie = GIE;
+        bit gie = GIE;
         GIE = 0;
         sendColour(g);
         sendColour(r);
@@ -620,6 +610,7 @@ void interrupt ISR()
                         flag &= ~0x08;
                 flag |= 0x02;
                 //}
+
                 C2IF = 0;
         }
 
@@ -657,26 +648,31 @@ void main()
 
         while (1) {
                 // <editor-fold defaultstate="collapsed" desc="handle phase delay">
+                GIE = 0;
                 if ((flag & 0x02) && (flag & 0x01)) { //volts and current
                         if (flag & 0x04) //volts first
                                 diff = deltaT(volt_time, curr_time);
                         else if (flag & 0x08) //current first
                                 diff = deltaT(curr_time, volt_time);
-                        
+
                         flag = 0;
+                        //curr_time = 0;
+                        //volt_time = 0;
 
                         diff *= 125;
                         diff /= 1000;
                         sendString("diff/us");
                         sendInt32(diff);
-                        
+
                         diff_ = (float) diff;
                         diff_ /= 1000;
                         diff_ /= 1000;
-                        angle = cos(2*M_PI*50*diff_);
+                        angle = cos(2 * M_PI * 50 * diff_);
                         sendString("angle/rad");
                         sendFloat(angle);
-                }// </editor-fold>
+                }
+                GIE = 1;
+                // </editor-fold>
 
                 sendString("current/ampere");
                 sendFloat(readCurrent());
