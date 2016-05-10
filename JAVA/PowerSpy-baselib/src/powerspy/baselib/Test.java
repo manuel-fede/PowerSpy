@@ -71,7 +71,7 @@ public class Test {
                         System.out.println("failed");
                         System.exit(1);
                 }
-                PSInputStream is = new PSInputStream(p);
+                PSInputStream is = new PSInputStream(p.getInputStream());
 
                 Thread.sleep(2_000);
 

@@ -18,10 +18,8 @@
  */
 package powerspy.baselib;
 
-import com.fazecast.jSerialComm.SerialPort;
 import java.io.*;
 import java.nio.ByteBuffer;
-import java.util.Arrays;
 
 /**
 
@@ -29,14 +27,14 @@ import java.util.Arrays;
  */
 public class PSInputStream extends InputStream implements IODefs {
 
-        private final SerialPort source;
+        private final InputStream is;
         byte[] buffer;
         boolean reading;
         char position;
 
-        public PSInputStream(SerialPort port)
+        public PSInputStream(InputStream is)
         {
-                source = port;
+                this.is = is;
                 buffer = new byte[BUFFER_SIZE];
                 reading = false;
                 position = 0;
@@ -45,19 +43,30 @@ public class PSInputStream extends InputStream implements IODefs {
         @Override
         public int available() throws IOException
         {
-                return source.bytesAvailable();
+                //return source.bytesAvailable();
+                return is.available();
         }
 
         @Override
         public int read() throws IOException
         {
-                byte[] b = new byte[1];
-                int read = source.readBytes(b, 1);
-                if (read > 0) {
-                        return b[0] & 0xff;
-                } else {
-                        return -1;
-                }
+                /*
+                 byte[] b = new byte[1]; int read = source.readBytes(b, 1); if
+                 (read > 0) { return b[0] & 0xff; } else { return -1; }
+                 */
+                return is.read();
+        }
+
+        @Override
+        public synchronized void reset() throws IOException
+        {
+                is.reset();
+        }
+
+        @Override
+        public synchronized void mark(int readlimit)
+        {
+                is.mark(readlimit);
         }
 
         private byte read_() throws IOException
@@ -279,7 +288,7 @@ public class PSInputStream extends InputStream implements IODefs {
 
                 res = ByteBuffer.wrap(b).getInt();
 
-                return Float.intBitsToFloat(res<<8);
+                return Float.intBitsToFloat(res << 8);
         }
 
         public String readString() throws PackageException
