@@ -11,29 +11,32 @@
 
 #include <xc.h>
 #include <limits.h>
-#include <math.h>
+//#include <math.h>
 #include "types.h"
 #include "message.h"
 #include "powerspy.h"
-#include "str.h"
+#include "intmath.h"
 
 const uint8_t get_shift_byte[10] = {NR0, NR1, NR2, NR3, NR4, NR5, NR6, NR7, NR8, NR9};
 
-//those numbers have 1 byte more than the timer, since we also need negative numbers
-//to signify unset values
-int16_t volt_time = -1;
-int16_t curr_time = -1;
+
+//remember interrupt time for deltat
+uint16_t volt_time = 0;
+uint16_t curr_time = 0;
 
 //0th bit: volts set
 //1st bit: current set
 //2nd bit: volts first
 //3rd bit: current first
-uint8_t flag = 0;
+volatile uint8_t flag = 0;
 
+//config for current measurement
 float i_u_offs = -12.5;
-float i_u_diode_offs = 0.0;
+float i_u_diode_offs = -0.04;
 
 uint16_t led_rest = 0;
+
+volatile uint8_t mode = DMODE_NONE;
 
 /******************************************************************************
  *init methods*****************************************************************
@@ -67,6 +70,10 @@ void initPins()
         IRCF3 = 1;
 
         SPLLEN = 1;
+
+        //config int for RB5 (see data sheet page 81)
+        IOCBN5 = 1;
+        IOCIE = 1;
 }
 
 /*
@@ -446,34 +453,34 @@ float readVdd()
  * datapin: DISPLAY_DATA
  * clockpin: DISPLAY_CLK
  */
-void so(const uint8_t data, const uint8_t direction)
+void so(const uint8_t data)
 {
-        signed char c;
-        if (direction) {
-                for (c = CHAR_BIT - 1; c >= 0; c--) {
-                        DISPLAY_DATA = (data >> c) & 0x01;
-                        DISPLAY_CLK = 1;
-                        DISPLAY_CLK = 0;
-                }
-        } else {
-                for (c = 0; c < CHAR_BIT; c++) {
-                        DISPLAY_DATA = (data >> c) & 0x01;
-                        DISPLAY_CLK = 1;
-                        DISPLAY_CLK = 0;
-                }
+        uint8_t c;
+        for (c = 0; c < CHAR_BIT; c++) {
+                DISPLAY_DATA = (data >> c) & 0x01;
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                DISPLAY_CLK = 1;
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                NOP();
+                DISPLAY_CLK = 0;
         }
-}
-
-/*
- * checks if a pattern of characters is valid
- * doesnt work as of now
- */
-uint24_t combine(uint24_t nr1, uint24_t nr2)
-{
-        if (nr1 & nr2) return 0;
-        if (MASK | ~nr1 != 0xffffff) return 0;
-        if (MASK | ~nr2 != 0xffffff) return 0;
-        return (nr1 | nr2);
 }
 
 /*
@@ -481,10 +488,19 @@ uint24_t combine(uint24_t nr1, uint24_t nr2)
  */
 void clearDisplay(int8_t leng)
 {
-        DISPLAY_LAT = 0;
         for (; leng >= 0; leng--)
-                so(0, SHIFT_DIR_LSBFIRST);
-        DISPLAY_LAT = 1;
+                so(0xff);
+}
+
+uint8_t setNr(uint16_t nr)
+{
+        uint8_t it = 0;
+        while (nr) {
+                so(get_shift_byte[nr % 10]);
+                nr /= 10;
+                it++;
+        }
+        return it;
 }
 
 /*
@@ -494,38 +510,28 @@ void clearDisplay(int8_t leng)
 void sendColour(uint8_t c)
 {
         if (c & 0b10000000) LED_HIGHBIT
-        else LED_LOWBIT
+        else LED_LOWBIT;
 
-                if (c & 0b01000000) LED_HIGHBIT
-        else LED_LOWBIT
+        if (c & 0b01000000) LED_HIGHBIT
+        else LED_LOWBIT;
 
-                if (c & 0b00100000) LED_HIGHBIT
-        else LED_LOWBIT
+        if (c & 0b00100000) LED_HIGHBIT
+        else LED_LOWBIT;
 
-                if (c & 0b00010000) LED_HIGHBIT
-        else LED_LOWBIT
+        if (c & 0b00010000) LED_HIGHBIT
+        else LED_LOWBIT;
 
-                if (c & 0b00001000) LED_HIGHBIT
-        else LED_LOWBIT
+        if (c & 0b00001000) LED_HIGHBIT
+        else LED_LOWBIT;
 
-                if (c & 0b00000100) LED_HIGHBIT
-        else LED_LOWBIT
+        if (c & 0b00000100) LED_HIGHBIT
+        else LED_LOWBIT;
 
-                if (c & 0b00000010) LED_HIGHBIT
-        else LED_LOWBIT
+        if (c & 0b00000010) LED_HIGHBIT
+        else LED_LOWBIT;
 
-                if (c & 0b00000001) LED_HIGHBIT
-        else LED_LOWBIT
-        }
-
-void clearArray(char *c, uint8_t leng)
-{
-        leng--;
-        while (leng != 0) {
-                c[leng] = 0;
-                leng--;
-        }
-        c[0] = 0;
+        if (c & 0b00000001) LED_HIGHBIT
+        else LED_LOWBIT;
 }
 
 /******************************************************************************
@@ -538,13 +544,13 @@ void clearArray(char *c, uint8_t leng)
  */
 uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
 {
-        if (tm_low < tm_high)
+        if (tm_low < tm_high) //no overflow bc obv
                 return tm_high - tm_low;
-        else
+        else //no overflow bc now tm_low >= tm_high
                 return 0xffff - tm_low + tm_high;
 }
 
-int ledReset()
+uint8_t ledReset()
 {
         //because we have a prescale of 1:2 we can use only half of the required step count
         if (led_rest < getTime()) {
@@ -562,13 +568,10 @@ int ledReset()
  */
 void setLED(uint8_t g, uint8_t r, uint8_t b)
 {
-        bit gie = GIE;
-        GIE = 0;
         sendColour(g);
         sendColour(r);
         sendColour(b);
         led_rest = getTime();
-        GIE = gie;
 }
 
 void interrupt ISR()
@@ -588,34 +591,38 @@ void interrupt ISR()
 
         //volts
         if (C1IE && C1IF) {
-                //if (!(flag & 0x01)) { //is volt not set
-                volt_time = getTime();
-                if (flag & 0x02) //is current set
-                        flag |= 0x08;
-                if (flag & 0x04) //is volts first
-                        flag &= ~0x04;
-                flag |= 0x01;
-                //}
+                if (!(flag & 0x01)) { //is volt not set
+                        volt_time = getTime();
+                        if (flag & 0x02) //is current set
+                                flag |= 0x08;
+                        flag |= 0x01;
+                }
 
                 C1IF = 0;
         }
 
         //amps
         if (C2IE && C2IF) {
-                //if (!(flag & 0x02)) { //is current not set
-                curr_time = getTime();
-                if (flag & 0x01) //is volt set
-                        flag |= 0x04;
-                if (flag & 0x08) //is current first
-                        flag &= ~0x08;
-                flag |= 0x02;
-                //}
+                if (!(flag & 0x02)) { //is current not set
+                        curr_time = getTime();
+                        if (flag & 0x01) //is volt set
+                                flag |= 0x04;
+                        flag |= 0x02;
+                }
 
                 C2IF = 0;
         }
 
         if (TMR2IE && TMR2IF) {
                 TMR2IF = 0;
+        }
+
+        if (IOCBN5 && IOCBF5) {
+                mode++;
+                mode %= DMODE_MAX;
+
+                setLED((mode & 0x01) << 3, (mode & 0x02) << 3, (mode & 0x04) << 2);
+                IOCBF5 = 0;
         }
 }
 
@@ -624,9 +631,13 @@ void interrupt ISR()
  */
 void main()
 {
-        uint32_t diff;
-        float angle;
-        float diff_;
+        uint24_t angle;
+        float current;
+        float voltage;
+        float apparent;
+        float real;
+        float reactive;
+        uint16_t so_buff;
 
         PEIE = 0;
         GIE = 0;
@@ -642,39 +653,100 @@ void main()
         initMessaging();
 
         PEIE = 1;
-        GIE = 1;
-
-        i_u_offs = -readVdd()* 5.0 / 2.0;
+        GIE = 0;
 
         while (1) {
-                // <editor-fold defaultstate="collapsed" desc="handle phase delay">
-                GIE = 0;
+
+
                 if ((flag & 0x02) && (flag & 0x01)) { //volts and current
                         if (flag & 0x04) //volts first
-                                diff = deltaT(volt_time, curr_time);
+                                angle = (deltaT(volt_time, curr_time) >> 2); // (*250/1000) == (/4) == (>>2)
                         else if (flag & 0x08) //current first
-                                diff = deltaT(curr_time, volt_time);
+                                angle = (deltaT(curr_time, volt_time) >> 2);
 
                         flag = 0;
-                        //curr_time = 0;
-                        //volt_time = 0;
 
-                        diff *= 125;
-                        diff /= 1000;
-                        sendString("diff/us");
-                        sendInt32(diff);
+                        angle /= 1000;
+                        angle *= FULL_ROTATION * 50;
+                        //we want to preserve accuracy, thus we need to multiply now
+                        //if we did it before the abore division, we would have an overflow
+                        //below we would likely have 0 bc the result would be a fraction
+                        angle /= 1000;
 
-                        diff_ = (float) diff;
-                        diff_ /= 1000;
-                        diff_ /= 1000;
-                        angle = cos(2 * M_PI * 50 * diff_);
-                        sendString("angle/rad");
-                        sendFloat(angle);
+                        i_u_offs = -readVdd()* 5.0 / 2.0;
+                        current = readCurrent();
+                        voltage = readVoltage();
+                        apparent = voltage * current;
+                        real = (apparent * icos(angle)) / MAX_SIN_RES;
+                        reactive = (apparent * isin(angle)) / MAX_SIN_RES;
+
+                        DISPLAY_LAT = 0;
+                        switch (mode) {
+                                case DMODE_NONE:
+                                        clearDisplay(SHIFT_REG_LEN);
+                                        so_buff = 5;
+                                        break;
+                                case DMODE_CURRENT:
+                                        clearDisplay(SHIFT_REG_LEN);
+                                        so_buff = ASECOND;
+                                        so(so_buff & 0xff);
+                                        so(so_buff >> 8 & 0xff);
+                                        so(so_buff >> 16 & 0xff);
+                                        so_buff = setNr((uint16_t) current);
+                                        break;
+                                case DMODE_VOLTAGE:
+                                        clearDisplay(SHIFT_REG_LEN);
+                                        so_buff = V;
+                                        so(so_buff & 0xff);
+                                        so(so_buff >> 8 & 0xff);
+                                        so(so_buff >> 16 & 0xff);
+                                        so_buff = setNr((uint16_t) voltage);
+                                        break;
+                                case DMODE_APPARENT:
+                                        clearDisplay(SHIFT_REG_LEN);
+                                        so_buff = V & ASECOND;
+                                        so(so_buff & 0xff);
+                                        so(so_buff >> 8 & 0xff);
+                                        so(so_buff >> 16 & 0xff);
+                                        so_buff = setNr((uint16_t) apparent);
+                                        break;
+                                case DMODE_REAL:
+                                        clearDisplay(SHIFT_REG_LEN);
+                                        so_buff = WSECOND;
+                                        so(so_buff & 0xff);
+                                        so(so_buff >> 8 & 0xff);
+                                        so(so_buff >> 16 & 0xff);
+                                        so_buff = setNr((uint16_t) real);
+                                        break;
+                                case DMODE_REACTIVE:
+                                        clearDisplay(SHIFT_REG_LEN);
+                                        so_buff = V & AFIRST & ASECOND;
+                                        so(so_buff & 0xff);
+                                        so(so_buff >> 8 & 0xff);
+                                        so(so_buff >> 16 & 0xff);
+                                        so_buff = setNr((uint16_t) reactive);
+                                        break;
+                        }
+
+                        //fill the last few registers in order to position the thingies correctly
+                        while (SHIFT_REG_LEN - 2 - so_buff) {
+                                so(0xff);
+                                so_buff--;
+                        }
+                        DISPLAY_LAT = 1;
+
+                        sendChar(K_CURRENT);
+                        sendFloat((current < 0) ? -current : current);
+                        sendChar(K_APPARENTEPOWER);
+                        sendFloat((apparent < 0) ? -apparent : apparent);
+                        sendChar(K_REALPOWER);
+                        sendFloat((real < 0) ? -real : real);
+                        sendChar(K_REACTIVEPOWER);
+                        sendFloat((reactive < 0) ? -reactive : reactive);
                 }
-                GIE = 1;
-                // </editor-fold>
 
-                sendString("current/ampere");
-                sendFloat(readCurrent());
+                GIE = 1;
+                __delay_ms(100);
+                GIE = 0;
         }
 }

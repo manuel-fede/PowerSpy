@@ -1,0 +1,92 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[; ;types.h: 15: typedef signed char byte;
+[; ;types.h: 16: typedef signed char int8_t;
+[; ;types.h: 17: typedef unsigned char uint8_t;
+[; ;types.h: 18: typedef signed short int16_t;
+[; ;types.h: 19: typedef unsigned short uint16_t;
+[; ;types.h: 20: typedef signed short long int24_t;
+[; ;types.h: 21: typedef unsigned short long uint24_t;
+[; ;types.h: 22: typedef signed long int32_t;
+[; ;types.h: 23: typedef unsigned long uint32_t;
+[; ;intmath.h: 24: int16_t isin(int16_t z);
+[; ;intmath.h: 25: int16_t icos(int16_t z);
+"12 intmath.c
+[v _isin_ `(s ~T0 @X0 1 ef1`s ]
+{
+[; ;intmath.c: 12: int16_t isin_(int16_t z) {
+[e :U _isin_ ]
+[v _z `s ~T0 @X0 1 r1 ]
+[f ]
+[; ;intmath.c: 13: return (3 * z) / 2 - (z * z * z) / ((0xff) * (0xff) << 1);
+"13
+[e ) -> - / * -> 3 `i -> _z `i -> 2 `i / * * -> _z `i -> _z `i -> _z `i << * -> 255 `i -> 255 `i -> 1 `i `s ]
+[e $UE 1  ]
+[; ;intmath.c: 14: }
+"14
+[e :UE 1 ]
+}
+"16
+[v _isin `(s ~T0 @X0 1 ef1`s ]
+{
+[; ;intmath.c: 16: int16_t isin(int16_t z) {
+[e :U _isin ]
+[v _z `s ~T0 @X0 1 r1 ]
+[f ]
+[; ;intmath.c: 17: while (z > (0xff) << 2)
+"17
+[e $U 3  ]
+[e :U 4 ]
+[; ;intmath.c: 18: z -= (0xff)<<2;
+"18
+[e =- _z -> << -> 255 `i -> 2 `i `s ]
+[e :U 3 ]
+"17
+[e $ > -> _z `i << -> 255 `i -> 2 `i 4  ]
+[e :U 5 ]
+[; ;intmath.c: 20: if (z > ((0xff) << 1) + (0xff))
+"20
+[e $ ! > -> _z `i + << -> 255 `i -> 1 `i -> 255 `i 6  ]
+[; ;intmath.c: 21: return -isin_(((0xff) << 2) - z);
+"21
+[e ) -> -U -> ( _isin_ (1 -> - << -> 255 `i -> 2 `i -> _z `i `s `i `s ]
+[e $UE 2  ]
+[e :U 6 ]
+[; ;intmath.c: 23: if (z > (0xff) << 1)
+"23
+[e $ ! > -> _z `i << -> 255 `i -> 1 `i 7  ]
+[; ;intmath.c: 24: return -isin_((z - ((0xff) << 1)));
+"24
+[e ) -> -U -> ( _isin_ (1 -> - -> _z `i << -> 255 `i -> 1 `i `s `i `s ]
+[e $UE 2  ]
+[e :U 7 ]
+[; ;intmath.c: 26: if (z > (0xff))
+"26
+[e $ ! > -> _z `i -> 255 `i 8  ]
+[; ;intmath.c: 27: return isin_((((0xff) << 1) - z));
+"27
+[e ) ( _isin_ (1 -> - << -> 255 `i -> 1 `i -> _z `i `s ]
+[e $UE 2  ]
+[e :U 8 ]
+[; ;intmath.c: 30: return isin_(z);
+"30
+[e ) ( _isin_ (1 _z ]
+[e $UE 2  ]
+[; ;intmath.c: 31: }
+"31
+[e :UE 2 ]
+}
+"33
+[v _icos `(s ~T0 @X0 1 ef1`s ]
+{
+[; ;intmath.c: 33: int16_t icos(int16_t z) {
+[e :U _icos ]
+[v _z `s ~T0 @X0 1 r1 ]
+[f ]
+[; ;intmath.c: 34: return isin((0xff) + z);
+"34
+[e ) ( _isin (1 -> + -> 255 `i -> _z `i `s ]
+[e $UE 9  ]
+[; ;intmath.c: 35: }
+"35
+[e :UE 9 ]
+}

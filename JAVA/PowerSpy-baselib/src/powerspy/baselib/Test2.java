@@ -19,8 +19,7 @@
 package powerspy.baselib;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static powerspy.baselib.IODefs.*;
 
 /**
 
@@ -28,16 +27,21 @@ import java.util.logging.Logger;
  */
 public class Test2 {
 
-        public static void main(String[] args) throws IOException
+        public static void main(String[] args) throws IOException, PackageException
         {
                 ArrayInputStream is = new ArrayInputStream();
-                byte[] data = "[1]hellohellohellohello[2]".getBytes();
-                
-                
-                is.insert(data, 0, data.length);
-                while (is.available() > 0) {
-                        System.out.println((char)is.read());
+                PSInputStream pis = new PSInputStream(is);
+                byte[] b = new byte[4];
+                b[0] = START_OF_TEXT;
+                b[1] = INT8;
+                b[2] = 13;
+                b[3] = END_OF_TEXT;
+
+                is.insert(b, 0, b.length);
+
+                if (pis.readPackage()) {
+                        System.out.println(pis.readObj());
+                        pis.clear();
                 }
-                is.close();
         }
 }

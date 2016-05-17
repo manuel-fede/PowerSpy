@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=powerspy.c math.c message.c str.c
+SOURCEFILES_QUOTED_IF_SPACED=powerspy.c message.c intmath.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/powerspy.p1 ${OBJECTDIR}/math.p1 ${OBJECTDIR}/message.p1 ${OBJECTDIR}/str.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/powerspy.p1.d ${OBJECTDIR}/math.p1.d ${OBJECTDIR}/message.p1.d ${OBJECTDIR}/str.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/powerspy.p1 ${OBJECTDIR}/message.p1 ${OBJECTDIR}/intmath.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/powerspy.p1.d ${OBJECTDIR}/message.p1.d ${OBJECTDIR}/intmath.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/powerspy.p1 ${OBJECTDIR}/math.p1 ${OBJECTDIR}/message.p1 ${OBJECTDIR}/str.p1
+OBJECTFILES=${OBJECTDIR}/powerspy.p1 ${OBJECTDIR}/message.p1 ${OBJECTDIR}/intmath.p1
 
 # Source Files
-SOURCEFILES=powerspy.c math.c message.c str.c
+SOURCEFILES=powerspy.c message.c intmath.c
 
 
 CFLAGS=
@@ -89,14 +89,6 @@ ${OBJECTDIR}/powerspy.p1: powerspy.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/powerspy.d ${OBJECTDIR}/powerspy.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/powerspy.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/math.p1: math.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/math.p1.d 
-	@${RM} ${OBJECTDIR}/math.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/math.p1  math.c 
-	@-${MV} ${OBJECTDIR}/math.d ${OBJECTDIR}/math.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/math.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/message.p1: message.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/message.p1.d 
@@ -105,13 +97,13 @@ ${OBJECTDIR}/message.p1: message.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/message.d ${OBJECTDIR}/message.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/message.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/str.p1: str.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/intmath.p1: intmath.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/str.p1.d 
-	@${RM} ${OBJECTDIR}/str.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/str.p1  str.c 
-	@-${MV} ${OBJECTDIR}/str.d ${OBJECTDIR}/str.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/str.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/intmath.p1.d 
+	@${RM} ${OBJECTDIR}/intmath.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/intmath.p1  intmath.c 
+	@-${MV} ${OBJECTDIR}/intmath.d ${OBJECTDIR}/intmath.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/intmath.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/powerspy.p1: powerspy.c  nbproject/Makefile-${CND_CONF}.mk
@@ -122,14 +114,6 @@ ${OBJECTDIR}/powerspy.p1: powerspy.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/powerspy.d ${OBJECTDIR}/powerspy.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/powerspy.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/math.p1: math.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/math.p1.d 
-	@${RM} ${OBJECTDIR}/math.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/math.p1  math.c 
-	@-${MV} ${OBJECTDIR}/math.d ${OBJECTDIR}/math.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/math.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/message.p1: message.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/message.p1.d 
@@ -138,13 +122,13 @@ ${OBJECTDIR}/message.p1: message.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/message.d ${OBJECTDIR}/message.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/message.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/str.p1: str.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/intmath.p1: intmath.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/str.p1.d 
-	@${RM} ${OBJECTDIR}/str.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/str.p1  str.c 
-	@-${MV} ${OBJECTDIR}/str.d ${OBJECTDIR}/str.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/str.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/intmath.p1.d 
+	@${RM} ${OBJECTDIR}/intmath.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/intmath.p1  intmath.c 
+	@-${MV} ${OBJECTDIR}/intmath.d ${OBJECTDIR}/intmath.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/intmath.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

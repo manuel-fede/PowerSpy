@@ -19,17 +19,37 @@
 package powerspy.baselib;
 
 import java.io.*;
+import static powerspy.baselib.IODefs.*;
 
 /**
- *
- * @author redxef
+
+ @author redxef
  */
-public class PSOutputStream extends OutputStream implements IODefs {
+public class PSOutputStream extends OutputStream {
+
+        private final OutputStream os;
+
+        public PSOutputStream(OutputStream os)
+        {
+                this.os = os;
+        }
 
         @Override
         public void write(int b) throws IOException
         {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                os.write(b);
+        }
+
+        @Override
+        public void flush() throws IOException
+        {
+                os.flush();
+        }
+
+        @Override
+        public void close() throws IOException
+        {
+                os.close();
         }
 
 }

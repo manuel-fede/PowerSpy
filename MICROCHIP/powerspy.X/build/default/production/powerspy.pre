@@ -3718,34 +3718,6 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 30 "/Applications/microchip/xc8/v1.36/include/math.h"
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double) ;
-extern double cos(double) ;
-extern double tan(double) ;
-extern double asin(double) ;
-extern double acos(double) ;
-extern double atan(double);
-extern double atan2(double, double) ;
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double) ;
-extern double exp(double) ;
-extern double sinh(double) ;
-extern double cosh(double) ;
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
-
 # 15 "types.h"
 typedef signed char byte;
 typedef signed char int8_t;
@@ -3809,7 +3781,7 @@ void sendString(char *val);
 #pragma warning disable 752
 #pragma warning enable pop
 
-# 141
+# 150
 void initPins();
 void initADC();
 void initTMR2();
@@ -3821,34 +3793,37 @@ void initCOMP2();
 void adc(const int8_t src);
 uint8_t readVoltage();
 float readCurrent();
-void so(const uint8_t data, const uint8_t direction);
+void so(const uint8_t data);
 uint24_t combine(uint24_t nr1, uint24_t nr2);
 void clearDisplay(int8_t leng);
+uint8_t setNr(uint16_t);
 void __interrupt ISR();
 void main();
 
-# 18 "str.h"
-uint8_t _strlen(char *c);
-void print(char *flw, char *app);
-void reverse(char *c, uint8_t leng);
-void flt_to_str(const float f_, char *c, const uint8_t max_precision);
+# 24 "intmath.h"
+int16_t isin(int16_t z);
+int16_t icos(int16_t z);
 
 # 20 "powerspy.c"
 const uint8_t get_shift_byte[10] = {0b10000001, 0b10111101, 0b11001000, 0b10011000, 0b10110100, 0b10010010, 0b10000010, 0b10111001, 0b10000000, 0b10010000};
 
 
 
-int16_t volt_time = -1;
-int16_t curr_time = -1;
+uint16_t volt_time = 0;
+uint16_t curr_time = 0;
 
 # 31
-uint8_t flag = 0;
+volatile uint8_t flag = 0;
+
 
 float i_u_offs = -12.5;
+float i_u_diode_offs = -0.04;
 
 uint16_t led_rest = 0;
 
-# 45
+volatile uint8_t mode = 0;
+
+# 49
 void initPins()
 {
 PORTA = 0b00000000;
@@ -3873,9 +3848,13 @@ IRCF2 = 1;
 IRCF3 = 1;
 
 SPLLEN = 1;
+
+
+IOCBN5 = 1;
+IOCIE = 1;
 }
 
-# 75
+# 83
 void initADC()
 {
 
@@ -3897,11 +3876,11 @@ ADNREF = 0;
 ADON = 1;
 }
 
-# 100
+# 108
 void initTMR2()
 {
 
-# 119
+# 127
 T2CKPS0 = 1;
 T2CKPS1 = 0;
 
@@ -3924,11 +3903,11 @@ TMR2IF = 0;
 TMR2ON = 1;
 }
 
-# 144
+# 152
 void initTMR1()
 {
 
-# 157
+# 165
 TMR1CS0 = 0;
 TMR1CS1 = 0;
 
@@ -3943,11 +3922,11 @@ TMR1IF = 0;
 TMR1ON = 1;
 }
 
-# 174
+# 182
 void initFVR()
 {
 
-# 186
+# 194
 ADFVR0 = 1;
 ADFVR1 = 0;
 
@@ -3957,7 +3936,7 @@ FVREN = 1;
 while (!FVRRDY);
 }
 
-# 200
+# 208
 void initPWMTMR4()
 {
 
@@ -3974,7 +3953,7 @@ CCP1CON = 0b00110000;
 
 CCP1CON |= 0b00001100;
 
-# 220
+# 228
 CCPR1L = 0x7f;
 
 
@@ -4000,7 +3979,7 @@ TMR4IF = 0;
 TRISBbits.TRISB0 = 0;
 }
 
-# 260
+# 268
 void initCOMP1()
 {
 
@@ -4009,7 +3988,7 @@ void initCOMP1()
 C1NCH0 = 1;
 C1NCH1 = 0;
 
-# 280
+# 288
 C1PCH0 = 0;
 C1PCH1 = 1;
 
@@ -4020,7 +3999,7 @@ C1IF = 0;
 C1ON = 1;
 }
 
-# 294
+# 302
 void initCOMP2()
 {
 
@@ -4029,7 +4008,7 @@ void initCOMP2()
 C2NCH0 = 0;
 C2NCH1 = 0;
 
-# 313
+# 321
 C2PCH0 = 0;
 C2PCH1 = 0;
 
@@ -4040,7 +4019,7 @@ C2IF = 0;
 C2ON = 1;
 }
 
-# 327
+# 335
 void initBT()
 {
 
@@ -4070,11 +4049,11 @@ RCREG;
 RCIE = 1;
 }
 
-# 366
+# 374
 void adc(const int8_t src)
 {
 
-# 389
+# 397
 CHS0 = (bit) (src >> 0) & 0x01;
 CHS1 = (bit) (src >> 1) & 0x01;
 CHS2 = (bit) (src >> 2) & 0x01;
@@ -4089,21 +4068,21 @@ while (GO_nDONE);
 
 }
 
-# 410
+# 418
 uint8_t readVoltage()
 {
 return 230;
 }
 
-# 420
+# 428
 float readCurrent()
 {
 
-# 428
+# 436
 ADFM = 1;
 adc(7);
 
-return (ADRES * 5.0 / 1024.0) * 5.0 + i_u_offs;
+return (ADRES * 5.0 / 1024.0 + i_u_diode_offs) * 5.0 + i_u_offs;
 }
 
 float readVdd()
@@ -4114,101 +4093,93 @@ adc(0b00011111);
 return (1024.0 / ADRES) * 1.024;
 }
 
-# 448
-void so(const uint8_t data, const uint8_t direction)
+# 456
+void so(const uint8_t data)
 {
-signed char c;
-if (direction) {
-for (c = 8 - 1; c >= 0; c--) {
-RA7 = (data >> c) & 0x01;
-RA4 = 1;
-RA4 = 0;
-}
-} else {
+uint8_t c;
 for (c = 0; c < 8; c++) {
 RA7 = (data >> c) & 0x01;
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
 RA4 = 1;
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
+__nop();
 RA4 = 0;
 }
 }
-}
 
-# 470
-uint24_t combine(uint24_t nr1, uint24_t nr2)
-{
-if (nr1 & nr2) return 0;
-if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr1 != 0xffffff) return 0;
-if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr2 != 0xffffff) return 0;
-return (nr1 | nr2);
-}
-
-# 481
+# 489
 void clearDisplay(int8_t leng)
 {
-RA3 = 0;
 for (; leng >= 0; leng--)
-so(0, 0);
-RA3 = 1;
+so(0xff);
 }
 
-# 493
+uint8_t setNr(uint16_t nr)
+{
+uint8_t it = 0;
+while (nr) {
+so(get_shift_byte[nr % 10]);
+nr /= 10;
+it++;
+}
+return it;
+}
+
+# 510
 void sendColour(uint8_t c)
 {
 if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 
 if (c & 0b01000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 
 if (c & 0b00100000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 
 if (c & 0b00010000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 
 if (c & 0b00001000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 
 if (c & 0b00000100) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 
 if (c & 0b00000010) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 
 if (c & 0b00000001) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
+else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 }
 
-void clearArray(char *c, uint8_t leng)
-{
-leng--;
-while (leng != 0) {
-c[leng] = 0;
-leng--;
-}
-c[0] = 0;
-}
-
-# 538
+# 545
 uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
 {
-uint16_t res;
-
-GIE = 0;
-volt_time = 0;
-curr_time = 0;
-GIE = 1;
-
-if (tm_low < tm_high) {
-res = tm_high - tm_low;
-} else {
-res = 0xffff - tm_low + tm_high;
+if (tm_low < tm_high)
+return tm_high - tm_low;
+else
+return 0xffff - tm_low + tm_high;
 }
 
-return res;
-}
-
-int ledReset()
+uint8_t ledReset()
 {
 
 if (led_rest < TMR1) {
@@ -4221,16 +4192,13 @@ else return 0;
 return 0;
 }
 
-# 572
+# 569
 void setLED(uint8_t g, uint8_t r, uint8_t b)
 {
-byte gie = GIE;
-GIE = 0;
 sendColour(g);
 sendColour(r);
 sendColour(b);
 led_rest = TMR1;
-GIE = gie;
 }
 
 void interrupt ISR()
@@ -4250,27 +4218,24 @@ TMR1IF = 0;
 
 
 if (C1IE && C1IF) {
-
+if (!(flag & 0x01)) {
 volt_time = TMR1;
 if (flag & 0x02)
 flag |= 0x08;
-if (flag & 0x04)
-flag &= ~0x04;
 flag |= 0x01;
-
+}
 
 C1IF = 0;
 }
 
 
 if (C2IE && C2IF) {
-
+if (!(flag & 0x02)) {
 curr_time = TMR1;
 if (flag & 0x01)
 flag |= 0x04;
-if (flag & 0x08)
-flag &= ~0x08;
 flag |= 0x02;
+}
 
 C2IF = 0;
 }
@@ -4278,14 +4243,26 @@ C2IF = 0;
 if (TMR2IE && TMR2IF) {
 TMR2IF = 0;
 }
+
+if (IOCBN5 && IOCBF5) {
+mode++;
+mode %= 6;
+
+setLED((mode & 0x01) << 3, (mode & 0x02) << 3, (mode & 0x04) << 2);
+IOCBF5 = 0;
+}
 }
 
-# 633
+# 632
 void main()
 {
-uint32_t diff;
-float angle;
-float diff_;
+uint24_t angle;
+float current;
+float voltage;
+float apparent;
+float real;
+float reactive;
+uint16_t so_buff;
 
 PEIE = 0;
 GIE = 0;
@@ -4301,34 +4278,99 @@ initBT();
 initMessaging();
 
 PEIE = 1;
-GIE = 1;
-
-i_u_offs = -readVdd()* 5.0 / 2.0;
+GIE = 0;
 
 while (1) {
 
+
 if ((flag & 0x02) && (flag & 0x01)) {
 if (flag & 0x04)
-diff = deltaT(volt_time, curr_time);
+angle = (deltaT(volt_time, curr_time) >> 2);
 else if (flag & 0x08)
-diff = deltaT(curr_time, volt_time);
+angle = (deltaT(curr_time, volt_time) >> 2);
 
 flag = 0;
 
-diff *= 125;
-diff /= 1000;
-sendString("diff/us");
-sendInt32(diff);
+angle /= 1000;
+angle *= ((0xff)<<2) * 50;
 
-diff_ = (float) diff;
-diff_ /= 1000;
-diff_ /= 1000;
-angle = cos(2*3.14159265358979323846*50*diff_);
-sendString("angle/rad");
-sendFloat(angle);
+
+angle /= 1000;
+
+i_u_offs = -readVdd()* 5.0 / 2.0;
+current = readCurrent();
+voltage = readVoltage();
+apparent = voltage * current;
+real = (apparent * icos(angle)) / (0xff);
+reactive = (apparent * isin(angle)) / (0xff);
+
+RA3 = 0;
+switch (mode) {
+case 0:
+clearDisplay(7);
+so_buff = 5;
+break;
+case 1:
+clearDisplay(7);
+so_buff = 0b111111111111111101011111;
+so(so_buff & 0xff);
+so(so_buff >> 8 & 0xff);
+so(so_buff >> 16 & 0xff);
+so_buff = setNr((uint16_t) current);
+break;
+case 2:
+clearDisplay(7);
+so_buff = 0b111101101011101111111111;
+so(so_buff & 0xff);
+so(so_buff >> 8 & 0xff);
+so(so_buff >> 16 & 0xff);
+so_buff = setNr((uint16_t) voltage);
+break;
+case 4:
+clearDisplay(7);
+so_buff = 0b111101101011101111111111 & 0b111111111111111101011111;
+so(so_buff & 0xff);
+so(so_buff >> 8 & 0xff);
+so(so_buff >> 16 & 0xff);
+so_buff = setNr((uint16_t) apparent);
+break;
+case 5:
+clearDisplay(7);
+so_buff = 0b111111111111111100111111;
+so(so_buff & 0xff);
+so(so_buff >> 8 & 0xff);
+so(so_buff >> 16 & 0xff);
+so_buff = setNr((uint16_t) real);
+break;
+case 6:
+clearDisplay(7);
+so_buff = 0b111101101011101111111111 & 0b111110100111101011100111 & 0b111111111111111101011111;
+so(so_buff & 0xff);
+so(so_buff >> 8 & 0xff);
+so(so_buff >> 16 & 0xff);
+so_buff = setNr((uint16_t) reactive);
+break;
 }
 
-sendString("current/ampere");
-sendFloat(readCurrent());
+
+while (7 - 2 - so_buff) {
+so(0xff);
+so_buff--;
+}
+RA3 = 1;
+
+sendChar('c');
+sendFloat((current < 0) ? -current : current);
+sendChar('A');
+sendFloat((apparent < 0) ? -apparent : apparent);
+sendChar('r');
+sendFloat((real < 0) ? -real : real);
+sendChar('R');
+sendFloat((reactive < 0) ? -reactive : reactive);
+}
+
+GIE = 1;
+_delay((unsigned long)((100)*(32000000/4000.0)));
+GIE = 0;
 }
 }

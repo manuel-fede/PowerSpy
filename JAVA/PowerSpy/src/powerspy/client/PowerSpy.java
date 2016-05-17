@@ -19,9 +19,6 @@
 package powerspy.client;
 
 import com.fazecast.jSerialComm.SerialPort;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.Port;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -35,14 +32,15 @@ public class PowerSpy {
         {
                 try {
                         UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                } catch (ClassNotFoundException | InstantiationException |
+                        IllegalAccessException | UnsupportedLookAndFeelException ex) {
                         ex.printStackTrace(System.err);
                 }
-                
+
                 Frame f = new Frame();
                 Controller c = new Controller(f);
                 f.installController(c);
-                
+
                 for (SerialPort p : SerialPort.getCommPorts())
                         if (!p.getDescriptivePortName().contains("Dial-In")) //remove the clutter
                                 f.ports.addItem(p);

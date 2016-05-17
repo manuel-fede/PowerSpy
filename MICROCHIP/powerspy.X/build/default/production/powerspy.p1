@@ -29,6 +29,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IRCF3 `Vb ~T0 @X0 0 e@1230 ]
 "7272
 [v _SPLLEN `Vb ~T0 @X0 0 e@1231 ]
+"7006
+[v _IOCBN5 `Vb ~T0 @X0 0 e@7341 ]
+"7028
+[v _IOCIE `Vb ~T0 @X0 0 e@91 ]
 "6638
 [v _ADFM `Vb ~T0 @X0 0 e@1271 ]
 "6630
@@ -197,31 +201,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADRES `Vus ~T0 @X0 0 e@155 ]
 "7226
 [v _RA7 `Vb ~T0 @X0 0 e@103 ]
-"7220
-[v _RA4 `Vb ~T0 @X0 0 e@100 ]
-"7218
-[v _RA3 `Vb ~T0 @X0 0 e@99 ]
-"7224
-[v _RA6 `Vb ~T0 @X0 0 e@102 ]
 "28 /Applications/microchip/xc8/v1.36/include/pic.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"6962 /Applications/microchip/xc8/v1.36/include/pic16f1827.h
-[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"7220 /Applications/microchip/xc8/v1.36/include/pic16f1827.h
+[v _RA4 `Vb ~T0 @X0 0 e@100 ]
+"7224
+[v _RA6 `Vb ~T0 @X0 0 e@102 ]
 "730
 [v _TMR1 `Vus ~T0 @X0 0 e@22 ]
+"6990
+[v _IOCBF5 `Vb ~T0 @X0 0 e@7349 ]
 [p mainexit ]
 "7184
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"6962
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
 "32 message.h
 [v _initMessaging `(v ~T0 @X0 0 ef ]
-"53
-[v _sendString `(v ~T0 @X0 0 ef1`*uc ]
-"51
-[v _sendInt32 `(v ~T0 @X0 0 ef1`l ]
-"37 /Applications/microchip/xc8/v1.36/include/math.h
-[v _cos `(d ~T0 @X0 0 ef1`d ]
-"52 message.h
+"25 intmath.h
+[v _icos `(s ~T0 @X0 0 ef1`s ]
+"24
+[v _isin `(s ~T0 @X0 0 ef1`s ]
+"7218 /Applications/microchip/xc8/v1.36/include/pic16f1827.h
+[v _RA3 `Vb ~T0 @X0 0 e@99 ]
+"47 message.h
+[v _sendChar `(v ~T0 @X0 0 ef1`uc ]
+"52
 [v _sendFloat `(v ~T0 @X0 0 ef1`f ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2977,32 +2983,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;math.h: 30: extern double fabs(double);
-[; ;math.h: 31: extern double floor(double);
-[; ;math.h: 32: extern double ceil(double);
-[; ;math.h: 33: extern double modf(double, double *);
-[; ;math.h: 34: extern double sqrt(double);
-[; ;math.h: 35: extern double atof(const char *);
-[; ;math.h: 36: extern double sin(double) ;
-[; ;math.h: 37: extern double cos(double) ;
-[; ;math.h: 38: extern double tan(double) ;
-[; ;math.h: 39: extern double asin(double) ;
-[; ;math.h: 40: extern double acos(double) ;
-[; ;math.h: 41: extern double atan(double);
-[; ;math.h: 42: extern double atan2(double, double) ;
-[; ;math.h: 43: extern double log(double);
-[; ;math.h: 44: extern double log10(double);
-[; ;math.h: 45: extern double pow(double, double) ;
-[; ;math.h: 46: extern double exp(double) ;
-[; ;math.h: 47: extern double sinh(double) ;
-[; ;math.h: 48: extern double cosh(double) ;
-[; ;math.h: 49: extern double tanh(double);
-[; ;math.h: 50: extern double eval_poly(double, const double *, int);
-[; ;math.h: 51: extern double frexp(double, int *);
-[; ;math.h: 52: extern double ldexp(double, int);
-[; ;math.h: 53: extern double fmod(double, double);
-[; ;math.h: 54: extern double trunc(double);
-[; ;math.h: 55: extern double round(double);
 [; ;types.h: 15: typedef signed char byte;
 [; ;types.h: 16: typedef signed char int8_t;
 [; ;types.h: 17: typedef unsigned char uint8_t;
@@ -3076,26 +3056,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p n 752 ]
 "40
 [p y pop ]
-[; ;powerspy.h: 141: void initPins();
-[; ;powerspy.h: 142: void initADC();
-[; ;powerspy.h: 143: void initTMR2();
-[; ;powerspy.h: 144: void initTMR1();
-[; ;powerspy.h: 145: void initFVR();
-[; ;powerspy.h: 146: void initPWMTMR4();
-[; ;powerspy.h: 147: void initCOMP1();
-[; ;powerspy.h: 148: void initCOMP2();
-[; ;powerspy.h: 149: void adc(const int8_t src);
-[; ;powerspy.h: 150: uint8_t readVoltage();
-[; ;powerspy.h: 151: float readCurrent();
-[; ;powerspy.h: 152: void so(const uint8_t data, const uint8_t direction);
-[; ;powerspy.h: 153: uint24_t combine(uint24_t nr1, uint24_t nr2);
-[; ;powerspy.h: 154: void clearDisplay(int8_t leng);
-[; ;powerspy.h: 155: void __interrupt ISR();
-[; ;powerspy.h: 156: void main();
-[; ;str.h: 18: uint8_t _strlen(char *c);
-[; ;str.h: 19: void print(char *flw, char *app);
-[; ;str.h: 20: void reverse(char *c, uint8_t leng);
-[; ;str.h: 21: void flt_to_str(const float f_, char *c, const uint8_t max_precision);
+[; ;powerspy.h: 150: void initPins();
+[; ;powerspy.h: 151: void initADC();
+[; ;powerspy.h: 152: void initTMR2();
+[; ;powerspy.h: 153: void initTMR1();
+[; ;powerspy.h: 154: void initFVR();
+[; ;powerspy.h: 155: void initPWMTMR4();
+[; ;powerspy.h: 156: void initCOMP1();
+[; ;powerspy.h: 157: void initCOMP2();
+[; ;powerspy.h: 158: void adc(const int8_t src);
+[; ;powerspy.h: 159: uint8_t readVoltage();
+[; ;powerspy.h: 160: float readCurrent();
+[; ;powerspy.h: 161: void so(const uint8_t data);
+[; ;powerspy.h: 162: uint24_t combine(uint24_t nr1, uint24_t nr2);
+[; ;powerspy.h: 163: void clearDisplay(int8_t leng);
+[; ;powerspy.h: 164: uint8_t setNr(uint16_t);
+[; ;powerspy.h: 165: void __interrupt ISR();
+[; ;powerspy.h: 166: void main();
+[; ;intmath.h: 24: int16_t isin(int16_t z);
+[; ;intmath.h: 25: int16_t icos(int16_t z);
 "20 powerspy.c
 [v _get_shift_byte `Cuc ~T0 @X0 -> 10 `i e ]
 [i _get_shift_byte
@@ -3114,1353 +3093,1544 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;powerspy.c: 20: const uint8_t get_shift_byte[10] = {0b10000001, 0b10111101, 0b11001000, 0b10011000, 0b10110100, 0b10010010, 0b10000010, 0b10111001, 0b10000000, 0b10010000};
 "24
-[v _volt_time `s ~T0 @X0 1 e ]
+[v _volt_time `us ~T0 @X0 1 e ]
 [i _volt_time
--> -U -> 1 `i `s
+-> -> 0 `i `us
 ]
-[; ;powerspy.c: 24: int16_t volt_time = -1;
+[; ;powerspy.c: 24: uint16_t volt_time = 0;
 "25
-[v _curr_time `s ~T0 @X0 1 e ]
+[v _curr_time `us ~T0 @X0 1 e ]
 [i _curr_time
--> -U -> 1 `i `s
+-> -> 0 `i `us
 ]
-[; ;powerspy.c: 25: int16_t curr_time = -1;
+[; ;powerspy.c: 25: uint16_t curr_time = 0;
 "31
-[v _flag `uc ~T0 @X0 1 e ]
+[v _flag `Vuc ~T0 @X0 1 e ]
 [i _flag
 -> -> 0 `i `uc
 ]
-[; ;powerspy.c: 31: uint8_t flag = 0;
-"33
+[; ;powerspy.c: 31: volatile uint8_t flag = 0;
+"34
 [v _i_u_offs `f ~T0 @X0 1 e ]
 [i _i_u_offs
 -> -U .12.5 `f
 ]
-[; ;powerspy.c: 33: float i_u_offs = -12.5;
+[; ;powerspy.c: 34: float i_u_offs = -12.5;
 "35
+[v _i_u_diode_offs `f ~T0 @X0 1 e ]
+[i _i_u_diode_offs
+-> -U .0.04 `f
+]
+[; ;powerspy.c: 35: float i_u_diode_offs = -0.04;
+"37
 [v _led_rest `us ~T0 @X0 1 e ]
 [i _led_rest
 -> -> 0 `i `us
 ]
-[; ;powerspy.c: 35: uint16_t led_rest = 0;
-"45
+[; ;powerspy.c: 37: uint16_t led_rest = 0;
+"39
+[v _mode `Vuc ~T0 @X0 1 e ]
+[i _mode
+-> -> 0 `i `uc
+]
+[; ;powerspy.c: 39: volatile uint8_t mode = 0;
+"49
 [v _initPins `(v ~T0 @X0 1 ef ]
-"46
+"50
 {
-[; ;powerspy.c: 45: void initPins()
-[; ;powerspy.c: 46: {
+[; ;powerspy.c: 49: void initPins()
+[; ;powerspy.c: 50: {
 [e :U _initPins ]
 [f ]
-[; ;powerspy.c: 47: PORTA = 0b00000000;
-"47
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;powerspy.c: 48: ANSELA = 0b00000111;
-"48
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;powerspy.c: 49: TRISA = 0b00000111;
-"49
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;powerspy.c: 51: PORTB = 0b00000000;
+[; ;powerspy.c: 51: PORTA = 0b00000000;
 "51
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;powerspy.c: 52: ANSELB = 0b00110000;
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;powerspy.c: 52: ANSELA = 0b00000111;
 "52
-[e = _ANSELB -> -> 48 `i `uc ]
-[; ;powerspy.c: 53: TRISB = 0b00111010;
+[e = _ANSELA -> -> 7 `i `uc ]
+[; ;powerspy.c: 53: TRISA = 0b00000111;
 "53
-[e = _TRISB -> -> 58 `i `uc ]
-[; ;powerspy.c: 55: nWPUEN = 0;
+[e = _TRISA -> -> 7 `i `uc ]
+[; ;powerspy.c: 55: PORTB = 0b00000000;
 "55
-[e = _nWPUEN -> -> 0 `i `b ]
-[; ;powerspy.c: 56: WPUB = 0b00001000;
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;powerspy.c: 56: ANSELB = 0b00110000;
 "56
-[e = _WPUB -> -> 8 `i `uc ]
-[; ;powerspy.c: 60: SCS0 = 0;
+[e = _ANSELB -> -> 48 `i `uc ]
+[; ;powerspy.c: 57: TRISB = 0b00111010;
+"57
+[e = _TRISB -> -> 58 `i `uc ]
+[; ;powerspy.c: 59: nWPUEN = 0;
+"59
+[e = _nWPUEN -> -> 0 `i `b ]
+[; ;powerspy.c: 60: WPUB = 0b00001000;
 "60
-[e = _SCS0 -> -> 0 `i `b ]
-[; ;powerspy.c: 61: SCS1 = 0;
-"61
-[e = _SCS1 -> -> 0 `i `b ]
-[; ;powerspy.c: 63: IRCF0 = 0;
-"63
-[e = _IRCF0 -> -> 0 `i `b ]
-[; ;powerspy.c: 64: IRCF1 = 1;
+[e = _WPUB -> -> 8 `i `uc ]
+[; ;powerspy.c: 64: SCS0 = 0;
 "64
-[e = _IRCF1 -> -> 1 `i `b ]
-[; ;powerspy.c: 65: IRCF2 = 1;
+[e = _SCS0 -> -> 0 `i `b ]
+[; ;powerspy.c: 65: SCS1 = 0;
 "65
-[e = _IRCF2 -> -> 1 `i `b ]
-[; ;powerspy.c: 66: IRCF3 = 1;
-"66
-[e = _IRCF3 -> -> 1 `i `b ]
-[; ;powerspy.c: 68: SPLLEN = 1;
+[e = _SCS1 -> -> 0 `i `b ]
+[; ;powerspy.c: 67: IRCF0 = 0;
+"67
+[e = _IRCF0 -> -> 0 `i `b ]
+[; ;powerspy.c: 68: IRCF1 = 1;
 "68
-[e = _SPLLEN -> -> 1 `i `b ]
-[; ;powerspy.c: 69: }
+[e = _IRCF1 -> -> 1 `i `b ]
+[; ;powerspy.c: 69: IRCF2 = 1;
 "69
+[e = _IRCF2 -> -> 1 `i `b ]
+[; ;powerspy.c: 70: IRCF3 = 1;
+"70
+[e = _IRCF3 -> -> 1 `i `b ]
+[; ;powerspy.c: 72: SPLLEN = 1;
+"72
+[e = _SPLLEN -> -> 1 `i `b ]
+[; ;powerspy.c: 75: IOCBN5 = 1;
+"75
+[e = _IOCBN5 -> -> 1 `i `b ]
+[; ;powerspy.c: 76: IOCIE = 1;
+"76
+[e = _IOCIE -> -> 1 `i `b ]
+[; ;powerspy.c: 77: }
+"77
 [e :UE 350 ]
 }
-"75
+"83
 [v _initADC `(v ~T0 @X0 1 ef ]
-"76
+"84
 {
-[; ;powerspy.c: 75: void initADC()
-[; ;powerspy.c: 76: {
+[; ;powerspy.c: 83: void initADC()
+[; ;powerspy.c: 84: {
 [e :U _initADC ]
 [f ]
-[; ;powerspy.c: 79: ADFM = 0;
-"79
+[; ;powerspy.c: 87: ADFM = 0;
+"87
 [e = _ADFM -> -> 0 `i `b ]
-[; ;powerspy.c: 83: ADCS0 = 0;
-"83
-[e = _ADCS0 -> -> 0 `i `b ]
-[; ;powerspy.c: 84: ADCS1 = 1;
-"84
-[e = _ADCS1 -> -> 1 `i `b ]
-[; ;powerspy.c: 85: ADCS2 = 1;
-"85
-[e = _ADCS2 -> -> 1 `i `b ]
-[; ;powerspy.c: 89: ADPREF0 = 0;
-"89
-[e = _ADPREF0 -> -> 0 `i `b ]
-[; ;powerspy.c: 90: ADPREF1 = 0;
-"90
-[e = _ADPREF1 -> -> 0 `i `b ]
-[; ;powerspy.c: 91: ADNREF = 0;
+[; ;powerspy.c: 91: ADCS0 = 0;
 "91
-[e = _ADNREF -> -> 0 `i `b ]
-[; ;powerspy.c: 93: ADON = 1;
+[e = _ADCS0 -> -> 0 `i `b ]
+[; ;powerspy.c: 92: ADCS1 = 1;
+"92
+[e = _ADCS1 -> -> 1 `i `b ]
+[; ;powerspy.c: 93: ADCS2 = 1;
 "93
+[e = _ADCS2 -> -> 1 `i `b ]
+[; ;powerspy.c: 97: ADPREF0 = 0;
+"97
+[e = _ADPREF0 -> -> 0 `i `b ]
+[; ;powerspy.c: 98: ADPREF1 = 0;
+"98
+[e = _ADPREF1 -> -> 0 `i `b ]
+[; ;powerspy.c: 99: ADNREF = 0;
+"99
+[e = _ADNREF -> -> 0 `i `b ]
+[; ;powerspy.c: 101: ADON = 1;
+"101
 [e = _ADON -> -> 1 `i `b ]
-[; ;powerspy.c: 94: }
-"94
+[; ;powerspy.c: 102: }
+"102
 [e :UE 351 ]
 }
-"100
+"108
 [v _initTMR2 `(v ~T0 @X0 1 ef ]
-"101
+"109
 {
-[; ;powerspy.c: 100: void initTMR2()
-[; ;powerspy.c: 101: {
+[; ;powerspy.c: 108: void initTMR2()
+[; ;powerspy.c: 109: {
 [e :U _initTMR2 ]
 [f ]
-[; ;powerspy.c: 119: T2CKPS0 = 1;
-"119
-[e = _T2CKPS0 -> -> 1 `i `b ]
-[; ;powerspy.c: 120: T2CKPS1 = 0;
-"120
-[e = _T2CKPS1 -> -> 0 `i `b ]
-[; ;powerspy.c: 124: T2OUTPS0 = 0;
-"124
-[e = _T2OUTPS0 -> -> 0 `i `b ]
-[; ;powerspy.c: 125: T2OUTPS1 = 0;
-"125
-[e = _T2OUTPS1 -> -> 0 `i `b ]
-[; ;powerspy.c: 126: T2OUTPS2 = 0;
-"126
-[e = _T2OUTPS2 -> -> 0 `i `b ]
-[; ;powerspy.c: 127: T2OUTPS3 = 0;
+[; ;powerspy.c: 127: T2CKPS0 = 1;
 "127
-[e = _T2OUTPS3 -> -> 0 `i `b ]
-[; ;powerspy.c: 131: PR2 = 0xff;
-"131
-[e = _PR2 -> -> 255 `i `uc ]
-[; ;powerspy.c: 134: TMR2IE = 1;
+[e = _T2CKPS0 -> -> 1 `i `b ]
+[; ;powerspy.c: 128: T2CKPS1 = 0;
+"128
+[e = _T2CKPS1 -> -> 0 `i `b ]
+[; ;powerspy.c: 132: T2OUTPS0 = 0;
+"132
+[e = _T2OUTPS0 -> -> 0 `i `b ]
+[; ;powerspy.c: 133: T2OUTPS1 = 0;
+"133
+[e = _T2OUTPS1 -> -> 0 `i `b ]
+[; ;powerspy.c: 134: T2OUTPS2 = 0;
 "134
-[e = _TMR2IE -> -> 1 `i `b ]
-[; ;powerspy.c: 135: TMR2IF = 0;
+[e = _T2OUTPS2 -> -> 0 `i `b ]
+[; ;powerspy.c: 135: T2OUTPS3 = 0;
 "135
-[e = _TMR2IF -> -> 0 `i `b ]
-[; ;powerspy.c: 138: TMR2ON = 1;
-"138
-[e = _TMR2ON -> -> 1 `i `b ]
-[; ;powerspy.c: 139: }
+[e = _T2OUTPS3 -> -> 0 `i `b ]
+[; ;powerspy.c: 139: PR2 = 0xff;
 "139
+[e = _PR2 -> -> 255 `i `uc ]
+[; ;powerspy.c: 142: TMR2IE = 1;
+"142
+[e = _TMR2IE -> -> 1 `i `b ]
+[; ;powerspy.c: 143: TMR2IF = 0;
+"143
+[e = _TMR2IF -> -> 0 `i `b ]
+[; ;powerspy.c: 146: TMR2ON = 1;
+"146
+[e = _TMR2ON -> -> 1 `i `b ]
+[; ;powerspy.c: 147: }
+"147
 [e :UE 352 ]
 }
-"144
+"152
 [v _initTMR1 `(v ~T0 @X0 1 ef ]
-"145
+"153
 {
-[; ;powerspy.c: 144: void initTMR1()
-[; ;powerspy.c: 145: {
+[; ;powerspy.c: 152: void initTMR1()
+[; ;powerspy.c: 153: {
 [e :U _initTMR1 ]
 [f ]
-[; ;powerspy.c: 157: TMR1CS0 = 0;
-"157
-[e = _TMR1CS0 -> -> 0 `i `b ]
-[; ;powerspy.c: 158: TMR1CS1 = 0;
-"158
-[e = _TMR1CS1 -> -> 0 `i `b ]
-[; ;powerspy.c: 162: T1CKPS0 = 1;
-"162
-[e = _T1CKPS0 -> -> 1 `i `b ]
-[; ;powerspy.c: 163: T1CKPS1 = 0;
-"163
-[e = _T1CKPS1 -> -> 0 `i `b ]
-[; ;powerspy.c: 165: TMR1IE = 1;
+[; ;powerspy.c: 165: TMR1CS0 = 0;
 "165
-[e = _TMR1IE -> -> 1 `i `b ]
-[; ;powerspy.c: 166: TMR1IF = 0;
+[e = _TMR1CS0 -> -> 0 `i `b ]
+[; ;powerspy.c: 166: TMR1CS1 = 0;
 "166
+[e = _TMR1CS1 -> -> 0 `i `b ]
+[; ;powerspy.c: 170: T1CKPS0 = 1;
+"170
+[e = _T1CKPS0 -> -> 1 `i `b ]
+[; ;powerspy.c: 171: T1CKPS1 = 0;
+"171
+[e = _T1CKPS1 -> -> 0 `i `b ]
+[; ;powerspy.c: 173: TMR1IE = 1;
+"173
+[e = _TMR1IE -> -> 1 `i `b ]
+[; ;powerspy.c: 174: TMR1IF = 0;
+"174
 [e = _TMR1IF -> -> 0 `i `b ]
-[; ;powerspy.c: 168: TMR1ON = 1;
-"168
+[; ;powerspy.c: 176: TMR1ON = 1;
+"176
 [e = _TMR1ON -> -> 1 `i `b ]
-[; ;powerspy.c: 169: }
-"169
+[; ;powerspy.c: 177: }
+"177
 [e :UE 353 ]
 }
-"174
+"182
 [v _initFVR `(v ~T0 @X0 1 ef ]
-"175
+"183
 {
-[; ;powerspy.c: 174: void initFVR()
-[; ;powerspy.c: 175: {
+[; ;powerspy.c: 182: void initFVR()
+[; ;powerspy.c: 183: {
 [e :U _initFVR ]
 [f ]
-[; ;powerspy.c: 186: ADFVR0 = 1;
-"186
+[; ;powerspy.c: 194: ADFVR0 = 1;
+"194
 [e = _ADFVR0 -> -> 1 `i `b ]
-[; ;powerspy.c: 187: ADFVR1 = 0;
-"187
+[; ;powerspy.c: 195: ADFVR1 = 0;
+"195
 [e = _ADFVR1 -> -> 0 `i `b ]
-[; ;powerspy.c: 189: CDAFVR0 = 0;
-"189
+[; ;powerspy.c: 197: CDAFVR0 = 0;
+"197
 [e = _CDAFVR0 -> -> 0 `i `b ]
-[; ;powerspy.c: 190: CDAFVR1 = 0;
-"190
+[; ;powerspy.c: 198: CDAFVR1 = 0;
+"198
 [e = _CDAFVR1 -> -> 0 `i `b ]
-[; ;powerspy.c: 191: FVREN = 1;
-"191
+[; ;powerspy.c: 199: FVREN = 1;
+"199
 [e = _FVREN -> -> 1 `i `b ]
-[; ;powerspy.c: 192: while (!FVRRDY);
-"192
+[; ;powerspy.c: 200: while (!FVRRDY);
+"200
 [e $U 355  ]
 [e :U 356 ]
 [e :U 355 ]
 [e $ ! _FVRRDY 356  ]
 [e :U 357 ]
-[; ;powerspy.c: 193: }
-"193
+[; ;powerspy.c: 201: }
+"201
 [e :UE 354 ]
 }
-"200
+"208
 [v _initPWMTMR4 `(v ~T0 @X0 1 ef ]
-"201
+"209
 {
-[; ;powerspy.c: 200: void initPWMTMR4()
-[; ;powerspy.c: 201: {
+[; ;powerspy.c: 208: void initPWMTMR4()
+[; ;powerspy.c: 209: {
 [e :U _initPWMTMR4 ]
 [f ]
-[; ;powerspy.c: 204: CCP1SEL = 1;
-"204
+[; ;powerspy.c: 212: CCP1SEL = 1;
+"212
 [e = _CCP1SEL -> -> 1 `i `b ]
-[; ;powerspy.c: 207: TRISBbits.TRISB0 = 1;
-"207
+[; ;powerspy.c: 215: TRISBbits.TRISB0 = 1;
+"215
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-[; ;powerspy.c: 210: PR2 = 0xff;
-"210
+[; ;powerspy.c: 218: PR2 = 0xff;
+"218
 [e = _PR2 -> -> 255 `i `uc ]
-[; ;powerspy.c: 211: CCP1CON = 0b00110000;
-"211
+[; ;powerspy.c: 219: CCP1CON = 0b00110000;
+"219
 [e = _CCP1CON -> -> 48 `i `uc ]
-[; ;powerspy.c: 214: CCP1CON |= 0b00001100;
-"214
+[; ;powerspy.c: 222: CCP1CON |= 0b00001100;
+"222
 [e =| _CCP1CON -> -> 12 `i `uc ]
-[; ;powerspy.c: 220: CCPR1L = 0x7f;
-"220
-[e = _CCPR1L -> -> 127 `i `uc ]
-[; ;powerspy.c: 223: DC1B0 = 1;
-"223
-[e = _DC1B0 -> -> 1 `i `b ]
-[; ;powerspy.c: 224: DC1B1 = 1;
-"224
-[e = _DC1B1 -> -> 1 `i `b ]
-[; ;powerspy.c: 228: C1TSEL0 = 1;
+[; ;powerspy.c: 228: CCPR1L = 0x7f;
 "228
-[e = _C1TSEL0 -> -> 1 `i `b ]
-[; ;powerspy.c: 229: C1TSEL1 = 0;
-"229
-[e = _C1TSEL1 -> -> 0 `i `b ]
-[; ;powerspy.c: 230: TMR4IF = 0;
-"230
-[e = _TMR4IF -> -> 0 `i `b ]
-[; ;powerspy.c: 233: T4CKPS0 = 0;
-"233
-[e = _T4CKPS0 -> -> 0 `i `b ]
-[; ;powerspy.c: 234: T4CKPS1 = 0;
-"234
-[e = _T4CKPS1 -> -> 0 `i `b ]
-[; ;powerspy.c: 236: TMR4ON = 1;
+[e = _CCPR1L -> -> 127 `i `uc ]
+[; ;powerspy.c: 231: DC1B0 = 1;
+"231
+[e = _DC1B0 -> -> 1 `i `b ]
+[; ;powerspy.c: 232: DC1B1 = 1;
+"232
+[e = _DC1B1 -> -> 1 `i `b ]
+[; ;powerspy.c: 236: C1TSEL0 = 1;
 "236
-[e = _TMR4ON -> -> 1 `i `b ]
-[; ;powerspy.c: 240: TMR4IF = 0;
-"240
+[e = _C1TSEL0 -> -> 1 `i `b ]
+[; ;powerspy.c: 237: C1TSEL1 = 0;
+"237
+[e = _C1TSEL1 -> -> 0 `i `b ]
+[; ;powerspy.c: 238: TMR4IF = 0;
+"238
 [e = _TMR4IF -> -> 0 `i `b ]
-[; ;powerspy.c: 242: TRISBbits.TRISB0 = 0;
+[; ;powerspy.c: 241: T4CKPS0 = 0;
+"241
+[e = _T4CKPS0 -> -> 0 `i `b ]
+[; ;powerspy.c: 242: T4CKPS1 = 0;
 "242
+[e = _T4CKPS1 -> -> 0 `i `b ]
+[; ;powerspy.c: 244: TMR4ON = 1;
+"244
+[e = _TMR4ON -> -> 1 `i `b ]
+[; ;powerspy.c: 248: TMR4IF = 0;
+"248
+[e = _TMR4IF -> -> 0 `i `b ]
+[; ;powerspy.c: 250: TRISBbits.TRISB0 = 0;
+"250
 [e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
-[; ;powerspy.c: 243: }
-"243
+[; ;powerspy.c: 251: }
+"251
 [e :UE 358 ]
 }
-"260
+"268
 [v _initCOMP1 `(v ~T0 @X0 1 ef ]
-"261
+"269
 {
-[; ;powerspy.c: 260: void initCOMP1()
-[; ;powerspy.c: 261: {
+[; ;powerspy.c: 268: void initCOMP1()
+[; ;powerspy.c: 269: {
 [e :U _initCOMP1 ]
 [f ]
-[; ;powerspy.c: 265: C1NCH0 = 1;
-"265
+[; ;powerspy.c: 273: C1NCH0 = 1;
+"273
 [e = _C1NCH0 -> -> 1 `i `b ]
-[; ;powerspy.c: 266: C1NCH1 = 0;
-"266
+[; ;powerspy.c: 274: C1NCH1 = 0;
+"274
 [e = _C1NCH1 -> -> 0 `i `b ]
-[; ;powerspy.c: 280: C1PCH0 = 0;
-"280
-[e = _C1PCH0 -> -> 0 `i `b ]
-[; ;powerspy.c: 281: C1PCH1 = 1;
-"281
-[e = _C1PCH1 -> -> 1 `i `b ]
-[; ;powerspy.c: 284: C1INTP = 1;
-"284
-[e = _C1INTP -> -> 1 `i `b ]
-[; ;powerspy.c: 285: C1IE = 1;
-"285
-[e = _C1IE -> -> 1 `i `b ]
-[; ;powerspy.c: 286: C1IF = 0;
-"286
-[e = _C1IF -> -> 0 `i `b ]
-[; ;powerspy.c: 287: C1ON = 1;
-"287
-[e = _C1ON -> -> 1 `i `b ]
-[; ;powerspy.c: 288: }
+[; ;powerspy.c: 288: C1PCH0 = 0;
 "288
+[e = _C1PCH0 -> -> 0 `i `b ]
+[; ;powerspy.c: 289: C1PCH1 = 1;
+"289
+[e = _C1PCH1 -> -> 1 `i `b ]
+[; ;powerspy.c: 292: C1INTP = 1;
+"292
+[e = _C1INTP -> -> 1 `i `b ]
+[; ;powerspy.c: 293: C1IE = 1;
+"293
+[e = _C1IE -> -> 1 `i `b ]
+[; ;powerspy.c: 294: C1IF = 0;
+"294
+[e = _C1IF -> -> 0 `i `b ]
+[; ;powerspy.c: 295: C1ON = 1;
+"295
+[e = _C1ON -> -> 1 `i `b ]
+[; ;powerspy.c: 296: }
+"296
 [e :UE 359 ]
 }
-"294
+"302
 [v _initCOMP2 `(v ~T0 @X0 1 ef ]
-"295
+"303
 {
-[; ;powerspy.c: 294: void initCOMP2()
-[; ;powerspy.c: 295: {
+[; ;powerspy.c: 302: void initCOMP2()
+[; ;powerspy.c: 303: {
 [e :U _initCOMP2 ]
 [f ]
-[; ;powerspy.c: 299: C2NCH0 = 0;
-"299
+[; ;powerspy.c: 307: C2NCH0 = 0;
+"307
 [e = _C2NCH0 -> -> 0 `i `b ]
-[; ;powerspy.c: 300: C2NCH1 = 0;
-"300
+[; ;powerspy.c: 308: C2NCH1 = 0;
+"308
 [e = _C2NCH1 -> -> 0 `i `b ]
-[; ;powerspy.c: 313: C2PCH0 = 0;
-"313
-[e = _C2PCH0 -> -> 0 `i `b ]
-[; ;powerspy.c: 314: C2PCH1 = 0;
-"314
-[e = _C2PCH1 -> -> 0 `i `b ]
-[; ;powerspy.c: 317: C2INTP = 1;
-"317
-[e = _C2INTP -> -> 1 `i `b ]
-[; ;powerspy.c: 318: C2IE = 1;
-"318
-[e = _C2IE -> -> 1 `i `b ]
-[; ;powerspy.c: 319: C2IF = 0;
-"319
-[e = _C2IF -> -> 0 `i `b ]
-[; ;powerspy.c: 320: C2ON = 1;
-"320
-[e = _C2ON -> -> 1 `i `b ]
-[; ;powerspy.c: 321: }
+[; ;powerspy.c: 321: C2PCH0 = 0;
 "321
+[e = _C2PCH0 -> -> 0 `i `b ]
+[; ;powerspy.c: 322: C2PCH1 = 0;
+"322
+[e = _C2PCH1 -> -> 0 `i `b ]
+[; ;powerspy.c: 325: C2INTP = 1;
+"325
+[e = _C2INTP -> -> 1 `i `b ]
+[; ;powerspy.c: 326: C2IE = 1;
+"326
+[e = _C2IE -> -> 1 `i `b ]
+[; ;powerspy.c: 327: C2IF = 0;
+"327
+[e = _C2IF -> -> 0 `i `b ]
+[; ;powerspy.c: 328: C2ON = 1;
+"328
+[e = _C2ON -> -> 1 `i `b ]
+[; ;powerspy.c: 329: }
+"329
 [e :UE 360 ]
 }
-"327
+"335
 [v _initBT `(v ~T0 @X0 1 ef ]
-"328
+"336
 {
-[; ;powerspy.c: 327: void initBT()
-[; ;powerspy.c: 328: {
+[; ;powerspy.c: 335: void initBT()
+[; ;powerspy.c: 336: {
 [e :U _initBT ]
 [f ]
-[; ;powerspy.c: 331: RXDTSEL = 0;
-"331
+[; ;powerspy.c: 339: RXDTSEL = 0;
+"339
 [e = _RXDTSEL -> -> 0 `i `b ]
-[; ;powerspy.c: 332: TXCKSEL = 0;
-"332
-[e = _TXCKSEL -> -> 0 `i `b ]
-[; ;powerspy.c: 335: TXEN = 1;
-"335
-[e = _TXEN -> -> 1 `i `b ]
-[; ;powerspy.c: 336: SYNC = 0;
-"336
-[e = _SYNC -> -> 0 `i `b ]
-[; ;powerspy.c: 337: SPEN = 1;
-"337
-[e = _SPEN -> -> 1 `i `b ]
-[; ;powerspy.c: 340: CREN = 1;
+[; ;powerspy.c: 340: TXCKSEL = 0;
 "340
-[e = _CREN -> -> 1 `i `b ]
-[; ;powerspy.c: 341: SYNC = 0;
-"341
+[e = _TXCKSEL -> -> 0 `i `b ]
+[; ;powerspy.c: 343: TXEN = 1;
+"343
+[e = _TXEN -> -> 1 `i `b ]
+[; ;powerspy.c: 344: SYNC = 0;
+"344
 [e = _SYNC -> -> 0 `i `b ]
-[; ;powerspy.c: 342: SPEN = 1;
-"342
-[e = _SPEN -> -> 1 `i `b ]
-[; ;powerspy.c: 345: BRGH = 0;
+[; ;powerspy.c: 345: SPEN = 1;
 "345
-[e = _BRGH -> -> 0 `i `b ]
-[; ;powerspy.c: 346: BRG16 = 0;
-"346
-[e = _BRG16 -> -> 0 `i `b ]
-[; ;powerspy.c: 347: SPBRG = 51;
-"347
-[e = _SPBRG -> -> 51 `i `uc ]
-[; ;powerspy.c: 349: while (RCIF) {
+[e = _SPEN -> -> 1 `i `b ]
+[; ;powerspy.c: 348: CREN = 1;
+"348
+[e = _CREN -> -> 1 `i `b ]
+[; ;powerspy.c: 349: SYNC = 0;
 "349
+[e = _SYNC -> -> 0 `i `b ]
+[; ;powerspy.c: 350: SPEN = 1;
+"350
+[e = _SPEN -> -> 1 `i `b ]
+[; ;powerspy.c: 353: BRGH = 0;
+"353
+[e = _BRGH -> -> 0 `i `b ]
+[; ;powerspy.c: 354: BRG16 = 0;
+"354
+[e = _BRG16 -> -> 0 `i `b ]
+[; ;powerspy.c: 355: SPBRG = 51;
+"355
+[e = _SPBRG -> -> 51 `i `uc ]
+[; ;powerspy.c: 357: while (RCIF) {
+"357
 [e $U 362  ]
 [e :U 363 ]
 {
-[; ;powerspy.c: 350: RCREG;
-"350
+[; ;powerspy.c: 358: RCREG;
+"358
 [e _RCREG ]
-"351
+"359
 }
 [e :U 362 ]
-"349
+"357
 [e $ _RCIF 363  ]
 [e :U 364 ]
-[; ;powerspy.c: 351: }
-[; ;powerspy.c: 353: RCIE = 1;
-"353
+[; ;powerspy.c: 359: }
+[; ;powerspy.c: 361: RCIE = 1;
+"361
 [e = _RCIE -> -> 1 `i `b ]
-[; ;powerspy.c: 354: }
-"354
+[; ;powerspy.c: 362: }
+"362
 [e :UE 361 ]
 }
-"366
+"374
 [v _adc `(v ~T0 @X0 1 ef1`Cc ]
-"367
+"375
 {
-[; ;powerspy.c: 366: void adc(const int8_t src)
-[; ;powerspy.c: 367: {
+[; ;powerspy.c: 374: void adc(const int8_t src)
+[; ;powerspy.c: 375: {
 [e :U _adc ]
-"366
+"374
 [v _src `Cc ~T0 @X0 1 r1 ]
-"367
+"375
 [f ]
-[; ;powerspy.c: 389: CHS0 = (bit) (src >> 0) & 0x01;
-"389
+[; ;powerspy.c: 397: CHS0 = (bit) (src >> 0) & 0x01;
+"397
 [e = _CHS0 -> & -> -> >> -> _src `i -> 0 `i `b `i -> 1 `i `b ]
-[; ;powerspy.c: 390: CHS1 = (bit) (src >> 1) & 0x01;
-"390
-[e = _CHS1 -> & -> -> >> -> _src `i -> 1 `i `b `i -> 1 `i `b ]
-[; ;powerspy.c: 391: CHS2 = (bit) (src >> 2) & 0x01;
-"391
-[e = _CHS2 -> & -> -> >> -> _src `i -> 2 `i `b `i -> 1 `i `b ]
-[; ;powerspy.c: 392: CHS3 = (bit) (src >> 3) & 0x01;
-"392
-[e = _CHS3 -> & -> -> >> -> _src `i -> 3 `i `b `i -> 1 `i `b ]
-[; ;powerspy.c: 393: CHS4 = (bit) (src >> 4) & 0x01;
-"393
-[e = _CHS4 -> & -> -> >> -> _src `i -> 4 `i `b `i -> 1 `i `b ]
-[; ;powerspy.c: 395: _delay((unsigned long)((5)*(32000000/4000000.0)));
-"395
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;powerspy.c: 398: GO_nDONE = 1;
+[; ;powerspy.c: 398: CHS1 = (bit) (src >> 1) & 0x01;
 "398
-[e = _GO_nDONE -> -> 1 `i `b ]
-[; ;powerspy.c: 399: while (GO_nDONE);
+[e = _CHS1 -> & -> -> >> -> _src `i -> 1 `i `b `i -> 1 `i `b ]
+[; ;powerspy.c: 399: CHS2 = (bit) (src >> 2) & 0x01;
 "399
+[e = _CHS2 -> & -> -> >> -> _src `i -> 2 `i `b `i -> 1 `i `b ]
+[; ;powerspy.c: 400: CHS3 = (bit) (src >> 3) & 0x01;
+"400
+[e = _CHS3 -> & -> -> >> -> _src `i -> 3 `i `b `i -> 1 `i `b ]
+[; ;powerspy.c: 401: CHS4 = (bit) (src >> 4) & 0x01;
+"401
+[e = _CHS4 -> & -> -> >> -> _src `i -> 4 `i `b `i -> 1 `i `b ]
+[; ;powerspy.c: 403: _delay((unsigned long)((5)*(32000000/4000000.0)));
+"403
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
+[; ;powerspy.c: 406: GO_nDONE = 1;
+"406
+[e = _GO_nDONE -> -> 1 `i `b ]
+[; ;powerspy.c: 407: while (GO_nDONE);
+"407
 [e $U 366  ]
 [e :U 367 ]
 [e :U 366 ]
 [e $ _GO_nDONE 367  ]
 [e :U 368 ]
-[; ;powerspy.c: 401: }
-"401
+[; ;powerspy.c: 409: }
+"409
 [e :UE 365 ]
 }
-"410
+"418
 [v _readVoltage `(uc ~T0 @X0 1 ef ]
-"411
+"419
 {
-[; ;powerspy.c: 410: uint8_t readVoltage()
-[; ;powerspy.c: 411: {
+[; ;powerspy.c: 418: uint8_t readVoltage()
+[; ;powerspy.c: 419: {
 [e :U _readVoltage ]
 [f ]
-[; ;powerspy.c: 412: return 230;
-"412
+[; ;powerspy.c: 420: return 230;
+"420
 [e ) -> -> 230 `i `uc ]
 [e $UE 369  ]
-[; ;powerspy.c: 413: }
-"413
+[; ;powerspy.c: 421: }
+"421
 [e :UE 369 ]
 }
-"420
-[v _readCurrent `(f ~T0 @X0 1 ef ]
-"421
-{
-[; ;powerspy.c: 420: float readCurrent()
-[; ;powerspy.c: 421: {
-[e :U _readCurrent ]
-[f ]
-[; ;powerspy.c: 428: ADFM = 1;
 "428
-[e = _ADFM -> -> 1 `i `b ]
-[; ;powerspy.c: 429: adc(7);
+[v _readCurrent `(f ~T0 @X0 1 ef ]
 "429
-[e ( _adc (1 -> -> 7 `i `c ]
-[; ;powerspy.c: 431: return (ADRES * 5.0 / 1024.0) * 5.0 + i_u_offs;
-"431
-[e ) -> + * / * -> _ADRES `d .5.0 .1024.0 .5.0 -> _i_u_offs `d `f ]
-[e $UE 370  ]
-[; ;powerspy.c: 432: }
-"432
-[e :UE 370 ]
-}
-"434
-[v _readVdd `(f ~T0 @X0 1 ef ]
-"435
 {
-[; ;powerspy.c: 434: float readVdd()
-[; ;powerspy.c: 435: {
-[e :U _readVdd ]
+[; ;powerspy.c: 428: float readCurrent()
+[; ;powerspy.c: 429: {
+[e :U _readCurrent ]
 [f ]
 [; ;powerspy.c: 436: ADFM = 1;
 "436
 [e = _ADFM -> -> 1 `i `b ]
-[; ;powerspy.c: 437: adc(0b00011111);
+[; ;powerspy.c: 437: adc(7);
 "437
-[e ( _adc (1 -> -> 31 `i `c ]
-[; ;powerspy.c: 439: return (1024.0 / ADRES) * 1.024;
+[e ( _adc (1 -> -> 7 `i `c ]
+[; ;powerspy.c: 439: return (ADRES * 5.0 / 1024.0 + i_u_diode_offs) * 5.0 + i_u_offs;
 "439
-[e ) -> * / .1024.0 -> _ADRES `d .1.024 `f ]
-[e $UE 371  ]
+[e ) -> + * + / * -> _ADRES `d .5.0 .1024.0 -> _i_u_diode_offs `d .5.0 -> _i_u_offs `d `f ]
+[e $UE 370  ]
 [; ;powerspy.c: 440: }
 "440
+[e :UE 370 ]
+}
+"442
+[v _readVdd `(f ~T0 @X0 1 ef ]
+"443
+{
+[; ;powerspy.c: 442: float readVdd()
+[; ;powerspy.c: 443: {
+[e :U _readVdd ]
+[f ]
+[; ;powerspy.c: 444: ADFM = 1;
+"444
+[e = _ADFM -> -> 1 `i `b ]
+[; ;powerspy.c: 445: adc(0b00011111);
+"445
+[e ( _adc (1 -> -> 31 `i `c ]
+[; ;powerspy.c: 447: return (1024.0 / ADRES) * 1.024;
+"447
+[e ) -> * / .1024.0 -> _ADRES `d .1.024 `f ]
+[e $UE 371  ]
+[; ;powerspy.c: 448: }
+"448
 [e :UE 371 ]
 }
-"448
-[v _so `(v ~T0 @X0 1 ef2`Cuc`Cuc ]
-"449
-{
-[; ;powerspy.c: 448: void so(const uint8_t data, const uint8_t direction)
-[; ;powerspy.c: 449: {
-[e :U _so ]
-"448
-[v _data `Cuc ~T0 @X0 1 r1 ]
-[v _direction `Cuc ~T0 @X0 1 r2 ]
-"449
-[f ]
-"450
-[v _c `c ~T0 @X0 1 a ]
-[; ;powerspy.c: 450: signed char c;
-[; ;powerspy.c: 451: if (direction) {
-"451
-[e $ ! != -> _direction `i -> -> -> 0 `i `Cuc `i 373  ]
-{
-[; ;powerspy.c: 452: for (c = 8 - 1; c >= 0; c--) {
-"452
-{
-[e = _c -> - -> 8 `i -> 1 `i `c ]
-[e $ >= -> _c `i -> 0 `i 374  ]
-[e $U 375  ]
-[e :U 374 ]
-{
-[; ;powerspy.c: 453: RA7 = (data >> c) & 0x01;
-"453
-[e = _RA7 -> & >> -> _data `i _c -> 1 `i `b ]
-[; ;powerspy.c: 454: RA4 = 1;
-"454
-[e = _RA4 -> -> 1 `i `b ]
-[; ;powerspy.c: 455: RA4 = 0;
-"455
-[e = _RA4 -> -> 0 `i `b ]
 "456
-}
-"452
-[e -- _c -> -> 1 `i `c ]
-[e $ >= -> _c `i -> 0 `i 374  ]
-[e :U 375 ]
-"456
-}
+[v _so `(v ~T0 @X0 1 ef1`Cuc ]
 "457
-}
-[; ;powerspy.c: 456: }
-[; ;powerspy.c: 457: } else {
-[e $U 377  ]
+{
+[; ;powerspy.c: 456: void so(const uint8_t data)
+[; ;powerspy.c: 457: {
+[e :U _so ]
+"456
+[v _data `Cuc ~T0 @X0 1 r1 ]
+"457
+[f ]
+"458
+[v _c `uc ~T0 @X0 1 a ]
+[; ;powerspy.c: 458: uint8_t c;
+[; ;powerspy.c: 459: for (c = 0; c < 8; c++) {
+"459
+{
+[e = _c -> -> 0 `i `uc ]
+[e $ < -> _c `i -> 8 `i 373  ]
+[e $U 374  ]
 [e :U 373 ]
 {
-[; ;powerspy.c: 458: for (c = 0; c < 8; c++) {
-"458
-{
-[e = _c -> -> 0 `i `c ]
-[e $ < -> _c `i -> 8 `i 378  ]
-[e $U 379  ]
-[e :U 378 ]
-{
-[; ;powerspy.c: 459: RA7 = (data >> c) & 0x01;
-"459
-[e = _RA7 -> & >> -> _data `i _c -> 1 `i `b ]
-[; ;powerspy.c: 460: RA4 = 1;
+[; ;powerspy.c: 460: RA7 = (data >> c) & 0x01;
 "460
-[e = _RA4 -> -> 1 `i `b ]
-[; ;powerspy.c: 461: RA4 = 0;
+[e = _RA7 -> & >> -> _data `i _c -> 1 `i `b ]
+[; ;powerspy.c: 461: __nop();
 "461
-[e = _RA4 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[; ;powerspy.c: 462: __nop();
 "462
-}
-"458
-[e ++ _c -> -> 1 `i `c ]
-[e $ < -> _c `i -> 8 `i 378  ]
-[e :U 379 ]
-"462
-}
+[e ( ___nop ..  ]
+[; ;powerspy.c: 463: __nop();
 "463
-}
-[e :U 377 ]
-[; ;powerspy.c: 462: }
-[; ;powerspy.c: 463: }
-[; ;powerspy.c: 464: }
+[e ( ___nop ..  ]
+[; ;powerspy.c: 464: __nop();
 "464
+[e ( ___nop ..  ]
+[; ;powerspy.c: 465: __nop();
+"465
+[e ( ___nop ..  ]
+[; ;powerspy.c: 466: __nop();
+"466
+[e ( ___nop ..  ]
+[; ;powerspy.c: 467: __nop();
+"467
+[e ( ___nop ..  ]
+[; ;powerspy.c: 468: __nop();
+"468
+[e ( ___nop ..  ]
+[; ;powerspy.c: 469: __nop();
+"469
+[e ( ___nop ..  ]
+[; ;powerspy.c: 470: __nop();
+"470
+[e ( ___nop ..  ]
+[; ;powerspy.c: 471: RA4 = 1;
+"471
+[e = _RA4 -> -> 1 `i `b ]
+[; ;powerspy.c: 472: __nop();
+"472
+[e ( ___nop ..  ]
+[; ;powerspy.c: 473: __nop();
+"473
+[e ( ___nop ..  ]
+[; ;powerspy.c: 474: __nop();
+"474
+[e ( ___nop ..  ]
+[; ;powerspy.c: 475: __nop();
+"475
+[e ( ___nop ..  ]
+[; ;powerspy.c: 476: __nop();
+"476
+[e ( ___nop ..  ]
+[; ;powerspy.c: 477: __nop();
+"477
+[e ( ___nop ..  ]
+[; ;powerspy.c: 478: __nop();
+"478
+[e ( ___nop ..  ]
+[; ;powerspy.c: 479: __nop();
+"479
+[e ( ___nop ..  ]
+[; ;powerspy.c: 480: __nop();
+"480
+[e ( ___nop ..  ]
+[; ;powerspy.c: 481: __nop();
+"481
+[e ( ___nop ..  ]
+[; ;powerspy.c: 482: RA4 = 0;
+"482
+[e = _RA4 -> -> 0 `i `b ]
+"483
+}
+"459
+[e ++ _c -> -> 1 `i `uc ]
+[e $ < -> _c `i -> 8 `i 373  ]
+[e :U 374 ]
+"483
+}
+[; ;powerspy.c: 483: }
+[; ;powerspy.c: 484: }
+"484
 [e :UE 372 ]
 }
-"470
-[v _combine `(um ~T0 @X0 1 ef2`um`um ]
-"471
-{
-[; ;powerspy.c: 470: uint24_t combine(uint24_t nr1, uint24_t nr2)
-[; ;powerspy.c: 471: {
-[e :U _combine ]
-"470
-[v _nr1 `um ~T0 @X0 1 r1 ]
-[v _nr2 `um ~T0 @X0 1 r2 ]
-"471
-[f ]
-[; ;powerspy.c: 472: if (nr1 & nr2) return 0;
-"472
-[e $ ! != & _nr1 _nr2 -> -> 0 `i `um 382  ]
-[e ) -> -> -> 0 `i `m `um ]
-[e $UE 381  ]
-[e :U 382 ]
-[; ;powerspy.c: 473: if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr1 != 0xffffff) return 0;
-"473
-[e $ ! != | | -> 13631719 `l -> 16776991 `l -> -> != -> ~ _nr1 `l -> 16777215 `l `i `l -> -> 0 `i `l 383  ]
-[e ) -> -> -> 0 `i `m `um ]
-[e $UE 381  ]
-[e :U 383 ]
-[; ;powerspy.c: 474: if ((0b110100000000000011100111|0b111111111111111100011111) | ~nr2 != 0xffffff) return 0;
-"474
-[e $ ! != | | -> 13631719 `l -> 16776991 `l -> -> != -> ~ _nr2 `l -> 16777215 `l `i `l -> -> 0 `i `l 384  ]
-[e ) -> -> -> 0 `i `m `um ]
-[e $UE 381  ]
-[e :U 384 ]
-[; ;powerspy.c: 475: return (nr1 | nr2);
-"475
-[e ) | _nr1 _nr2 ]
-[e $UE 381  ]
-[; ;powerspy.c: 476: }
-"476
-[e :UE 381 ]
-}
-"481
+"489
 [v _clearDisplay `(v ~T0 @X0 1 ef1`c ]
-"482
+"490
 {
-[; ;powerspy.c: 481: void clearDisplay(int8_t leng)
-[; ;powerspy.c: 482: {
+[; ;powerspy.c: 489: void clearDisplay(int8_t leng)
+[; ;powerspy.c: 490: {
 [e :U _clearDisplay ]
-"481
+"489
 [v _leng `c ~T0 @X0 1 r1 ]
-"482
+"490
 [f ]
-[; ;powerspy.c: 483: RA3 = 0;
-"483
-[e = _RA3 -> -> 0 `i `b ]
-[; ;powerspy.c: 484: for (; leng >= 0; leng--)
-"484
+[; ;powerspy.c: 491: for (; leng >= 0; leng--)
+"491
 {
-[e $ >= -> _leng `i -> 0 `i 386  ]
-[e $U 387  ]
-"485
-[e :U 386 ]
-[; ;powerspy.c: 485: so(0, 0);
-[e ( _so (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"484
+[e $ >= -> _leng `i -> 0 `i 377  ]
+[e $U 378  ]
+"492
+[e :U 377 ]
+[; ;powerspy.c: 492: so(0xff);
+[e ( _so (1 -> -> 255 `i `uc ]
+"491
 [e -- _leng -> -> 1 `i `c ]
-[e $ >= -> _leng `i -> 0 `i 386  ]
-[e :U 387 ]
-"485
+[e $ >= -> _leng `i -> 0 `i 377  ]
+[e :U 378 ]
+"492
 }
-[; ;powerspy.c: 486: RA3 = 1;
-"486
-[e = _RA3 -> -> 1 `i `b ]
-[; ;powerspy.c: 487: }
-"487
-[e :UE 385 ]
+[; ;powerspy.c: 493: }
+"493
+[e :UE 376 ]
 }
-"493
-[v _sendColour `(v ~T0 @X0 1 ef1`uc ]
-"494
-{
-[; ;powerspy.c: 493: void sendColour(uint8_t c)
-[; ;powerspy.c: 494: {
-[e :U _sendColour ]
-"493
-[v _c `uc ~T0 @X0 1 r1 ]
-"494
-[f ]
-[; ;powerspy.c: 495: if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
 "495
-[e $ ! != & -> _c `i -> 128 `i -> 0 `i 390  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 391  ]
+[v _setNr `(uc ~T0 @X0 1 ef1`us ]
 "496
-[e :U 390 ]
-[; ;powerspy.c: 496: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
 {
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 391 ]
-[; ;powerspy.c: 498: if (c & 0b01000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-"498
-[e $ ! != & -> _c `i -> 64 `i -> 0 `i 392  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 393  ]
-"499
-[e :U 392 ]
-[; ;powerspy.c: 499: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 393 ]
-[; ;powerspy.c: 501: if (c & 0b00100000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-"501
-[e $ ! != & -> _c `i -> 32 `i -> 0 `i 394  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 395  ]
-"502
-[e :U 394 ]
-[; ;powerspy.c: 502: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 395 ]
-[; ;powerspy.c: 504: if (c & 0b00010000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-"504
-[e $ ! != & -> _c `i -> 16 `i -> 0 `i 396  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 397  ]
-"505
-[e :U 396 ]
-[; ;powerspy.c: 505: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 397 ]
-[; ;powerspy.c: 507: if (c & 0b00001000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-"507
-[e $ ! != & -> _c `i -> 8 `i -> 0 `i 398  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 399  ]
-"508
-[e :U 398 ]
-[; ;powerspy.c: 508: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 399 ]
-[; ;powerspy.c: 510: if (c & 0b00000100) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-"510
-[e $ ! != & -> _c `i -> 4 `i -> 0 `i 400  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 401  ]
-"511
-[e :U 400 ]
-[; ;powerspy.c: 511: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 401 ]
-[; ;powerspy.c: 513: if (c & 0b00000010) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-"513
-[e $ ! != & -> _c `i -> 2 `i -> 0 `i 402  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 403  ]
-"514
-[e :U 402 ]
-[; ;powerspy.c: 514: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 403 ]
-[; ;powerspy.c: 516: if (c & 0b00000001) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
-"516
-[e $ ! != & -> _c `i -> 1 `i -> 0 `i 404  ]
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-}
-[e $U 405  ]
-"517
-[e :U 404 ]
-[; ;powerspy.c: 517: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); }
-{
-[e = _RA6 -> -> 1 `i `b ]
-[e ( ___nop ..  ]
-[e = _RA6 -> -> 0 `i `b ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-}
-[e :U 405 ]
-[; ;powerspy.c: 518: }
-"518
-[e :UE 389 ]
-}
-"520
-[v _clearArray `(v ~T0 @X0 1 ef2`*uc`uc ]
-"521
-{
-[; ;powerspy.c: 520: void clearArray(char *c, uint8_t leng)
-[; ;powerspy.c: 521: {
-[e :U _clearArray ]
-"520
-[v _c `*uc ~T0 @X0 1 r1 ]
-[v _leng `uc ~T0 @X0 1 r2 ]
-"521
+[; ;powerspy.c: 495: uint8_t setNr(uint16_t nr)
+[; ;powerspy.c: 496: {
+[e :U _setNr ]
+"495
+[v _nr `us ~T0 @X0 1 r1 ]
+"496
 [f ]
-[; ;powerspy.c: 522: leng--;
+"497
+[v _it `uc ~T0 @X0 1 a ]
+[; ;powerspy.c: 497: uint8_t it = 0;
+[e = _it -> -> 0 `i `uc ]
+[; ;powerspy.c: 498: while (nr) {
+"498
+[e $U 381  ]
+[e :U 382 ]
+{
+[; ;powerspy.c: 499: so(get_shift_byte[nr % 10]);
+"499
+[e ( _so (1 *U + &U _get_shift_byte * -> % -> _nr `ui -> -> 10 `i `ui `ux -> -> # *U &U _get_shift_byte `ui `ux ]
+[; ;powerspy.c: 500: nr /= 10;
+"500
+[e =/ _nr -> -> 10 `uc `us ]
+[; ;powerspy.c: 501: it++;
+"501
+[e ++ _it -> -> 1 `i `uc ]
+"502
+}
+[e :U 381 ]
+"498
+[e $ != -> _nr `ui -> -> -> 0 `i `us `ui 382  ]
+[e :U 383 ]
+[; ;powerspy.c: 502: }
+[; ;powerspy.c: 503: return it;
+"503
+[e ) _it ]
+[e $UE 380  ]
+[; ;powerspy.c: 504: }
+"504
+[e :UE 380 ]
+}
+"510
+[v _sendColour `(v ~T0 @X0 1 ef1`uc ]
+"511
+{
+[; ;powerspy.c: 510: void sendColour(uint8_t c)
+[; ;powerspy.c: 511: {
+[e :U _sendColour ]
+"510
+[v _c `uc ~T0 @X0 1 r1 ]
+"511
+[f ]
+[; ;powerspy.c: 512: if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+"512
+[e $ ! != & -> _c `i -> 128 `i -> 0 `i 385  ]
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 386  ]
+"513
+[e :U 385 ]
+[; ;powerspy.c: 513: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 386 ]
+[; ;powerspy.c: 515: if (c & 0b01000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+"515
+[e $ ! != & -> _c `i -> 64 `i -> 0 `i 387  ]
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 388  ]
+"516
+[e :U 387 ]
+[; ;powerspy.c: 516: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 388 ]
+[; ;powerspy.c: 518: if (c & 0b00100000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+"518
+[e $ ! != & -> _c `i -> 32 `i -> 0 `i 389  ]
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 390  ]
+"519
+[e :U 389 ]
+[; ;powerspy.c: 519: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 390 ]
+[; ;powerspy.c: 521: if (c & 0b00010000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+"521
+[e $ ! != & -> _c `i -> 16 `i -> 0 `i 391  ]
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 392  ]
 "522
-[e -- _leng -> -> 1 `i `uc ]
-[; ;powerspy.c: 523: while (leng != 0) {
-"523
-[e $U 407  ]
-[e :U 408 ]
+[e :U 391 ]
+[; ;powerspy.c: 522: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 {
-[; ;powerspy.c: 524: c[leng] = 0;
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 392 ]
+[; ;powerspy.c: 524: if (c & 0b00001000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
 "524
-[e = *U + _c * -> _leng `ux -> -> # *U _c `ui `ux -> -> 0 `i `uc ]
-[; ;powerspy.c: 525: leng--;
-"525
-[e -- _leng -> -> 1 `i `uc ]
-"526
-}
-[e :U 407 ]
-"523
-[e $ != -> _leng `i -> 0 `i 408  ]
-[e :U 409 ]
-[; ;powerspy.c: 526: }
-[; ;powerspy.c: 527: c[0] = 0;
-"527
-[e = *U + _c * -> -> 0 `i `x -> -> # *U _c `i `x -> -> 0 `i `uc ]
-[; ;powerspy.c: 528: }
-"528
-[e :UE 406 ]
-}
-"538
-[v _deltaT `(us ~T0 @X0 1 ef2`us`us ]
-"539
+[e $ ! != & -> _c `i -> 8 `i -> 0 `i 393  ]
 {
-[; ;powerspy.c: 538: uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
-[; ;powerspy.c: 539: {
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 394  ]
+"525
+[e :U 393 ]
+[; ;powerspy.c: 525: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 394 ]
+[; ;powerspy.c: 527: if (c & 0b00000100) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+"527
+[e $ ! != & -> _c `i -> 4 `i -> 0 `i 395  ]
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 396  ]
+"528
+[e :U 395 ]
+[; ;powerspy.c: 528: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 396 ]
+[; ;powerspy.c: 530: if (c & 0b00000010) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+"530
+[e $ ! != & -> _c `i -> 2 `i -> 0 `i 397  ]
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 398  ]
+"531
+[e :U 397 ]
+[; ;powerspy.c: 531: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 398 ]
+[; ;powerspy.c: 533: if (c & 0b00000001) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
+"533
+[e $ ! != & -> _c `i -> 1 `i -> 0 `i 399  ]
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+}
+[e $U 400  ]
+"534
+[e :U 399 ]
+[; ;powerspy.c: 534: else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
+{
+[e = _RA6 -> -> 1 `i `b ]
+[e ( ___nop ..  ]
+[e = _RA6 -> -> 0 `i `b ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+}
+[e :U 400 ]
+[; ;powerspy.c: 535: }
+"535
+[e :UE 384 ]
+}
+"545
+[v _deltaT `(us ~T0 @X0 1 ef2`us`us ]
+"546
+{
+[; ;powerspy.c: 545: uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
+[; ;powerspy.c: 546: {
 [e :U _deltaT ]
-"538
+"545
 [v _tm_low `us ~T0 @X0 1 r1 ]
 [v _tm_high `us ~T0 @X0 1 r2 ]
-"539
+"546
 [f ]
-"540
-[v _res `us ~T0 @X0 1 a ]
-[; ;powerspy.c: 540: uint16_t res;
-[; ;powerspy.c: 542: GIE = 0;
-"542
-[e = _GIE -> -> 0 `i `b ]
-[; ;powerspy.c: 543: volt_time = 0;
-"543
-[e = _volt_time -> -> 0 `i `s ]
-[; ;powerspy.c: 544: curr_time = 0;
-"544
-[e = _curr_time -> -> 0 `i `s ]
-[; ;powerspy.c: 545: GIE = 1;
-"545
-[e = _GIE -> -> 1 `i `b ]
-[; ;powerspy.c: 547: if (tm_low < tm_high) {
+[; ;powerspy.c: 547: if (tm_low < tm_high)
 "547
-[e $ ! < -> _tm_low `ui -> _tm_high `ui 411  ]
-{
-[; ;powerspy.c: 548: res = tm_high - tm_low;
+[e $ ! < -> _tm_low `ui -> _tm_high `ui 402  ]
+[; ;powerspy.c: 548: return tm_high - tm_low;
 "548
-[e = _res -> - -> _tm_high `ui -> _tm_low `ui `us ]
+[e ) -> - -> _tm_high `ui -> _tm_low `ui `us ]
+[e $UE 401  ]
+[e $U 403  ]
 "549
-}
-[; ;powerspy.c: 549: } else {
-[e $U 412  ]
-[e :U 411 ]
-{
-[; ;powerspy.c: 550: res = 0xffff - tm_low + tm_high;
+[e :U 402 ]
+[; ;powerspy.c: 549: else
+[; ;powerspy.c: 550: return 0xffff - tm_low + tm_high;
 "550
-[e = _res -> + - -> 65535 `ui -> _tm_low `ui -> _tm_high `ui `us ]
-"551
-}
-[e :U 412 ]
+[e ) -> + - -> 65535 `ui -> _tm_low `ui -> _tm_high `ui `us ]
+[e $UE 401  ]
+[e :U 403 ]
 [; ;powerspy.c: 551: }
-[; ;powerspy.c: 553: return res;
-"553
-[e ) _res ]
-[e $UE 410  ]
-[; ;powerspy.c: 554: }
-"554
-[e :UE 410 ]
+"551
+[e :UE 401 ]
 }
-"556
-[v _ledReset `(i ~T0 @X0 1 ef ]
-"557
+"553
+[v _ledReset `(uc ~T0 @X0 1 ef ]
+"554
 {
-[; ;powerspy.c: 556: int ledReset()
-[; ;powerspy.c: 557: {
+[; ;powerspy.c: 553: uint8_t ledReset()
+[; ;powerspy.c: 554: {
 [e :U _ledReset ]
 [f ]
-[; ;powerspy.c: 559: if (led_rest < TMR1) {
-"559
-[e $ ! < -> _led_rest `ui -> _TMR1 `ui 414  ]
+[; ;powerspy.c: 556: if (led_rest < TMR1) {
+"556
+[e $ ! < -> _led_rest `ui -> _TMR1 `ui 405  ]
 {
-[; ;powerspy.c: 560: if (TMR1 - led_rest > 200) return 1;
+[; ;powerspy.c: 557: if (TMR1 - led_rest > 200) return 1;
+"557
+[e $ ! > - -> _TMR1 `ui -> _led_rest `ui -> -> 200 `i `ui 406  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 404  ]
+[e $U 407  ]
+"558
+[e :U 406 ]
+[; ;powerspy.c: 558: else return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 404  ]
+[e :U 407 ]
+"559
+}
+[; ;powerspy.c: 559: } else if (led_rest > TMR1) {
+[e $U 408  ]
+[e :U 405 ]
+[e $ ! > -> _led_rest `ui -> _TMR1 `ui 409  ]
+{
+[; ;powerspy.c: 560: if (0xffff - led_rest + TMR1 > 200) return 1;
 "560
-[e $ ! > - -> _TMR1 `ui -> _led_rest `ui -> -> 200 `i `ui 415  ]
-[e ) -> 1 `i ]
-[e $UE 413  ]
-[e $U 416  ]
+[e $ ! > + - -> 65535 `ui -> _led_rest `ui -> _TMR1 `ui -> -> 200 `i `ui 410  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 404  ]
+[e $U 411  ]
 "561
-[e :U 415 ]
+[e :U 410 ]
 [; ;powerspy.c: 561: else return 0;
-[e ) -> 0 `i ]
-[e $UE 413  ]
-[e :U 416 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 404  ]
+[e :U 411 ]
 "562
 }
-[; ;powerspy.c: 562: } else if (led_rest > TMR1) {
-[e $U 417  ]
-[e :U 414 ]
-[e $ ! > -> _led_rest `ui -> _TMR1 `ui 418  ]
-{
-[; ;powerspy.c: 563: if (0xffff - led_rest + TMR1 > 200) return 1;
+[e :U 409 ]
 "563
-[e $ ! > + - -> 65535 `ui -> _led_rest `ui -> _TMR1 `ui -> -> 200 `i `ui 419  ]
-[e ) -> 1 `i ]
-[e $UE 413  ]
-[e $U 420  ]
+[e :U 408 ]
+[; ;powerspy.c: 562: }
+[; ;powerspy.c: 563: return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 404  ]
+[; ;powerspy.c: 564: }
 "564
-[e :U 419 ]
-[; ;powerspy.c: 564: else return 0;
-[e ) -> 0 `i ]
-[e $UE 413  ]
-[e :U 420 ]
-"565
+[e :UE 404 ]
 }
-[e :U 418 ]
-"566
-[e :U 417 ]
-[; ;powerspy.c: 565: }
-[; ;powerspy.c: 566: return 0;
-[e ) -> 0 `i ]
-[e $UE 413  ]
-[; ;powerspy.c: 567: }
-"567
-[e :UE 413 ]
-}
-"572
+"569
 [v _setLED `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"573
+"570
 {
-[; ;powerspy.c: 572: void setLED(uint8_t g, uint8_t r, uint8_t b)
-[; ;powerspy.c: 573: {
+[; ;powerspy.c: 569: void setLED(uint8_t g, uint8_t r, uint8_t b)
+[; ;powerspy.c: 570: {
 [e :U _setLED ]
-"572
+"569
 [v _g `uc ~T0 @X0 1 r1 ]
 [v _r `uc ~T0 @X0 1 r2 ]
 [v _b `uc ~T0 @X0 1 r3 ]
-"573
+"570
 [f ]
-"574
-[v _gie `c ~T0 @X0 1 a ]
-[; ;powerspy.c: 574: byte gie = GIE;
-[e = _gie -> -> _GIE `i `c ]
-[; ;powerspy.c: 575: GIE = 0;
-"575
-[e = _GIE -> -> 0 `i `b ]
-[; ;powerspy.c: 576: sendColour(g);
-"576
+[; ;powerspy.c: 571: sendColour(g);
+"571
 [e ( _sendColour (1 _g ]
-[; ;powerspy.c: 577: sendColour(r);
-"577
+[; ;powerspy.c: 572: sendColour(r);
+"572
 [e ( _sendColour (1 _r ]
-[; ;powerspy.c: 578: sendColour(b);
-"578
+[; ;powerspy.c: 573: sendColour(b);
+"573
 [e ( _sendColour (1 _b ]
-[; ;powerspy.c: 579: led_rest = TMR1;
-"579
+[; ;powerspy.c: 574: led_rest = TMR1;
+"574
 [e = _led_rest _TMR1 ]
-[; ;powerspy.c: 580: GIE = gie;
-"580
-[e = _GIE -> _gie `b ]
-[; ;powerspy.c: 581: }
-"581
-[e :UE 421 ]
+[; ;powerspy.c: 575: }
+"575
+[e :UE 412 ]
 }
-[v F2892 `(v ~T0 @X0 1 tf ]
-"583
-[v _ISR `IF2892 ~T0 @X0 1 e ]
-"584
+[v F2833 `(v ~T0 @X0 1 tf ]
+"577
+[v _ISR `IF2833 ~T0 @X0 1 e ]
+"578
 {
-[; ;powerspy.c: 583: void interrupt ISR()
-[; ;powerspy.c: 584: {
+[; ;powerspy.c: 577: void interrupt ISR()
+[; ;powerspy.c: 578: {
 [e :U _ISR ]
 [f ]
-[; ;powerspy.c: 586: if (RCIE && RCIF) {
-"586
-[e $ ! && _RCIE _RCIF 423  ]
+[; ;powerspy.c: 580: if (RCIE && RCIF) {
+"580
+[e $ ! && _RCIE _RCIF 414  ]
 {
-[; ;powerspy.c: 587: receive_buff[buffpos] = RCREG;
-"587
+[; ;powerspy.c: 581: receive_buff[buffpos] = RCREG;
+"581
 [e = *U + &U _receive_buff * -> -> _buffpos `uc `ux -> -> # *U &U _receive_buff `ui `ux _RCREG ]
-[; ;powerspy.c: 588: buffpos++;
-"588
+[; ;powerspy.c: 582: buffpos++;
+"582
 [e ++ _buffpos -> -> 1 `i `c ]
-[; ;powerspy.c: 589: buffpos %= 32;
-"589
+[; ;powerspy.c: 583: buffpos %= 32;
+"583
 [e =% _buffpos -> 32 `uc ]
-[; ;powerspy.c: 590: RCIF = 0;
-"590
+[; ;powerspy.c: 584: RCIF = 0;
+"584
 [e = _RCIF -> -> 0 `i `b ]
-"591
+"585
+}
+[e :U 414 ]
+[; ;powerspy.c: 585: }
+[; ;powerspy.c: 588: if (TMR1IE && TMR1IF) {
+"588
+[e $ ! && _TMR1IE _TMR1IF 415  ]
+{
+[; ;powerspy.c: 589: TMR1IF = 0;
+"589
+[e = _TMR1IF -> -> 0 `i `b ]
+"590
+}
+[e :U 415 ]
+[; ;powerspy.c: 590: }
+[; ;powerspy.c: 593: if (C1IE && C1IF) {
+"593
+[e $ ! && _C1IE _C1IF 416  ]
+{
+[; ;powerspy.c: 594: if (!(flag & 0x01)) {
+"594
+[e $ ! ! != & -> _flag `i -> 1 `i -> 0 `i 417  ]
+{
+[; ;powerspy.c: 595: volt_time = TMR1;
+"595
+[e = _volt_time _TMR1 ]
+[; ;powerspy.c: 596: if (flag & 0x02)
+"596
+[e $ ! != & -> _flag `i -> 2 `i -> 0 `i 418  ]
+[; ;powerspy.c: 597: flag |= 0x08;
+"597
+[e =| _flag -> -> 8 `i `uc ]
+[e :U 418 ]
+[; ;powerspy.c: 598: flag |= 0x01;
+"598
+[e =| _flag -> -> 1 `i `uc ]
+"599
+}
+[e :U 417 ]
+[; ;powerspy.c: 599: }
+[; ;powerspy.c: 601: C1IF = 0;
+"601
+[e = _C1IF -> -> 0 `i `b ]
+"602
+}
+[e :U 416 ]
+[; ;powerspy.c: 602: }
+[; ;powerspy.c: 605: if (C2IE && C2IF) {
+"605
+[e $ ! && _C2IE _C2IF 419  ]
+{
+[; ;powerspy.c: 606: if (!(flag & 0x02)) {
+"606
+[e $ ! ! != & -> _flag `i -> 2 `i -> 0 `i 420  ]
+{
+[; ;powerspy.c: 607: curr_time = TMR1;
+"607
+[e = _curr_time _TMR1 ]
+[; ;powerspy.c: 608: if (flag & 0x01)
+"608
+[e $ ! != & -> _flag `i -> 1 `i -> 0 `i 421  ]
+[; ;powerspy.c: 609: flag |= 0x04;
+"609
+[e =| _flag -> -> 4 `i `uc ]
+[e :U 421 ]
+[; ;powerspy.c: 610: flag |= 0x02;
+"610
+[e =| _flag -> -> 2 `i `uc ]
+"611
+}
+[e :U 420 ]
+[; ;powerspy.c: 611: }
+[; ;powerspy.c: 613: C2IF = 0;
+"613
+[e = _C2IF -> -> 0 `i `b ]
+"614
+}
+[e :U 419 ]
+[; ;powerspy.c: 614: }
+[; ;powerspy.c: 616: if (TMR2IE && TMR2IF) {
+"616
+[e $ ! && _TMR2IE _TMR2IF 422  ]
+{
+[; ;powerspy.c: 617: TMR2IF = 0;
+"617
+[e = _TMR2IF -> -> 0 `i `b ]
+"618
+}
+[e :U 422 ]
+[; ;powerspy.c: 618: }
+[; ;powerspy.c: 620: if (IOCBN5 && IOCBF5) {
+"620
+[e $ ! && _IOCBN5 _IOCBF5 423  ]
+{
+[; ;powerspy.c: 621: mode++;
+"621
+[e ++ _mode -> -> 1 `i `uc ]
+[; ;powerspy.c: 622: mode %= 6;
+"622
+[e =% _mode -> 6 `uc ]
+[; ;powerspy.c: 624: setLED((mode & 0x01) << 3, (mode & 0x02) << 3, (mode & 0x04) << 2);
+"624
+[e ( _setLED (3 , , -> << & -> _mode `i -> 1 `i -> 3 `i `uc -> << & -> _mode `i -> 2 `i -> 3 `i `uc -> << & -> _mode `i -> 4 `i -> 2 `i `uc ]
+[; ;powerspy.c: 625: IOCBF5 = 0;
+"625
+[e = _IOCBF5 -> -> 0 `i `b ]
+"626
 }
 [e :U 423 ]
-[; ;powerspy.c: 591: }
-[; ;powerspy.c: 594: if (TMR1IE && TMR1IF) {
-"594
-[e $ ! && _TMR1IE _TMR1IF 424  ]
-{
-[; ;powerspy.c: 595: TMR1IF = 0;
-"595
-[e = _TMR1IF -> -> 0 `i `b ]
-"596
-}
-[e :U 424 ]
-[; ;powerspy.c: 596: }
-[; ;powerspy.c: 599: if (C1IE && C1IF) {
-"599
-[e $ ! && _C1IE _C1IF 425  ]
-{
-[; ;powerspy.c: 601: volt_time = TMR1;
-"601
-[e = _volt_time -> _TMR1 `s ]
-[; ;powerspy.c: 602: if (flag & 0x02)
-"602
-[e $ ! != & -> _flag `i -> 2 `i -> 0 `i 426  ]
-[; ;powerspy.c: 603: flag |= 0x08;
-"603
-[e =| _flag -> -> 8 `i `uc ]
-[e :U 426 ]
-[; ;powerspy.c: 604: if (flag & 0x04)
-"604
-[e $ ! != & -> _flag `i -> 4 `i -> 0 `i 427  ]
-[; ;powerspy.c: 605: flag &= ~0x04;
-"605
-[e =& _flag -> ~ -> 4 `i `uc ]
-[e :U 427 ]
-[; ;powerspy.c: 606: flag |= 0x01;
-"606
-[e =| _flag -> -> 1 `i `uc ]
-[; ;powerspy.c: 609: C1IF = 0;
-"609
-[e = _C1IF -> -> 0 `i `b ]
-"610
-}
-[e :U 425 ]
-[; ;powerspy.c: 610: }
-[; ;powerspy.c: 613: if (C2IE && C2IF) {
-"613
-[e $ ! && _C2IE _C2IF 428  ]
-{
-[; ;powerspy.c: 615: curr_time = TMR1;
-"615
-[e = _curr_time -> _TMR1 `s ]
-[; ;powerspy.c: 616: if (flag & 0x01)
-"616
-[e $ ! != & -> _flag `i -> 1 `i -> 0 `i 429  ]
-[; ;powerspy.c: 617: flag |= 0x04;
-"617
-[e =| _flag -> -> 4 `i `uc ]
-[e :U 429 ]
-[; ;powerspy.c: 618: if (flag & 0x08)
-"618
-[e $ ! != & -> _flag `i -> 8 `i -> 0 `i 430  ]
-[; ;powerspy.c: 619: flag &= ~0x08;
-"619
-[e =& _flag -> ~ -> 8 `i `uc ]
-[e :U 430 ]
-[; ;powerspy.c: 620: flag |= 0x02;
-"620
-[e =| _flag -> -> 2 `i `uc ]
-[; ;powerspy.c: 622: C2IF = 0;
-"622
-[e = _C2IF -> -> 0 `i `b ]
-"623
-}
-[e :U 428 ]
-[; ;powerspy.c: 623: }
-[; ;powerspy.c: 625: if (TMR2IE && TMR2IF) {
-"625
-[e $ ! && _TMR2IE _TMR2IF 431  ]
-{
-[; ;powerspy.c: 626: TMR2IF = 0;
-"626
-[e = _TMR2IF -> -> 0 `i `b ]
-"627
-}
-[e :U 431 ]
+[; ;powerspy.c: 626: }
 [; ;powerspy.c: 627: }
-[; ;powerspy.c: 628: }
-"628
-[e :UE 422 ]
+"627
+[e :UE 413 ]
 }
-"633
+"632
 [v _main `(v ~T0 @X0 1 ef ]
-"634
+"633
 {
-[; ;powerspy.c: 633: void main()
-[; ;powerspy.c: 634: {
+[; ;powerspy.c: 632: void main()
+[; ;powerspy.c: 633: {
 [e :U _main ]
 [f ]
+"634
+[v _angle `um ~T0 @X0 1 a ]
 "635
-[v _diff `ul ~T0 @X0 1 a ]
+[v _current `f ~T0 @X0 1 a ]
 "636
-[v _angle `f ~T0 @X0 1 a ]
+[v _voltage `f ~T0 @X0 1 a ]
 "637
-[v _diff_ `f ~T0 @X0 1 a ]
-[; ;powerspy.c: 635: uint32_t diff;
-[; ;powerspy.c: 636: float angle;
-[; ;powerspy.c: 637: float diff_;
-[; ;powerspy.c: 639: PEIE = 0;
+[v _apparent `f ~T0 @X0 1 a ]
+"638
+[v _real `f ~T0 @X0 1 a ]
 "639
-[e = _PEIE -> -> 0 `i `b ]
-[; ;powerspy.c: 640: GIE = 0;
+[v _reactive `f ~T0 @X0 1 a ]
 "640
-[e = _GIE -> -> 0 `i `b ]
-[; ;powerspy.c: 642: initPins();
+[v _so_buff `us ~T0 @X0 1 a ]
+[; ;powerspy.c: 634: uint24_t angle;
+[; ;powerspy.c: 635: float current;
+[; ;powerspy.c: 636: float voltage;
+[; ;powerspy.c: 637: float apparent;
+[; ;powerspy.c: 638: float real;
+[; ;powerspy.c: 639: float reactive;
+[; ;powerspy.c: 640: uint16_t so_buff;
+[; ;powerspy.c: 642: PEIE = 0;
 "642
-[e ( _initPins ..  ]
-[; ;powerspy.c: 643: initFVR();
+[e = _PEIE -> -> 0 `i `b ]
+[; ;powerspy.c: 643: GIE = 0;
 "643
-[e ( _initFVR ..  ]
-[; ;powerspy.c: 644: initADC();
-"644
-[e ( _initADC ..  ]
-[; ;powerspy.c: 645: initTMR1();
+[e = _GIE -> -> 0 `i `b ]
+[; ;powerspy.c: 645: initPins();
 "645
-[e ( _initTMR1 ..  ]
-[; ;powerspy.c: 646: initPWMTMR4();
+[e ( _initPins ..  ]
+[; ;powerspy.c: 646: initFVR();
 "646
-[e ( _initPWMTMR4 ..  ]
-[; ;powerspy.c: 647: initCOMP1();
+[e ( _initFVR ..  ]
+[; ;powerspy.c: 647: initADC();
 "647
-[e ( _initCOMP1 ..  ]
-[; ;powerspy.c: 648: initCOMP2();
+[e ( _initADC ..  ]
+[; ;powerspy.c: 648: initTMR1();
 "648
-[e ( _initCOMP2 ..  ]
-[; ;powerspy.c: 649: initBT();
+[e ( _initTMR1 ..  ]
+[; ;powerspy.c: 649: initPWMTMR4();
 "649
-[e ( _initBT ..  ]
-[; ;powerspy.c: 650: initMessaging();
+[e ( _initPWMTMR4 ..  ]
+[; ;powerspy.c: 650: initCOMP1();
 "650
-[e ( _initMessaging ..  ]
-[; ;powerspy.c: 652: PEIE = 1;
+[e ( _initCOMP1 ..  ]
+[; ;powerspy.c: 651: initCOMP2();
+"651
+[e ( _initCOMP2 ..  ]
+[; ;powerspy.c: 652: initBT();
 "652
-[e = _PEIE -> -> 1 `i `b ]
-[; ;powerspy.c: 653: GIE = 1;
+[e ( _initBT ..  ]
+[; ;powerspy.c: 653: initMessaging();
 "653
-[e = _GIE -> -> 1 `i `b ]
-[; ;powerspy.c: 655: i_u_offs = -readVdd()* 5.0 / 2.0;
+[e ( _initMessaging ..  ]
+[; ;powerspy.c: 655: PEIE = 1;
 "655
-[e = _i_u_offs -> / * -> -U ( _readVdd ..  `d .5.0 .2.0 `f ]
-[; ;powerspy.c: 657: while (1) {
-"657
-[e :U 434 ]
+[e = _PEIE -> -> 1 `i `b ]
+[; ;powerspy.c: 656: GIE = 0;
+"656
+[e = _GIE -> -> 0 `i `b ]
+[; ;powerspy.c: 658: while (1) {
+"658
+[e :U 426 ]
 {
-[; ;powerspy.c: 659: if ((flag & 0x02) && (flag & 0x01)) {
-"659
-[e $ ! && != & -> _flag `i -> 2 `i -> 0 `i != & -> _flag `i -> 1 `i -> 0 `i 436  ]
-{
-[; ;powerspy.c: 660: if (flag & 0x04)
-"660
-[e $ ! != & -> _flag `i -> 4 `i -> 0 `i 437  ]
-[; ;powerspy.c: 661: diff = deltaT(volt_time, curr_time);
+[; ;powerspy.c: 661: if ((flag & 0x02) && (flag & 0x01)) {
 "661
-[e = _diff -> ( _deltaT (2 , -> _volt_time `us -> _curr_time `us `ul ]
-[e $U 438  ]
+[e $ ! && != & -> _flag `i -> 2 `i -> 0 `i != & -> _flag `i -> 1 `i -> 0 `i 428  ]
+{
+[; ;powerspy.c: 662: if (flag & 0x04)
 "662
-[e :U 437 ]
-[; ;powerspy.c: 662: else if (flag & 0x08)
-[e $ ! != & -> _flag `i -> 8 `i -> 0 `i 439  ]
-[; ;powerspy.c: 663: diff = deltaT(curr_time, volt_time);
+[e $ ! != & -> _flag `i -> 4 `i -> 0 `i 429  ]
+[; ;powerspy.c: 663: angle = (deltaT(volt_time, curr_time) >> 2);
 "663
-[e = _diff -> ( _deltaT (2 , -> _curr_time `us -> _volt_time `us `ul ]
-[e :U 439 ]
+[e = _angle -> >> -> ( _deltaT (2 , _volt_time _curr_time `ui -> 2 `i `um ]
+[e $U 430  ]
+"664
+[e :U 429 ]
+[; ;powerspy.c: 664: else if (flag & 0x08)
+[e $ ! != & -> _flag `i -> 8 `i -> 0 `i 431  ]
+[; ;powerspy.c: 665: angle = (deltaT(curr_time, volt_time) >> 2);
 "665
-[e :U 438 ]
-[; ;powerspy.c: 665: flag = 0;
-[e = _flag -> -> 0 `i `uc ]
-[; ;powerspy.c: 667: diff *= 125;
+[e = _angle -> >> -> ( _deltaT (2 , _curr_time _volt_time `ui -> 2 `i `um ]
+[e :U 431 ]
 "667
-[e =* _diff -> -> -> 125 `i `l `ul ]
-[; ;powerspy.c: 668: diff /= 1000;
-"668
-[e =/ _diff -> -> 1000 `us `ul ]
-[; ;powerspy.c: 669: sendString("diff/us");
+[e :U 430 ]
+[; ;powerspy.c: 667: flag = 0;
+[e = _flag -> -> 0 `i `uc ]
+[; ;powerspy.c: 669: angle /= 1000;
 "669
-[e ( _sendString (1 -> :s 1C `*uc ]
-[; ;powerspy.c: 670: sendInt32(diff);
+[e =/ _angle -> -> 1000 `us `um ]
+[; ;powerspy.c: 670: angle *= ((0xff)<<2) * 50;
 "670
-[e ( _sendInt32 (1 -> _diff `l ]
-[; ;powerspy.c: 672: diff_ = (float) diff;
-"672
-[e = _diff_ -> _diff `f ]
-[; ;powerspy.c: 673: diff_ /= 1000;
+[e =* _angle -> -> * << -> 255 `i -> 2 `i -> 50 `i `m `um ]
+[; ;powerspy.c: 673: angle /= 1000;
 "673
-[e =/ _diff_ -> -> 1000 `us `f ]
-[; ;powerspy.c: 674: diff_ /= 1000;
-"674
-[e =/ _diff_ -> -> 1000 `us `f ]
-[; ;powerspy.c: 675: angle = cos(2*3.14159265358979323846*50*diff_);
+[e =/ _angle -> -> 1000 `us `um ]
+[; ;powerspy.c: 675: i_u_offs = -readVdd()* 5.0 / 2.0;
 "675
-[e = _angle -> ( _cos (1 * * * -> -> 2 `i `d .3.14159265358979323846 -> -> 50 `i `d -> _diff_ `d `f ]
-[; ;powerspy.c: 676: sendString("angle/rad");
+[e = _i_u_offs -> / * -> -U ( _readVdd ..  `d .5.0 .2.0 `f ]
+[; ;powerspy.c: 676: current = readCurrent();
 "676
-[e ( _sendString (1 -> :s 2C `*uc ]
-[; ;powerspy.c: 677: sendFloat(angle);
+[e = _current ( _readCurrent ..  ]
+[; ;powerspy.c: 677: voltage = readVoltage();
 "677
-[e ( _sendFloat (1 _angle ]
+[e = _voltage -> ( _readVoltage ..  `f ]
+[; ;powerspy.c: 678: apparent = voltage * current;
 "678
-}
-[e :U 436 ]
-[; ;powerspy.c: 678: }
-[; ;powerspy.c: 680: sendString("current/ampere");
+[e = _apparent * _voltage _current ]
+[; ;powerspy.c: 679: real = (apparent * icos(angle)) / (0xff);
+"679
+[e = _real / * _apparent -> ( _icos (1 -> _angle `s `f -> -> 255 `i `f ]
+[; ;powerspy.c: 680: reactive = (apparent * isin(angle)) / (0xff);
 "680
-[e ( _sendString (1 -> :s 3C `*uc ]
-[; ;powerspy.c: 681: sendFloat(readCurrent());
-"681
-[e ( _sendFloat (1 ( _readCurrent ..  ]
+[e = _reactive / * _apparent -> ( _isin (1 -> _angle `s `f -> -> 255 `i `f ]
+[; ;powerspy.c: 682: RA3 = 0;
 "682
-}
-[e :U 433 ]
-"657
-[e $U 434  ]
-[e :U 435 ]
-[; ;powerspy.c: 682: }
-[; ;powerspy.c: 683: }
+[e = _RA3 -> -> 0 `i `b ]
+[; ;powerspy.c: 683: switch (mode) {
 "683
-[e :UE 432 ]
+[e $U 433  ]
+{
+[; ;powerspy.c: 684: case 0:
+"684
+[e :U 434 ]
+[; ;powerspy.c: 685: clearDisplay(7);
+"685
+[e ( _clearDisplay (1 -> -> 7 `i `c ]
+[; ;powerspy.c: 686: so_buff = 5;
+"686
+[e = _so_buff -> -> 5 `i `us ]
+[; ;powerspy.c: 687: break;
+"687
+[e $U 432  ]
+[; ;powerspy.c: 688: case 1:
+"688
+[e :U 435 ]
+[; ;powerspy.c: 689: clearDisplay(7);
+"689
+[e ( _clearDisplay (1 -> -> 7 `i `c ]
+[; ;powerspy.c: 690: so_buff = 0b111111111111111101011111;
+"690
+[e = _so_buff -> -> 16777055 `l `us ]
+[; ;powerspy.c: 691: so(so_buff & 0xff);
+"691
+[e ( _so (1 -> & -> _so_buff `ui -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 692: so(so_buff >> 8 & 0xff);
+"692
+[e ( _so (1 -> & >> -> _so_buff `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 693: so(so_buff >> 16 & 0xff);
+"693
+[e ( _so (1 -> & >> -> _so_buff `ui -> 16 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 694: so_buff = setNr((uint16_t) current);
+"694
+[e = _so_buff -> ( _setNr (1 -> _current `us `us ]
+[; ;powerspy.c: 695: break;
+"695
+[e $U 432  ]
+[; ;powerspy.c: 696: case 2:
+"696
+[e :U 436 ]
+[; ;powerspy.c: 697: clearDisplay(7);
+"697
+[e ( _clearDisplay (1 -> -> 7 `i `c ]
+[; ;powerspy.c: 698: so_buff = 0b111101101011101111111111;
+"698
+[e = _so_buff -> -> 16169983 `l `us ]
+[; ;powerspy.c: 699: so(so_buff & 0xff);
+"699
+[e ( _so (1 -> & -> _so_buff `ui -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 700: so(so_buff >> 8 & 0xff);
+"700
+[e ( _so (1 -> & >> -> _so_buff `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 701: so(so_buff >> 16 & 0xff);
+"701
+[e ( _so (1 -> & >> -> _so_buff `ui -> 16 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 702: so_buff = setNr((uint16_t) voltage);
+"702
+[e = _so_buff -> ( _setNr (1 -> _voltage `us `us ]
+[; ;powerspy.c: 703: break;
+"703
+[e $U 432  ]
+[; ;powerspy.c: 704: case 4:
+"704
+[e :U 437 ]
+[; ;powerspy.c: 705: clearDisplay(7);
+"705
+[e ( _clearDisplay (1 -> -> 7 `i `c ]
+[; ;powerspy.c: 706: so_buff = 0b111101101011101111111111 & 0b111111111111111101011111;
+"706
+[e = _so_buff -> & -> 16169983 `l -> 16777055 `l `us ]
+[; ;powerspy.c: 707: so(so_buff & 0xff);
+"707
+[e ( _so (1 -> & -> _so_buff `ui -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 708: so(so_buff >> 8 & 0xff);
+"708
+[e ( _so (1 -> & >> -> _so_buff `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 709: so(so_buff >> 16 & 0xff);
+"709
+[e ( _so (1 -> & >> -> _so_buff `ui -> 16 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 710: so_buff = setNr((uint16_t) apparent);
+"710
+[e = _so_buff -> ( _setNr (1 -> _apparent `us `us ]
+[; ;powerspy.c: 711: break;
+"711
+[e $U 432  ]
+[; ;powerspy.c: 712: case 5:
+"712
+[e :U 438 ]
+[; ;powerspy.c: 713: clearDisplay(7);
+"713
+[e ( _clearDisplay (1 -> -> 7 `i `c ]
+[; ;powerspy.c: 714: so_buff = 0b111111111111111100111111;
+"714
+[e = _so_buff -> -> 16777023 `l `us ]
+[; ;powerspy.c: 715: so(so_buff & 0xff);
+"715
+[e ( _so (1 -> & -> _so_buff `ui -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 716: so(so_buff >> 8 & 0xff);
+"716
+[e ( _so (1 -> & >> -> _so_buff `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 717: so(so_buff >> 16 & 0xff);
+"717
+[e ( _so (1 -> & >> -> _so_buff `ui -> 16 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 718: so_buff = setNr((uint16_t) real);
+"718
+[e = _so_buff -> ( _setNr (1 -> _real `us `us ]
+[; ;powerspy.c: 719: break;
+"719
+[e $U 432  ]
+[; ;powerspy.c: 720: case 6:
+"720
+[e :U 439 ]
+[; ;powerspy.c: 721: clearDisplay(7);
+"721
+[e ( _clearDisplay (1 -> -> 7 `i `c ]
+[; ;powerspy.c: 722: so_buff = 0b111101101011101111111111 & 0b111110100111101011100111 & 0b111111111111111101011111;
+"722
+[e = _so_buff -> & & -> 16169983 `l -> 16415463 `l -> 16777055 `l `us ]
+[; ;powerspy.c: 723: so(so_buff & 0xff);
+"723
+[e ( _so (1 -> & -> _so_buff `ui -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 724: so(so_buff >> 8 & 0xff);
+"724
+[e ( _so (1 -> & >> -> _so_buff `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 725: so(so_buff >> 16 & 0xff);
+"725
+[e ( _so (1 -> & >> -> _so_buff `ui -> 16 `i -> -> 255 `i `ui `uc ]
+[; ;powerspy.c: 726: so_buff = setNr((uint16_t) reactive);
+"726
+[e = _so_buff -> ( _setNr (1 -> _reactive `us `us ]
+[; ;powerspy.c: 727: break;
+"727
+[e $U 432  ]
+"728
 }
-[a 1C 100 105 102 102 47 117 115 0 ]
-[a 3C 99 117 114 114 101 110 116 47 97 109 112 101 114 101 0 ]
-[a 2C 97 110 103 108 101 47 114 97 100 0 ]
+[; ;powerspy.c: 728: }
+[e $U 432  ]
+"683
+[e :U 433 ]
+[e [\ _mode , $ -> -> 0 `i `uc 434
+ , $ -> -> 1 `i `uc 435
+ , $ -> -> 2 `i `uc 436
+ , $ -> -> 4 `i `uc 437
+ , $ -> -> 5 `i `uc 438
+ , $ -> -> 6 `i `uc 439
+ 432 ]
+"728
+[e :U 432 ]
+[; ;powerspy.c: 731: while (7 - 2 - so_buff) {
+"731
+[e $U 440  ]
+[e :U 441 ]
+{
+[; ;powerspy.c: 732: so(0xff);
+"732
+[e ( _so (1 -> -> 255 `i `uc ]
+[; ;powerspy.c: 733: so_buff--;
+"733
+[e -- _so_buff -> -> 1 `i `us ]
+"734
+}
+[e :U 440 ]
+"731
+[e $ != - -> - -> 7 `i -> 2 `i `ui -> _so_buff `ui -> -> 0 `i `ui 441  ]
+[e :U 442 ]
+[; ;powerspy.c: 734: }
+[; ;powerspy.c: 735: RA3 = 1;
+"735
+[e = _RA3 -> -> 1 `i `b ]
+[; ;powerspy.c: 737: sendChar('c');
+"737
+[e ( _sendChar (1 -> -> 99 `ui `uc ]
+[; ;powerspy.c: 738: sendFloat((current < 0) ? -current : current);
+"738
+[e ( _sendFloat (1 ? < _current -> -> 0 `i `f : -U _current _current ]
+[; ;powerspy.c: 739: sendChar('A');
+"739
+[e ( _sendChar (1 -> -> 65 `ui `uc ]
+[; ;powerspy.c: 740: sendFloat((apparent < 0) ? -apparent : apparent);
+"740
+[e ( _sendFloat (1 ? < _apparent -> -> 0 `i `f : -U _apparent _apparent ]
+[; ;powerspy.c: 741: sendChar('r');
+"741
+[e ( _sendChar (1 -> -> 114 `ui `uc ]
+[; ;powerspy.c: 742: sendFloat((real < 0) ? -real : real);
+"742
+[e ( _sendFloat (1 ? < _real -> -> 0 `i `f : -U _real _real ]
+[; ;powerspy.c: 743: sendChar('R');
+"743
+[e ( _sendChar (1 -> -> 82 `ui `uc ]
+[; ;powerspy.c: 744: sendFloat((reactive < 0) ? -reactive : reactive);
+"744
+[e ( _sendFloat (1 ? < _reactive -> -> 0 `i `f : -U _reactive _reactive ]
+"745
+}
+[e :U 428 ]
+[; ;powerspy.c: 745: }
+[; ;powerspy.c: 747: GIE = 1;
+"747
+[e = _GIE -> -> 1 `i `b ]
+[; ;powerspy.c: 748: _delay((unsigned long)((100)*(32000000/4000.0)));
+"748
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;powerspy.c: 749: GIE = 0;
+"749
+[e = _GIE -> -> 0 `i `b ]
+"750
+}
+[e :U 425 ]
+"658
+[e $U 426  ]
+[e :U 427 ]
+[; ;powerspy.c: 750: }
+[; ;powerspy.c: 751: }
+"751
+[e :UE 424 ]
+}

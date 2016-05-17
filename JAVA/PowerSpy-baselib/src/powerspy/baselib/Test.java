@@ -20,7 +20,6 @@ package powerspy.baselib;
 
 import com.fazecast.jSerialComm.SerialPort;
 import java.io.*;
-import java.util.Arrays;
 
 /**
  *
@@ -35,7 +34,7 @@ public class Test {
                 ps.append("[");
                 ps.append(Long.toString(System.currentTimeMillis()));
                 ps.append("] ");
-                ps.print(t);
+                ps.print(Character.toString(t));
                 ps.print(", ");
                 ps.println(o);
                 ps.flush();
@@ -49,7 +48,6 @@ public class Test {
                 byte[] buff = new byte[]{'g'};
                 p = null;
                 PrintStream ps = new PrintStream(new File("/Users/redxef/test.txt"));
-                PrintStream ps2 = new PrintStream(new File("/Users/redxef/test2.txt"));
 
                 System.out.println("searching");
                 for (SerialPort p_ : ports) {

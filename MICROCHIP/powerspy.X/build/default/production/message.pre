@@ -3781,7 +3781,7 @@ void sendString(char *val);
 #pragma warning disable 752
 #pragma warning enable pop
 
-# 141
+# 150
 void initPins();
 void initADC();
 void initTMR2();
@@ -3793,9 +3793,10 @@ void initCOMP2();
 void adc(const int8_t src);
 uint8_t readVoltage();
 float readCurrent();
-void so(const uint8_t data, const uint8_t direction);
+void so(const uint8_t data);
 uint24_t combine(uint24_t nr1, uint24_t nr2);
 void clearDisplay(int8_t leng);
+uint8_t setNr(uint16_t);
 void __interrupt ISR();
 void main();
 

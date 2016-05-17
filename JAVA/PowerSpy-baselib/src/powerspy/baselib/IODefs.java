@@ -19,26 +19,31 @@
 package powerspy.baselib;
 
 /**
- *
- * @author redxef
+
+ @author redxef
  */
 public interface IODefs {
 
-    public static final char NONE = '0';
-    public static final char STRING = '1';
-    public static final char INT8 = '2';
-    public static final char INT16 = '3';
-    public static final char INT24 = '4';
-    public static final char INT32 = '5';
-    public static final char FLOAT = '6';
-    
-    public static final char K_CURRENT = 'c';
-    public static final char K_REALPOWER = 'r';
-    public static final char K_ACTIVEPOWER = 'a';
-    public static final char K_REACTIVEPOWER = 'R';
-    
-    
-    public static final char START_OF_TEXT = 2;
-    public static final char END_OF_TEXT = 3;
-    public static final char BUFFER_SIZE = 1024;
+        public static final char NONE = '0';
+        public static final char STRING = '1';
+        public static final char INT8 = '2';
+        public static final char INT16 = '3';
+        public static final char INT24 = '4';
+        public static final char INT32 = '5';
+        public static final char UINT8 = '6';
+        public static final char UINT16 = '7';
+        public static final char UINT24 = '8';
+        public static final char UINT32 = '9';
+        public static final char FLOAT = 'F';
+
+        public static final char K_CURRENT = 'c';
+        public static final char K_VOLTAGE = 'v';
+        public static final char K_ANGLE = 'a';
+        public static final char K_APPARENTEPOWER = 'A';
+        public static final char K_REALPOWER = 'r';
+        public static final char K_REACTIVEPOWER = 'R';
+
+        public static final char START_OF_TEXT = 2;
+        public static final char END_OF_TEXT = 3;
+        public static final char BUFFER_SIZE = 1024;
 }

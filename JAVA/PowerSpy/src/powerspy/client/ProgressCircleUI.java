@@ -20,8 +20,6 @@ package powerspy.client;
 
 import java.awt.*;
 import java.awt.geom.*;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.*;
 
 /**

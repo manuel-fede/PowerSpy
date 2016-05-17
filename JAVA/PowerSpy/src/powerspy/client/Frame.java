@@ -19,44 +19,94 @@
 package powerspy.client;
 
 import com.fazecast.jSerialComm.SerialPort;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
-import javax.swing.Timer;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.util.Random;
+import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
-import powerspy.baselib.PSInputStream;
-import static powerspy.client.Defs.MAX_AMPS;
-import static powerspy.client.Defs.MAX_POWER;
-import static powerspy.client.Defs.MIN_AMPS;
-import static powerspy.client.Defs.MIN_POWER;
+import powerspy.baselib.*;
+import static powerspy.baselib.IODefs.*;
+import static powerspy.client.Defs.*;
 
 /**
 
  @author redxef
  */
-public class Frame extends JFrame implements Defs {
+public class Frame extends JFrame {
 
-        Dimension BASIC_SIZE = new Dimension(300, 400);
+        private static final ArrayInputStream dummy_is;
+        private static final Thread dummy_stream;
+        private static final Random r = new Random();
 
-        Controller c;
-        JComboBox<SerialPort> ports;
-        JLabel info;
-        JProgressBar pb;
-        JLabel min;
-        JLabel max;
-        Timer progress_update;
-        int target;
-        JTable t;
+        static {
+                dummy_is = new ArrayInputStream();
+
+                dummy_stream = new Thread() {
+
+                        private void insertKey(char key)
+                        {
+                                byte[] b = new byte[4];
+                                b[0] = START_OF_TEXT;
+                                b[1] = INT8;
+                                b[2] = (byte) (key & 0xff);
+                                b[3] = END_OF_TEXT;
+
+                                dummy_is.insert(b, 0, b.length);
+                        }
+
+                        private void insertValue(float f)
+                        {
+                                int bits = Float.floatToIntBits(f) >> 8;
+                                byte[] b = new byte[6];
+                                b[0] = START_OF_TEXT;
+                                b[1] = FLOAT;
+                                b[2] = (byte) (bits >> 16 & 0xff);
+                                b[3] = (byte) (bits >> 8 & 0xff);
+                                b[4] = (byte) (bits & 0xff);
+                                b[5] = END_OF_TEXT;
+
+                                dummy_is.insert(b, 0, b.length);
+                        }
+
+                        @Override
+                        public void run()
+                        {
+                                while (true) {
+                                        insertKey(K_CURRENT);
+                                        insertValue(r.nextFloat() * r.nextInt(5));
+                                        insertKey(K_APPARENTEPOWER);
+                                        insertValue(r.nextFloat() * r.nextInt(1150));
+                                        insertKey(K_REALPOWER);
+                                        insertValue(r.nextFloat() * r.nextInt(1150));
+                                        insertKey(K_REACTIVEPOWER);
+                                        insertValue(r.nextFloat() * r.nextInt(1150));
+
+                                        try {
+                                                Thread.sleep(1000);
+                                        } catch (InterruptedException ex) {
+                                        }
+                                }
+                        }
+                };
+        }
+
+        private static final float FIXMUL = 0.88f;
+        private final Dimension BASIC_SIZE = new Dimension(250, 370);
+        private Controller c;
+        protected JComboBox<SerialPort> ports;
+        private JLabel info;
+        private JProgressBar pb;
+        private JLabel min;
+        private JLabel max;
+        private Timer progress_update;
+        private int target;
+        private JTable t;
+        private SerialPort curr_port;
+
+        private int prev_width;
+        private long last_time;
 
         public Frame()
         {
@@ -66,18 +116,24 @@ public class Frame extends JFrame implements Defs {
                         .setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
                 initCombobox();
-                initJLabel();
                 initProgressBar();
                 initProgressTimer();
                 initDesc();
                 initJTable();
+                initJLabel();
+                initResize();
 
                 pack();
                 setSize(BASIC_SIZE);
                 setPreferredSize(BASIC_SIZE);
                 setMinimumSize(getSize());
-                setMaximumSize(getSize());
+                //setMaximumSize(getSize());
                 setLocationRelativeTo(null);
+
+                curr_port = null;
+                prev_width = BASIC_SIZE.width;
+                last_time = System.currentTimeMillis();
+
         }
 
         public void installController(Controller c)
@@ -98,9 +154,10 @@ public class Frame extends JFrame implements Defs {
 
         private void initJLabel()
         {
-                info = new JLabel();
-
-                add(info);
+                JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+                info = new JLabel(" ");
+                p.add(info);
+                add(p);
         }
 
         private void initProgressBar()
@@ -180,9 +237,65 @@ public class Frame extends JFrame implements Defs {
                 });
                 t.setValueAt("Current", 0, 0);
                 t.setValueAt("Real Power", 1, 0);
-                t.setValueAt("Active Power", 2, 0);
+                t.setValueAt("Apparent Power", 2, 0);
                 t.setValueAt("Reactive Power", 3, 0);
                 add(t);
+        }
+
+        private void initResize()
+        {
+                addComponentListener(new ComponentListener() {
+                        @Override
+                        public void componentResized(ComponentEvent e)
+                        {
+                                if (System.currentTimeMillis() - last_time < 10)
+                                        return;
+                                int xges = getWidth();
+                                int yges = getHeight();
+
+                                int xpb = pb.getWidth();
+                                int ypb = pb.getHeight();
+
+                                int xdif = xges - xpb;
+                                int ydif = yges - ypb;
+
+                                int xcord = getX();
+                                int ycord = getY();
+
+                                if (prev_width + 200 > xges) {
+                                        if (ypb > xpb) {
+                                                ypb = (int) (xpb * FIXMUL);
+                                        } else {
+                                                xpb = (int) (ypb / FIXMUL);
+                                        }
+                                } else if (prev_width - 200 < xges) {
+                                        if (ypb < xpb) {
+                                                ypb = (int) (xpb * FIXMUL);
+                                        } else {
+                                                xpb = (int) (ypb / FIXMUL);
+                                        }
+                                }
+
+                                e.getComponent().setBounds(xcord, ycord, xdif + xpb, ydif + ypb);
+                                prev_width = getWidth();
+                                last_time = System.currentTimeMillis();
+                        }
+
+                        @Override
+                        public void componentMoved(ComponentEvent e)
+                        {
+                        }
+
+                        @Override
+                        public void componentShown(ComponentEvent e)
+                        {
+                        }
+
+                        @Override
+                        public void componentHidden(ComponentEvent e)
+                        {
+                        }
+                });
         }
 
         private void connect(ActionEvent e)
@@ -193,19 +306,29 @@ public class Frame extends JFrame implements Defs {
                         public void run()
                         {
                                 SerialPort sp = (SerialPort) ports.getSelectedItem();
-                                info.setText("connecting...");
-                                sp.openPort();
 
-                                if (sp.isOpen()) {
+                                if (sp == null)
+                                        return;
+                                if (sp == curr_port)
+                                        return;
+
+                                curr_port = sp;
+                                info.setText("connecting...");
+                                curr_port.openPort();
+
+                                if (curr_port.isOpen()) {
                                         info.setText("connected");
                                 } else {
-                                        info.setText("failed to connect");
+                                        info.setText("failed to connect; setting dummy stream");
+                                        //c.setPSInputStream(new PSInputStream(dummy_is));
+
+                                        dummy_stream.start();
                                         return;
                                 }
 
                                 sp.writeBytes(new byte[]{0}, 1);
                                 if (c != null)
-                                        c.setPSInputStream(new PSInputStream(sp));
+                                        c.setPSInputStream(new PSInputStream(sp.getInputStream()));
                         }
                 }.start();
         }
@@ -223,14 +346,14 @@ public class Frame extends JFrame implements Defs {
         private void updateVals()
         {
                 Object val_;
-                double val;
+                float val;
                 if (t.getSelectedRow() == -1) {
                         target = 70;
                 } else if (t.getSelectedRow() == 0) {//current
                         val_ = t.getValueAt(0, 1);
                         if (val_ == null)
                                 return;
-                        val = (double) val_;
+                        val = Float.parseFloat((String)val_);
                         target = (int) ((val * 100) / (MAX_AMPS - MIN_AMPS));
                         setMin(Integer.toString(MIN_AMPS));
                         setMax(Integer.toString(MAX_AMPS));
@@ -238,7 +361,7 @@ public class Frame extends JFrame implements Defs {
                         val_ = t.getValueAt(t.getSelectedRow(), 1);
                         if (val_ == null)
                                 return;
-                        val = (double) val_;
+                        val = Float.parseFloat((String)val_);
                         target = (int) ((val * 100) / (MAX_POWER - MIN_POWER));
                         setMin(Integer.toString(MIN_POWER));
                         setMax(Integer.toString(MAX_POWER));
@@ -246,27 +369,27 @@ public class Frame extends JFrame implements Defs {
                 progress_update.start();
         }
 
-        public void setCurrent(double d)
+        public void setCurrent(float d)
         {
-                t.setValueAt(d, 0, 1);
+                t.setValueAt(String.format("%.2f", d), 0, 1);
                 updateVals();
         }
 
-        public void setRealPower(double d)
+        public void setRealPower(float d)
         {
-                t.setValueAt(d, 1, 1);
+                t.setValueAt(String.format("%.2f", d), 1, 1);
                 updateVals();
         }
 
-        public void setActivePower(double d)
+        public void setApparentPower(float d)
         {
-                t.setValueAt(d, 2, 1);
+                t.setValueAt(String.format("%.2f", d), 2, 1);
                 updateVals();
         }
 
-        public void setReactivePower(double d)
+        public void setReactivePower(float d)
         {
-                t.setValueAt(d, 3, 1);
+                t.setValueAt(String.format("%.2f", d), 3, 1);
                 updateVals();
         }
 }

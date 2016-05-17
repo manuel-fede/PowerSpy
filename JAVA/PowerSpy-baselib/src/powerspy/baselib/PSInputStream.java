@@ -28,9 +28,9 @@ import java.nio.ByteBuffer;
 public class PSInputStream extends InputStream implements IODefs {
 
         private final InputStream is;
-        byte[] buffer;
-        boolean reading;
-        char position;
+        private final byte[] buffer;
+        private boolean reading;
+        private char position;
 
         public PSInputStream(InputStream is)
         {
@@ -184,6 +184,26 @@ public class PSInputStream extends InputStream implements IODefs {
         {
                 return getType() == INT32;
         }
+        
+        public boolean isUInt8() throws PackageException
+        {
+                return getType() == UINT8;
+        }
+
+        public boolean isUInt16() throws PackageException
+        {
+                return getType() == UINT16;
+        }
+
+        public boolean isUInt24() throws PackageException
+        {
+                return getType() == UINT24;
+        }
+
+        public boolean isUInt32() throws PackageException
+        {
+                return getType() == UINT32;
+        }
 
         public boolean isFloat() throws PackageException
         {
@@ -193,6 +213,83 @@ public class PSInputStream extends InputStream implements IODefs {
         public boolean isString() throws PackageException
         {
                 return getType() == STRING;
+        }
+
+        public int readUInt8() throws PackageException
+        {
+                int res;
+                byte[] b = new byte[4];
+                if (!isUInt8()) {
+                        throw new PackageException("Wrong package type.");
+                }
+
+                seekFront();
+
+                b[0] = 0;
+                b[1] = 0;
+                b[2] = 0;
+                b[3] = getChar();
+
+                res = ByteBuffer.wrap(b).getInt();
+
+                return res;
+        }
+
+        public int readUInt16() throws PackageException
+        {
+                int res;
+                byte[] b = new byte[4];
+                if (!isUInt16()) {
+                        throw new PackageException("Wrong package type.");
+                }
+
+                seekFront();
+                b[0] = 0;
+                b[1] = 0;
+                b[2] = getChar();
+                b[3] = getChar();
+
+                res = ByteBuffer.wrap(b).getInt();
+
+                return res;
+        }
+
+        public int readUInt24() throws PackageException
+        {
+                int res;
+                byte[] b = new byte[4];
+                if (!isUInt24()) {
+                        throw new PackageException("Wrong package type.");
+                }
+
+                seekFront();
+                b[0] = 0;
+                b[1] = getChar();
+                b[2] = getChar();
+                b[3] = getChar();
+
+                res = ByteBuffer.wrap(b).getInt();
+
+                return res;
+        }
+
+        public int readUInt32() throws PackageException
+        {
+                int res;
+                byte[] b = new byte[4];
+                if (!isUInt32()) {
+                        throw new PackageException("Wrong package type.");
+                }
+
+                seekFront();
+                b[0] = getChar();
+                b[1] = getChar();
+                b[2] = getChar();
+                b[3] = getChar();
+
+                res = ByteBuffer.wrap(b).getInt();
+
+                return res;
         }
 
         public int readInt8() throws PackageException
@@ -212,18 +309,24 @@ public class PSInputStream extends InputStream implements IODefs {
 
                 res = ByteBuffer.wrap(b).getInt();
 
+                if ((res & 0x80) > 0) {
+                        res = ~res + 1; //invert
+                        res &= 0xff;
+                        res = ~res + 1;
+                }
                 return res;
         }
-
+        
         public int readInt16() throws PackageException
         {
                 int res;
                 byte[] b = new byte[4];
-                if (!isInt16()) {
+                if (!isInt8()) {
                         throw new PackageException("Wrong package type.");
                 }
 
                 seekFront();
+
                 b[0] = 0;
                 b[1] = 0;
                 b[2] = getChar();
@@ -231,18 +334,24 @@ public class PSInputStream extends InputStream implements IODefs {
 
                 res = ByteBuffer.wrap(b).getInt();
 
+                if ((res & 0x8000) > 0) {
+                        res = ~res + 1; //invert
+                        res &= 0xffff;
+                        res = ~res + 1;
+                }
                 return res;
         }
-
+        
         public int readInt24() throws PackageException
         {
                 int res;
                 byte[] b = new byte[4];
-                if (!isInt24()) {
+                if (!isInt8()) {
                         throw new PackageException("Wrong package type.");
                 }
 
                 seekFront();
+
                 b[0] = 0;
                 b[1] = getChar();
                 b[2] = getChar();
@@ -250,18 +359,24 @@ public class PSInputStream extends InputStream implements IODefs {
 
                 res = ByteBuffer.wrap(b).getInt();
 
+                if ((res & 0x800000) > 0) {
+                        res = ~res + 1; //invert
+                        res &= 0xffffff;
+                        res = ~res + 1;
+                }
                 return res;
         }
-
+        
         public int readInt32() throws PackageException
         {
                 int res;
                 byte[] b = new byte[4];
-                if (!isInt32()) {
+                if (!isInt8()) {
                         throw new PackageException("Wrong package type.");
                 }
 
                 seekFront();
+
                 b[0] = getChar();
                 b[1] = getChar();
                 b[2] = getChar();
@@ -269,9 +384,14 @@ public class PSInputStream extends InputStream implements IODefs {
 
                 res = ByteBuffer.wrap(b).getInt();
 
+                if ((res & 0x80000000) > 0) {
+                        res = ~res + 1; //invert
+                        res &= 0xffffffff;
+                        res = ~res + 1;
+                }
                 return res;
         }
-
+        
         public float readFloat() throws PackageException
         {
                 int res;

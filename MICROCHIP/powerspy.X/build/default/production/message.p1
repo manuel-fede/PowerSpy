@@ -2830,22 +2830,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p n 752 ]
 "40
 [p y pop ]
-[; ;powerspy.h: 141: void initPins();
-[; ;powerspy.h: 142: void initADC();
-[; ;powerspy.h: 143: void initTMR2();
-[; ;powerspy.h: 144: void initTMR1();
-[; ;powerspy.h: 145: void initFVR();
-[; ;powerspy.h: 146: void initPWMTMR4();
-[; ;powerspy.h: 147: void initCOMP1();
-[; ;powerspy.h: 148: void initCOMP2();
-[; ;powerspy.h: 149: void adc(const int8_t src);
-[; ;powerspy.h: 150: uint8_t readVoltage();
-[; ;powerspy.h: 151: float readCurrent();
-[; ;powerspy.h: 152: void so(const uint8_t data, const uint8_t direction);
-[; ;powerspy.h: 153: uint24_t combine(uint24_t nr1, uint24_t nr2);
-[; ;powerspy.h: 154: void clearDisplay(int8_t leng);
-[; ;powerspy.h: 155: void __interrupt ISR();
-[; ;powerspy.h: 156: void main();
+[; ;powerspy.h: 150: void initPins();
+[; ;powerspy.h: 151: void initADC();
+[; ;powerspy.h: 152: void initTMR2();
+[; ;powerspy.h: 153: void initTMR1();
+[; ;powerspy.h: 154: void initFVR();
+[; ;powerspy.h: 155: void initPWMTMR4();
+[; ;powerspy.h: 156: void initCOMP1();
+[; ;powerspy.h: 157: void initCOMP2();
+[; ;powerspy.h: 158: void adc(const int8_t src);
+[; ;powerspy.h: 159: uint8_t readVoltage();
+[; ;powerspy.h: 160: float readCurrent();
+[; ;powerspy.h: 161: void so(const uint8_t data);
+[; ;powerspy.h: 162: uint24_t combine(uint24_t nr1, uint24_t nr2);
+[; ;powerspy.h: 163: void clearDisplay(int8_t leng);
+[; ;powerspy.h: 164: uint8_t setNr(uint16_t);
+[; ;powerspy.h: 165: void __interrupt ISR();
+[; ;powerspy.h: 166: void main();
 "13 message.c
 [v _readpos `c ~T0 @X0 1 e ]
 [; ;message.c: 13: int8_t readpos;

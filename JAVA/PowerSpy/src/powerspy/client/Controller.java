@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import javax.swing.Timer;
 import powerspy.baselib.*;
+import static powerspy.baselib.IODefs.*;
 
 /**
 
@@ -29,17 +30,17 @@ import powerspy.baselib.*;
  */
 public class Controller extends Thread {
 
-        Frame f;
-        PSInputStream is;
-        PSOutputStream os;
-        Timer update_interval;
+        private final Frame f;
+        private final Timer update_interval;
+        private PSInputStream is;
+        private PSOutputStream os;
 
         private boolean keep_alive;
 
-        private float current;
-        private float real_power;
-        private float active_power;
-        private float reactive_power;
+        private int current;
+        private int real_power;
+        private int apparent_power;
+        private int reactive_power;
 
         public Controller(Frame f)
         {
@@ -47,27 +48,37 @@ public class Controller extends Thread {
                 this.f = f;
                 is = null;
                 os = null;
-                update_interval = new Timer(1_000, (ActionEvent e) -> {
+                update_interval = new Timer(500, (ActionEvent e) -> {
                         doUpdate();
                 });
         }
 
-        public void setPSInputStream(PSInputStream is)
+        public synchronized void setPSInputStream(PSInputStream is)
         {
                 this.is = is;
         }
 
-        public void setPSOutputStream(PSOutputStream os)
+        public synchronized PSInputStream getPSInputStream()
+        {
+                return is;
+        }
+
+        public synchronized void setPSOutputStream(PSOutputStream os)
         {
                 this.os = os;
         }
 
+        public synchronized PSOutputStream getPSOutputStream()
+        {
+                return os;
+        }
+
         private void doUpdate()
         {
-                f.setCurrent(current);
-                f.setRealPower(real_power);
-                f.setActivePower(active_power);
-                f.setReactivePower(reactive_power);
+                f.setCurrent((float) current / 1000);
+                f.setRealPower((float) real_power / 1000);
+                f.setApparentPower((float) apparent_power / 1000);
+                f.setReactivePower((float) reactive_power / 1000);
         }
 
         @Override
@@ -78,34 +89,51 @@ public class Controller extends Thread {
                 super.start();
         }
 
+        private synchronized char doRun(char read_mode) throws IOException, PackageException
+        {
+                if (is != null && is.readPackage()) {
+                        if (read_mode == NONE && is.isInt8()) {
+                                read_mode = (char) is.readInt8();
+                                is.clear();
+                        } else if (read_mode != NONE && is.isInt24()) {
+                                switch (read_mode) {
+                                        case K_CURRENT:
+                                                current = is.readInt24();
+                                                break;
+                                        case K_REALPOWER:
+                                                real_power = is.readInt24();
+                                                break;
+                                        case K_APPARENTEPOWER:
+                                                apparent_power = is.readInt24();
+                                                break;
+                                        case K_REACTIVEPOWER:
+                                                reactive_power = is.readInt24();
+                                                break;
+                                        default:
+                                                System.out.print(read_mode);
+                                                System.out.print(": ");
+                                                System.out.println(is.readObj());
+                                                break;
+                                }
+                                read_mode = NONE;
+                        } else {
+                                System.out.print(read_mode);
+                                System.out.print(": ");
+                                System.out.println(is.readObj());
+                        }
+                        is.clear();
+                }
+                System.out.flush();
+                return read_mode;
+        }
+
         @Override
         public void run()
         {
-                char read_mode = IODefs.NONE;
+                char read_mode = NONE;
                 while (keep_alive) {
                         try {
-                                if (is != null && is.readPackage()) {
-                                        if (read_mode == IODefs.NONE && is.isInt8()) {
-                                                read_mode = (char) is.readInt8();
-                                                is.clear();
-                                        } else if (read_mode != IODefs.NONE && is.isFloat()) {
-                                                switch (read_mode) {
-                                                        case IODefs.K_CURRENT:
-                                                                current = is.readFloat();
-                                                                break;
-                                                        case IODefs.K_REALPOWER:
-                                                                real_power = is.readFloat();
-                                                                break;
-                                                        case IODefs.K_ACTIVEPOWER:
-                                                                active_power = is.readFloat();
-                                                                break;
-                                                        case IODefs.K_REACTIVEPOWER:
-                                                                reactive_power = is.readFloat();
-                                                                break;
-                                                }
-                                                read_mode = IODefs.NONE;
-                                        }
-                                }
+                                read_mode = doRun(read_mode);
                         } catch (IOException | PackageException ex) {
                                 ex.printStackTrace(System.err);
                         }
