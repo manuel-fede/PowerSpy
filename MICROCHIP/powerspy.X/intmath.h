@@ -16,11 +16,13 @@
 extern "C" {
 #endif
 
-#define SEC_1           (0xff)
-#define FULL_ROTATION   (SEC_1<<2)
+#define QUARTER_ROTATION           (0xff)
+#define HALF_ROTATION   (QUARTER_ROTATION<<1)
+#define FULL_ROTATION   (QUARTER_ROTATION<<2)
 #define MIN_SIN_RES     (-0xff)
 #define MAX_SIN_RES     (0xff)
-        
+
+//#define abs(x)          ((x<0)?-x:x)
         int16_t isin(int16_t z);
         int16_t icos(int16_t z);
 

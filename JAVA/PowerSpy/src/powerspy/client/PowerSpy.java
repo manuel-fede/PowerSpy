@@ -43,9 +43,8 @@ public class PowerSpy {
 
                 for (SerialPort p : SerialPort.getCommPorts())
                         if (!p.getDescriptivePortName().contains("Dial-In")) //remove the clutter
-                                f.ports.addItem(p);
-
-                c.start();
+                                if (!p.getDescriptivePortName().contains("Bluetooth"))
+                                        f.ports.addItem(p);
 
                 java.awt.EventQueue.invokeLater(() -> {
                         f.setVisible(true);

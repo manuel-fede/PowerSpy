@@ -3,5 +3,4 @@
  powerspy.c  \
 message.h  \
 powerspy.h  \
-intmath.h  \
 types.h 

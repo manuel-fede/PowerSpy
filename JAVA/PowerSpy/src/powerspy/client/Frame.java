@@ -36,6 +36,8 @@ import static powerspy.client.Defs.*;
  */
 public class Frame extends JFrame {
 
+        private static final String FLT_FORMAT = "%.2f";
+
         private static final ArrayInputStream dummy_is;
         private static final Thread dummy_stream;
         private static final Random r = new Random();
@@ -47,25 +49,22 @@ public class Frame extends JFrame {
 
                         private void insertKey(char key)
                         {
-                                byte[] b = new byte[4];
+                                byte[] b = new byte[3];
                                 b[0] = START_OF_TEXT;
-                                b[1] = INT8;
+                                b[1] = UINT8;
                                 b[2] = (byte) (key & 0xff);
-                                b[3] = END_OF_TEXT;
 
                                 dummy_is.insert(b, 0, b.length);
                         }
 
-                        private void insertValue(float f)
+                        private void insertValue(int i)
                         {
-                                int bits = Float.floatToIntBits(f) >> 8;
-                                byte[] b = new byte[6];
+                                byte[] b = new byte[5];
                                 b[0] = START_OF_TEXT;
-                                b[1] = FLOAT;
-                                b[2] = (byte) (bits >> 16 & 0xff);
-                                b[3] = (byte) (bits >> 8 & 0xff);
-                                b[4] = (byte) (bits & 0xff);
-                                b[5] = END_OF_TEXT;
+                                b[1] = INT24;
+                                b[2] = (byte) (i >> 16 & 0xff);
+                                b[3] = (byte) (i >> 8 & 0xff);
+                                b[4] = (byte) (i & 0xff);
 
                                 dummy_is.insert(b, 0, b.length);
                         }
@@ -75,13 +74,13 @@ public class Frame extends JFrame {
                         {
                                 while (true) {
                                         insertKey(K_CURRENT);
-                                        insertValue(r.nextFloat() * r.nextInt(5));
+                                        insertValue(r.nextInt(5000));
                                         insertKey(K_APPARENTEPOWER);
-                                        insertValue(r.nextFloat() * r.nextInt(1150));
+                                        insertValue(r.nextInt(1150000));
                                         insertKey(K_REALPOWER);
-                                        insertValue(r.nextFloat() * r.nextInt(1150));
+                                        insertValue(r.nextInt(1150000));
                                         insertKey(K_REACTIVEPOWER);
-                                        insertValue(r.nextFloat() * r.nextInt(1150));
+                                        insertValue(r.nextInt(1150000));
 
                                         try {
                                                 Thread.sleep(1000);
@@ -141,6 +140,7 @@ public class Frame extends JFrame {
                 this.c = c;
         }
 
+        //<editor-fold defaultstate="collapsed" desc="init combo box">
         private void initCombobox()
         {
                 ports = new JComboBox<>();
@@ -151,7 +151,9 @@ public class Frame extends JFrame {
 
                 add(ports);
         }
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="init jlabel">
         private void initJLabel()
         {
                 JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -159,7 +161,9 @@ public class Frame extends JFrame {
                 p.add(info);
                 add(p);
         }
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="init progress bar">
         private void initProgressBar()
         {
                 JPanel p = new JPanel();
@@ -189,7 +193,9 @@ public class Frame extends JFrame {
                 p.add(pb);
                 add(p);
         }
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="progress bar timer">
         private void initProgressTimer()
         {
                 //some fancy animation
@@ -209,7 +215,9 @@ public class Frame extends JFrame {
                 });
                 progress_update.start();
         }
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="init desc">
         private void initDesc()
         {
                 JPanel p = new JPanel(new GridLayout(1, 2));
@@ -220,10 +228,12 @@ public class Frame extends JFrame {
                 p.add(max);
                 add(p);
         }
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="init table">
         private void initJTable()
         {
-                t = new JTable(4, 2) {
+                t = new JTable(7, 2) {
 
                         @Override
                         public boolean isCellEditable(int row, int column)
@@ -239,9 +249,14 @@ public class Frame extends JFrame {
                 t.setValueAt("Real Power", 1, 0);
                 t.setValueAt("Apparent Power", 2, 0);
                 t.setValueAt("Reactive Power", 3, 0);
+                t.setValueAt("Raw Current", 4, 0);
+                t.setValueAt("Offset", 5, 0);
+                t.setValueAt("Raw Supply", 6, 0);
                 add(t);
         }
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="resize handler">
         private void initResize()
         {
                 addComponentListener(new ComponentListener() {
@@ -297,9 +312,11 @@ public class Frame extends JFrame {
                         }
                 });
         }
+        //</editor-fold>
 
         private void connect(ActionEvent e)
         {
+
                 new Thread() {
 
                         @Override
@@ -320,19 +337,24 @@ public class Frame extends JFrame {
                                         info.setText("connected");
                                 } else {
                                         info.setText("failed to connect; setting dummy stream");
-                                        //c.setPSInputStream(new PSInputStream(dummy_is));
-
+                                        c.terminate();
+                                        c.setPSInputStream(new PSInputStream(dummy_is).clear());
                                         dummy_stream.start();
+                                        c.start();
                                         return;
                                 }
 
                                 sp.writeBytes(new byte[]{0}, 1);
-                                if (c != null)
-                                        c.setPSInputStream(new PSInputStream(sp.getInputStream()));
+                                if (c != null) {
+                                        c.terminate();
+                                        c.setPSInputStream(new PSInputStream(sp.getInputStream()).clear());
+                                        c.start();
+                                }
                         }
                 }.start();
         }
 
+        //<editor-fold defaultstate="collapsed" desc="helper methods for progress bar">
         private void setMin(String s)
         {
                 min.setText("<html><div style='text-align: center;'>" + s + "</html>");
@@ -353,7 +375,7 @@ public class Frame extends JFrame {
                         val_ = t.getValueAt(0, 1);
                         if (val_ == null)
                                 return;
-                        val = Float.parseFloat((String)val_);
+                        val = Float.parseFloat((String) val_);
                         target = (int) ((val * 100) / (MAX_AMPS - MIN_AMPS));
                         setMin(Integer.toString(MIN_AMPS));
                         setMax(Integer.toString(MAX_AMPS));
@@ -361,35 +383,54 @@ public class Frame extends JFrame {
                         val_ = t.getValueAt(t.getSelectedRow(), 1);
                         if (val_ == null)
                                 return;
-                        val = Float.parseFloat((String)val_);
+                        val = Float.parseFloat((String) val_);
                         target = (int) ((val * 100) / (MAX_POWER - MIN_POWER));
                         setMin(Integer.toString(MIN_POWER));
                         setMax(Integer.toString(MAX_POWER));
                 }
                 progress_update.start();
         }
+        //</editor-fold>
 
         public void setCurrent(float d)
         {
-                t.setValueAt(String.format("%.2f", d), 0, 1);
+                t.setValueAt(String.format(FLT_FORMAT, d), 0, 1);
                 updateVals();
         }
 
         public void setRealPower(float d)
         {
-                t.setValueAt(String.format("%.2f", d), 1, 1);
+                t.setValueAt(String.format(FLT_FORMAT, d), 1, 1);
                 updateVals();
         }
 
         public void setApparentPower(float d)
         {
-                t.setValueAt(String.format("%.2f", d), 2, 1);
+                t.setValueAt(String.format(FLT_FORMAT, d), 2, 1);
                 updateVals();
         }
 
         public void setReactivePower(float d)
         {
-                t.setValueAt(String.format("%.2f", d), 3, 1);
+                t.setValueAt(String.format(FLT_FORMAT, d), 3, 1);
+                updateVals();
+        }
+
+        public void setRawCurrent(float d)
+        {
+                t.setValueAt(String.format(FLT_FORMAT, d), 4, 1);
+                updateVals();
+        }
+
+        public void setOffs(float d)
+        {
+                t.setValueAt(String.format(FLT_FORMAT, d), 5, 1);
+                updateVals();
+        }
+
+        public void setRawVoltage(float d)
+        {
+                t.setValueAt(String.format(FLT_FORMAT, d), 6, 1);
                 updateVals();
         }
 }

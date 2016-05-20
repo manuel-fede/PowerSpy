@@ -37,7 +37,8 @@ extern "C" {
         //even when casting to the appropriate type
 #pragma warning push
 #pragma warning disable 752
-#pragma warning enable pop
+#pragma warning disable 520
+#pragma warning pop
 
         //print specific defines
 #define _XTAL_FREQ              32000000
@@ -66,41 +67,64 @@ extern "C" {
 #define PWM_IN_REF              RA2
 
 #define SHIFT_REG_LEN           7
+#define SHIFT_DELAY             NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();
 
 #define RET_OK                  0
 #define RET_NOK                 1
 
+#define K_RAWCURRENT            'C'
+#define K_OFFS                  'o'
 #define K_CURRENT               'c'
 #define K_VOLTAGE               'v'
 #define K_ANGLE                 'a'
 #define K_APPARENTEPOWER        'A'
 #define K_REALPOWER             'r'
 #define K_REACTIVEPOWER         'R'
+#define K_RAWVOLTAGE            's'
 
 #define VOLT_TO_AMP_FACT        5
 
-#define NRMASK                  0b10000000
+#define NRMASK                  0b10000001
 #define NR0                     0b10000001
 #define NR1                     0b10111101
-#define NR2                     0b11001000
-#define NR3                     0b10011000
-#define NR4                     0b10110100
-#define NR5                     0b10010010
-#define NR6                     0b10000010
-#define NR7                     0b10111001
-#define NR8                     0b10000000
-#define NR9                     0b10010000
+#define NR2                     0b00010011
+#define NR3                     0b00011001
+#define NR4                     0b00101101
+#define NR5                     0b01001001
+#define NR6                     0b01000001
+#define NR7                     0b10011101
+#define NR8                     0b00000001
+#define NR9                     0b00001001
 
         //shift 1 - 3
 #define BIGMASK                 0b110100000000000011100111
 #define SMAMASK                 0b111111111111111100011111
 #define MASK                    (BIGMASK|SMAMASK)
 
-#define V                       0b111101101011101111111111
-#define WFIRST                  0b111111101010101011110111
-#define WSECOND                 0b111111111111111100111111
-#define AFIRST                  0b111110100111101011100111
-#define ASECOND                 0b111111111111111101011111
+#define V                       0b111111111101110101101111
+#define WFIRST                  0b111011110101010101111111                         
+#define WSECOND                 0b111111001111111111111111
+                                
+#define AFIRST                  0b111001110101111001011111
+#define ASECOND                 0b111110101111111111111111
+        
+#define RSECOND                 0b111111111111111111111111
+        
+#define UNIT_NONE               0xffffff
+#define UNIT_VA                 (V&ASECOND)
+#define UNIT_A                  AFIRST
+#define UNIT_W                  WFIRST
+#define UNIT_V                  V
+#define UNIT_VR                 (V&RSECOND)
 
 #define NNR0                    0b111111101111100011100111
 #define NNR1                    0b111111111111111011110111
@@ -135,6 +159,7 @@ extern "C" {
                                 STATUS_LED=0;\
                                 WAIT_T1L\
                                 }
+#define LED_INTENSE              (0xff>>3)
 
 #define DMODE_NONE              0
 #define DMODE_CURRENT           1
@@ -143,8 +168,14 @@ extern "C" {
 #define DMODE_APPARENT          4
 #define DMODE_REAL              5
 #define DMODE_REACTIVE          6
-#define DMODE_MAX               6
+#define DMODE_MAX               7
 
+#define QUARTER_ROTATION           (100)
+#define HALF_ROTATION   (QUARTER_ROTATION<<1)
+#define FULL_ROTATION   (QUARTER_ROTATION<<2)
+#define MIN_SIN_RES     (-100)
+#define MAX_SIN_RES     (100)
+        
 #define getTime()           TMR1
 
         void initPins();
@@ -157,7 +188,7 @@ extern "C" {
         void initCOMP2();
         void adc(const int8_t src);
         uint8_t readVoltage();
-        float readCurrent();
+        int24_t readCurrent();
         void so(const uint8_t data);
         uint24_t combine(uint24_t nr1, uint24_t nr2);
         void clearDisplay(int8_t leng);

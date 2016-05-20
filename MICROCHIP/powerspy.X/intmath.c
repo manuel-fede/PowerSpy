@@ -9,27 +9,47 @@
 #include "intmath.h"
 #include "types.h"
 
-int16_t isin_(int16_t z) {
-        return (3 * z) / 2 - (z * z * z) / (SEC_1 * SEC_1 << 1);
+/*
+ * sin(z) = 3/2*z-(z*z*z)/(0xff*0x7f)
+ */
+int16_t isin_(int16_t z)
+{
+        int32_t n1 = 3 * z;
+        int32_t n2 = z * z * z; //0xff^3 > 2^23 thus we need 32 bits
+        int32_t d1 = 2;
+        int32_t d2 = QUARTER_ROTATION;
+        d2 *= HALF_ROTATION;
+        int32_t res = n1 / d1 - n2 / d2;
+        return (int16_t) res;
 }
 
-int16_t isin(int16_t z) {
-        while (z > SEC_1 << 2)
-                z -= SEC_1<<2;
+int16_t isin(int16_t z)
+{
+        int16_t buff;
+        while (z > FULL_ROTATION)
+                z -= FULL_ROTATION;
 
-        if (z > (SEC_1 << 1) + SEC_1) //4th quad
-                return -isin_((SEC_1 << 2) - z);
-
-        if (z > SEC_1 << 1) //3rd quad
-                return -isin_((z - (SEC_1 << 1)));
-
-        if (z > SEC_1) //2nd quad
-                return isin_(((SEC_1 << 1) - z));
+        if (z > (HALF_ROTATION) + QUARTER_ROTATION) { //4th quad
+                buff = FULL_ROTATION;
+                buff -= z;
+                return -isin_(buff);
+        }
+        if (z > HALF_ROTATION) {//3rd quad
+                buff = z;
+                buff -= HALF_ROTATION;
+                return -isin_(buff);
+        }
+        if (z > QUARTER_ROTATION) {//2nd quad
+                buff = HALF_ROTATION;
+                buff -= z;
+                return isin_(buff);
+        }
 
         //1st quad
         return isin_(z);
 }
 
-int16_t icos(int16_t z) {
-        return isin(SEC_1 + z);
+int16_t icos(int16_t z)
+{
+        return isin(QUARTER_ROTATION + z);
 }

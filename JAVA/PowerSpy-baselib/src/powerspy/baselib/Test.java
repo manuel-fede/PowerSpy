@@ -36,7 +36,11 @@ public class Test {
                 ps.append("] ");
                 ps.print(Character.toString(t));
                 ps.print(", ");
-                ps.println(o);
+                if (t == IODefs.UINT8) {
+                        ps.println((char)((Integer)o).intValue());
+                } else {
+                        ps.println(o);
+                }
                 ps.flush();
         }
 
@@ -69,7 +73,7 @@ public class Test {
                         System.out.println("failed");
                         System.exit(1);
                 }
-                PSInputStream is = new PSInputStream(p.getInputStream());
+                PSInputStream is = new PSInputStream(p.getInputStream()).clear();
 
                 Thread.sleep(2_000);
 
@@ -77,15 +81,9 @@ public class Test {
                 p.writeBytes(buff, 1);
 
                 while (true) {
-                        try {
-                                is.readPackage();
-                        } catch (ArrayIndexOutOfBoundsException ex) {
-                                ex.printStackTrace(System.err);
-                                is.clear();
-                        }
-                        if (is.packageFinished()) {
-                                type = (char) is.getType();
-                                o = is.readObj();
+                        if (is.readPackage()) {
+                                type = (char) is.getDataPacket().getType();
+                                o = is.getDataPacket().readObj();
 
                                 if (o != null) {
                                         log(ps, type, o);

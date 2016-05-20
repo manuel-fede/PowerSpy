@@ -3,50 +3,32 @@
 [d edition pro ]
 [d chip 16F1827 ]
 [d frameptr 6 ]
-"6 /Applications/microchip/xc8/v1.36/sources/common/awdiv.c
+"4 /Applications/microchip/xc8/v1.37/sources/common/abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"6 /Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"6 /Applications/microchip/xc8/v1.37/sources/common/awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"32 /Applications/microchip/xc8/v1.36/sources/common/awtoft.c
-[v ___awtoft __awtoft `(f  1 e 3 0 ]
-"62 /Applications/microchip/xc8/v1.36/sources/common/float.c
+"6 /Applications/microchip/xc8/v1.37/sources/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"62 /Applications/microchip/xc8/v1.37/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 /Applications/microchip/xc8/v1.36/sources/common/ftadd.c
+"86 /Applications/microchip/xc8/v1.37/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"56 /Applications/microchip/xc8/v1.36/sources/common/ftdiv.c
-[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"4 /Applications/microchip/xc8/v1.36/sources/common/ftge.c
-[v ___ftge __ftge `(b  1 e 0 0 ]
-"62 /Applications/microchip/xc8/v1.36/sources/common/ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
-"15 /Applications/microchip/xc8/v1.36/sources/common/ftneg.c
-[v ___ftneg __ftneg `(f  1 e 3 0 ]
-"44 /Applications/microchip/xc8/v1.36/sources/common/fttol.c
-[v ___fttol __fttol `(l  1 e 4 0 ]
-"4 /Applications/microchip/xc8/v1.36/sources/common/lbmod.c
-[v ___lbmod __lbmod `(uc  1 e 1 0 ]
-"27 /Applications/microchip/xc8/v1.36/sources/common/lbtoft.c
-[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.36/sources/common/ltdiv.c
-[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.36/sources/common/lwdiv.c
+"6 /Applications/microchip/xc8/v1.37/sources/common/lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"6 /Applications/microchip/xc8/v1.36/sources/common/lwmod.c
+"6 /Applications/microchip/xc8/v1.37/sources/common/lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"28 /Applications/microchip/xc8/v1.36/sources/common/lwtoft.c
-[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
-"15 /Applications/microchip/xc8/v1.36/sources/common/Umul16.c
+"15 /Applications/microchip/xc8/v1.37/sources/common/Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-"15 /Applications/microchip/xc8/v1.36/sources/common/Umul24.c
+"15 /Applications/microchip/xc8/v1.37/sources/common/Umul24.c
 [v ___tmul __tmul `(um  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.36/sources/pic/eeprom.c
+"6 /Applications/microchip/xc8/v1.37/sources/pic/eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"12 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/intmath.c
-[v _isin_ isin_ `(s  1 e 2 0 ]
-"16
-[v _isin isin `(s  1 e 2 0 ]
-"33
-[v _icos icos `(s  1 e 2 0 ]
+"6 /Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
 "16 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
 [v _initMessaging initMessaging `(v  1 e 1 0 ]
 "31
@@ -57,57 +39,61 @@
 [v _seekFront seekFront `(v  1 e 1 0 ]
 "81
 [v _clear clear `(v  1 e 1 0 ]
-"114
+"115
 [v _readInt24 readInt24 `(m  1 e 3 0 ]
-"153
-[v __sendchar_ _sendchar_ `(v  1 e 1 0 ]
 "159
-[v _sendInt8 sendInt8 `(v  1 e 1 0 ]
-"167
-[v _sendChar sendChar `(v  1 e 1 0 ]
-"201
-[v _sendFloat sendFloat `(v  1 e 1 0 ]
-"49 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+[v __sendchar_ _sendchar_ `(v  1 e 1 0 ]
+"181
+[v _sendInt24 sendInt24 `(v  1 e 1 0 ]
+"200
+[v _sendUInt8 sendUInt8 `(v  1 e 1 0 ]
+"64 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
 [v _initPins initPins `(v  1 e 1 0 ]
-"83
+"98
 [v _initADC initADC `(v  1 e 1 0 ]
-"152
+"167
 [v _initTMR1 initTMR1 `(v  1 e 1 0 ]
-"182
+"197
 [v _initFVR initFVR `(v  1 e 1 0 ]
-"208
+"223
 [v _initPWMTMR4 initPWMTMR4 `(v  1 e 1 0 ]
-"268
+"283
 [v _initCOMP1 initCOMP1 `(v  1 e 1 0 ]
-"302
+"317
 [v _initCOMP2 initCOMP2 `(v  1 e 1 0 ]
-"335
+"350
 [v _initBT initBT `(v  1 e 1 0 ]
-"374
+"389
 [v _adc adc `(v  1 e 1 0 ]
-"418
+"433
 [v _readVoltage readVoltage `(uc  1 e 1 0 ]
-"428
-[v _readCurrent readCurrent `(f  1 e 3 0 ]
-"442
-[v _readVdd readVdd `(f  1 e 3 0 ]
-"456
+"443
+[v _readCurrent readCurrent `(m  1 e 3 0 ]
+"460
+[v _readVdd readVdd `(us  1 e 2 0 ]
+"478
 [v _so so `(v  1 e 1 0 ]
-"489
-[v _clearDisplay clearDisplay `(v  1 e 1 0 ]
-"495
-[v _setNr setNr `(uc  1 e 1 0 ]
-"510
+"520
 [v _sendColour sendColour `(v  1 e 1 0 ]
-"545
+"555
 [v _deltaT deltaT `(us  1 e 2 0 ]
-"569
+"563
+[v _sin_ sin_ `(c  1 e 1 0 ]
+"570
+[v _sin sin `(c  1 e 1 0 ]
+"597
+[v _cos cos `(c  1 e 1 0 ]
+"618
 [v _setLED setLED `(v  1 e 1 0 ]
-"577
+"626
+[v _setUnit setUnit `(v  1 e 1 0 ]
+"633
+[v _setVal setVal `(v  1 e 1 0 ]
+"642
 [v _ISR ISR `II(v  1 e 1 0 ]
-"632
+"689
 [v _main main `(v  1 e 1 0 ]
-"414 /Applications/microchip/xc8/v1.36/include/pic16f1827.h
+"414 /Applications/microchip/xc8/v1.37/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "475
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
@@ -137,6 +123,12 @@
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2848
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"2912
+[v _EEADR EEADR `VEus  1 e 2 @401 ]
+"2967
+[v _EEDATA EEDATA `VEuc  1 e 1 @403 ]
+"3018
+[v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
 "3098
 [v _RCREG RCREG `VEuc  1 e 1 @409 ]
 "3117
@@ -239,8 +231,6 @@
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "6966
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @1257 ]
-"6990
-[v _IOCBF5 IOCBF5 `VEb  1 e 0 @7349 ]
 "7006
 [v _IOCBN5 IOCBN5 `VEb  1 e 0 @7341 ]
 "7028
@@ -263,10 +253,14 @@
 [v _RA6 RA6 `VEb  1 e 0 @102 ]
 "7226
 [v _RA7 RA7 `VEb  1 e 0 @103 ]
+"7234
+[v _RB3 RB3 `VEb  1 e 0 @107 ]
 "7246
 [v _RCIE RCIE `VEb  1 e 0 @1165 ]
 "7248
 [v _RCIF RCIF `VEb  1 e 0 @141 ]
+"7250
+[v _RD RD `VEb  1 e 0 @3240 ]
 "7256
 [v _RXDTSEL RXDTSEL `VEb  1 e 0 @2287 ]
 "7262
@@ -325,411 +319,298 @@
 [v _TXCKSEL TXCKSEL `VEb  1 e 0 @2288 ]
 "7512
 [v _TXEN TXEN `VEb  1 e 0 @3317 ]
+"7546
+[v _WR WR `VEb  1 e 0 @3241 ]
 "7572
 [v _nWPUEN nWPUEN `VEb  1 e 0 @1199 ]
 "13 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
 [v _readpos readpos `c  1 e 1 0 ]
 "14
 [v _reading reading `uc  1 e 1 0 ]
-"30 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.h
-[v _receive_buff receive_buff `[32]uc  1 e 32 0 ]
-"31
-[v _buffpos buffpos `c  1 e 1 0 ]
-"20 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-[v _get_shift_byte get_shift_byte `DCC[10]uc  1 e 10 0 ]
-"24
-[v _volt_time volt_time `us  1 e 2 0 ]
-"25
-[v _curr_time curr_time `us  1 e 2 0 ]
-"31
-[v _flag flag `VEuc  1 e 1 0 ]
-"34
-[v _i_u_offs i_u_offs `f  1 e 3 0 ]
+"34 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.h
+[v _receive_buff receive_buff `[8]uc  1 e 8 0 ]
 "35
-[v _i_u_diode_offs i_u_diode_offs `f  1 e 3 0 ]
-"37
-[v _led_rest led_rest `us  1 e 2 0 ]
+[v _buffpos buffpos `c  1 e 1 0 ]
+"34 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+[v _get_shift_byte get_shift_byte `DCC[10]uc  1 e 10 0 ]
+"38
+[v _volt_time volt_time `us  1 e 2 0 ]
 "39
+[v _curr_time curr_time `us  1 e 2 0 ]
+"46
+[v _flag flag `VEuc  1 e 1 0 ]
+"49
+[v _i_u_offs i_u_offs `m  1 e 3 0 ]
+"50
+[v _i_u_diode_offs i_u_diode_offs `uc  1 e 1 0 ]
+"52
+[v _led_rest led_rest `us  1 e 2 0 ]
+"54
 [v _mode mode `VEuc  1 e 1 0 ]
-"632
+"689
 [v _main main `(v  1 e 1 0 ]
 {
-"637
-[v main@apparent apparent `f  1 a 3 40 ]
-"634
-[v main@angle angle `um  1 a 3 37 ]
+"695
+[v main@apparent apparent `m  1 a 3 64 ]
+"693
+[v main@current current `m  1 a 3 59 ]
+"692
+[v main@angle angle `m  1 a 3 54 ]
+"697
+[v main@reactive reactive `m  1 a 3 51 ]
+"696
+[v main@real real `m  1 a 3 48 ]
+"694
+[v main@voltage voltage `m  1 a 3 45 ]
+"691
+[v main@bmode bmode `i  1 a 2 57 ]
+"809
+} 0
+"633
+[v _setVal setVal `(v  1 e 1 0 ]
+{
 "635
-[v main@current current `f  1 a 3 34 ]
-"639
-[v main@reactive reactive `f  1 a 3 31 ]
-"638
-[v main@real real `f  1 a 3 28 ]
-"636
-[v main@voltage voltage `f  1 a 3 25 ]
+[v setVal@i i `c  1 a 1 41 ]
+"633
+[v setVal@v v `s  1 p 2 38 ]
 "640
-[v main@so_buff so_buff `us  1 a 2 43 ]
-"751
 } 0
-"495
-[v _setNr setNr `(uc  1 e 1 0 ]
-{
-"497
-[v setNr@it it `uc  1 a 1 17 ]
-"495
-[v setNr@nr nr `us  1 p 2 14 ]
-"504
-} 0
-"6 /Applications/microchip/xc8/v1.36/sources/common/lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"6 /Applications/microchip/xc8/v1.37/sources/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "11
-[v ___lwmod@counter counter `uc  1 a 1 5 ]
+[v ___awmod@sign sign `uc  1 a 1 8 ]
+[v ___awmod@counter counter `uc  1 a 1 7 ]
 "6
-[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
-"26
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+[v ___awmod@dividend dividend `i  1 p 2 4 ]
+"35
 } 0
-"6 /Applications/microchip/xc8/v1.36/sources/common/lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 /Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "11
-[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+[v ___awdiv@quotient quotient `i  1 a 2 36 ]
 "12
-[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+[v ___awdiv@sign sign `uc  1 a 1 35 ]
+[v ___awdiv@counter counter `uc  1 a 1 34 ]
 "6
-[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
-"31
+[v ___awdiv@divisor divisor `i  1 p 2 29 ]
+[v ___awdiv@dividend dividend `i  1 p 2 31 ]
+"42
 } 0
-"201 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-[v _sendFloat sendFloat `(v  1 e 1 0 ]
+"626 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+[v _setUnit setUnit `(v  1 e 1 0 ]
 {
-"203
-[v sendFloat@ptr ptr `*.4um  1 a 1 7 ]
-"201
-[v sendFloat@f f `f  1 p 3 1 ]
-"210
+[v setUnit@u u `um  1 p 3 5 ]
+"631
 } 0
-"167
-[v _sendChar sendChar `(v  1 e 1 0 ]
+"478
+[v _so so `(v  1 e 1 0 ]
 {
-[v sendChar@i i `uc  1 a 1 wreg ]
-[v sendChar@i i `uc  1 a 1 wreg ]
-[v sendChar@i i `uc  1 a 1 2 ]
-"169
+[v so@data data `DCCuc  1 a 1 wreg ]
+"480
+[v so@c c `uc  1 a 1 4 ]
+"478
+[v so@data data `DCCuc  1 a 1 wreg ]
+"481
+[v so@data data `DCCuc  1 a 1 3 ]
+"494
+} 0
+"618
+[v _setLED setLED `(v  1 e 1 0 ]
+{
+[v setLED@g g `uc  1 a 1 wreg ]
+[v setLED@g g `uc  1 a 1 wreg ]
+[v setLED@r r `uc  1 p 1 3 ]
+[v setLED@b b `uc  1 p 1 4 ]
+"620
+[v setLED@g g `uc  1 a 1 5 ]
+"624
+} 0
+"520
+[v _sendColour sendColour `(v  1 e 1 0 ]
+{
+[v sendColour@c c `uc  1 a 1 wreg ]
+[v sendColour@c c `uc  1 a 1 wreg ]
+"522
+[v sendColour@c c `uc  1 a 1 2 ]
+"545
+} 0
+"200 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
+[v _sendUInt8 sendUInt8 `(v  1 e 1 0 ]
+{
+[v sendUInt8@i i `uc  1 a 1 wreg ]
+[v sendUInt8@i i `uc  1 a 1 wreg ]
+"202
+[v sendUInt8@i i `uc  1 a 1 5 ]
+"205
+} 0
+"181
+[v _sendInt24 sendInt24 `(v  1 e 1 0 ]
+{
+[v sendInt24@i i `m  1 p 3 5 ]
+"188
 } 0
 "159
-[v _sendInt8 sendInt8 `(v  1 e 1 0 ]
-{
-[v sendInt8@i i `c  1 a 1 wreg ]
-[v sendInt8@i i `c  1 a 1 wreg ]
-"161
-[v sendInt8@i i `c  1 a 1 1 ]
-"165
-} 0
-"153
 [v __sendchar_ _sendchar_ `(v  1 e 1 0 ]
 {
 [v __sendchar_@c c `uc  1 a 1 wreg ]
 [v __sendchar_@c c `uc  1 a 1 wreg ]
-"155
-[v __sendchar_@c c `uc  1 a 1 0 ]
-"157
+"161
+[v __sendchar_@c c `uc  1 a 1 4 ]
+"164
 } 0
-"418 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+"433 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
 [v _readVoltage readVoltage `(uc  1 e 1 0 ]
 {
-"421
+"436
 } 0
-"442
-[v _readVdd readVdd `(f  1 e 3 0 ]
+"460
+[v _readVdd readVdd `(us  1 e 2 0 ]
 {
-"448
+"470
 } 0
-"428
-[v _readCurrent readCurrent `(f  1 e 3 0 ]
+"443
+[v _readCurrent readCurrent `(m  1 e 3 0 ]
 {
-"440
+"458
 } 0
-"374
+"389
 [v _adc adc `(v  1 e 1 0 ]
 {
 [v adc@src src `DCCc  1 a 1 wreg ]
 [v adc@src src `DCCc  1 a 1 wreg ]
-"397
-[v adc@src src `DCCc  1 a 1 1 ]
-"409
+"412
+[v adc@src src `DCCc  1 a 1 3 ]
+"424
 } 0
-"28 /Applications/microchip/xc8/v1.36/sources/common/lwtoft.c
-[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 /Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 {
-[v ___lwtoft@c c `ui  1 p 2 8 ]
-"31
+"17
+[v ___wmul@product product `ui  1 a 2 8 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
 } 0
-"62 /Applications/microchip/xc8/v1.36/sources/common/ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 /Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
 {
-"65
-[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 46 ]
-"64
-[v ___ftmul@sign sign `uc  1 a 1 50 ]
-[v ___ftmul@cntr cntr `uc  1 a 1 49 ]
-[v ___ftmul@exp exp `uc  1 a 1 45 ]
-"62
-[v ___ftmul@f1 f1 `f  1 p 3 35 ]
-[v ___ftmul@f2 f2 `f  1 p 3 38 ]
-"157
+"17
+[v ___tmul@product product `um  1 a 3 10 ]
+"15
+[v ___tmul@multiplier multiplier `um  1 p 3 4 ]
+[v ___tmul@multiplicand multiplicand `um  1 p 3 7 ]
+"99
 } 0
-"56 /Applications/microchip/xc8/v1.36/sources/common/ftdiv.c
-[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"6 /Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
 {
-"60
-[v ___ftdiv@f3 f3 `f  1 a 3 62 ]
-"59
-[v ___ftdiv@sign sign `uc  1 a 1 66 ]
-[v ___ftdiv@exp exp `uc  1 a 1 65 ]
-[v ___ftdiv@cntr cntr `uc  1 a 1 61 ]
-"56
-[v ___ftdiv@f2 f2 `f  1 p 3 51 ]
-[v ___ftdiv@f1 f1 `f  1 p 3 54 ]
-"86
+"11
+[v ___atdiv@quotient quotient `m  1 a 3 22 ]
+"12
+[v ___atdiv@sign sign `uc  1 a 1 21 ]
+[v ___atdiv@counter counter `uc  1 a 1 20 ]
+"6
+[v ___atdiv@divisor divisor `m  1 p 3 13 ]
+[v ___atdiv@dividend dividend `m  1 p 3 16 ]
+"42
 } 0
-"86 /Applications/microchip/xc8/v1.36/sources/common/ftadd.c
-[v ___ftadd __ftadd `(f  1 e 3 0 ]
-{
-"88
-[v ___ftadd@exp1 exp1 `uc  1 a 1 79 ]
-[v ___ftadd@exp2 exp2 `uc  1 a 1 78 ]
-[v ___ftadd@sign sign `uc  1 a 1 77 ]
-"86
-[v ___ftadd@f1 f1 `f  1 p 3 67 ]
-[v ___ftadd@f2 f2 `f  1 p 3 70 ]
-"148
-} 0
-"152 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+"167 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
 [v _initTMR1 initTMR1 `(v  1 e 1 0 ]
 {
-"177
+"192
 } 0
-"49
+"64
 [v _initPins initPins `(v  1 e 1 0 ]
 {
-"77
+"92
 } 0
-"208
+"223
 [v _initPWMTMR4 initPWMTMR4 `(v  1 e 1 0 ]
 {
-"251
+"266
 } 0
 "16 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
 [v _initMessaging initMessaging `(v  1 e 1 0 ]
 {
 "21
 } 0
-"182 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+"197 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
 [v _initFVR initFVR `(v  1 e 1 0 ]
 {
-"201
+"216
 } 0
-"302
+"317
 [v _initCOMP2 initCOMP2 `(v  1 e 1 0 ]
 {
-"329
+"344
 } 0
-"268
+"283
 [v _initCOMP1 initCOMP1 `(v  1 e 1 0 ]
 {
-"296
+"311
 } 0
-"335
+"350
 [v _initBT initBT `(v  1 e 1 0 ]
 {
-"362
+"377
 } 0
-"83
+"98
 [v _initADC initADC `(v  1 e 1 0 ]
 {
-"102
+"117
 } 0
-"33 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/intmath.c
-[v _icos icos `(s  1 e 2 0 ]
-{
-[v icos@z z `s  1 p 2 27 ]
-"35
-} 0
-"16
-[v _isin isin `(s  1 e 2 0 ]
-{
-[v isin@z z `s  1 p 2 21 ]
-"31
-} 0
-"12
-[v _isin_ isin_ `(s  1 e 2 0 ]
-{
-[v isin_@z z `s  1 p 2 15 ]
-"14
-} 0
-"15 /Applications/microchip/xc8/v1.36/sources/common/Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"6 /Applications/microchip/xc8/v1.36/sources/common/awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"11
-[v ___awdiv@quotient quotient `i  1 a 2 13 ]
-"12
-[v ___awdiv@sign sign `uc  1 a 1 12 ]
-[v ___awdiv@counter counter `uc  1 a 1 11 ]
-"6
-[v ___awdiv@divisor divisor `i  1 p 2 6 ]
-[v ___awdiv@dividend dividend `i  1 p 2 8 ]
-"42
-} 0
-"545 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+"555
 [v _deltaT deltaT `(us  1 e 2 0 ]
 {
-[v deltaT@tm_low tm_low `us  1 p 2 0 ]
-[v deltaT@tm_high tm_high `us  1 p 2 2 ]
-"551
+[v deltaT@tm_low tm_low `us  1 p 2 2 ]
+[v deltaT@tm_high tm_high `us  1 p 2 4 ]
+"561
 } 0
-"489
-[v _clearDisplay clearDisplay `(v  1 e 1 0 ]
+"597
+[v _cos cos `(c  1 e 1 0 ]
 {
-[v clearDisplay@leng leng `c  1 a 1 wreg ]
-[v clearDisplay@leng leng `c  1 a 1 wreg ]
-"491
-[v clearDisplay@leng leng `c  1 a 1 4 ]
-"493
+[v cos@us us `s  1 p 2 2 ]
+"600
 } 0
-"456
-[v _so so `(v  1 e 1 0 ]
+"570
+[v _sin sin `(c  1 e 1 0 ]
 {
-[v so@data data `DCCuc  1 a 1 wreg ]
-"458
-[v so@c c `uc  1 a 1 2 ]
-"456
-[v so@data data `DCCuc  1 a 1 wreg ]
-"459
-[v so@data data `DCCuc  1 a 1 1 ]
-"484
+"573
+[v sin@buff buff `s  1 a 2 0 ]
+"570
+[v sin@z z `s  1 p 2 7 ]
+"595
 } 0
-"15 /Applications/microchip/xc8/v1.36/sources/common/Umul24.c
-[v ___tmul __tmul `(um  1 e 3 0 ]
+"563
+[v _sin_ sin_ `(c  1 e 1 0 ]
 {
-"17
-[v ___tmul@product product `um  1 a 3 6 ]
-"15
-[v ___tmul@multiplier multiplier `um  1 p 3 0 ]
-[v ___tmul@multiplicand multiplicand `um  1 p 3 3 ]
-"99
+[v sin_@z z `c  1 a 1 wreg ]
+[v sin_@z z `c  1 a 1 wreg ]
+"565
+[v sin_@z z `c  1 a 1 6 ]
+"566
 } 0
-"6 /Applications/microchip/xc8/v1.36/sources/common/ltdiv.c
-[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"6 /Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
 {
-"11
-[v ___ltdiv@quotient quotient `um  1 a 3 7 ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+"9
+[v eeprom_read@addr addr `uc  1 a 1 5 ]
 "12
-[v ___ltdiv@counter counter `uc  1 a 1 10 ]
-"6
-[v ___ltdiv@divisor divisor `um  1 p 3 0 ]
-[v ___ltdiv@dividend dividend `um  1 p 3 3 ]
-"31
 } 0
-"27 /Applications/microchip/xc8/v1.36/sources/common/lbtoft.c
-[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"4 /Applications/microchip/xc8/v1.37/sources/common/abs.c
+[v _abs abs `(i  1 e 2 0 ]
 {
-[v ___lbtoft@c c `uc  1 a 1 wreg ]
-[v ___lbtoft@c c `uc  1 a 1 wreg ]
-"29
-[v ___lbtoft@c c `uc  1 a 1 15 ]
-"30
+[v abs@a a `i  1 p 2 25 ]
+"9
 } 0
-"44 /Applications/microchip/xc8/v1.36/sources/common/fttol.c
-[v ___fttol __fttol `(l  1 e 4 0 ]
-{
-"47
-[v ___fttol@lval lval `ul  1 a 4 9 ]
-"46
-[v ___fttol@exp1 exp1 `uc  1 a 1 13 ]
-[v ___fttol@sign1 sign1 `uc  1 a 1 8 ]
-"44
-[v ___fttol@f1 f1 `f  1 p 3 0 ]
-"73
-} 0
-"15 /Applications/microchip/xc8/v1.36/sources/common/ftneg.c
-[v ___ftneg __ftneg `(f  1 e 3 0 ]
-{
-[v ___ftneg@f1 f1 `f  1 p 3 70 ]
-"20
-} 0
-"4 /Applications/microchip/xc8/v1.36/sources/common/ftge.c
-[v ___ftge __ftge `(b  1 e 0 0 ]
-{
-[v ___ftge@ff1 ff1 `f  1 p 3 0 ]
-[v ___ftge@ff2 ff2 `f  1 p 3 3 ]
-"13
-} 0
-"32 /Applications/microchip/xc8/v1.36/sources/common/awtoft.c
-[v ___awtoft __awtoft `(f  1 e 3 0 ]
-{
-"34
-[v ___awtoft@sign sign `uc  1 a 1 34 ]
-"32
-[v ___awtoft@c c `i  1 p 2 29 ]
-"42
-} 0
-"62 /Applications/microchip/xc8/v1.36/sources/common/float.c
-[v ___ftpack __ftpack `(f  1 e 3 0 ]
-{
-[v ___ftpack@arg arg `um  1 p 3 0 ]
-[v ___ftpack@exp exp `uc  1 p 1 3 ]
-[v ___ftpack@sign sign `uc  1 p 1 4 ]
-"86
-} 0
-"577 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+"642 /Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"627
-} 0
-"569
-[v _setLED setLED `(v  1 e 1 0 ]
-{
-[v setLED@g g `uc  1 a 1 wreg ]
-[v setLED@g g `uc  1 a 1 wreg ]
-[v setLED@r r `uc  1 p 1 1 ]
-[v setLED@b b `uc  1 p 1 2 ]
-"571
-[v setLED@g g `uc  1 a 1 3 ]
-"575
-} 0
-"510
-[v _sendColour sendColour `(v  1 e 1 0 ]
-{
-[v sendColour@c c `uc  1 a 1 wreg ]
-[v sendColour@c c `uc  1 a 1 wreg ]
-"512
-[v sendColour@c c `uc  1 a 1 0 ]
-"535
-} 0
-"4 /Applications/microchip/xc8/v1.36/sources/common/lbmod.c
-[v ___lbmod __lbmod `(uc  1 e 1 0 ]
-{
-[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
-"6
-[v ___lbmod@rem rem `uc  1 a 1 5 ]
-"7
-[v ___lbmod@counter counter `uc  1 a 1 4 ]
-"4
-[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
-[v ___lbmod@divisor divisor `uc  1 p 1 0 ]
-"9
-[v ___lbmod@dividend dividend `uc  1 a 1 3 ]
-"18
+"684
 } 0

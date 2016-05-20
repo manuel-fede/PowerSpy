@@ -10,12 +10,26 @@
 
 
 #include <xc.h>
+#include <stdlib.h>
 #include <limits.h>
-//#include <math.h>
 #include "types.h"
 #include "message.h"
 #include "powerspy.h"
-#include "intmath.h"
+
+//sin in scale of 0 to 100
+__EEPROM_DATA(0, 2, 3, 5, 6, 8, 9, 11);
+__EEPROM_DATA(13, 14, 16, 17, 19, 20, 22, 23);
+__EEPROM_DATA(25, 26, 28, 29, 31, 32, 34, 35);
+__EEPROM_DATA(37, 38, 40, 41, 43, 44, 45, 47);
+__EEPROM_DATA(48, 50, 51, 52, 54, 55, 56, 58);
+__EEPROM_DATA(59, 60, 61, 63, 64, 65, 66, 67);
+__EEPROM_DATA(68, 70, 71, 72, 73, 74, 75, 76);
+__EEPROM_DATA(77, 78, 79, 80, 81, 82, 83, 84);
+__EEPROM_DATA(84, 85, 86, 87, 88, 88, 89, 90);
+__EEPROM_DATA(90, 91, 92, 92, 93, 94, 94, 95);
+__EEPROM_DATA(95, 96, 96, 96, 97, 97, 98, 98);
+__EEPROM_DATA(98, 99, 99, 99, 99, 99, 100, 100);
+__EEPROM_DATA(100, 100, 100, 100, 100, 0, 0, 0);
 
 const uint8_t get_shift_byte[10] = {NR0, NR1, NR2, NR3, NR4, NR5, NR6, NR7, NR8, NR9};
 
@@ -28,11 +42,12 @@ uint16_t curr_time = 0;
 //1st bit: current set
 //2nd bit: volts first
 //3rd bit: current first
+//4th bit: button
 volatile uint8_t flag = 0;
 
 //config for current measurement
-float i_u_offs = -12.5;
-float i_u_diode_offs = -0.04;
+int24_t i_u_offs = -12500;
+uint8_t i_u_diode_offs = 7;
 
 uint16_t led_rest = 0;
 
@@ -425,7 +440,7 @@ uint8_t readVoltage()
  * since the voltage is regulated, we can just
  * measure at any time
  */
-float readCurrent()
+int24_t readCurrent()
 {
         /*
          * function for current: curr(volt)=5*volt-12.5
@@ -436,15 +451,22 @@ float readCurrent()
         ADFM = 1;
         adc(7);
 
-        return (ADRES * 5.0 / 1024.0 + i_u_diode_offs) * 5.0 + i_u_offs;
+        //return (ADRES * 5000 / 1024 + i_u_diode_offs) * 5.0 + i_u_offs;
+        //measured val * value range / scale + offset
+        //return ((ADRES + i_u_diode_offs) * 5000) / 1024 + i_u_offs;
+        return (1000 * (5 * (ADRES + i_u_diode_offs) + i_u_offs)) / 1024;
 }
 
-float readVdd()
+uint16_t readVdd()
 {
         ADFM = 1;
         adc(0b00011111); //fvr buffer output
 
-        return (1024.0 / ADRES) * 1.024;
+        //return (1024.0 / ADRES) * 1.024;
+        // flt_vdd = (1024.0/ ADRES) * 1.024
+        // int1000 = (1024 * 1000) / ADRES
+        //return (1024000) / ADRES
+        return ADRES<<2;
 }
 
 /*
@@ -458,27 +480,15 @@ void so(const uint8_t data)
         uint8_t c;
         for (c = 0; c < CHAR_BIT; c++) {
                 DISPLAY_DATA = (data >> c) & 0x01;
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
                 DISPLAY_CLK = 1;
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
-                NOP();
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
                 DISPLAY_CLK = 0;
         }
 }
@@ -550,6 +560,45 @@ uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
                 return 0xffff - tm_low + tm_high;
 }
 
+int8_t sin_(int8_t z)
+{
+        return eeprom_read(z);
+}
+
+//z is in the range of 0 ... 100
+
+int8_t sin(int16_t z)
+{
+        //us /= 50; //convert from us to winkel grad (not deg)
+        int16_t buff;
+        while (z > FULL_ROTATION)
+                z -= FULL_ROTATION;
+
+        if (z > (HALF_ROTATION) + QUARTER_ROTATION) { //4th quad
+                buff = FULL_ROTATION;
+                buff -= z;
+                return -sin_((int8_t) buff);
+        }
+        if (z > HALF_ROTATION) {//3rd quad
+                buff = z;
+                buff -= HALF_ROTATION;
+                return -sin_((int8_t) buff);
+        }
+        if (z > QUARTER_ROTATION) {//2nd quad
+                buff = HALF_ROTATION;
+                buff -= z;
+                return sin_((int8_t) buff);
+        }
+
+        //1st quad
+        return sin_((uint8_t) z);
+}
+
+int8_t cos(int16_t us)
+{
+        return sin(QUARTER_ROTATION + us);
+}
+
 uint8_t ledReset()
 {
         //because we have a prescale of 1:2 we can use only half of the required step count
@@ -572,6 +621,22 @@ void setLED(uint8_t g, uint8_t r, uint8_t b)
         sendColour(r);
         sendColour(b);
         led_rest = getTime();
+}
+
+void setUnit(uint24_t u)
+{
+        so(u >> 16 & 0xff);
+        so(u >> 8 & 0xff);
+        so(u & 0xff);
+}
+
+void setVal(int16_t v)
+{
+        int8_t i;
+        for (i = 0; i < SHIFT_REG_LEN - 3; i++) {
+                so(get_shift_byte[v % 10]);
+                v /= 10;
+        }
 }
 
 void interrupt ISR()
@@ -616,14 +681,6 @@ void interrupt ISR()
         if (TMR2IE && TMR2IF) {
                 TMR2IF = 0;
         }
-
-        if (IOCBN5 && IOCBF5) {
-                mode++;
-                mode %= DMODE_MAX;
-
-                setLED((mode & 0x01) << 3, (mode & 0x02) << 3, (mode & 0x04) << 2);
-                IOCBF5 = 0;
-        }
 }
 
 /*
@@ -631,13 +688,14 @@ void interrupt ISR()
  */
 void main()
 {
-        uint24_t angle;
-        float current;
-        float voltage;
-        float apparent;
-        float real;
-        float reactive;
-        uint16_t so_buff;
+        int bmode = DMODE_NONE;
+        int24_t angle;
+        int24_t current;
+        int24_t voltage;
+        int24_t apparent;
+        int24_t real;
+        int24_t reactive;
+        int8_t i;
 
         PEIE = 0;
         GIE = 0;
@@ -651,102 +709,101 @@ void main()
         initCOMP2();
         initBT();
         initMessaging();
-
         PEIE = 1;
-        GIE = 0;
+
 
         while (1) {
 
+                GIE = 1;
+                __delay_ms(50);
+                GIE = 0;
 
+
+                //calculate the values and send only of both phases have been recorded
                 if ((flag & 0x02) && (flag & 0x01)) { //volts and current
                         if (flag & 0x04) //volts first
                                 angle = (deltaT(volt_time, curr_time) >> 2); // (*250/1000) == (/4) == (>>2)
                         else if (flag & 0x08) //current first
                                 angle = (deltaT(curr_time, volt_time) >> 2);
 
-                        flag = 0;
+                        flag &= 0xf0;
 
-                        angle /= 1000;
-                        angle *= FULL_ROTATION * 50;
-                        //we want to preserve accuracy, thus we need to multiply now
-                        //if we did it before the abore division, we would have an overflow
-                        //below we would likely have 0 bc the result would be a fraction
-                        angle /= 1000;
+                        //angle now in us
 
-                        i_u_offs = -readVdd()* 5.0 / 2.0;
+                        //d = -5/2 vdd
+                        i_u_offs = readVdd() * 5;
+                        i_u_offs >>= 1;
+                        i_u_offs = -i_u_offs;
+                        
+                        sendUInt8(K_RAWVOLTAGE);
+                        sendInt24(ADRES);
+                        
                         current = readCurrent();
                         voltage = readVoltage();
                         apparent = voltage * current;
-                        real = (apparent * icos(angle)) / MAX_SIN_RES;
-                        reactive = (apparent * isin(angle)) / MAX_SIN_RES;
+                        real = (apparent * cos(angle)) / MAX_SIN_RES;
+                        reactive = (apparent * sin(angle)) / MAX_SIN_RES;
+
+
+                        sendUInt8(K_RAWCURRENT);
+                        sendInt24(ADRES);
+                        sendUInt8(K_OFFS);
+                        sendInt24(i_u_offs);
+                        sendUInt8(K_CURRENT);
+                        sendInt24(current);
+                        sendUInt8(K_APPARENTEPOWER);
+                        sendInt24(apparent);
+                        sendUInt8(K_REALPOWER);
+                        sendInt24(real);
+                        sendUInt8(K_REACTIVEPOWER);
+                        sendInt24(reactive);
 
                         DISPLAY_LAT = 0;
-                        switch (mode) {
+                        switch (bmode) {
                                 case DMODE_NONE:
-                                        clearDisplay(SHIFT_REG_LEN);
-                                        so_buff = 5;
+                                default:
+                                        setUnit(UNIT_NONE);
+                                        setVal(0);
+                                        setLED(0x00, 0x00, 0x00); //out
                                         break;
                                 case DMODE_CURRENT:
-                                        clearDisplay(SHIFT_REG_LEN);
-                                        so_buff = ASECOND;
-                                        so(so_buff & 0xff);
-                                        so(so_buff >> 8 & 0xff);
-                                        so(so_buff >> 16 & 0xff);
-                                        so_buff = setNr((uint16_t) current);
-                                        break;
-                                case DMODE_VOLTAGE:
-                                        clearDisplay(SHIFT_REG_LEN);
-                                        so_buff = V;
-                                        so(so_buff & 0xff);
-                                        so(so_buff >> 8 & 0xff);
-                                        so(so_buff >> 16 & 0xff);
-                                        so_buff = setNr((uint16_t) voltage);
-                                        break;
-                                case DMODE_APPARENT:
-                                        clearDisplay(SHIFT_REG_LEN);
-                                        so_buff = V & ASECOND;
-                                        so(so_buff & 0xff);
-                                        so(so_buff >> 8 & 0xff);
-                                        so(so_buff >> 16 & 0xff);
-                                        so_buff = setNr((uint16_t) apparent);
+                                        setUnit(UNIT_A);
+                                        setVal(abs(current) / 1000);
+                                        setLED(0x00, LED_INTENSE, 0x00); //red
                                         break;
                                 case DMODE_REAL:
-                                        clearDisplay(SHIFT_REG_LEN);
-                                        so_buff = WSECOND;
-                                        so(so_buff & 0xff);
-                                        so(so_buff >> 8 & 0xff);
-                                        so(so_buff >> 16 & 0xff);
-                                        so_buff = setNr((uint16_t) real);
+                                        setUnit(UNIT_W);
+                                        setVal(abs(real) / 1000);
+                                        setLED(LED_INTENSE, 0x00, 0x00); //green
+                                        break;
+                                case DMODE_APPARENT:
+                                        setUnit(UNIT_VA);
+                                        setVal(abs(apparent) / 1000);
+                                        setLED(0x00, 0x00, LED_INTENSE); //blue
                                         break;
                                 case DMODE_REACTIVE:
-                                        clearDisplay(SHIFT_REG_LEN);
-                                        so_buff = V & AFIRST & ASECOND;
-                                        so(so_buff & 0xff);
-                                        so(so_buff >> 8 & 0xff);
-                                        so(so_buff >> 16 & 0xff);
-                                        so_buff = setNr((uint16_t) reactive);
+                                        setUnit(UNIT_VA);
+                                        setVal(abs(reactive / 1000));
+                                        setLED(LED_INTENSE, 0x00, LED_INTENSE); //green + blue
+                                        break;
+                                case DMODE_VOLTAGE:
+                                        setUnit(UNIT_V);
+                                        setVal(abs(voltage));
+                                        setLED(LED_INTENSE, LED_INTENSE, 0x00); //green + red
                                         break;
                         }
-
-                        //fill the last few registers in order to position the thingies correctly
-                        while (SHIFT_REG_LEN - 2 - so_buff) {
-                                so(0xff);
-                                so_buff--;
-                        }
                         DISPLAY_LAT = 1;
-
-                        sendChar(K_CURRENT);
-                        sendFloat((current < 0) ? -current : current);
-                        sendChar(K_APPARENTEPOWER);
-                        sendFloat((apparent < 0) ? -apparent : apparent);
-                        sendChar(K_REALPOWER);
-                        sendFloat((real < 0) ? -real : real);
-                        sendChar(K_REACTIVEPOWER);
-                        sendFloat((reactive < 0) ? -reactive : reactive);
                 }
 
-                GIE = 1;
-                __delay_ms(100);
-                GIE = 0;
+
+                if (!BUTTON && !(flag & 0x10)) { //button has not been set
+                        bmode++;
+                        bmode %= DMODE_MAX;
+
+                        flag |= 0x10;
+                        __delay_ms(10);
+                } else {
+                        flag &= ~0x10;
+                }
         }
 }

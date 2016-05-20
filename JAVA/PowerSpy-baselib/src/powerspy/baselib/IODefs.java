@@ -36,12 +36,15 @@ public interface IODefs {
         public static final char UINT32 = '9';
         public static final char FLOAT = 'F';
 
+        public static final char K_OFFS = 'o';
+        public static final char K_RAWCURRENT = 'C';
         public static final char K_CURRENT = 'c';
         public static final char K_VOLTAGE = 'v';
         public static final char K_ANGLE = 'a';
         public static final char K_APPARENTEPOWER = 'A';
         public static final char K_REALPOWER = 'r';
         public static final char K_REACTIVEPOWER = 'R';
+        public static final char K_RAWVOLTAGE = 's';
 
         public static final char START_OF_TEXT = 2;
         public static final char END_OF_TEXT = 3;

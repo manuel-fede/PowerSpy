@@ -1,17 +1,17 @@
 
 # 1 "powerspy.c"
 
-# 26 "/Applications/microchip/xc8/v1.36/include/htc.h"
+# 26 "/Applications/microchip/xc8/v1.37/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "/Applications/microchip/xc8/v1.36/include/xc8debug.h"
+# 13 "/Applications/microchip/xc8/v1.37/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "/Applications/microchip/xc8/v1.36/include/pic16f1827.h"
+# 49 "/Applications/microchip/xc8/v1.37/include/pic16f1827.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -3695,21 +3695,21 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 27 "/Applications/microchip/xc8/v1.36/include/pic.h"
+# 27 "/Applications/microchip/xc8/v1.37/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 77
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "/Applications/microchip/xc8/v1.36/include/eeprom_routines.h"
+# 114 "/Applications/microchip/xc8/v1.37/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "/Applications/microchip/xc8/v1.36/include/pic.h"
+# 151 "/Applications/microchip/xc8/v1.37/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -3717,6 +3717,78 @@ extern __nonreentrant void _delay(unsigned long);
 extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
+
+# 4 "/Applications/microchip/xc8/v1.37/include/__size_t.h"
+typedef unsigned size_t;
+
+# 7 "/Applications/microchip/xc8/v1.37/include/stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 53
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+# 86
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
 
 # 15 "types.h"
 typedef signed char byte;
@@ -3729,8 +3801,8 @@ typedef unsigned short long uint24_t;
 typedef signed long int32_t;
 typedef unsigned long uint32_t;
 
-# 30 "message.h"
-char receive_buff[32];
+# 34 "message.h"
+char receive_buff[8];
 int8_t buffpos;
 void initMessaging();
 int8_t charAvailable();
@@ -3747,11 +3819,14 @@ int32_t readInt32();
 float readFloat();
 void readString(char **c);
 void clear();
-void sendChar(char c);
 void sendInt8(int8_t i);
 void sendInt16(int16_t i);
 void sendInt24(int24_t i);
 void sendInt32(int32_t i);
+void sendUInt8(uint8_t i);
+void sendUInt16(uint16_t i);
+void sendUInt24(uint24_t i);
+void sendUint32(uint32_t i);
 void sendFloat(float f);
 void sendString(char *val);
 
@@ -3779,9 +3854,10 @@ void sendString(char *val);
 
 #pragma warning push
 #pragma warning disable 752
-#pragma warning enable pop
+#pragma warning disable 520
+#pragma warning pop
 
-# 150
+# 181
 void initPins();
 void initADC();
 void initTMR2();
@@ -3792,7 +3868,7 @@ void initCOMP1();
 void initCOMP2();
 void adc(const int8_t src);
 uint8_t readVoltage();
-float readCurrent();
+int24_t readCurrent();
 void so(const uint8_t data);
 uint24_t combine(uint24_t nr1, uint24_t nr2);
 void clearDisplay(int8_t leng);
@@ -3800,30 +3876,40 @@ uint8_t setNr(uint16_t);
 void __interrupt ISR();
 void main();
 
-# 24 "intmath.h"
-int16_t isin(int16_t z);
-int16_t icos(int16_t z);
-
 # 20 "powerspy.c"
-const uint8_t get_shift_byte[10] = {0b10000001, 0b10111101, 0b11001000, 0b10011000, 0b10110100, 0b10010010, 0b10000010, 0b10111001, 0b10000000, 0b10010000};
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0" "," "2" "," "3" "," "5" "," "6" "," "8" "," "9" "," "11");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "13" "," "14" "," "16" "," "17" "," "19" "," "20" "," "22" "," "23");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "25" "," "26" "," "28" "," "29" "," "31" "," "32" "," "34" "," "35");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "37" "," "38" "," "40" "," "41" "," "43" "," "44" "," "45" "," "47");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "48" "," "50" "," "51" "," "52" "," "54" "," "55" "," "56" "," "58");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "59" "," "60" "," "61" "," "63" "," "64" "," "65" "," "66" "," "67");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "68" "," "70" "," "71" "," "72" "," "73" "," "74" "," "75" "," "76");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "77" "," "78" "," "79" "," "80" "," "81" "," "82" "," "83" "," "84");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "84" "," "85" "," "86" "," "87" "," "88" "," "88" "," "89" "," "90");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "90" "," "91" "," "92" "," "92" "," "93" "," "94" "," "94" "," "95");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "95" "," "96" "," "96" "," "96" "," "97" "," "97" "," "98" "," "98");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "98" "," "99" "," "99" "," "99" "," "99" "," "99" "," "100" "," "100");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "100" "," "100" "," "100" "," "100" "," "100" "," "0" "," "0" "," "0");
+
+const uint8_t get_shift_byte[10] = {0b10000001, 0b10111101, 0b00010011, 0b00011001, 0b00101101, 0b01001001, 0b01000001, 0b10011101, 0b00000001, 0b00001001};
 
 
 
 uint16_t volt_time = 0;
 uint16_t curr_time = 0;
 
-# 31
+# 46
 volatile uint8_t flag = 0;
 
 
-float i_u_offs = -12.5;
-float i_u_diode_offs = -0.04;
+int24_t i_u_offs = -12500;
+uint8_t i_u_diode_offs = 7;
 
 uint16_t led_rest = 0;
 
 volatile uint8_t mode = 0;
 
-# 49
+# 64
 void initPins()
 {
 PORTA = 0b00000000;
@@ -3854,7 +3940,7 @@ IOCBN5 = 1;
 IOCIE = 1;
 }
 
-# 83
+# 98
 void initADC()
 {
 
@@ -3876,11 +3962,11 @@ ADNREF = 0;
 ADON = 1;
 }
 
-# 108
+# 123
 void initTMR2()
 {
 
-# 127
+# 142
 T2CKPS0 = 1;
 T2CKPS1 = 0;
 
@@ -3903,11 +3989,11 @@ TMR2IF = 0;
 TMR2ON = 1;
 }
 
-# 152
+# 167
 void initTMR1()
 {
 
-# 165
+# 180
 TMR1CS0 = 0;
 TMR1CS1 = 0;
 
@@ -3922,11 +4008,11 @@ TMR1IF = 0;
 TMR1ON = 1;
 }
 
-# 182
+# 197
 void initFVR()
 {
 
-# 194
+# 209
 ADFVR0 = 1;
 ADFVR1 = 0;
 
@@ -3936,7 +4022,7 @@ FVREN = 1;
 while (!FVRRDY);
 }
 
-# 208
+# 223
 void initPWMTMR4()
 {
 
@@ -3953,7 +4039,7 @@ CCP1CON = 0b00110000;
 
 CCP1CON |= 0b00001100;
 
-# 228
+# 243
 CCPR1L = 0x7f;
 
 
@@ -3979,7 +4065,7 @@ TMR4IF = 0;
 TRISBbits.TRISB0 = 0;
 }
 
-# 268
+# 283
 void initCOMP1()
 {
 
@@ -3988,7 +4074,7 @@ void initCOMP1()
 C1NCH0 = 1;
 C1NCH1 = 0;
 
-# 288
+# 303
 C1PCH0 = 0;
 C1PCH1 = 1;
 
@@ -3999,7 +4085,7 @@ C1IF = 0;
 C1ON = 1;
 }
 
-# 302
+# 317
 void initCOMP2()
 {
 
@@ -4008,7 +4094,7 @@ void initCOMP2()
 C2NCH0 = 0;
 C2NCH1 = 0;
 
-# 321
+# 336
 C2PCH0 = 0;
 C2PCH1 = 0;
 
@@ -4019,7 +4105,7 @@ C2IF = 0;
 C2ON = 1;
 }
 
-# 335
+# 350
 void initBT()
 {
 
@@ -4049,11 +4135,11 @@ RCREG;
 RCIE = 1;
 }
 
-# 374
+# 389
 void adc(const int8_t src)
 {
 
-# 397
+# 412
 CHS0 = (bit) (src >> 0) & 0x01;
 CHS1 = (bit) (src >> 1) & 0x01;
 CHS2 = (bit) (src >> 2) & 0x01;
@@ -4068,63 +4154,55 @@ while (GO_nDONE);
 
 }
 
-# 418
+# 433
 uint8_t readVoltage()
 {
 return 230;
 }
 
-# 428
-float readCurrent()
+# 443
+int24_t readCurrent()
 {
 
-# 436
+# 451
 ADFM = 1;
 adc(7);
 
-return (ADRES * 5.0 / 1024.0 + i_u_diode_offs) * 5.0 + i_u_offs;
+
+
+
+return (1000 * (5 * (ADRES + i_u_diode_offs) + i_u_offs)) / 1024;
 }
 
-float readVdd()
+uint16_t readVdd()
 {
 ADFM = 1;
 adc(0b00011111);
 
-return (1024.0 / ADRES) * 1.024;
+# 469
+return ADRES<<2;
 }
 
-# 456
+# 478
 void so(const uint8_t data)
 {
 uint8_t c;
 for (c = 0; c < 8; c++) {
 RA7 = (data >> c) & 0x01;
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
 RA4 = 1;
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
+__nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
 RA4 = 0;
 }
 }
 
-# 489
+# 499
 void clearDisplay(int8_t leng)
 {
 for (; leng >= 0; leng--)
@@ -4142,7 +4220,7 @@ it++;
 return it;
 }
 
-# 510
+# 520
 void sendColour(uint8_t c)
 {
 if (c & 0b10000000) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop(); }
@@ -4170,13 +4248,52 @@ if (c & 0b00000001) { RA6=1; __nop(); __nop(); __nop(); __nop(); RA6=0; __nop();
 else { RA6=1; __nop(); RA6=0; __nop(); __nop(); __nop(); };
 }
 
-# 545
+# 555
 uint16_t deltaT(uint16_t tm_low, uint16_t tm_high)
 {
 if (tm_low < tm_high)
 return tm_high - tm_low;
 else
 return 0xffff - tm_low + tm_high;
+}
+
+int8_t sin_(int8_t z)
+{
+return eeprom_read(z);
+}
+
+
+
+int8_t sin(int16_t z)
+{
+
+int16_t buff;
+while (z > ((100)<<2))
+z -= ((100)<<2);
+
+if (z > (((100)<<1)) + (100)) {
+buff = ((100)<<2);
+buff -= z;
+return -sin_((int8_t) buff);
+}
+if (z > ((100)<<1)) {
+buff = z;
+buff -= ((100)<<1);
+return -sin_((int8_t) buff);
+}
+if (z > (100)) {
+buff = ((100)<<1);
+buff -= z;
+return sin_((int8_t) buff);
+}
+
+
+return sin_((uint8_t) z);
+}
+
+int8_t cos(int16_t us)
+{
+return sin((100) + us);
 }
 
 uint8_t ledReset()
@@ -4192,7 +4309,7 @@ else return 0;
 return 0;
 }
 
-# 569
+# 618
 void setLED(uint8_t g, uint8_t r, uint8_t b)
 {
 sendColour(g);
@@ -4201,13 +4318,29 @@ sendColour(b);
 led_rest = TMR1;
 }
 
+void setUnit(uint24_t u)
+{
+so(u >> 16 & 0xff);
+so(u >> 8 & 0xff);
+so(u & 0xff);
+}
+
+void setVal(int16_t v)
+{
+int8_t i;
+for (i = 0; i < 7 - 3; i++) {
+so(get_shift_byte[v % 10]);
+v /= 10;
+}
+}
+
 void interrupt ISR()
 {
 
 if (RCIE && RCIF) {
 receive_buff[buffpos] = RCREG;
 buffpos++;
-buffpos %= 32;
+buffpos %= 8;
 RCIF = 0;
 }
 
@@ -4243,26 +4376,19 @@ C2IF = 0;
 if (TMR2IE && TMR2IF) {
 TMR2IF = 0;
 }
-
-if (IOCBN5 && IOCBF5) {
-mode++;
-mode %= 6;
-
-setLED((mode & 0x01) << 3, (mode & 0x02) << 3, (mode & 0x04) << 2);
-IOCBF5 = 0;
-}
 }
 
-# 632
+# 689
 void main()
 {
-uint24_t angle;
-float current;
-float voltage;
-float apparent;
-float real;
-float reactive;
-uint16_t so_buff;
+int bmode = 0;
+int24_t angle;
+int24_t current;
+int24_t voltage;
+int24_t apparent;
+int24_t real;
+int24_t reactive;
+int8_t i;
 
 PEIE = 0;
 GIE = 0;
@@ -4276,11 +4402,15 @@ initCOMP1();
 initCOMP2();
 initBT();
 initMessaging();
-
 PEIE = 1;
-GIE = 0;
+
 
 while (1) {
+
+GIE = 1;
+_delay((unsigned long)((50)*(32000000/4000.0)));
+GIE = 0;
+
 
 
 if ((flag & 0x02) && (flag & 0x01)) {
@@ -4289,88 +4419,84 @@ angle = (deltaT(volt_time, curr_time) >> 2);
 else if (flag & 0x08)
 angle = (deltaT(curr_time, volt_time) >> 2);
 
-flag = 0;
-
-angle /= 1000;
-angle *= ((0xff)<<2) * 50;
+flag &= 0xf0;
 
 
-angle /= 1000;
 
-i_u_offs = -readVdd()* 5.0 / 2.0;
+
+i_u_offs = readVdd() * 5;
+i_u_offs >>= 1;
+i_u_offs = -i_u_offs;
+
+sendUInt8('s');
+sendInt24(ADRES);
+
 current = readCurrent();
 voltage = readVoltage();
 apparent = voltage * current;
-real = (apparent * icos(angle)) / (0xff);
-reactive = (apparent * isin(angle)) / (0xff);
+real = (apparent * cos(angle)) / (100);
+reactive = (apparent * sin(angle)) / (100);
+
+
+sendUInt8('C');
+sendInt24(ADRES);
+sendUInt8('o');
+sendInt24(i_u_offs);
+sendUInt8('c');
+sendInt24(current);
+sendUInt8('A');
+sendInt24(apparent);
+sendUInt8('r');
+sendInt24(real);
+sendUInt8('R');
+sendInt24(reactive);
 
 RA3 = 0;
-switch (mode) {
+switch (bmode) {
 case 0:
-clearDisplay(7);
-so_buff = 5;
+default:
+setUnit(0xffffff);
+setVal(0);
+setLED(0x00, 0x00, 0x00);
 break;
 case 1:
-clearDisplay(7);
-so_buff = 0b111111111111111101011111;
-so(so_buff & 0xff);
-so(so_buff >> 8 & 0xff);
-so(so_buff >> 16 & 0xff);
-so_buff = setNr((uint16_t) current);
-break;
-case 2:
-clearDisplay(7);
-so_buff = 0b111101101011101111111111;
-so(so_buff & 0xff);
-so(so_buff >> 8 & 0xff);
-so(so_buff >> 16 & 0xff);
-so_buff = setNr((uint16_t) voltage);
-break;
-case 4:
-clearDisplay(7);
-so_buff = 0b111101101011101111111111 & 0b111111111111111101011111;
-so(so_buff & 0xff);
-so(so_buff >> 8 & 0xff);
-so(so_buff >> 16 & 0xff);
-so_buff = setNr((uint16_t) apparent);
+setUnit(0b111001110101111001011111);
+setVal(abs(current) / 1000);
+setLED(0x00, (0xff>>3), 0x00);
 break;
 case 5:
-clearDisplay(7);
-so_buff = 0b111111111111111100111111;
-so(so_buff & 0xff);
-so(so_buff >> 8 & 0xff);
-so(so_buff >> 16 & 0xff);
-so_buff = setNr((uint16_t) real);
+setUnit(0b111011110101010101111111);
+setVal(abs(real) / 1000);
+setLED((0xff>>3), 0x00, 0x00);
+break;
+case 4:
+setUnit((0b111111111101110101101111&0b111110101111111111111111));
+setVal(abs(apparent) / 1000);
+setLED(0x00, 0x00, (0xff>>3));
 break;
 case 6:
-clearDisplay(7);
-so_buff = 0b111101101011101111111111 & 0b111110100111101011100111 & 0b111111111111111101011111;
-so(so_buff & 0xff);
-so(so_buff >> 8 & 0xff);
-so(so_buff >> 16 & 0xff);
-so_buff = setNr((uint16_t) reactive);
+setUnit((0b111111111101110101101111&0b111110101111111111111111));
+setVal(abs(reactive / 1000));
+setLED((0xff>>3), 0x00, (0xff>>3));
+break;
+case 2:
+setUnit(0b111111111101110101101111);
+setVal(abs(voltage));
+setLED((0xff>>3), (0xff>>3), 0x00);
 break;
 }
-
-
-while (7 - 2 - so_buff) {
-so(0xff);
-so_buff--;
-}
 RA3 = 1;
-
-sendChar('c');
-sendFloat((current < 0) ? -current : current);
-sendChar('A');
-sendFloat((apparent < 0) ? -apparent : apparent);
-sendChar('r');
-sendFloat((real < 0) ? -real : real);
-sendChar('R');
-sendFloat((reactive < 0) ? -reactive : reactive);
 }
 
-GIE = 1;
-_delay((unsigned long)((100)*(32000000/4000.0)));
-GIE = 0;
+
+if (!RB3 && !(flag & 0x10)) {
+bmode++;
+bmode %= 7;
+
+flag |= 0x10;
+_delay((unsigned long)((10)*(32000000/4000.0)));
+} else {
+flag &= ~0x10;
+}
 }
 }

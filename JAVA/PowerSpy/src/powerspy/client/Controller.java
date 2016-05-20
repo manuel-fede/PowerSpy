@@ -41,6 +41,9 @@ public class Controller extends Thread {
         private int real_power;
         private int apparent_power;
         private int reactive_power;
+        private int raw_current;
+        private int offs;
+        private int raw_supply;
 
         public Controller(Frame f)
         {
@@ -73,16 +76,23 @@ public class Controller extends Thread {
                 return os;
         }
 
-        private void doUpdate()
+        private synchronized void doUpdate()
         {
+                System.out.println("curr: " + current);
+                System.out.println("real: " + real_power);
+                System.out.println("appa: " + apparent_power);
+                System.out.println("reac: " + reactive_power);
                 f.setCurrent((float) current / 1000);
                 f.setRealPower((float) real_power / 1000);
                 f.setApparentPower((float) apparent_power / 1000);
                 f.setReactivePower((float) reactive_power / 1000);
+                f.setRawCurrent((float) raw_current);
+                f.setOffs((float) offs);
+                f.setRawVoltage((float) raw_supply);
         }
 
         @Override
-        public void start()
+        public synchronized void start()
         {
                 keep_alive = true;
                 update_interval.start();
@@ -91,39 +101,39 @@ public class Controller extends Thread {
 
         private synchronized char doRun(char read_mode) throws IOException, PackageException
         {
-                if (is != null && is.readPackage()) {
-                        if (read_mode == NONE && is.isInt8()) {
-                                read_mode = (char) is.readInt8();
-                                is.clear();
-                        } else if (read_mode != NONE && is.isInt24()) {
+                if (is.readPackage()) {
+                        if (read_mode == NONE && is.getDataPacket().isUInt8()) {
+                                read_mode = (char) is.getDataPacket().readUInt8();
+                        } else if (read_mode != NONE && is.getDataPacket().isInt24()) {
                                 switch (read_mode) {
                                         case K_CURRENT:
-                                                current = is.readInt24();
+                                                current = is.getDataPacket().readInt24();
                                                 break;
                                         case K_REALPOWER:
-                                                real_power = is.readInt24();
+                                                real_power = is.getDataPacket().readInt24();
                                                 break;
                                         case K_APPARENTEPOWER:
-                                                apparent_power = is.readInt24();
+                                                apparent_power = is.getDataPacket().readInt24();
                                                 break;
                                         case K_REACTIVEPOWER:
-                                                reactive_power = is.readInt24();
+                                                reactive_power = is.getDataPacket().readInt24();
+                                                break;
+                                        case K_RAWCURRENT:
+                                                raw_current = is.getDataPacket().readInt24();
+                                                break;
+                                        case K_OFFS:
+                                                offs = is.getDataPacket().readInt24();
+                                                break;
+                                        case K_RAWVOLTAGE:
+                                                raw_supply = is.getDataPacket().readInt24();
                                                 break;
                                         default:
-                                                System.out.print(read_mode);
-                                                System.out.print(": ");
-                                                System.out.println(is.readObj());
                                                 break;
                                 }
                                 read_mode = NONE;
-                        } else {
-                                System.out.print(read_mode);
-                                System.out.print(": ");
-                                System.out.println(is.readObj());
                         }
                         is.clear();
                 }
-                System.out.flush();
                 return read_mode;
         }
 
@@ -134,8 +144,10 @@ public class Controller extends Thread {
                 while (keep_alive) {
                         try {
                                 read_mode = doRun(read_mode);
-                        } catch (IOException | PackageException ex) {
+                                Thread.sleep(20);
+                        } catch (IOException | PackageException | InterruptedException | ArrayIndexOutOfBoundsException ex) {
                                 ex.printStackTrace(System.err);
+                                is.clear();
                         }
                 }
         }

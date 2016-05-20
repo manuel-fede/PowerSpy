@@ -30,17 +30,18 @@ public class Test2 {
         public static void main(String[] args) throws IOException, PackageException
         {
                 ArrayInputStream is = new ArrayInputStream();
-                PSInputStream pis = new PSInputStream(is);
-                byte[] b = new byte[4];
+                PSInputStream pis = new PSInputStream(is).clear();
+                byte[] b = new byte[6];
                 b[0] = START_OF_TEXT;
-                b[1] = INT8;
-                b[2] = 13;
-                b[3] = END_OF_TEXT;
+                b[1] = STRING;
+                b[2] = 'a';
+                b[3] = 'b';
+                b[4] = END_OF_TEXT;
 
                 is.insert(b, 0, b.length);
 
                 if (pis.readPackage()) {
-                        System.out.println(pis.readObj());
+                        System.out.println(pis.getDataPacket().readObj());
                         pis.clear();
                 }
         }

@@ -1,17 +1,17 @@
 
 # 1 "message.c"
 
-# 26 "/Applications/microchip/xc8/v1.36/include/htc.h"
+# 26 "/Applications/microchip/xc8/v1.37/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "/Applications/microchip/xc8/v1.36/include/xc8debug.h"
+# 13 "/Applications/microchip/xc8/v1.37/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "/Applications/microchip/xc8/v1.36/include/pic16f1827.h"
+# 49 "/Applications/microchip/xc8/v1.37/include/pic16f1827.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -3695,21 +3695,21 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 27 "/Applications/microchip/xc8/v1.36/include/pic.h"
+# 27 "/Applications/microchip/xc8/v1.37/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 77
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "/Applications/microchip/xc8/v1.36/include/eeprom_routines.h"
+# 114 "/Applications/microchip/xc8/v1.37/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "/Applications/microchip/xc8/v1.36/include/pic.h"
+# 151 "/Applications/microchip/xc8/v1.37/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -3729,8 +3729,8 @@ typedef unsigned short long uint24_t;
 typedef signed long int32_t;
 typedef unsigned long uint32_t;
 
-# 30 "message.h"
-char receive_buff[32];
+# 34 "message.h"
+char receive_buff[8];
 int8_t buffpos;
 void initMessaging();
 int8_t charAvailable();
@@ -3747,11 +3747,14 @@ int32_t readInt32();
 float readFloat();
 void readString(char **c);
 void clear();
-void sendChar(char c);
 void sendInt8(int8_t i);
 void sendInt16(int16_t i);
 void sendInt24(int24_t i);
 void sendInt32(int32_t i);
+void sendUInt8(uint8_t i);
+void sendUInt16(uint16_t i);
+void sendUInt24(uint24_t i);
+void sendUint32(uint32_t i);
 void sendFloat(float f);
 void sendString(char *val);
 
@@ -3779,9 +3782,10 @@ void sendString(char *val);
 
 #pragma warning push
 #pragma warning disable 752
-#pragma warning enable pop
+#pragma warning disable 520
+#pragma warning pop
 
-# 150
+# 181
 void initPins();
 void initADC();
 void initTMR2();
@@ -3792,7 +3796,7 @@ void initCOMP1();
 void initCOMP2();
 void adc(const int8_t src);
 uint8_t readVoltage();
-float readCurrent();
+int24_t readCurrent();
 void so(const uint8_t data);
 uint24_t combine(uint24_t nr1, uint24_t nr2);
 void clearDisplay(int8_t leng);
@@ -3814,7 +3818,7 @@ reading = 0;
 int8_t charAvailable()
 {
 if (buffpos < readpos) {
-return 32 - readpos + buffpos;
+return 8 - readpos + buffpos;
 }
 return buffpos - readpos;
 }
@@ -3822,7 +3826,7 @@ return buffpos - readpos;
 char readNext()
 {
 char ret = receive_buff[readpos++];
-if (readpos == 32)
+if (readpos == 8)
 readpos = 0;
 return ret;
 }
@@ -3830,7 +3834,7 @@ return ret;
 char packageStarted()
 {
 int8_t i;
-for (i = 0; i < 32; i++) {
+for (i = 0; i < 8; i++) {
 if (receive_buff[i] == 2)
 return 1;
 }
@@ -3842,7 +3846,7 @@ char packageFinished()
 int8_t i;
 if (!packageStarted())
 return 0;
-for (i = 1; i < 32; i++)
+for (i = 1; i < 8; i++)
 if (receive_buff[i] == 3)
 return 1;
 return 0;
@@ -3851,7 +3855,7 @@ return 0;
 char getType()
 {
 int8_t i;
-for (i = 0; i < 32; i++) {
+for (i = 0; i < 8; i++) {
 if (receive_buff[i] == 2) {
 return receive_buff[i + 1];
 }
@@ -3862,7 +3866,7 @@ return '0';
 void seekFront()
 {
 int8_t i;
-for (i = 0; i < 32; i++) {
+for (i = 0; i < 8; i++) {
 if (receive_buff[i] == 2) {
 readpos = i + 2;
 }
@@ -3872,7 +3876,7 @@ readpos = i + 2;
 void clear()
 {
 int8_t i;
-for (i = 0; i < 32; i++) {
+for (i = 0; i < 8; i++) {
 receive_buff[i] = 0;
 }
 reading = 0;
@@ -3895,7 +3899,8 @@ int16_t readInt16()
 int16_t res = 0;
 
 seekFront();
-res = readNext() << 8;
+res = readNext();
+res <<= 8;
 res |= readNext();
 clear();
 
@@ -3907,8 +3912,10 @@ int24_t readInt24()
 int24_t res = 0;
 
 seekFront();
-res = readNext() << 16;
-res |= readNext() << 8;
+res = readNext();
+res <<= 8;
+res |= readNext();
+res <<= 8;
 res |= readNext();
 clear();
 
@@ -3920,9 +3927,12 @@ int32_t readInt32()
 int32_t res = 0;
 
 seekFront();
-res = readNext() << 24;
-res |= readNext() << 16;
-res |= readNext() << 8;
+res = readNext();
+res <<= 8;
+res |= readNext();
+res <<= 8;
+res |= readNext();
+res <<= 8;
 res |= readNext();
 clear();
 
@@ -3945,6 +3955,7 @@ void _sendchar_(char c)
 {
 TXREG = c;
 while (!TRMT);
+_delay((unsigned long)((1)*(32000000/4000.0)));
 }
 
 void sendInt8(int8_t i)
@@ -3952,11 +3963,6 @@ void sendInt8(int8_t i)
 _sendchar_(2);
 _sendchar_('2');
 _sendchar_(i);
-_sendchar_(3);
-}
-
-void sendChar(char i) {
-sendInt8((int8_t) i);
 }
 
 void sendInt16(int16_t i)
@@ -3965,7 +3971,6 @@ _sendchar_(2);
 _sendchar_('3');
 _sendchar_((char) (i >> 8 & 0xff));
 _sendchar_((char) (i & 0xff));
-_sendchar_(3);
 }
 
 void sendInt24(int24_t i)
@@ -3975,7 +3980,6 @@ _sendchar_('4');
 _sendchar_((char) (i >> 16 & 0xff));
 _sendchar_((char) (i >> 8 & 0xff));
 _sendchar_((char) (i & 0xff));
-_sendchar_(3);
 }
 
 void sendInt32(int32_t i)
@@ -3986,18 +3990,50 @@ _sendchar_((char) (i >> 24 & 0xff));
 _sendchar_((char) (i >> 16 & 0xff));
 _sendchar_((char) (i >> 8 & 0xff));
 _sendchar_((char) (i & 0xff));
-_sendchar_(3);
+}
+
+void sendUInt8(uint8_t i)
+{
+_sendchar_(2);
+_sendchar_('6');
+_sendchar_(i);
+}
+
+void sendUInt16(uint16_t i)
+{
+_sendchar_(2);
+_sendchar_('7');
+_sendchar_((char) (i >> 8 & 0xff));
+_sendchar_((char) (i & 0xff));
+}
+
+void sendUInt24(uint24_t i)
+{
+_sendchar_(2);
+_sendchar_('8');
+_sendchar_((char) (i >> 16 & 0xff));
+_sendchar_((char) (i >> 8 & 0xff));
+_sendchar_((char) (i & 0xff));
+}
+
+void sendUInt32(uint32_t i)
+{
+_sendchar_(2);
+_sendchar_('9');
+_sendchar_((char) (i >> 24 & 0xff));
+_sendchar_((char) (i >> 16 & 0xff));
+_sendchar_((char) (i >> 8 & 0xff));
+_sendchar_((char) (i & 0xff));
 }
 
 void sendFloat(float f)
 {
 uint24_t *ptr = (uint24_t *) & f;
 _sendchar_(2);
-_sendchar_('6');
+_sendchar_('F');
 _sendchar_((char) (*ptr >> 16 & 0xff));
 _sendchar_((char) (*ptr >> 8 & 0xff));
 _sendchar_((char) (*ptr & 0xff));
-_sendchar_(3);
 }
 
 void sendString(char *val)

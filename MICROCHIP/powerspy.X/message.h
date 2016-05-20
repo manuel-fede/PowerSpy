@@ -21,11 +21,15 @@ extern "C" {
 #define INT16                   '3'
 #define INT24                   '4'
 #define INT32                   '5'
-#define FLOAT                   '6'
+#define UINT8                   '6'
+#define UINT16                  '7'
+#define UINT24                  '8'
+#define UINT32                  '9'
+#define FLOAT                   'F'
 
 #define START_OF_TEXT             2
 #define END_OF_TEXT               3
-#define RECEIVEBUFF_SIZE          32
+#define RECEIVEBUFF_SIZE          8
 
         char receive_buff[RECEIVEBUFF_SIZE];
         int8_t buffpos;
@@ -44,11 +48,14 @@ extern "C" {
         float readFloat();
         void readString(char **c);
         void clear();
-        void sendChar(char c);
         void sendInt8(int8_t i);
         void sendInt16(int16_t i);
         void sendInt24(int24_t i);
         void sendInt32(int32_t i);
+        void sendUInt8(uint8_t i);
+        void sendUInt16(uint16_t i);
+        void sendUInt24(uint24_t i);
+        void sendUint32(uint32_t i);
         void sendFloat(float f);
         void sendString(char *val);
 
