@@ -1,0 +1,652 @@
+\hypertarget{powerspy_8h}{}\section{powerspy.\+X/powerspy.h File Reference}
+\label{powerspy_8h}\index{powerspy.\+X/powerspy.\+h@{powerspy.\+X/powerspy.\+h}}
+{\ttfamily \#include $<$xc.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries \+\_\+\+X\+T\+A\+L\+\_\+\+F\+R\+EQ}~32000000\hypertarget{powerspy_8h_a024148e99a7143db044a48216664d03d}{}\label{powerspy_8h_a024148e99a7143db044a48216664d03d}
+
+\item 
+\#define {\bfseries RX}~R\+B1\hypertarget{powerspy_8h_a5070712bba21161ad840408134ee229f}{}\label{powerspy_8h_a5070712bba21161ad840408134ee229f}
+
+\item 
+\#define {\bfseries TX}~R\+B2\hypertarget{powerspy_8h_a8b9bd4430d2377182d1c84201fbb9b68}{}\label{powerspy_8h_a8b9bd4430d2377182d1c84201fbb9b68}
+
+\item 
+\#define {\bfseries I\+N\+\_\+\+F\+R\+EQ}~50\hypertarget{powerspy_8h_ac5e3e13fd14bdd584cad4ac158ee4b8d}{}\label{powerspy_8h_ac5e3e13fd14bdd584cad4ac158ee4b8d}
+
+\item 
+\#define {\bfseries C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+\_\+\+IN}~R\+B5\hypertarget{powerspy_8h_a6adaccda781c8235ad0aac4a9ae3b0a5}{}\label{powerspy_8h_a6adaccda781c8235ad0aac4a9ae3b0a5}
+
+\item 
+\#define {\bfseries C\+U\+R\+R\+E\+N\+T\+\_\+\+P\+H\+A\+\_\+\+IN}~R\+A0\hypertarget{powerspy_8h_a8510d151cf17c39822373f18dce56a88}{}\label{powerspy_8h_a8510d151cf17c39822373f18dce56a88}
+
+\item 
+\#define {\bfseries V\+O\+L\+T\+A\+G\+E\+\_\+\+V\+A\+L\+\_\+\+IN}~R\+B4\hypertarget{powerspy_8h_a8e88a331f9029f0d978f2e9e15bc2e0a}{}\label{powerspy_8h_a8e88a331f9029f0d978f2e9e15bc2e0a}
+
+\item 
+\#define {\bfseries V\+O\+L\+T\+A\+G\+E\+\_\+\+P\+H\+A\+\_\+\+IN}~R\+A1\hypertarget{powerspy_8h_a95a741e153df2682ac226ab83db6ac82}{}\label{powerspy_8h_a95a741e153df2682ac226ab83db6ac82}
+
+\item 
+\#define {\bfseries D\+I\+S\+P\+L\+A\+Y\+\_\+\+L\+AT}~R\+A3\hypertarget{powerspy_8h_a09ce3d3f197274cd5ddfa6699804acd0}{}\label{powerspy_8h_a09ce3d3f197274cd5ddfa6699804acd0}
+
+\item 
+\#define {\bfseries D\+I\+S\+P\+L\+A\+Y\+\_\+\+C\+LK}~R\+A4\hypertarget{powerspy_8h_a429805a7f08a5eedeaaf96450bee71a4}{}\label{powerspy_8h_a429805a7f08a5eedeaaf96450bee71a4}
+
+\item 
+\#define {\bfseries D\+I\+S\+P\+L\+A\+Y\+\_\+\+D\+A\+TA}~R\+A7\hypertarget{powerspy_8h_a51e58eb1cf6de3f615a728727baccce6}{}\label{powerspy_8h_a51e58eb1cf6de3f615a728727baccce6}
+
+\item 
+\#define {\bfseries S\+H\+I\+F\+T\+\_\+\+D\+I\+R\+\_\+\+M\+S\+B\+F\+I\+R\+ST}~1\hypertarget{powerspy_8h_a890fd94629dbf9f4a179b8002662ed7b}{}\label{powerspy_8h_a890fd94629dbf9f4a179b8002662ed7b}
+
+\item 
+\#define {\bfseries S\+H\+I\+F\+T\+\_\+\+D\+I\+R\+\_\+\+L\+S\+B\+F\+I\+R\+ST}~0\hypertarget{powerspy_8h_a9b61a622b60d917f3b7d09fca3984f2b}{}\label{powerspy_8h_a9b61a622b60d917f3b7d09fca3984f2b}
+
+\item 
+\#define {\bfseries S\+T\+A\+T\+U\+S\+\_\+\+L\+ED}~R\+A6\hypertarget{powerspy_8h_ada5d5dfeb5398ee8268bb52f84fb717e}{}\label{powerspy_8h_ada5d5dfeb5398ee8268bb52f84fb717e}
+
+\item 
+\#define {\bfseries B\+U\+T\+T\+ON}~R\+B3\hypertarget{powerspy_8h_a064af7b2e733862c958d296e7f638c16}{}\label{powerspy_8h_a064af7b2e733862c958d296e7f638c16}
+
+\item 
+\#define {\bfseries P\+W\+M\+\_\+\+O\+U\+T\+\_\+\+G\+E\+N\+\_\+\+V\+O\+LT}~R\+B0\hypertarget{powerspy_8h_a88b1f124b886fa2c68a201efc9661a68}{}\label{powerspy_8h_a88b1f124b886fa2c68a201efc9661a68}
+
+\item 
+\#define {\bfseries P\+W\+M\+\_\+\+I\+N\+\_\+\+R\+EF}~R\+A2\hypertarget{powerspy_8h_a3703ca519a1539b165a04cc8a4ed9f5c}{}\label{powerspy_8h_a3703ca519a1539b165a04cc8a4ed9f5c}
+
+\item 
+\#define {\bfseries S\+H\+I\+F\+T\+\_\+\+R\+E\+G\+\_\+\+L\+EN}~7\hypertarget{powerspy_8h_a9a98e0bbcbdb15e374954652e6c8fde1}{}\label{powerspy_8h_a9a98e0bbcbdb15e374954652e6c8fde1}
+
+\item 
+\#define {\bfseries S\+H\+I\+F\+T\+\_\+\+D\+E\+L\+AY}
+\item 
+\#define {\bfseries R\+E\+T\+\_\+\+OK}~0\hypertarget{powerspy_8h_a76117585e8ddc62f21ca0e3061b7830e}{}\label{powerspy_8h_a76117585e8ddc62f21ca0e3061b7830e}
+
+\item 
+\#define {\bfseries R\+E\+T\+\_\+\+N\+OK}~1\hypertarget{powerspy_8h_a99e73667f3ffd6ea8c3a732a82dc3116}{}\label{powerspy_8h_a99e73667f3ffd6ea8c3a732a82dc3116}
+
+\item 
+\#define {\bfseries K\+\_\+\+R\+A\+W\+C\+U\+R\+R\+E\+NT}~\textquotesingle{}C\textquotesingle{}\hypertarget{powerspy_8h_a695226706a9709409c14bd2174e65b2f}{}\label{powerspy_8h_a695226706a9709409c14bd2174e65b2f}
+
+\item 
+\#define {\bfseries K\+\_\+\+O\+F\+FS}~\textquotesingle{}o\textquotesingle{}\hypertarget{powerspy_8h_a60ec8e8607aa6c93d3195d10d33ddcda}{}\label{powerspy_8h_a60ec8e8607aa6c93d3195d10d33ddcda}
+
+\item 
+\#define {\bfseries K\+\_\+\+C\+U\+R\+R\+E\+NT}~\textquotesingle{}c\textquotesingle{}\hypertarget{powerspy_8h_acfc343a227dd7be4bf1d54120d1b1902}{}\label{powerspy_8h_acfc343a227dd7be4bf1d54120d1b1902}
+
+\item 
+\#define {\bfseries K\+\_\+\+V\+O\+L\+T\+A\+GE}~\textquotesingle{}v\textquotesingle{}\hypertarget{powerspy_8h_a6a095abff81e8c39fba101c8e5377cb9}{}\label{powerspy_8h_a6a095abff81e8c39fba101c8e5377cb9}
+
+\item 
+\#define {\bfseries K\+\_\+\+A\+N\+G\+LE}~\textquotesingle{}a\textquotesingle{}\hypertarget{powerspy_8h_aaeb0d289a6c0bcd92cf00d9ba462d816}{}\label{powerspy_8h_aaeb0d289a6c0bcd92cf00d9ba462d816}
+
+\item 
+\#define {\bfseries K\+\_\+\+A\+P\+P\+A\+R\+E\+N\+T\+E\+P\+O\+W\+ER}~\textquotesingle{}A\textquotesingle{}\hypertarget{powerspy_8h_a3e9e4bee16d3e41b754ebb68d7ae64ed}{}\label{powerspy_8h_a3e9e4bee16d3e41b754ebb68d7ae64ed}
+
+\item 
+\#define {\bfseries K\+\_\+\+R\+E\+A\+L\+P\+O\+W\+ER}~\textquotesingle{}r\textquotesingle{}\hypertarget{powerspy_8h_a978fa44b8c9730b5edc0e7e9eaeca64c}{}\label{powerspy_8h_a978fa44b8c9730b5edc0e7e9eaeca64c}
+
+\item 
+\#define {\bfseries K\+\_\+\+R\+E\+A\+C\+T\+I\+V\+E\+P\+O\+W\+ER}~\textquotesingle{}R\textquotesingle{}\hypertarget{powerspy_8h_aa54e545d0e2c2c889c62770c5ee81112}{}\label{powerspy_8h_aa54e545d0e2c2c889c62770c5ee81112}
+
+\item 
+\#define {\bfseries K\+\_\+\+R\+A\+W\+V\+O\+L\+T\+A\+GE}~\textquotesingle{}s\textquotesingle{}\hypertarget{powerspy_8h_a6174485601e12c1047d532a2d31148e8}{}\label{powerspy_8h_a6174485601e12c1047d532a2d31148e8}
+
+\item 
+\#define {\bfseries V\+O\+L\+T\+\_\+\+T\+O\+\_\+\+A\+M\+P\+\_\+\+F\+A\+CT}~5\hypertarget{powerspy_8h_a88a08e736371cdc83a9214a8f94cd641}{}\label{powerspy_8h_a88a08e736371cdc83a9214a8f94cd641}
+
+\item 
+\#define {\bfseries N\+R\+M\+A\+SK}~0b10000001\hypertarget{powerspy_8h_a0b7a247144ca5e32e269a00b654032fe}{}\label{powerspy_8h_a0b7a247144ca5e32e269a00b654032fe}
+
+\item 
+\#define {\bfseries N\+R0}~0b10000001\hypertarget{powerspy_8h_a58d55bbcff9204583e58148869c1c5f1}{}\label{powerspy_8h_a58d55bbcff9204583e58148869c1c5f1}
+
+\item 
+\#define {\bfseries N\+R1}~0b10111101\hypertarget{powerspy_8h_a7fce797335912b277ba99e74614f3fe0}{}\label{powerspy_8h_a7fce797335912b277ba99e74614f3fe0}
+
+\item 
+\#define {\bfseries N\+R2}~0b00010011\hypertarget{powerspy_8h_a6d256419c8470062584d13d26c605597}{}\label{powerspy_8h_a6d256419c8470062584d13d26c605597}
+
+\item 
+\#define {\bfseries N\+R3}~0b00011001\hypertarget{powerspy_8h_a50347df07cdc397accdf8b812a2206ad}{}\label{powerspy_8h_a50347df07cdc397accdf8b812a2206ad}
+
+\item 
+\#define {\bfseries N\+R4}~0b00101101\hypertarget{powerspy_8h_abd67a3321746c8dd72cbc5e268f66427}{}\label{powerspy_8h_abd67a3321746c8dd72cbc5e268f66427}
+
+\item 
+\#define {\bfseries N\+R5}~0b01001001\hypertarget{powerspy_8h_adb97b36dd0a37718eddd44573608fe54}{}\label{powerspy_8h_adb97b36dd0a37718eddd44573608fe54}
+
+\item 
+\#define {\bfseries N\+R6}~0b01000001\hypertarget{powerspy_8h_a52e5a8478683535351c866491fd869f2}{}\label{powerspy_8h_a52e5a8478683535351c866491fd869f2}
+
+\item 
+\#define {\bfseries N\+R7}~0b10011101\hypertarget{powerspy_8h_afd7e9e4d96e8fd9dee747975ecd2d5af}{}\label{powerspy_8h_afd7e9e4d96e8fd9dee747975ecd2d5af}
+
+\item 
+\#define {\bfseries N\+R8}~0b00000001\hypertarget{powerspy_8h_ab99b71f41e41e0b49de73a930a201609}{}\label{powerspy_8h_ab99b71f41e41e0b49de73a930a201609}
+
+\item 
+\#define {\bfseries N\+R9}~0b00001001\hypertarget{powerspy_8h_aa2e8c3466d78e8d57895f283e4d000b0}{}\label{powerspy_8h_aa2e8c3466d78e8d57895f283e4d000b0}
+
+\item 
+\#define {\bfseries B\+I\+G\+M\+A\+SK}~0b110100000000000011100111\hypertarget{powerspy_8h_ac4c8e12604e7642c4ebbc240ce3c13aa}{}\label{powerspy_8h_ac4c8e12604e7642c4ebbc240ce3c13aa}
+
+\item 
+\#define {\bfseries S\+M\+A\+M\+A\+SK}~0b111111111111111100011111\hypertarget{powerspy_8h_a866da1c19097212a124b5c9facd80019}{}\label{powerspy_8h_a866da1c19097212a124b5c9facd80019}
+
+\item 
+\#define {\bfseries M\+A\+SK}~(B\+I\+G\+M\+A\+SK$\vert$S\+M\+A\+M\+A\+SK)\hypertarget{powerspy_8h_ae7520c5477c11965aabeedc033c9862b}{}\label{powerspy_8h_ae7520c5477c11965aabeedc033c9862b}
+
+\item 
+\#define {\bfseries V}~0b111111111101110101101111\hypertarget{powerspy_8h_af40a326b23c68a27cebe60f16634a2cb}{}\label{powerspy_8h_af40a326b23c68a27cebe60f16634a2cb}
+
+\item 
+\#define {\bfseries W\+F\+I\+R\+ST}~0b111011110101010101111111\hypertarget{powerspy_8h_aec2624f7112e13eda1db538a34a2ab2f}{}\label{powerspy_8h_aec2624f7112e13eda1db538a34a2ab2f}
+
+\item 
+\#define {\bfseries W\+S\+E\+C\+O\+ND}~0b111111001111111111111111\hypertarget{powerspy_8h_a94bc5d9b5803b71a554d2cd0f5b3c57f}{}\label{powerspy_8h_a94bc5d9b5803b71a554d2cd0f5b3c57f}
+
+\item 
+\#define {\bfseries A\+F\+I\+R\+ST}~0b111001110101111001011111\hypertarget{powerspy_8h_af7fa10fe1e7dcd70d79ed62c272903c3}{}\label{powerspy_8h_af7fa10fe1e7dcd70d79ed62c272903c3}
+
+\item 
+\#define {\bfseries A\+S\+E\+C\+O\+ND}~0b111110101111111111111111\hypertarget{powerspy_8h_ac1b4cd737c3a8016765b8bbabd6ac37b}{}\label{powerspy_8h_ac1b4cd737c3a8016765b8bbabd6ac37b}
+
+\item 
+\#define {\bfseries R\+S\+E\+C\+O\+ND}~0b111111111111111111111111\hypertarget{powerspy_8h_a018560be3811139bd53df8394a3cf398}{}\label{powerspy_8h_a018560be3811139bd53df8394a3cf398}
+
+\item 
+\#define {\bfseries U\+N\+I\+T\+\_\+\+N\+O\+NE}~0xffffff\hypertarget{powerspy_8h_a4066feaf28f2e26b93a1e77589dc77d7}{}\label{powerspy_8h_a4066feaf28f2e26b93a1e77589dc77d7}
+
+\item 
+\#define {\bfseries U\+N\+I\+T\+\_\+\+VA}~(V\&A\+S\+E\+C\+O\+ND)\hypertarget{powerspy_8h_a1785dfa38fccac8708b0917a880b6d27}{}\label{powerspy_8h_a1785dfa38fccac8708b0917a880b6d27}
+
+\item 
+\#define {\bfseries U\+N\+I\+T\+\_\+A}~A\+F\+I\+R\+ST\hypertarget{powerspy_8h_a140f800c178a6e74a9e191e231978be4}{}\label{powerspy_8h_a140f800c178a6e74a9e191e231978be4}
+
+\item 
+\#define {\bfseries U\+N\+I\+T\+\_\+W}~W\+F\+I\+R\+ST\hypertarget{powerspy_8h_ac232252250836beefb7ebd7a607eb4a7}{}\label{powerspy_8h_ac232252250836beefb7ebd7a607eb4a7}
+
+\item 
+\#define {\bfseries U\+N\+I\+T\+\_\+V}~V\hypertarget{powerspy_8h_abcc100316da82add4cc7df82a7bb46e8}{}\label{powerspy_8h_abcc100316da82add4cc7df82a7bb46e8}
+
+\item 
+\#define {\bfseries U\+N\+I\+T\+\_\+\+VR}~(V\&R\+S\+E\+C\+O\+ND)\hypertarget{powerspy_8h_a6f9d3453640c6e84c99624e025d1f85d}{}\label{powerspy_8h_a6f9d3453640c6e84c99624e025d1f85d}
+
+\item 
+\#define {\bfseries N\+N\+R0}~0b111111101111100011100111\hypertarget{powerspy_8h_a0800f0163b8b2551706fe6523dd96a4a}{}\label{powerspy_8h_a0800f0163b8b2551706fe6523dd96a4a}
+
+\item 
+\#define {\bfseries N\+N\+R1}~0b111111111111111011110111\hypertarget{powerspy_8h_a3f2f39d6e3629f2d77380e0326377461}{}\label{powerspy_8h_a3f2f39d6e3629f2d77380e0326377461}
+
+\item 
+\#define {\bfseries N\+N\+R2}~0b111110110111100111100111\hypertarget{powerspy_8h_a0b2d14a60c90ffb0b3eddde9e2a2f292}{}\label{powerspy_8h_a0b2d14a60c90ffb0b3eddde9e2a2f292}
+
+\item 
+\#define {\bfseries N\+N\+R3}~0b111110110111110011100111\hypertarget{powerspy_8h_ae55f820aeeab31e9209fb402cb94942f}{}\label{powerspy_8h_ae55f820aeeab31e9209fb402cb94942f}
+
+\item 
+\#define {\bfseries N\+N\+R4}~0b111110100111111011110111\hypertarget{powerspy_8h_a6d427fe9d0dcd5fc92d8686d53dee778}{}\label{powerspy_8h_a6d427fe9d0dcd5fc92d8686d53dee778}
+
+\item 
+\#define {\bfseries N\+N\+R5}~0b111110100111110011101111\hypertarget{powerspy_8h_a5ae99b5fc4ba862550051256b1bcedd4}{}\label{powerspy_8h_a5ae99b5fc4ba862550051256b1bcedd4}
+
+\item 
+\#define {\bfseries N\+N\+R6}~0b111110100111100011101111\hypertarget{powerspy_8h_ac92bea57c2a3317b031d2cdcdfa91fff}{}\label{powerspy_8h_ac92bea57c2a3317b031d2cdcdfa91fff}
+
+\item 
+\#define {\bfseries N\+N\+R7}~0b111111111111111011100111\hypertarget{powerspy_8h_a6d452616c41f7e43dc6d91344e0affbe}{}\label{powerspy_8h_a6d452616c41f7e43dc6d91344e0affbe}
+
+\item 
+\#define {\bfseries N\+N\+R8}~0b111110100111100011100111\hypertarget{powerspy_8h_ab6e1e2570afbe385eadbf0dc2e16413b}{}\label{powerspy_8h_ab6e1e2570afbe385eadbf0dc2e16413b}
+
+\item 
+\#define {\bfseries N\+N\+R9}~0b111110100111110011100111\hypertarget{powerspy_8h_ae59312b9990ba1b719c7e3d25dd6e60e}{}\label{powerspy_8h_ae59312b9990ba1b719c7e3d25dd6e60e}
+
+\item 
+\#define {\bfseries W\+A\+I\+T\+\_\+\+T0H}~N\+OP();\hypertarget{powerspy_8h_a1a9fb5f2c2f2ccfe067c7ecce4113c7b}{}\label{powerspy_8h_a1a9fb5f2c2f2ccfe067c7ecce4113c7b}
+
+\item 
+\#define {\bfseries W\+A\+I\+T\+\_\+\+T0L}
+\item 
+\#define {\bfseries W\+A\+I\+T\+\_\+\+T1H}
+\item 
+\#define {\bfseries W\+A\+I\+T\+\_\+\+T1L}~N\+OP();\hypertarget{powerspy_8h_a71c07872ebceb740215d549de60e02d9}{}\label{powerspy_8h_a71c07872ebceb740215d549de60e02d9}
+
+\item 
+\#define {\bfseries L\+E\+D\+\_\+\+L\+O\+W\+B\+IT}
+\item 
+\#define {\bfseries L\+E\+D\+\_\+\+H\+I\+G\+H\+B\+IT}
+\item 
+\#define {\bfseries L\+E\+D\+\_\+\+I\+N\+T\+E\+N\+SE}~(0xff$>$$>$3)\hypertarget{powerspy_8h_a8e46677e67567865e4f51005ea25d269}{}\label{powerspy_8h_a8e46677e67567865e4f51005ea25d269}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+N\+O\+NE}~0\hypertarget{powerspy_8h_ae9484cfcccc0cad04efe9ed63717fdec}{}\label{powerspy_8h_ae9484cfcccc0cad04efe9ed63717fdec}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+C\+U\+R\+R\+E\+NT}~1\hypertarget{powerspy_8h_af4fa8f4588bd664c77306c4fcbf3e8af}{}\label{powerspy_8h_af4fa8f4588bd664c77306c4fcbf3e8af}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+V\+O\+L\+T\+A\+GE}~2\hypertarget{powerspy_8h_aac983c21d5201ed94d817e4b0c2c7804}{}\label{powerspy_8h_aac983c21d5201ed94d817e4b0c2c7804}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+A\+N\+G\+LE}~3\hypertarget{powerspy_8h_aac5e62269c982912e75a31ae98c8cba9}{}\label{powerspy_8h_aac5e62269c982912e75a31ae98c8cba9}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+A\+P\+P\+A\+R\+E\+NT}~4\hypertarget{powerspy_8h_ae2b6226c10ba0a6be3fae1f7a3b36357}{}\label{powerspy_8h_ae2b6226c10ba0a6be3fae1f7a3b36357}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+R\+E\+AL}~5\hypertarget{powerspy_8h_aca3a049761226e8e049f68906547c21a}{}\label{powerspy_8h_aca3a049761226e8e049f68906547c21a}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+R\+E\+A\+C\+T\+I\+VE}~6\hypertarget{powerspy_8h_a65abbb42ae08a8aa2570645e26c79194}{}\label{powerspy_8h_a65abbb42ae08a8aa2570645e26c79194}
+
+\item 
+\#define {\bfseries D\+M\+O\+D\+E\+\_\+\+M\+AX}~7\hypertarget{powerspy_8h_a06e91f92a5d5c0d6720853570627bc30}{}\label{powerspy_8h_a06e91f92a5d5c0d6720853570627bc30}
+
+\item 
+\#define {\bfseries Q\+U\+A\+R\+T\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON}~(100)\hypertarget{powerspy_8h_a5b8aa7f05ed6d61bcaa2e7347ed9992d}{}\label{powerspy_8h_a5b8aa7f05ed6d61bcaa2e7347ed9992d}
+
+\item 
+\#define {\bfseries H\+A\+L\+F\+\_\+\+R\+O\+T\+A\+T\+I\+ON}~(Q\+U\+A\+R\+T\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON$<$$<$1)\hypertarget{powerspy_8h_a031d3548816b7291b71916979f317509}{}\label{powerspy_8h_a031d3548816b7291b71916979f317509}
+
+\item 
+\#define {\bfseries F\+U\+L\+L\+\_\+\+R\+O\+T\+A\+T\+I\+ON}~(Q\+U\+A\+R\+T\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON$<$$<$2)\hypertarget{powerspy_8h_a9ec7af3c11769a1e37d737c407d413d5}{}\label{powerspy_8h_a9ec7af3c11769a1e37d737c407d413d5}
+
+\item 
+\#define {\bfseries M\+I\+N\+\_\+\+S\+I\+N\+\_\+\+R\+ES}~(-\/100)\hypertarget{powerspy_8h_a7824de6f9383548c1e96689b7b3ccb97}{}\label{powerspy_8h_a7824de6f9383548c1e96689b7b3ccb97}
+
+\item 
+\#define {\bfseries M\+A\+X\+\_\+\+S\+I\+N\+\_\+\+R\+ES}~(100)\hypertarget{powerspy_8h_a1e13af03a25b3e6367bcb8611c023f8c}{}\label{powerspy_8h_a1e13af03a25b3e6367bcb8611c023f8c}
+
+\item 
+\#define {\bfseries get\+Time}()                  ~T\+M\+R1\hypertarget{powerspy_8h_a72f964dba2dc0f0bbe105384b25ff27a}{}\label{powerspy_8h_a72f964dba2dc0f0bbe105384b25ff27a}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{powerspy_8h_a4c3b7689564254274a0e3a2a1771d473}{init\+Pins} ()
+\item 
+void \hyperlink{powerspy_8h_ab3166bd1ba3160d3bac85daddb12f947}{init\+A\+DC} ()
+\item 
+void \hyperlink{powerspy_8h_a4d4bd39a8d9a35c69d0274fd272bc1d4}{init\+T\+M\+R2} ()
+\item 
+void \hyperlink{powerspy_8h_ac54dcca941c1bea6b7bc3d8babb5aaaf}{init\+T\+M\+R1} ()
+\item 
+void \hyperlink{powerspy_8h_a0103fec987197d5a370a762edbe779e7}{init\+F\+VR} ()
+\item 
+void \hyperlink{powerspy_8h_a990271cb1bf71a9ad908cf95daf1eb6b}{init\+P\+W\+M\+T\+M\+R4} ()
+\item 
+void \hyperlink{powerspy_8h_ae0b5b4551a6c8f5e5cd0bc1f8f07a8c6}{init\+C\+O\+M\+P1} ()
+\item 
+void \hyperlink{powerspy_8h_acc739909b6a4e417b9af88738e662987}{init\+C\+O\+M\+P2} ()
+\item 
+void \hyperlink{powerspy_8h_a1937a1a69f27dd9e91c099e4429731be}{init\+BT} ()
+\item 
+void \hyperlink{powerspy_8h_a4fbdf44d733d619a014a5a6f2315700d}{adc} (const int8\+\_\+t src)
+\item 
+uint8\+\_\+t \hyperlink{powerspy_8h_abad6c151b93f88becacb00a6f3727416}{read\+Voltage} ()
+\item 
+int24\+\_\+t \hyperlink{powerspy_8h_a69737966a3174628c469a37d6db002a7}{read\+Current} ()
+\item 
+uint16\+\_\+t \hyperlink{powerspy_8h_aac2b18361514a260b77f367bb12fa77a}{read\+Vdd} ()
+\item 
+void \hyperlink{powerspy_8h_a0f26c0064b568a85c7be468e2235a2f4}{so} (const uint8\+\_\+t data)
+\item 
+void \hyperlink{powerspy_8h_a8f35dad172390f2c99bf58f71c4fe2fb}{clear\+Display} (int8\+\_\+t leng)
+\item 
+void \hyperlink{powerspy_8h_acc6c625c563afa5f78048472d71d1b85}{send\+Colour} (uint8\+\_\+t)
+\item 
+uint16\+\_\+t \hyperlink{powerspy_8h_aa7e5cea063dbb34802dda31333eaef58}{deltaT} (uint16\+\_\+t tm\+\_\+low, uint16\+\_\+t tm\+\_\+high)
+\item 
+int8\+\_\+t \hyperlink{powerspy_8h_a49011b67fdd3b5aa99c5305c4def8688}{sin\+\_\+} (int8\+\_\+t z)
+\item 
+int8\+\_\+t \hyperlink{powerspy_8h_ad09cda1044ebc5675a9b462e5a11978a}{sin} (int16\+\_\+t z)
+\item 
+int8\+\_\+t \hyperlink{powerspy_8h_ab00c5a1c9dde13d399d08c6a19f89bcc}{cos} (int16\+\_\+t z)
+\item 
+uint8\+\_\+t \hyperlink{powerspy_8h_ab6dcfeb080c4fc27b28b9ac99b9a8aa8}{led\+Reset} ()
+\item 
+void \hyperlink{powerspy_8h_aa76a726af97e61c931dc5c48da533842}{set\+L\+ED} (uint8\+\_\+t g, uint8\+\_\+t r, uint8\+\_\+t b)
+\item 
+void \hyperlink{powerspy_8h_ae516f2ff48d3fcf8c5fd638c92878e66}{set\+Unit} (uint24\+\_\+t u)
+\item 
+void \hyperlink{powerspy_8h_ac2e00b08576dfbc9457a38a93daf5cf7}{set\+Val} (int16\+\_\+t v)
+\item 
+void \+\_\+\+\_\+interrupt \hyperlink{powerspy_8h_a085e1179e1a03b59da3a42398e8f86f5}{I\+SR} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File\+: \hyperlink{powerspy_8h}{powerspy.\+h} Author\+: Manuel Federanko Version\+: 1.\+0 Comments\+: Revision history\+: 
+
+\subsection{Macro Definition Documentation}
+\index{powerspy.\+h@{powerspy.\+h}!L\+E\+D\+\_\+\+H\+I\+G\+H\+B\+IT@{L\+E\+D\+\_\+\+H\+I\+G\+H\+B\+IT}}
+\index{L\+E\+D\+\_\+\+H\+I\+G\+H\+B\+IT@{L\+E\+D\+\_\+\+H\+I\+G\+H\+B\+IT}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{L\+E\+D\+\_\+\+H\+I\+G\+H\+B\+IT}{LED_HIGHBIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+E\+D\+\_\+\+H\+I\+G\+H\+B\+IT}\hypertarget{powerspy_8h_a5e5bcc05e5242aa2756451cb02b497d1}{}\label{powerspy_8h_a5e5bcc05e5242aa2756451cb02b497d1}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{\(\backslash\)
+                                STATUS\_LED=1;\(\backslash\)
+                                WAIT\_T1H\(\backslash\)
+                                STATUS\_LED=0;\(\backslash\)
+                                WAIT\_T1L\(\backslash\)
+                                \}
+\end{DoxyCode}
+\index{powerspy.\+h@{powerspy.\+h}!L\+E\+D\+\_\+\+L\+O\+W\+B\+IT@{L\+E\+D\+\_\+\+L\+O\+W\+B\+IT}}
+\index{L\+E\+D\+\_\+\+L\+O\+W\+B\+IT@{L\+E\+D\+\_\+\+L\+O\+W\+B\+IT}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{L\+E\+D\+\_\+\+L\+O\+W\+B\+IT}{LED_LOWBIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+E\+D\+\_\+\+L\+O\+W\+B\+IT}\hypertarget{powerspy_8h_abdfe9e1ac441f83bd9461f7d1efc19e4}{}\label{powerspy_8h_abdfe9e1ac441f83bd9461f7d1efc19e4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{\(\backslash\)
+                                STATUS\_LED=1;\(\backslash\)
+                                WAIT\_T0H\(\backslash\)
+                                STATUS\_LED=0;\(\backslash\)
+                                WAIT\_T0L\(\backslash\)
+                                \}
+\end{DoxyCode}
+\index{powerspy.\+h@{powerspy.\+h}!S\+H\+I\+F\+T\+\_\+\+D\+E\+L\+AY@{S\+H\+I\+F\+T\+\_\+\+D\+E\+L\+AY}}
+\index{S\+H\+I\+F\+T\+\_\+\+D\+E\+L\+AY@{S\+H\+I\+F\+T\+\_\+\+D\+E\+L\+AY}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{S\+H\+I\+F\+T\+\_\+\+D\+E\+L\+AY}{SHIFT_DELAY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+H\+I\+F\+T\+\_\+\+D\+E\+L\+AY}\hypertarget{powerspy_8h_afb6b128563e4d82c27a94905e9ea1e56}{}\label{powerspy_8h_afb6b128563e4d82c27a94905e9ea1e56}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();
+\end{DoxyCode}
+\index{powerspy.\+h@{powerspy.\+h}!W\+A\+I\+T\+\_\+\+T0L@{W\+A\+I\+T\+\_\+\+T0L}}
+\index{W\+A\+I\+T\+\_\+\+T0L@{W\+A\+I\+T\+\_\+\+T0L}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{W\+A\+I\+T\+\_\+\+T0L}{WAIT_T0L}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+A\+I\+T\+\_\+\+T0L}\hypertarget{powerspy_8h_a7082988a867877a2e13f66484263954f}{}\label{powerspy_8h_a7082988a867877a2e13f66484263954f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();
+\end{DoxyCode}
+\index{powerspy.\+h@{powerspy.\+h}!W\+A\+I\+T\+\_\+\+T1H@{W\+A\+I\+T\+\_\+\+T1H}}
+\index{W\+A\+I\+T\+\_\+\+T1H@{W\+A\+I\+T\+\_\+\+T1H}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{W\+A\+I\+T\+\_\+\+T1H}{WAIT_T1H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+A\+I\+T\+\_\+\+T1H}\hypertarget{powerspy_8h_a2272efc0b29e3d9fa6e9535797eea38c}{}\label{powerspy_8h_a2272efc0b29e3d9fa6e9535797eea38c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();\(\backslash\)
+                                NOP();
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\index{powerspy.\+h@{powerspy.\+h}!adc@{adc}}
+\index{adc@{adc}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{adc(const int8\+\_\+t src)}{adc(const int8_t src)}}]{\setlength{\rightskip}{0pt plus 5cm}void adc (
+\begin{DoxyParamCaption}
+\item[{const int8\+\_\+t}]{src}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a4fbdf44d733d619a014a5a6f2315700d}{}\label{powerspy_8h_a4fbdf44d733d619a014a5a6f2315700d}
+Performs an A\+D-\/\+Conversion on the specified source. The Sources A\+N0 to A\+N11 are proportional to the source specified (setting src to 4 will read from A\+N4). Also the source for the F\+V\+R-\/\+Buffer1 can be selected, which is 0x1f;
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & the source from which to convert \\
+\hline
+\end{DoxyParams}
+\index{powerspy.\+h@{powerspy.\+h}!clear\+Display@{clear\+Display}}
+\index{clear\+Display@{clear\+Display}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{clear\+Display(int8\+\_\+t leng)}{clearDisplay(int8_t leng)}}]{\setlength{\rightskip}{0pt plus 5cm}void clear\+Display (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t}]{leng}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a8f35dad172390f2c99bf58f71c4fe2fb}{}\label{powerspy_8h_a8f35dad172390f2c99bf58f71c4fe2fb}
+Clears the display by writing 0xff into every shift register. 
+\begin{DoxyParams}{Parameters}
+{\em leng} & the number of registers \\
+\hline
+\end{DoxyParams}
+\index{powerspy.\+h@{powerspy.\+h}!cos@{cos}}
+\index{cos@{cos}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{cos(int16\+\_\+t z)}{cos(int16_t z)}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t cos (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ab00c5a1c9dde13d399d08c6a19f89bcc}{}\label{powerspy_8h_ab00c5a1c9dde13d399d08c6a19f89bcc}
+Behaves in the exactly same way as \hyperlink{powerspy_8h_ad09cda1044ebc5675a9b462e5a11978a}{sin()} but returns the cosine. 
+\begin{DoxyParams}{Parameters}
+{\em z} & the angle ing grad (not deg!) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the cosine multiplied by 100 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!deltaT@{deltaT}}
+\index{deltaT@{deltaT}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{delta\+T(uint16\+\_\+t tm\+\_\+low, uint16\+\_\+t tm\+\_\+high)}{deltaT(uint16_t tm_low, uint16_t tm_high)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t deltaT (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{tm\+\_\+low, }
+\item[{uint16\+\_\+t}]{tm\+\_\+high}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_aa7e5cea063dbb34802dda31333eaef58}{}\label{powerspy_8h_aa7e5cea063dbb34802dda31333eaef58}
+Computes the time difference of the two times. Tm\+\_\+low is the time, which came chronologically before tm\+\_\+high. Since these values are the values of Timer 1 at set time it could be, that tm\+\_\+low$>$tm\+\_\+high, if this is the case the difference will be computed as follos\+: 0xffff -\/ tm\+\_\+low + tm\+\_\+high; otherwise the difference is simply tm\+\_\+high-\/tm\+\_\+low. 
+\begin{DoxyParams}{Parameters}
+{\em tm\+\_\+low} & the chronologically first value \\
+\hline
+{\em tm\+\_\+high} & the chronologically second value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the time difference in 250nano seconds 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!init\+A\+DC@{init\+A\+DC}}
+\index{init\+A\+DC@{init\+A\+DC}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+A\+D\+C()}{initADC()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+A\+DC (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ab3166bd1ba3160d3bac85daddb12f947}{}\label{powerspy_8h_ab3166bd1ba3160d3bac85daddb12f947}
+Prepare the A\+DC module for operation. The positive reference is set to Vdd, while the negative one is set to Vss. The conversion clock speed is set to F\+O\+S\+C/64 since the Sample\+Hold -\/ Capacitor would otherwise not be fully charged and unexpected results would be the consequence. \index{powerspy.\+h@{powerspy.\+h}!init\+BT@{init\+BT}}
+\index{init\+BT@{init\+BT}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+B\+T()}{initBT()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+BT (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a1937a1a69f27dd9e91c099e4429731be}{}\label{powerspy_8h_a1937a1a69f27dd9e91c099e4429731be}
+Configures the U\+S\+A\+RT Module as asynchronous with an baud rate of 9600 and clears all previously received data. \index{powerspy.\+h@{powerspy.\+h}!init\+C\+O\+M\+P1@{init\+C\+O\+M\+P1}}
+\index{init\+C\+O\+M\+P1@{init\+C\+O\+M\+P1}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+C\+O\+M\+P1()}{initCOMP1()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+C\+O\+M\+P1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ae0b5b4551a6c8f5e5cd0bc1f8f07a8c6}{}\label{powerspy_8h_ae0b5b4551a6c8f5e5cd0bc1f8f07a8c6}
+Sets up the Comparator 1 Module for measuring the phase of the Voltage. The Interrupt is set to fire on falling edges only. \index{powerspy.\+h@{powerspy.\+h}!init\+C\+O\+M\+P2@{init\+C\+O\+M\+P2}}
+\index{init\+C\+O\+M\+P2@{init\+C\+O\+M\+P2}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+C\+O\+M\+P2()}{initCOMP2()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+C\+O\+M\+P2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_acc739909b6a4e417b9af88738e662987}{}\label{powerspy_8h_acc739909b6a4e417b9af88738e662987}
+Sets up the Comparator 2 Module for measuring the phase of the Current. The Interrupt is set to fire on falling edges only. \index{powerspy.\+h@{powerspy.\+h}!init\+F\+VR@{init\+F\+VR}}
+\index{init\+F\+VR@{init\+F\+VR}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+F\+V\+R()}{initFVR()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+F\+VR (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a0103fec987197d5a370a762edbe779e7}{}\label{powerspy_8h_a0103fec987197d5a370a762edbe779e7}
+initializes both Buffers to 1.\+024\+Volts. The first one is needed to measure Vdd with the A\+D\+C-\/\+Module, the second one is used to provide the comparator with a voltage to compare the Voltage against. \index{powerspy.\+h@{powerspy.\+h}!init\+Pins@{init\+Pins}}
+\index{init\+Pins@{init\+Pins}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+Pins()}{initPins()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Pins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a4c3b7689564254274a0e3a2a1771d473}{}\label{powerspy_8h_a4c3b7689564254274a0e3a2a1771d473}
+Prepares the ports of the processor. No device may be turned on. They only \char`\"{}exception\char`\"{} to this rule is the Display, which uses shift registers for storing it\textquotesingle{}s information, it is cleared after all other initialisation steps have been finished. This Method also activates the pull up resistor and sets the operation frequency to 32\+M\+Hz. \index{powerspy.\+h@{powerspy.\+h}!init\+P\+W\+M\+T\+M\+R4@{init\+P\+W\+M\+T\+M\+R4}}
+\index{init\+P\+W\+M\+T\+M\+R4@{init\+P\+W\+M\+T\+M\+R4}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+P\+W\+M\+T\+M\+R4()}{initPWMTMR4()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+P\+W\+M\+T\+M\+R4 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a990271cb1bf71a9ad908cf95daf1eb6b}{}\label{powerspy_8h_a990271cb1bf71a9ad908cf95daf1eb6b}
+Prepares the P\+WM with Timer 4. This P\+WM is used to provide the second reference to the second comparator, which is used for the current. Since the voltage, representing the current is small, we need to have a precise reference, this we used a P\+WM with a low-\/pass filter of second order to create a direct current. The Output is switched from R\+B3 to R\+B0. \index{powerspy.\+h@{powerspy.\+h}!init\+T\+M\+R1@{init\+T\+M\+R1}}
+\index{init\+T\+M\+R1@{init\+T\+M\+R1}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+T\+M\+R1()}{initTMR1()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+T\+M\+R1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ac54dcca941c1bea6b7bc3d8babb5aaaf}{}\label{powerspy_8h_ac54dcca941c1bea6b7bc3d8babb5aaaf}
+Timer 1 is set up with a resolution of 250ns. It is used to measure the phase delay between Current and Voltage. \index{powerspy.\+h@{powerspy.\+h}!init\+T\+M\+R2@{init\+T\+M\+R2}}
+\index{init\+T\+M\+R2@{init\+T\+M\+R2}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{init\+T\+M\+R2()}{initTMR2()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+T\+M\+R2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a4d4bd39a8d9a35c69d0274fd272bc1d4}{}\label{powerspy_8h_a4d4bd39a8d9a35c69d0274fd272bc1d4}
+Prepares the Timer 2 as an refresh-\/rate generator. This functionality is, as of now, not used and not vital to the operation of the device. \index{powerspy.\+h@{powerspy.\+h}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{I\+S\+R()}{ISR()}}]{\setlength{\rightskip}{0pt plus 5cm}void \+\_\+\+\_\+interrupt I\+SR (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a085e1179e1a03b59da3a42398e8f86f5}{}\label{powerspy_8h_a085e1179e1a03b59da3a42398e8f86f5}
+The interrupt service routine. It handles incoming data and the phases of current and voltage. \index{powerspy.\+h@{powerspy.\+h}!led\+Reset@{led\+Reset}}
+\index{led\+Reset@{led\+Reset}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{led\+Reset()}{ledReset()}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t led\+Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ab6dcfeb080c4fc27b28b9ac99b9a8aa8}{}\label{powerspy_8h_ab6dcfeb080c4fc27b28b9ac99b9a8aa8}
+Evaluates if the L\+ED value can be rewritten (the L\+ED needs a reset time of 50us). If these 50us have passed since the last write to the L\+ED this method returns 1 otherwise 0. \begin{DoxyReturn}{Returns}
+a flag if the L\+ED can be rewritten 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!read\+Current@{read\+Current}}
+\index{read\+Current@{read\+Current}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{read\+Current()}{readCurrent()}}]{\setlength{\rightskip}{0pt plus 5cm}int24\+\_\+t read\+Current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a69737966a3174628c469a37d6db002a7}{}\label{powerspy_8h_a69737966a3174628c469a37d6db002a7}
+Measures the current which is currently flowing and returns it in mA as Integer to provide an accurate result, without the implications of using floats. The channel from which the measurement is taken is A\+N7. \begin{DoxyReturn}{Returns}
+the measured current in m\+Amps. 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!read\+Vdd@{read\+Vdd}}
+\index{read\+Vdd@{read\+Vdd}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{read\+Vdd()}{readVdd()}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t read\+Vdd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_aac2b18361514a260b77f367bb12fa77a}{}\label{powerspy_8h_aac2b18361514a260b77f367bb12fa77a}
+Measures Vdd and returns it as an Integer in the range of 0 to 1023. This is useful, because the calculation of the current is a lot easier if first the conversion from all 10 bit values to more reasonable ones is done and only then the currect value computed. \begin{DoxyReturn}{Returns}
+the supply voltage from 0 to 1023 where 0 = 0V and 1023 = 5V 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!read\+Voltage@{read\+Voltage}}
+\index{read\+Voltage@{read\+Voltage}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{read\+Voltage()}{readVoltage()}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t read\+Voltage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_abad6c151b93f88becacb00a6f3727416}{}\label{powerspy_8h_abad6c151b93f88becacb00a6f3727416}
+This method is a placeholder method and was written, in case a Voltage measurement was to be implemented. In it\textquotesingle{}s current state it returns the value of 230\+Volts. \begin{DoxyReturn}{Returns}
+the line voltage (about 230V in Europe) 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!send\+Colour@{send\+Colour}}
+\index{send\+Colour@{send\+Colour}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{send\+Colour(uint8\+\_\+t)}{sendColour(uint8_t)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Colour (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_acc6c625c563afa5f78048472d71d1b85}{}\label{powerspy_8h_acc6c625c563afa5f78048472d71d1b85}
+Sends one byte of colour information to the status led. Since the colour depends on the write order this function does not specify the colour of the L\+ED. 
+\begin{DoxyParams}{Parameters}
+{\em the} & intensity of the colour \\
+\hline
+\end{DoxyParams}
+\index{powerspy.\+h@{powerspy.\+h}!set\+L\+ED@{set\+L\+ED}}
+\index{set\+L\+ED@{set\+L\+ED}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{set\+L\+E\+D(uint8\+\_\+t g, uint8\+\_\+t r, uint8\+\_\+t b)}{setLED(uint8_t g, uint8_t r, uint8_t b)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+L\+ED (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{g, }
+\item[{uint8\+\_\+t}]{r, }
+\item[{uint8\+\_\+t}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_aa76a726af97e61c931dc5c48da533842}{}\label{powerspy_8h_aa76a726af97e61c931dc5c48da533842}
+Writes a colour to the L\+ED. The led is programmed with an rgb profile. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the green colour intensity \\
+\hline
+{\em r} & the red colour intensity \\
+\hline
+{\em b} & the blue colour intensity \\
+\hline
+\end{DoxyParams}
+\index{powerspy.\+h@{powerspy.\+h}!set\+Unit@{set\+Unit}}
+\index{set\+Unit@{set\+Unit}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{set\+Unit(uint24\+\_\+t u)}{setUnit(uint24_t u)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Unit (
+\begin{DoxyParamCaption}
+\item[{uint24\+\_\+t}]{u}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ae516f2ff48d3fcf8c5fd638c92878e66}{}\label{powerspy_8h_ae516f2ff48d3fcf8c5fd638c92878e66}
+Writes a specified unit into the shift registers. Note, that all following registers need to be filled, in order for these values to appear in the correct register. 
+\begin{DoxyParams}{Parameters}
+{\em u} & the unit to write into the registers \\
+\hline
+\end{DoxyParams}
+\index{powerspy.\+h@{powerspy.\+h}!set\+Val@{set\+Val}}
+\index{set\+Val@{set\+Val}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{set\+Val(int16\+\_\+t v)}{setVal(int16_t v)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Val (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ac2e00b08576dfbc9457a38a93daf5cf7}{}\label{powerspy_8h_ac2e00b08576dfbc9457a38a93daf5cf7}
+Writes the Integer value into the registers. Typically \hyperlink{powerspy_8h_ae516f2ff48d3fcf8c5fd638c92878e66}{set\+Unit()} is called prior to this function and only after this function has been called the display will output reasonable values. 
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\index{powerspy.\+h@{powerspy.\+h}!sin@{sin}}
+\index{sin@{sin}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{sin(int16\+\_\+t z)}{sin(int16_t z)}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t sin (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_ad09cda1044ebc5675a9b462e5a11978a}{}\label{powerspy_8h_ad09cda1044ebc5675a9b462e5a11978a}
+Computes values of the sine, which are not covered by \hyperlink{powerspy_8h_a49011b67fdd3b5aa99c5305c4def8688}{sin\+\_\+()}. 
+\begin{DoxyParams}{Parameters}
+{\em z} & the angle in grad (not deg!) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sine multiplied by 100 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!sin\+\_\+@{sin\+\_\+}}
+\index{sin\+\_\+@{sin\+\_\+}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{sin\+\_\+(int8\+\_\+t z)}{sin_(int8_t z)}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t sin\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a49011b67fdd3b5aa99c5305c4def8688}{}\label{powerspy_8h_a49011b67fdd3b5aa99c5305c4def8688}
+Reads the sine from the eeprom. It is important to note, that not 360° represent a full rotation, but rather 400°. Since not every value can be stored in the eeprom (it is also not needed) it reads only the value from 0 to 100°. 
+\begin{DoxyParams}{Parameters}
+{\em z} & the angle in grad (not deg!) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sine multiplied by 100 
+\end{DoxyReturn}
+\index{powerspy.\+h@{powerspy.\+h}!so@{so}}
+\index{so@{so}!powerspy.\+h@{powerspy.\+h}}
+\subsubsection[{\texorpdfstring{so(const uint8\+\_\+t data)}{so(const uint8_t data)}}]{\setlength{\rightskip}{0pt plus 5cm}void so (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{powerspy_8h_a0f26c0064b568a85c7be468e2235a2f4}{}\label{powerspy_8h_a0f26c0064b568a85c7be468e2235a2f4}
+Shifts one byte of data into the shift registers with the least significant bit first. 
+\begin{DoxyParams}{Parameters}
+{\em data} & the data to write into the shift register \\
+\hline
+\end{DoxyParams}

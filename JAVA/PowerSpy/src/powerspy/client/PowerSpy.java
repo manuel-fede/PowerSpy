@@ -23,13 +23,14 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 public class PowerSpy {
 
         public static void main(String[] args) throws InterruptedException
         {
+                //Set the default look and feel to the system independent one
                 try {
                         UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
                 } catch (ClassNotFoundException | InstantiationException |
@@ -37,15 +38,18 @@ public class PowerSpy {
                         ex.printStackTrace(System.err);
                 }
 
+                //create new Frame and link it with a new Controller
                 Frame f = new Frame();
                 Controller c = new Controller(f);
                 f.installController(c);
 
+                //add the serial ports
                 for (SerialPort p : SerialPort.getCommPorts())
                         if (!p.getDescriptivePortName().contains("Dial-In")) //remove the clutter
                                 if (!p.getDescriptivePortName().contains("Bluetooth"))
                                         f.ports.addItem(p);
 
+                //display the frame
                 java.awt.EventQueue.invokeLater(() -> {
                         f.setVisible(true);
                 });

@@ -1,0 +1,380 @@
+\hypertarget{message_8h}{}\section{powerspy.\+X/message.h File Reference}
+\label{message_8h}\index{powerspy.\+X/message.\+h@{powerspy.\+X/message.\+h}}
+{\ttfamily \#include $<$xc.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries N\+O\+NE}~\textquotesingle{}0\textquotesingle{}\hypertarget{message_8h_a655c84af1b0034986ff56e12e84f983d}{}\label{message_8h_a655c84af1b0034986ff56e12e84f983d}
+
+\item 
+\#define {\bfseries S\+T\+R\+I\+NG}~\textquotesingle{}1\textquotesingle{}\hypertarget{message_8h_a0f4d394a3ab4e09bff60f714c66dc5ee}{}\label{message_8h_a0f4d394a3ab4e09bff60f714c66dc5ee}
+
+\item 
+\#define {\bfseries I\+N\+T8}~\textquotesingle{}2\textquotesingle{}\hypertarget{message_8h_a7e125472d65b57f10905accbed140b99}{}\label{message_8h_a7e125472d65b57f10905accbed140b99}
+
+\item 
+\#define {\bfseries I\+N\+T16}~\textquotesingle{}3\textquotesingle{}\hypertarget{message_8h_abc743ce126c3ada10501baffb3ca2295}{}\label{message_8h_abc743ce126c3ada10501baffb3ca2295}
+
+\item 
+\#define {\bfseries I\+N\+T24}~\textquotesingle{}4\textquotesingle{}\hypertarget{message_8h_a2739d646ed99b37efdcb6ff59a0e560f}{}\label{message_8h_a2739d646ed99b37efdcb6ff59a0e560f}
+
+\item 
+\#define {\bfseries I\+N\+T32}~\textquotesingle{}5\textquotesingle{}\hypertarget{message_8h_aac92c5ec332dafe0abb24688dad1b795}{}\label{message_8h_aac92c5ec332dafe0abb24688dad1b795}
+
+\item 
+\#define {\bfseries U\+I\+N\+T8}~\textquotesingle{}6\textquotesingle{}\hypertarget{message_8h_ad8ce12d83f204245685f98caf9d03944}{}\label{message_8h_ad8ce12d83f204245685f98caf9d03944}
+
+\item 
+\#define {\bfseries U\+I\+N\+T16}~\textquotesingle{}7\textquotesingle{}\hypertarget{message_8h_ab1922c2d8643eb7da964d427604e992e}{}\label{message_8h_ab1922c2d8643eb7da964d427604e992e}
+
+\item 
+\#define {\bfseries U\+I\+N\+T24}~\textquotesingle{}8\textquotesingle{}\hypertarget{message_8h_afe24db52e8fc3b73e2131ea54d6891c0}{}\label{message_8h_afe24db52e8fc3b73e2131ea54d6891c0}
+
+\item 
+\#define {\bfseries U\+I\+N\+T32}~\textquotesingle{}9\textquotesingle{}\hypertarget{message_8h_a69afa2e50b905f4eab1f2df8a3fd9f23}{}\label{message_8h_a69afa2e50b905f4eab1f2df8a3fd9f23}
+
+\item 
+\#define {\bfseries F\+L\+O\+AT}~\textquotesingle{}F\textquotesingle{}\hypertarget{message_8h_ae8690abbffa85934d64d545920e2b108}{}\label{message_8h_ae8690abbffa85934d64d545920e2b108}
+
+\item 
+\#define {\bfseries S\+T\+A\+R\+T\+\_\+\+O\+F\+\_\+\+T\+E\+XT}~2\hypertarget{message_8h_a6edf1e14b6d4e2c1671b0a7eab07c79d}{}\label{message_8h_a6edf1e14b6d4e2c1671b0a7eab07c79d}
+
+\item 
+\#define {\bfseries E\+N\+D\+\_\+\+O\+F\+\_\+\+T\+E\+XT}~3\hypertarget{message_8h_a56a578a96af22a00a930694b128ee9b9}{}\label{message_8h_a56a578a96af22a00a930694b128ee9b9}
+
+\item 
+\#define {\bfseries R\+E\+C\+E\+I\+V\+E\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}~8\hypertarget{message_8h_ada86d032bf834dd573609e6fe292b678}{}\label{message_8h_ada86d032bf834dd573609e6fe292b678}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{message_8h_a01e4010741e5ee38acf158276ed9a3af}{init\+Messaging} ()
+\item 
+int8\+\_\+t \hyperlink{message_8h_aeb40694579584385585c7e39e574ed26}{char\+Available} ()
+\item 
+char \hyperlink{message_8h_a2d521f5c5511bc21deb5a3e13b422cc1}{read\+Next} ()
+\item 
+char \hyperlink{message_8h_a38b46e4932111be93e3701203451c416}{read\+Package} ()
+\item 
+char \hyperlink{message_8h_a47e2fdede9224e382c30d55ee13e5b1b}{package\+Started} ()
+\item 
+char \hyperlink{message_8h_afe58d05adb4037123536accff5de3106}{package\+Finished} ()
+\item 
+char \hyperlink{message_8h_ac41facd93e52b5ff8c8ab5913aa2775e}{get\+Type} ()
+\item 
+void \hyperlink{message_8h_aec8d527271ad094a4fd0cf605e7c4751}{seek\+Front} ()
+\item 
+void \hyperlink{message_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear} ()
+\item 
+int8\+\_\+t \hyperlink{message_8h_a24c9f312341ccfb47ae7a007ae32c39f}{read\+Int8} ()
+\item 
+int16\+\_\+t \hyperlink{message_8h_a7cf018b7a5d7bed8aa4d201e4399fce0}{read\+Int16} ()
+\item 
+int24\+\_\+t \hyperlink{message_8h_adea3200a30db84b746743790b5696598}{read\+Int24} ()
+\item 
+int32\+\_\+t \hyperlink{message_8h_adbc23fa2b53ee3f0bd8cc0af521900d4}{read\+Int32} ()
+\item 
+float \hyperlink{message_8h_aa5de12b8cd82d61b545a85ea991944a3}{read\+Float} ()
+\item 
+void \hyperlink{message_8h_abae34479c3e66c8878999c3e4836dd65}{read\+String} (char $\ast$$\ast$c)
+\item 
+void \hyperlink{message_8h_ac7621400232b4f9108bc751f447ae486}{send\+Int8} (int8\+\_\+t i)
+\item 
+void \hyperlink{message_8h_abc1593b6987bbc3b871743e20c86c7d0}{send\+Int16} (int16\+\_\+t i)
+\item 
+void \hyperlink{message_8h_a5451b692d0059527514ddbbab9ced49f}{send\+Int24} (int24\+\_\+t i)
+\item 
+void \hyperlink{message_8h_a3fbb2c5d6c23e1fc978f1ae234927c88}{send\+Int32} (int32\+\_\+t i)
+\item 
+void \hyperlink{message_8h_a0c25a5fe76d1638f8da153040e752c00}{send\+U\+Int8} (uint8\+\_\+t i)
+\item 
+void \hyperlink{message_8h_a0fd945471da0bce0fab9ee18cd61924e}{send\+U\+Int16} (uint16\+\_\+t i)
+\item 
+void \hyperlink{message_8h_a9ee52554eb39dd8851c6dd79a3bacc5e}{send\+U\+Int24} (uint24\+\_\+t i)
+\item 
+void \hyperlink{message_8h_a02d2acd3e4151381331c134a7aaeac4e}{send\+Uint32} (uint32\+\_\+t i)
+\item 
+void \hyperlink{message_8h_a08cbc9f34ffb5422939e306a0e5f3348}{send\+Float} (float f)
+\item 
+void \hyperlink{message_8h_a8d6be23dfc9d486b1164f13153d4173a}{send\+String} (char $\ast$val)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char {\bfseries receive\+\_\+buff} \mbox{[}R\+E\+C\+E\+I\+V\+E\+B\+U\+F\+F\+\_\+\+S\+I\+ZE\mbox{]}\hypertarget{message_8h_a22827c77541f996ffad3512ebb19b82d}{}\label{message_8h_a22827c77541f996ffad3512ebb19b82d}
+
+\item 
+int8\+\_\+t {\bfseries buffpos}\hypertarget{message_8h_ae7482f4801d11d7b275429aad907b13b}{}\label{message_8h_ae7482f4801d11d7b275429aad907b13b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File\+: \hyperlink{message_8h}{message.\+h} Author\+: Manuel Federanko Version\+: 1.\+0 Comments\+: Revision history\+: 
+
+\subsection{Function Documentation}
+\index{message.\+h@{message.\+h}!char\+Available@{char\+Available}}
+\index{char\+Available@{char\+Available}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{char\+Available()}{charAvailable()}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t char\+Available (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_aeb40694579584385585c7e39e574ed26}{}\label{message_8h_aeb40694579584385585c7e39e574ed26}
+Counts the available Characters in the receive buffer and returns that number. \begin{DoxyReturn}{Returns}
+the number of available characters 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!clear@{clear}}
+\index{clear@{clear}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_ac8bb3912a3ce86b15842e79d0b421204}{}\label{message_8h_ac8bb3912a3ce86b15842e79d0b421204}
+Clears the whole buffer with 0s (zeros). \index{message.\+h@{message.\+h}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{get\+Type()}{getType()}}]{\setlength{\rightskip}{0pt plus 5cm}char get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_ac41facd93e52b5ff8c8ab5913aa2775e}{}\label{message_8h_ac41facd93e52b5ff8c8ab5913aa2775e}
+Returns the type of the package as a Character. \begin{DoxyReturn}{Returns}
+the type 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!init\+Messaging@{init\+Messaging}}
+\index{init\+Messaging@{init\+Messaging}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{init\+Messaging()}{initMessaging()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Messaging (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a01e4010741e5ee38acf158276ed9a3af}{}\label{message_8h_a01e4010741e5ee38acf158276ed9a3af}
+Initialises the messaging buffer and pointers. \index{message.\+h@{message.\+h}!package\+Finished@{package\+Finished}}
+\index{package\+Finished@{package\+Finished}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{package\+Finished()}{packageFinished()}}]{\setlength{\rightskip}{0pt plus 5cm}char package\+Finished (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_afe58d05adb4037123536accff5de3106}{}\label{message_8h_afe58d05adb4037123536accff5de3106}
+The return value behaves in the same way as does \hyperlink{message_8h_a38b46e4932111be93e3701203451c416}{read\+Package()}. \begin{DoxyReturn}{Returns}
+0 if the package is not finshied, otherwise 1 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!package\+Started@{package\+Started}}
+\index{package\+Started@{package\+Started}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{package\+Started()}{packageStarted()}}]{\setlength{\rightskip}{0pt plus 5cm}char package\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a47e2fdede9224e382c30d55ee13e5b1b}{}\label{message_8h_a47e2fdede9224e382c30d55ee13e5b1b}
+Returns 1 if at least one byte has been written to the buffer, otherwise 0. \begin{DoxyReturn}{Returns}
+1 if a byte is in the buffer, otherwise 0 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+Float@{read\+Float}}
+\index{read\+Float@{read\+Float}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+Float()}{readFloat()}}]{\setlength{\rightskip}{0pt plus 5cm}float read\+Float (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_aa5de12b8cd82d61b545a85ea991944a3}{}\label{message_8h_aa5de12b8cd82d61b545a85ea991944a3}
+Reads an 3 byte Float from the buffer. \begin{DoxyReturn}{Returns}
+the Float 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+Int16@{read\+Int16}}
+\index{read\+Int16@{read\+Int16}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+Int16()}{readInt16()}}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t read\+Int16 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a7cf018b7a5d7bed8aa4d201e4399fce0}{}\label{message_8h_a7cf018b7a5d7bed8aa4d201e4399fce0}
+Reads an 16 bit signed Integer from the buffer. \begin{DoxyReturn}{Returns}
+the 16 bit Integer 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+Int24@{read\+Int24}}
+\index{read\+Int24@{read\+Int24}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+Int24()}{readInt24()}}]{\setlength{\rightskip}{0pt plus 5cm}int24\+\_\+t read\+Int24 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_adea3200a30db84b746743790b5696598}{}\label{message_8h_adea3200a30db84b746743790b5696598}
+Reads an 24 bit signed Integer from the buffer. \begin{DoxyReturn}{Returns}
+the 24 bit Integer 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+Int32@{read\+Int32}}
+\index{read\+Int32@{read\+Int32}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+Int32()}{readInt32()}}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t read\+Int32 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_adbc23fa2b53ee3f0bd8cc0af521900d4}{}\label{message_8h_adbc23fa2b53ee3f0bd8cc0af521900d4}
+Reads an 32 bit signed Integer from the buffer. \begin{DoxyReturn}{Returns}
+the 32 bit Integer 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+Int8@{read\+Int8}}
+\index{read\+Int8@{read\+Int8}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+Int8()}{readInt8()}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t read\+Int8 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a24c9f312341ccfb47ae7a007ae32c39f}{}\label{message_8h_a24c9f312341ccfb47ae7a007ae32c39f}
+Reads an 8 bit signed Integer from the buffer. \begin{DoxyReturn}{Returns}
+the 8 bit Integer 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+Next@{read\+Next}}
+\index{read\+Next@{read\+Next}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+Next()}{readNext()}}]{\setlength{\rightskip}{0pt plus 5cm}char read\+Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a2d521f5c5511bc21deb5a3e13b422cc1}{}\label{message_8h_a2d521f5c5511bc21deb5a3e13b422cc1}
+Reads the next Character and advances the buffer by one. \begin{DoxyReturn}{Returns}
+the read character 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+Package@{read\+Package}}
+\index{read\+Package@{read\+Package}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+Package()}{readPackage()}}]{\setlength{\rightskip}{0pt plus 5cm}char read\+Package (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a38b46e4932111be93e3701203451c416}{}\label{message_8h_a38b46e4932111be93e3701203451c416}
+Reads a package of data and returns a value unequal to 0 if the package is finished. \begin{DoxyReturn}{Returns}
+0 if the package is not finshied, otherwise 1 
+\end{DoxyReturn}
+\index{message.\+h@{message.\+h}!read\+String@{read\+String}}
+\index{read\+String@{read\+String}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{read\+String(char $\ast$$\ast$c)}{readString(char **c)}}]{\setlength{\rightskip}{0pt plus 5cm}void read\+String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_abae34479c3e66c8878999c3e4836dd65}{}\label{message_8h_abae34479c3e66c8878999c3e4836dd65}
+Reads a string from the buffer into the specified char array. 
+\begin{DoxyParams}{Parameters}
+{\em c} & the destination \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!seek\+Front@{seek\+Front}}
+\index{seek\+Front@{seek\+Front}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{seek\+Front()}{seekFront()}}]{\setlength{\rightskip}{0pt plus 5cm}void seek\+Front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_aec8d527271ad094a4fd0cf605e7c4751}{}\label{message_8h_aec8d527271ad094a4fd0cf605e7c4751}
+Sets the position of the buffer to the beginning of the buffer effectively resetting the buffer. \index{message.\+h@{message.\+h}!send\+Float@{send\+Float}}
+\index{send\+Float@{send\+Float}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+Float(float f)}{sendFloat(float f)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Float (
+\begin{DoxyParamCaption}
+\item[{float}]{f}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a08cbc9f34ffb5422939e306a0e5f3348}{}\label{message_8h_a08cbc9f34ffb5422939e306a0e5f3348}
+Sends a 3 byte wide Float over the U\+S\+A\+RT module. 
+\begin{DoxyParams}{Parameters}
+{\em f} & the Float to send \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+Int16@{send\+Int16}}
+\index{send\+Int16@{send\+Int16}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+Int16(int16\+\_\+t i)}{sendInt16(int16_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Int16 (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_abc1593b6987bbc3b871743e20c86c7d0}{}\label{message_8h_abc1593b6987bbc3b871743e20c86c7d0}
+Sends an 16 bit wide Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+Int24@{send\+Int24}}
+\index{send\+Int24@{send\+Int24}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+Int24(int24\+\_\+t i)}{sendInt24(int24_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Int24 (
+\begin{DoxyParamCaption}
+\item[{int24\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a5451b692d0059527514ddbbab9ced49f}{}\label{message_8h_a5451b692d0059527514ddbbab9ced49f}
+Sends an 24 bit wide Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+Int32@{send\+Int32}}
+\index{send\+Int32@{send\+Int32}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+Int32(int32\+\_\+t i)}{sendInt32(int32_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Int32 (
+\begin{DoxyParamCaption}
+\item[{int32\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a3fbb2c5d6c23e1fc978f1ae234927c88}{}\label{message_8h_a3fbb2c5d6c23e1fc978f1ae234927c88}
+Sends an 32 bit wide Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+Int8@{send\+Int8}}
+\index{send\+Int8@{send\+Int8}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+Int8(int8\+\_\+t i)}{sendInt8(int8_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Int8 (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_ac7621400232b4f9108bc751f447ae486}{}\label{message_8h_ac7621400232b4f9108bc751f447ae486}
+Sends an 8 bit wide Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+String@{send\+String}}
+\index{send\+String@{send\+String}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+String(char $\ast$val)}{sendString(char *val)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a8d6be23dfc9d486b1164f13153d4173a}{}\label{message_8h_a8d6be23dfc9d486b1164f13153d4173a}
+Sends a null-\/terminated String over the U\+S\+A\+RT module. 
+\begin{DoxyParams}{Parameters}
+{\em val} & the pointer to the first element of the String \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+U\+Int16@{send\+U\+Int16}}
+\index{send\+U\+Int16@{send\+U\+Int16}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+U\+Int16(uint16\+\_\+t i)}{sendUInt16(uint16_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+U\+Int16 (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a0fd945471da0bce0fab9ee18cd61924e}{}\label{message_8h_a0fd945471da0bce0fab9ee18cd61924e}
+Sends an 16 bit wide unsigned Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+U\+Int24@{send\+U\+Int24}}
+\index{send\+U\+Int24@{send\+U\+Int24}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+U\+Int24(uint24\+\_\+t i)}{sendUInt24(uint24_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+U\+Int24 (
+\begin{DoxyParamCaption}
+\item[{uint24\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a9ee52554eb39dd8851c6dd79a3bacc5e}{}\label{message_8h_a9ee52554eb39dd8851c6dd79a3bacc5e}
+Sends an 24 bit wide unsigned Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+Uint32@{send\+Uint32}}
+\index{send\+Uint32@{send\+Uint32}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+Uint32(uint32\+\_\+t i)}{sendUint32(uint32_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+Uint32 (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a02d2acd3e4151381331c134a7aaeac4e}{}\label{message_8h_a02d2acd3e4151381331c134a7aaeac4e}
+Sends an 32 bit wide unsigned Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}
+\index{message.\+h@{message.\+h}!send\+U\+Int8@{send\+U\+Int8}}
+\index{send\+U\+Int8@{send\+U\+Int8}!message.\+h@{message.\+h}}
+\subsubsection[{\texorpdfstring{send\+U\+Int8(uint8\+\_\+t i)}{sendUInt8(uint8_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+U\+Int8 (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8h_a0c25a5fe76d1638f8da153040e752c00}{}\label{message_8h_a0c25a5fe76d1638f8da153040e752c00}
+Sends an 8 bit wide unsigned Integer variable over the U\+S\+A\+RT register 
+\begin{DoxyParams}{Parameters}
+{\em i} & the data \\
+\hline
+\end{DoxyParams}

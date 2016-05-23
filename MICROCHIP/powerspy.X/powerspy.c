@@ -10,7 +10,6 @@
 
 
 #include <xc.h>
-#include <stdlib.h>
 #include <limits.h>
 #include "types.h"
 #include "message.h"
@@ -502,17 +501,6 @@ void clearDisplay(int8_t leng)
                 so(0xff);
 }
 
-uint8_t setNr(uint16_t nr)
-{
-        uint8_t it = 0;
-        while (nr) {
-                so(get_shift_byte[nr % 10]);
-                nr /= 10;
-                it++;
-        }
-        return it;
-}
-
 /*
  * sends one byte of colour information to the led
  * - highest bit first
@@ -591,7 +579,7 @@ int8_t sin(int16_t z)
         }
 
         //1st quad
-        return sin_((uint8_t) z);
+        return sin_((int8_t) z);
 }
 
 int8_t cos(int16_t us)
@@ -639,7 +627,7 @@ void setVal(int16_t v)
         }
 }
 
-void interrupt ISR()
+void __interrupt ISR()
 {
         //usart data received
         if (RCIE && RCIF) {
@@ -711,6 +699,7 @@ void main()
         initMessaging();
         PEIE = 1;
 
+        clearDisplay(SHIFT_REG_LEN);
 
         while (1) {
 
@@ -768,27 +757,27 @@ void main()
                                         break;
                                 case DMODE_CURRENT:
                                         setUnit(UNIT_A);
-                                        setVal(abs(current) / 1000);
+                                        setVal(current / 1000);
                                         setLED(0x00, LED_INTENSE, 0x00); //red
                                         break;
                                 case DMODE_REAL:
                                         setUnit(UNIT_W);
-                                        setVal(abs(real) / 1000);
+                                        setVal(real / 1000);
                                         setLED(LED_INTENSE, 0x00, 0x00); //green
                                         break;
                                 case DMODE_APPARENT:
                                         setUnit(UNIT_VA);
-                                        setVal(abs(apparent) / 1000);
+                                        setVal(apparent / 1000);
                                         setLED(0x00, 0x00, LED_INTENSE); //blue
                                         break;
                                 case DMODE_REACTIVE:
                                         setUnit(UNIT_VA);
-                                        setVal(abs(reactive / 1000));
+                                        setVal(reactive / 1000);
                                         setLED(LED_INTENSE, 0x00, LED_INTENSE); //green + blue
                                         break;
                                 case DMODE_VOLTAGE:
                                         setUnit(UNIT_V);
-                                        setVal(abs(voltage));
+                                        setVal(voltage);
                                         setLED(LED_INTENSE, LED_INTENSE, 0x00); //green + red
                                         break;
                         }

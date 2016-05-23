@@ -23,8 +23,8 @@ import java.awt.geom.*;
 import javax.swing.*;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 class ProgressCircleUI extends javax.swing.plaf.basic.BasicProgressBarUI {
 
@@ -38,11 +38,25 @@ class ProgressCircleUI extends javax.swing.plaf.basic.BasicProgressBarUI {
         private final Color bg;
         private final Color fg;
 
+        /**
+         * Returns a new ProgressCircleUI Object in the PowerSpy design with the
+         * correct colours.
+         *
+         * @return the ProgrssCircleUI
+         */
         public static ProgressCircleUI getPSDesign()
         {
                 return new ProgressCircleUI(20, Color.LIGHT_GRAY, Defs.PS_ORANGE);
         }
 
+        /**
+         * Contructs a new ProgrssCircleUI with the boldness of the arc, a
+         * foreground colour and a background colour.
+         *
+         * @param boldness the boldness of the arc
+         * @param bg       the background colour
+         * @param fg       the foreground colour
+         */
         public ProgressCircleUI(int boldness, Color bg, Color fg)
         {
                 this.boldness = boldness;
@@ -105,7 +119,7 @@ class ProgressCircleUI extends javax.swing.plaf.basic.BasicProgressBarUI {
         {
                 return Defs.PS_ORANGE;
         }
-        
+
         @Override
         protected Color getSelectionBackground()
         {

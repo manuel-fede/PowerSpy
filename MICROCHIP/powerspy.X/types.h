@@ -1,6 +1,8 @@
-/* 
+/**
+ * @file
  * File:                types.h
  * Author:              Manuel Fedranko
+ * Version:             1.0
  * Comments:            
  * Revision history:    
  */

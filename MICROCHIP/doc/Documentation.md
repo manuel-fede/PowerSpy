@@ -70,7 +70,7 @@ Der Phasenwinkel wird mithilfe der Zeitdifferenz ermittelt. Die Formel hierfür 
 Um diese Zeiten zu Messen wird **Timer 1** benutzt, da er 16 bit hat, und somit eine genügend hohe Auflösung erzielt werden kann.
 Die Zeitdifferenz muss bei beiden Signalen am Nulldurchgang abgegriffen werden. 
 Hierzu muss eine Referenzspannung für das Signal des Stromes und der Spannung angelegt werden.
-Da aus der Spannung ein Rechtecksignal gemacht wird kann der FVR buffer beutzen, er ist ausreichend genau.
+Da aus der Spannung ein Rechtecksignal gemacht wird kann der FVR buffer benutzt werden, er ist ausreichend genau.
 Bei dem Strom kann jedoch keiner benutzt werden, es muss eine eigene Referenz generiert werden.
 Dies geschieht mithilfe einer PWM an die ein **Tiefpass 2. Ordnung** angeschlossen wird, um das Signal zu glätten.
 Hierfür muss die Frequenz der PWM um circa das **20-Fache** höher sein, als das Tau der Tiefpasses, um eine Glättung zu gewährleisten.
@@ -78,6 +78,7 @@ Da die Frequenz der PWM jedoch nicht der des uControllers entspricht, muss zuers
 Nach der Formel:
 
 PWMPeriod = (PRx+1)\*4\*1/FOSC\*(TMRx Prescale Value)
+$$PWMPeriod=(PRx+1)*4*\frac{1}{FOSC}*TMRxPrescaleValue$$
 
 welche auf Seite 209 im Datenblatt zu finden ist.
 Mithilfe dieser Formel ist es leicht sich die Frequenz des Controllers auszurechnen. Setzt man PWMPeriod gleich *15kHz*, so kommen **16MHz** für den Controller

@@ -11,71 +11,72 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcuvab1Yr.obj
+$dist/default/production/powerspy.X.production.obj
+cinit CODE 0 57 57 1D 2
+text1 CODE 0 623 623 34 2
+text2 CODE 0 5DE 5DE 45 2
+text3 CODE 0 4EA 4EA 52 2
+text4 CODE 0 6DA 6DA 26 2
+text5 CODE 0 3B2 3B2 6D 2
+text6 CODE 0 79D 79D 12 2
+text7 CODE 0 310 310 A2 2
+text8 CODE 0 7BF 7BF D 2
+text9 CODE 0 657 657 32 2
+text10 CODE 0 7AF 7AF 10 2
+text11 CODE 0 2 2 2 2
+text12 CODE 0 78A 78A 13 2
+text13 CODE 0 53C 53C 51 2
+text14 CODE 0 58D 58D 51 2
+text15 CODE 0 73F 73F 1C 2
+text16 CODE 0 6B3 6B3 27 2
+text17 CODE 0 41F 41F 6B 2
+text18 CODE 0 7E6 7E6 B 2
+text19 CODE 0 700 700 20 2
+text20 CODE 0 720 720 1F 2
+text21 CODE 0 FD7 FD7 6 2
+text22 CODE 0 FE3 FE3 9 2
+text23 CODE 0 7CC 7CC D 2
+text24 CODE 0 7D9 7D9 D 2
+text25 CODE 0 773 773 17 2
+text26 CODE 0 FF6 FF6 A 2
+text27 CODE 0 689 689 2A 2
+text28 CODE 0 FEC FEC A 2
+text29 CODE 0 48A 48A 60 2
+text30 CODE 0 7FB 7FB 5 2
+text31 CODE 0 75B 75B 18 2
+maintext CODE 0 74 74 29C 2
+cstackCOMMON COMMON 1 70 70 A 1
+cstackBANK0 BANK0 1 20 20 39 1
+intentry CODE 0 4 4 51 2
+bssBANK0 BANK0 1 59 59 11 1
+stringtext STRCODE 0 7F1 7F1 A 2
+idataBANK0 CODE 0 FD3 FD3 4 2
+eeprom_data EEDATA 3 0 F000 68 2
+dataBANK0 BANK0 1 6A 6A 4 1
+clrtext CODE 0 FDD FDD 6 2
+bssCOMMON COMMON 1 7A 7A 2 1
+$/tmp/xcFsHTcsX.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 55 55 2 2
 config CONFIG 0 8007 8007 2 2
-$dist/default/production/powerspy.X.production.obj
-cinit CODE 0 57 57 28 2
-text1 CODE 0 656 656 34 2
-text2 CODE 0 611 611 45 2
-text3 CODE 0 51D 51D 52 2
-text4 CODE 0 70D 70D 26 2
-text5 CODE 0 3E5 3E5 6D 2
-text6 CODE 0 7D0 7D0 12 2
-text7 CODE 0 343 343 A2 2
-text8 CODE 0 7F2 7F2 D 2
-text9 CODE 0 68A 68A 32 2
-text10 CODE 0 7E2 7E2 10 2
-text11 CODE 0 2 2 2 2
-text12 CODE 0 7BD 7BD 13 2
-text13 CODE 0 56F 56F 51 2
-text14 CODE 0 5C0 5C0 51 2
-text15 CODE 0 772 772 1C 2
-text16 CODE 0 6E6 6E6 27 2
-text17 CODE 0 452 452 6B 2
-text18 CODE 0 FCC FCC B 2
-text19 CODE 0 733 733 20 2
-text20 CODE 0 753 753 1F 2
-text21 CODE 0 FA9 FA9 6 2
-text22 CODE 0 FAF FAF 9 2
-text23 CODE 0 FE4 FE4 D 2
-text24 CODE 0 FD7 FD7 D 2
-text25 CODE 0 7A6 7A6 17 2
-text26 CODE 0 FC2 FC2 A 2
-text27 CODE 0 6BC 6BC 2A 2
-text28 CODE 0 FB8 FB8 A 2
-text29 CODE 0 4BD 4BD 60 2
-text30 CODE 0 FA4 FA4 5 2
-text31 CODE 0 78E 78E 18 2
-text32 CODE 0 FF1 FF1 F 2
-maintext CODE 0 7F 7F 2C4 2
-cstackCOMMON COMMON 1 70 70 A 1
-cstackBANK0 BANK0 1 20 20 43 1
-intentry CODE 0 4 4 51 2
-bssBANK0 BANK0 1 63 63 9 1
-bssBANK1 BANK1 1 A0 A0 8 1
-stringtext STRCODE 0 7FF 7FF A 2
-idataBANK0 CODE 0 FA0 FA0 4 2
-eeprom_data EEDATA 3 0 F000 68 2
-dataBANK0 BANK0 1 6C 6C 4 1
-bssCOMMON COMMON 1 7A 7A 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM A8-EF 1
+RAM 6E-6F 1
+RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
 RAM 220-24F 1
-BANK1 A8-EF 1
+BANK0 6E-6F 1
+BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
 BANK4 220-24F 1
-CONST 809-F9F 2
-ENTRY 809-F9F 2
+CONST 800-FD2 2
+ENTRY 800-FD2 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -99,8 +100,8 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 2058-216F 1
-CODE 809-F9F 2
+STACK 204E-216F 1
+CODE 800-FD2 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -114,8 +115,8 @@ SFR9 480-4EF 1
 BIGRAM 2000-216F 1
 COMMON 7C-7D 1
 EEDATA F068-F0FF 2
-STRCODE 809-F9F 2
-STRING 809-F9F 2
+STRCODE 800-FD2 2
+STRING 800-FD2 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -130,462 +131,454 @@ STRING 809-F9F 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/powerspy.X.production.obj
-57 cinit CODE >1084:/tmp/xcHs2JnKL
-57 cinit CODE >1087:/tmp/xcHs2JnKL
-57 cinit CODE >1143:/tmp/xcHs2JnKL
-58 cinit CODE >1144:/tmp/xcHs2JnKL
-59 cinit CODE >1148:/tmp/xcHs2JnKL
-5A cinit CODE >1149:/tmp/xcHs2JnKL
-5B cinit CODE >1150:/tmp/xcHs2JnKL
-5C cinit CODE >1151:/tmp/xcHs2JnKL
-5D cinit CODE >1152:/tmp/xcHs2JnKL
-5E cinit CODE >1153:/tmp/xcHs2JnKL
-5F cinit CODE >1154:/tmp/xcHs2JnKL
-60 cinit CODE >1155:/tmp/xcHs2JnKL
-61 cinit CODE >1156:/tmp/xcHs2JnKL
-62 cinit CODE >1160:/tmp/xcHs2JnKL
-63 cinit CODE >1161:/tmp/xcHs2JnKL
-64 cinit CODE >1162:/tmp/xcHs2JnKL
-65 cinit CODE >1163:/tmp/xcHs2JnKL
-66 cinit CODE >1164:/tmp/xcHs2JnKL
-67 cinit CODE >1165:/tmp/xcHs2JnKL
-68 cinit CODE >1166:/tmp/xcHs2JnKL
-69 cinit CODE >1167:/tmp/xcHs2JnKL
-6A cinit CODE >1168:/tmp/xcHs2JnKL
-6B cinit CODE >1173:/tmp/xcHs2JnKL
-6C cinit CODE >1174:/tmp/xcHs2JnKL
-6F cinit CODE >1175:/tmp/xcHs2JnKL
-70 cinit CODE >1176:/tmp/xcHs2JnKL
-73 cinit CODE >1177:/tmp/xcHs2JnKL
-74 cinit CODE >1178:/tmp/xcHs2JnKL
-77 cinit CODE >1179:/tmp/xcHs2JnKL
-78 cinit CODE >1180:/tmp/xcHs2JnKL
-7A cinit CODE >1181:/tmp/xcHs2JnKL
-7B cinit CODE >1187:/tmp/xcHs2JnKL
-7B cinit CODE >1189:/tmp/xcHs2JnKL
-7C cinit CODE >1190:/tmp/xcHs2JnKL
-7D cinit CODE >1191:/tmp/xcHs2JnKL
-4 intentry CODE >9:/Applications/microchip/xc8/v1.37/sources/common/abs.c
-4 intentry CODE >642:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-9 intentry CODE >645:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-F intentry CODE >646:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-18 intentry CODE >647:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1C intentry CODE >648:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-20 intentry CODE >649:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-22 intentry CODE >653:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-28 intentry CODE >654:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-29 intentry CODE >655:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-29 intentry CODE >658:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2F intentry CODE >659:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-31 intentry CODE >660:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-35 intentry CODE >661:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-36 intentry CODE >662:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-37 intentry CODE >663:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-38 intentry CODE >664:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-38 intentry CODE >666:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-39 intentry CODE >667:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-39 intentry CODE >670:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3F intentry CODE >671:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-41 intentry CODE >672:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-45 intentry CODE >673:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-46 intentry CODE >674:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-47 intentry CODE >675:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-48 intentry CODE >676:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-48 intentry CODE >678:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-49 intentry CODE >679:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-49 intentry CODE >681:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4F intentry CODE >682:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-50 intentry CODE >684:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FF1 text32 CODE >4:/Applications/microchip/xc8/v1.37/sources/common/abs.c
-FF1 text32 CODE >6:/Applications/microchip/xc8/v1.37/sources/common/abs.c
-FF4 text32 CODE >7:/Applications/microchip/xc8/v1.37/sources/common/abs.c
-78E text31 CODE >6:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
-78F text31 CODE >8:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
-78F text31 CODE >9:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
-790 text31 CODE >10:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
-793 text31 CODE >11:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
-FA4 text30 CODE >563:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FA5 text30 CODE >565:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4BD text29 CODE >570:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4BD text29 CODE >574:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4BD text29 CODE >575:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4C8 text29 CODE >575:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4CC text29 CODE >574:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4CD text29 CODE >577:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4D8 text29 CODE >578:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4DD text29 CODE >579:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4E1 text29 CODE >580:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4E7 text29 CODE >582:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4F2 text29 CODE >583:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4F7 text29 CODE >584:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-4FB text29 CODE >585:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-501 text29 CODE >587:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-50C text29 CODE >588:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-511 text29 CODE >589:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-515 text29 CODE >590:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-519 text29 CODE >594:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FB8 text28 CODE >597:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FB8 text28 CODE >599:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-6BC text27 CODE >555:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-6BC text27 CODE >557:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-6C4 text27 CODE >558:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-6D2 text27 CODE >560:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC2 text26 CODE >98:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC2 text26 CODE >102:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC4 text26 CODE >106:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC5 text26 CODE >107:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC6 text26 CODE >108:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC7 text26 CODE >112:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC8 text26 CODE >113:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FC9 text26 CODE >114:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FCA text26 CODE >116:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FCB text26 CODE >117:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7A6 text25 CODE >350:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7A6 text25 CODE >354:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7A8 text25 CODE >355:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7A9 text25 CODE >358:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7AB text25 CODE >359:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7AC text25 CODE >360:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7AD text25 CODE >363:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7AE text25 CODE >364:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7AF text25 CODE >365:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7B0 text25 CODE >368:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7B1 text25 CODE >369:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7B2 text25 CODE >370:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7B4 text25 CODE >372:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7B7 text25 CODE >373:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7B9 text25 CODE >372:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7BA text25 CODE >376:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7BC text25 CODE >377:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD7 text24 CODE >283:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD7 text24 CODE >288:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD9 text24 CODE >289:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FDA text24 CODE >303:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FDB text24 CODE >304:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FDC text24 CODE >307:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FDD text24 CODE >308:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FDF text24 CODE >309:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE1 text24 CODE >310:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE3 text24 CODE >311:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE4 text23 CODE >317:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE4 text23 CODE >322:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE6 text23 CODE >323:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE7 text23 CODE >336:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE8 text23 CODE >337:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FE9 text23 CODE >340:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FEA text23 CODE >341:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FEC text23 CODE >342:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FEE text23 CODE >343:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FF0 text23 CODE >344:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FAF text22 CODE >197:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FAF text22 CODE >209:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FB1 text22 CODE >210:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FB2 text22 CODE >212:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FB3 text22 CODE >213:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FB4 text22 CODE >214:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FB5 text22 CODE >215:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FA9 text21 CODE >16:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-FA9 text21 CODE >18:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-FAB text21 CODE >19:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-FAC text21 CODE >20:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-FAE text21 CODE >21:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-753 text20 CODE >223:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-753 text20 CODE >227:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-755 text20 CODE >230:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-757 text20 CODE >233:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-75A text20 CODE >234:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-75D text20 CODE >237:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-761 text20 CODE >243:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-763 text20 CODE >246:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-764 text20 CODE >247:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-765 text20 CODE >251:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-766 text20 CODE >252:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-767 text20 CODE >253:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-769 text20 CODE >256:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-76B text20 CODE >257:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-76C text20 CODE >259:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-76D text20 CODE >263:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-76F text20 CODE >265:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-771 text20 CODE >266:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-733 text19 CODE >64:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-733 text19 CODE >66:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-735 text19 CODE >67:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-738 text19 CODE >68:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-73B text19 CODE >70:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-73D text19 CODE >71:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-740 text19 CODE >72:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-743 text19 CODE >74:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-744 text19 CODE >75:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-747 text19 CODE >79:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-749 text19 CODE >80:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-74A text19 CODE >82:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-74B text19 CODE >83:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-74C text19 CODE >84:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-74D text19 CODE >85:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-74E text19 CODE >87:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-74F text19 CODE >90:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-751 text19 CODE >91:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-752 text19 CODE >92:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FCC text18 CODE >167:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FCC text18 CODE >180:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FCE text18 CODE >181:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FCF text18 CODE >185:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD0 text18 CODE >186:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD1 text18 CODE >188:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD3 text18 CODE >189:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD5 text18 CODE >191:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-FD6 text18 CODE >192:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-452 text17 CODE >6:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-452 text17 CODE >14:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-454 text17 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-456 text17 CODE >16:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-45E text17 CODE >17:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-460 text17 CODE >18:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-460 text17 CODE >19:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-462 text17 CODE >20:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-46A text17 CODE >21:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-46E text17 CODE >23:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-474 text17 CODE >24:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-479 text17 CODE >25:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-47B text17 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-47D text17 CODE >27:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-483 text17 CODE >28:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-487 text17 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-488 text17 CODE >31:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-48E text17 CODE >32:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-49A text17 CODE >33:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-4A0 text17 CODE >34:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-4A1 text17 CODE >36:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-4A7 text17 CODE >37:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-4AB text17 CODE >39:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-4AE text17 CODE >40:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-4B6 text17 CODE >41:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
-6E6 text16 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-6E6 text16 CODE >89:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-6ED text16 CODE >91:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-6EF text16 CODE >92:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-6F5 text16 CODE >93:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-6FB text16 CODE >94:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-701 text16 CODE >95:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-706 text16 CODE >98:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
-772 text15 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-772 text15 CODE >43:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-774 text15 CODE >45:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-777 text15 CODE >46:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-77B text15 CODE >47:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-780 text15 CODE >48:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-785 text15 CODE >49:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-789 text15 CODE >52:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
-5C0 text14 CODE >389:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-5C1 text14 CODE >412:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-5C8 text14 CODE >413:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-5D8 text14 CODE >414:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-5E8 text14 CODE >415:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-5F8 text14 CODE >416:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-608 text14 CODE >418:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-60C text14 CODE >421:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-60E text14 CODE >422:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-56F text13 CODE >443:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-56F text13 CODE >451:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-571 text13 CODE >452:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-575 text13 CODE >457:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7BD text12 CODE >460:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7BD text12 CODE >462:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7BF text12 CODE >463:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7C2 text12 CODE >469:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2 text11 CODE >433:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2 text11 CODE >435:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7E2 text10 CODE >159:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7E3 text10 CODE >161:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7E6 text10 CODE >162:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7E8 text10 CODE >163:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7F1 text10 CODE >164:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-68A text9 CODE >181:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-68A text9 CODE >183:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-68E text9 CODE >184:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-692 text9 CODE >185:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-6A5 text9 CODE >186:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-6B8 text9 CODE >187:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-6BB text9 CODE >188:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7F2 text8 CODE >200:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7F3 text8 CODE >202:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7F7 text8 CODE >203:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7FB text8 CODE >204:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-7FE text8 CODE >205:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/message.c
-343 text7 CODE >520:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-344 text7 CODE >522:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-350 text7 CODE >523:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-358 text7 CODE >525:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-364 text7 CODE >526:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-36C text7 CODE >528:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-378 text7 CODE >529:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-380 text7 CODE >531:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-38C text7 CODE >532:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-394 text7 CODE >534:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3A0 text7 CODE >535:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3A8 text7 CODE >537:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3B4 text7 CODE >538:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3BC text7 CODE >540:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3C8 text7 CODE >541:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3D0 text7 CODE >543:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3DC text7 CODE >544:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7D0 text6 CODE >618:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7D1 text6 CODE >620:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7D5 text6 CODE >621:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7D9 text6 CODE >622:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7DC text6 CODE >623:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7E1 text6 CODE >624:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3E5 text5 CODE >478:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3E6 text5 CODE >481:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3EB text5 CODE >482:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-3F9 text5 CODE >483:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-403 text5 CODE >484:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-40D text5 CODE >485:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-417 text5 CODE >486:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-421 text5 CODE >487:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-423 text5 CODE >488:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-42D text5 CODE >489:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-437 text5 CODE >490:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-441 text5 CODE >491:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-44B text5 CODE >492:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-44D text5 CODE >481:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-70D text4 CODE >626:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-70D text4 CODE >628:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-71E text4 CODE >629:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-72F text4 CODE >630:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-732 text4 CODE >631:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-51D text3 CODE >6:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-51D text3 CODE >14:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-51F text3 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-521 text3 CODE >16:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-526 text3 CODE >17:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-528 text3 CODE >19:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-52A text3 CODE >20:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-52F text3 CODE >21:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-533 text3 CODE >23:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-535 text3 CODE >24:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-539 text3 CODE >25:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-53B text3 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-53D text3 CODE >27:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-542 text3 CODE >28:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-546 text3 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-547 text3 CODE >31:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-54C text3 CODE >32:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-554 text3 CODE >33:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-558 text3 CODE >34:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-559 text3 CODE >36:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-55E text3 CODE >37:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-562 text3 CODE >39:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-565 text3 CODE >40:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-56A text3 CODE >41:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
-611 text2 CODE >6:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-611 text2 CODE >13:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-612 text2 CODE >14:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-614 text2 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-619 text2 CODE >16:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-61B text2 CODE >18:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-61D text2 CODE >19:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-622 text2 CODE >20:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-626 text2 CODE >21:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-628 text2 CODE >22:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-62A text2 CODE >23:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-62F text2 CODE >24:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-633 text2 CODE >22:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-634 text2 CODE >27:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-63C text2 CODE >28:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-640 text2 CODE >29:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-645 text2 CODE >30:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-649 text2 CODE >32:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-64C text2 CODE >33:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-651 text2 CODE >34:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
-656 text1 CODE >633:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-656 text1 CODE >636:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-65D text1 CODE >637:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-674 text1 CODE >638:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-685 text1 CODE >636:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7F maintext CODE >689:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-7F maintext CODE >691:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-82 maintext CODE >700:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-83 maintext CODE >701:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-84 maintext CODE >703:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-87 maintext CODE >704:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-8A maintext CODE >705:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-8D maintext CODE >706:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-90 maintext CODE >707:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-93 maintext CODE >708:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-96 maintext CODE >709:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-99 maintext CODE >710:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-9C maintext CODE >711:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-9F maintext CODE >712:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-A0 maintext CODE >717:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-A1 maintext CODE >718:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-AE maintext CODE >719:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-AF maintext CODE >723:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-B3 maintext CODE >724:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-B5 maintext CODE >725:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-BD maintext CODE >726:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-BF maintext CODE >727:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-D8 maintext CODE >729:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-DC maintext CODE >734:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-F1 maintext CODE >735:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-F8 maintext CODE >736:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-100 maintext CODE >738:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-104 maintext CODE >739:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-10D maintext CODE >741:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-117 maintext CODE >742:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-124 maintext CODE >743:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-13A maintext CODE >744:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-16E maintext CODE >745:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1A2 maintext CODE >748:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1A6 maintext CODE >749:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1AF maintext CODE >750:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1B3 maintext CODE >751:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1BD maintext CODE >752:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1C1 maintext CODE >753:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1CB maintext CODE >754:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1CF maintext CODE >755:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1D9 maintext CODE >756:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1DD maintext CODE >757:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1E7 maintext CODE >758:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1EB maintext CODE >759:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1F5 maintext CODE >761:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1F7 maintext CODE >762:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-1F8 maintext CODE >765:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-201 maintext CODE >766:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-208 maintext CODE >767:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-20E maintext CODE >768:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-20F maintext CODE >770:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-218 maintext CODE >771:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-238 maintext CODE >772:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-242 maintext CODE >773:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-243 maintext CODE >775:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-24C maintext CODE >776:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-26C maintext CODE >777:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-272 maintext CODE >778:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-273 maintext CODE >780:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-27C maintext CODE >781:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-29C maintext CODE >782:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2A6 maintext CODE >783:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2A7 maintext CODE >785:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2B0 maintext CODE >786:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2D0 maintext CODE >787:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2DA maintext CODE >788:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2DB maintext CODE >790:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2E4 maintext CODE >791:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2F4 maintext CODE >792:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2FE maintext CODE >794:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-2FF maintext CODE >762:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-319 maintext CODE >794:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-319 maintext CODE >795:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-31B maintext CODE >796:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-31B maintext CODE >799:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-31E maintext CODE >800:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-322 maintext CODE >801:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-332 maintext CODE >803:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-333 maintext CODE >804:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-33C maintext CODE >805:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-33D maintext CODE >806:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
-342 maintext CODE >715:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/powerspy.X/powerspy.c
+57 cinit CODE >1082:/tmp/xc3ScS58P
+57 cinit CODE >1085:/tmp/xc3ScS58P
+57 cinit CODE >1150:/tmp/xc3ScS58P
+58 cinit CODE >1151:/tmp/xc3ScS58P
+59 cinit CODE >1155:/tmp/xc3ScS58P
+5A cinit CODE >1156:/tmp/xc3ScS58P
+5B cinit CODE >1157:/tmp/xc3ScS58P
+5C cinit CODE >1158:/tmp/xc3ScS58P
+5D cinit CODE >1159:/tmp/xc3ScS58P
+5E cinit CODE >1160:/tmp/xc3ScS58P
+61 cinit CODE >1165:/tmp/xc3ScS58P
+64 cinit CODE >1166:/tmp/xc3ScS58P
+65 cinit CODE >1167:/tmp/xc3ScS58P
+68 cinit CODE >1168:/tmp/xc3ScS58P
+69 cinit CODE >1169:/tmp/xc3ScS58P
+6C cinit CODE >1170:/tmp/xc3ScS58P
+6D cinit CODE >1171:/tmp/xc3ScS58P
+6F cinit CODE >1172:/tmp/xc3ScS58P
+70 cinit CODE >1178:/tmp/xc3ScS58P
+70 cinit CODE >1180:/tmp/xc3ScS58P
+71 cinit CODE >1181:/tmp/xc3ScS58P
+72 cinit CODE >1182:/tmp/xc3ScS58P
+4 intentry CODE >12:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+4 intentry CODE >641:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+9 intentry CODE >644:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+F intentry CODE >645:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+18 intentry CODE >646:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1C intentry CODE >647:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+20 intentry CODE >648:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+22 intentry CODE >652:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+28 intentry CODE >653:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+29 intentry CODE >654:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+29 intentry CODE >657:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2F intentry CODE >658:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+31 intentry CODE >659:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+35 intentry CODE >660:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+36 intentry CODE >661:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+37 intentry CODE >662:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+38 intentry CODE >663:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+38 intentry CODE >665:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+39 intentry CODE >666:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+39 intentry CODE >669:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3F intentry CODE >670:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+41 intentry CODE >671:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+45 intentry CODE >672:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+46 intentry CODE >673:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+47 intentry CODE >674:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+48 intentry CODE >675:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+48 intentry CODE >677:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+49 intentry CODE >678:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+49 intentry CODE >680:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4F intentry CODE >681:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+50 intentry CODE >683:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+75B text31 CODE >6:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+75C text31 CODE >8:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+75C text31 CODE >9:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+75D text31 CODE >10:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+760 text31 CODE >11:/Applications/microchip/xc8/v1.37/sources/pic/eeread.c
+7FB text30 CODE >562:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7FC text30 CODE >564:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+48A text29 CODE >569:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+48A text29 CODE >573:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+48A text29 CODE >574:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+495 text29 CODE >574:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+499 text29 CODE >573:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+49A text29 CODE >576:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4A5 text29 CODE >577:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4AA text29 CODE >578:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4AE text29 CODE >579:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4B4 text29 CODE >581:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4BF text29 CODE >582:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4C4 text29 CODE >583:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4C8 text29 CODE >584:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4CE text29 CODE >586:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4D9 text29 CODE >587:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4DE text29 CODE >588:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4E2 text29 CODE >589:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4E6 text29 CODE >593:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FEC text28 CODE >596:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FEC text28 CODE >598:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+689 text27 CODE >554:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+689 text27 CODE >556:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+691 text27 CODE >557:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+69F text27 CODE >559:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FF6 text26 CODE >97:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FF6 text26 CODE >101:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FF8 text26 CODE >105:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FF9 text26 CODE >106:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FFA text26 CODE >107:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FFB text26 CODE >111:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FFC text26 CODE >112:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FFD text26 CODE >113:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FFE text26 CODE >115:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FFF text26 CODE >116:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+773 text25 CODE >349:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+773 text25 CODE >353:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+775 text25 CODE >354:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+776 text25 CODE >357:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+778 text25 CODE >358:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+779 text25 CODE >359:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+77A text25 CODE >362:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+77B text25 CODE >363:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+77C text25 CODE >364:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+77D text25 CODE >367:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+77E text25 CODE >368:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+77F text25 CODE >369:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+781 text25 CODE >371:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+784 text25 CODE >372:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+786 text25 CODE >371:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+787 text25 CODE >375:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+789 text25 CODE >376:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D9 text24 CODE >282:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D9 text24 CODE >287:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7DB text24 CODE >288:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7DC text24 CODE >302:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7DD text24 CODE >303:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7DE text24 CODE >306:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7DF text24 CODE >307:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7E1 text24 CODE >308:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7E3 text24 CODE >309:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7E5 text24 CODE >310:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7CC text23 CODE >316:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7CC text23 CODE >321:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7CE text23 CODE >322:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7CF text23 CODE >335:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D0 text23 CODE >336:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D1 text23 CODE >339:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D2 text23 CODE >340:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D4 text23 CODE >341:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D6 text23 CODE >342:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7D8 text23 CODE >343:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FE3 text22 CODE >196:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FE3 text22 CODE >208:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FE5 text22 CODE >209:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FE6 text22 CODE >211:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FE7 text22 CODE >212:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FE8 text22 CODE >213:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FE9 text22 CODE >214:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FD7 text21 CODE >16:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+FD7 text21 CODE >18:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+FD9 text21 CODE >19:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+FDA text21 CODE >20:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+FDC text21 CODE >21:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+720 text20 CODE >222:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+720 text20 CODE >226:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+722 text20 CODE >229:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+724 text20 CODE >232:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+727 text20 CODE >233:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+72A text20 CODE >236:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+72E text20 CODE >242:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+730 text20 CODE >245:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+731 text20 CODE >246:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+732 text20 CODE >250:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+733 text20 CODE >251:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+734 text20 CODE >252:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+736 text20 CODE >255:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+738 text20 CODE >256:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+739 text20 CODE >258:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+73A text20 CODE >262:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+73C text20 CODE >264:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+73E text20 CODE >265:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+700 text19 CODE >63:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+700 text19 CODE >65:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+702 text19 CODE >66:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+705 text19 CODE >67:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+708 text19 CODE >69:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+70A text19 CODE >70:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+70D text19 CODE >71:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+710 text19 CODE >73:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+711 text19 CODE >74:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+714 text19 CODE >78:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+716 text19 CODE >79:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+717 text19 CODE >81:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+718 text19 CODE >82:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+719 text19 CODE >83:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+71A text19 CODE >84:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+71B text19 CODE >86:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+71C text19 CODE >89:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+71E text19 CODE >90:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+71F text19 CODE >91:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7E6 text18 CODE >166:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7E6 text18 CODE >179:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7E8 text18 CODE >180:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7E9 text18 CODE >184:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7EA text18 CODE >185:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7EB text18 CODE >187:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7ED text18 CODE >188:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7EF text18 CODE >190:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7F0 text18 CODE >191:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+41F text17 CODE >6:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+41F text17 CODE >14:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+421 text17 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+423 text17 CODE >16:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+42B text17 CODE >17:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+42D text17 CODE >18:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+42D text17 CODE >19:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+42F text17 CODE >20:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+437 text17 CODE >21:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+43B text17 CODE >23:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+441 text17 CODE >24:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+446 text17 CODE >25:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+448 text17 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+44A text17 CODE >27:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+450 text17 CODE >28:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+454 text17 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+455 text17 CODE >31:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+45B text17 CODE >32:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+467 text17 CODE >33:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+46D text17 CODE >34:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+46E text17 CODE >36:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+474 text17 CODE >37:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+478 text17 CODE >39:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+47B text17 CODE >40:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+483 text17 CODE >41:/Applications/microchip/xc8/v1.37/sources/common/atdiv.c
+6B3 text16 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+6B3 text16 CODE >89:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+6BA text16 CODE >91:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+6BC text16 CODE >92:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+6C2 text16 CODE >93:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+6C8 text16 CODE >94:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+6CE text16 CODE >95:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+6D3 text16 CODE >98:/Applications/microchip/xc8/v1.37/sources/common/Umul24.c
+73F text15 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+73F text15 CODE >43:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+741 text15 CODE >45:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+744 text15 CODE >46:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+748 text15 CODE >47:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+74D text15 CODE >48:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+752 text15 CODE >49:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+756 text15 CODE >52:/Applications/microchip/xc8/v1.37/sources/common/Umul16.c
+58D text14 CODE >388:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+58E text14 CODE >411:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+595 text14 CODE >412:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+5A5 text14 CODE >413:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+5B5 text14 CODE >414:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+5C5 text14 CODE >415:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+5D5 text14 CODE >417:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+5D9 text14 CODE >420:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+5DB text14 CODE >421:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+53C text13 CODE >442:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+53C text13 CODE >450:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+53E text13 CODE >451:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+542 text13 CODE >456:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+78A text12 CODE >459:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+78A text12 CODE >461:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+78C text12 CODE >462:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+78F text12 CODE >468:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2 text11 CODE >432:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2 text11 CODE >434:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7AF text10 CODE >159:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7B0 text10 CODE >161:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7B3 text10 CODE >162:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7B5 text10 CODE >163:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7BE text10 CODE >164:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+657 text9 CODE >181:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+657 text9 CODE >183:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+65B text9 CODE >184:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+65F text9 CODE >185:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+672 text9 CODE >186:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+685 text9 CODE >187:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+688 text9 CODE >188:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7BF text8 CODE >200:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7C0 text8 CODE >202:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7C4 text8 CODE >203:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7C8 text8 CODE >204:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+7CB text8 CODE >205:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
+310 text7 CODE >519:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+311 text7 CODE >521:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+31D text7 CODE >522:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+325 text7 CODE >524:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+331 text7 CODE >525:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+339 text7 CODE >527:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+345 text7 CODE >528:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+34D text7 CODE >530:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+359 text7 CODE >531:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+361 text7 CODE >533:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+36D text7 CODE >534:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+375 text7 CODE >536:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+381 text7 CODE >537:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+389 text7 CODE >539:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+395 text7 CODE >540:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+39D text7 CODE >542:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3A9 text7 CODE >543:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+79D text6 CODE >617:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+79E text6 CODE >619:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7A2 text6 CODE >620:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7A6 text6 CODE >621:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7A9 text6 CODE >622:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7AE text6 CODE >623:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3B2 text5 CODE >477:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3B3 text5 CODE >480:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3B8 text5 CODE >481:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3C6 text5 CODE >482:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3D0 text5 CODE >483:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3DA text5 CODE >484:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3E4 text5 CODE >485:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3EE text5 CODE >486:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3F0 text5 CODE >487:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+3FA text5 CODE >488:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+404 text5 CODE >489:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+40E text5 CODE >490:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+418 text5 CODE >491:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+41A text5 CODE >480:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+6DA text4 CODE >625:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+6DA text4 CODE >627:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+6EB text4 CODE >628:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+6FC text4 CODE >629:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+6FF text4 CODE >630:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+4EA text3 CODE >6:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+4EA text3 CODE >14:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+4EC text3 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+4EE text3 CODE >16:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+4F3 text3 CODE >17:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+4F5 text3 CODE >19:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+4F7 text3 CODE >20:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+4FC text3 CODE >21:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+500 text3 CODE >23:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+502 text3 CODE >24:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+506 text3 CODE >25:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+508 text3 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+50A text3 CODE >27:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+50F text3 CODE >28:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+513 text3 CODE >26:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+514 text3 CODE >31:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+519 text3 CODE >32:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+521 text3 CODE >33:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+525 text3 CODE >34:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+526 text3 CODE >36:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+52B text3 CODE >37:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+52F text3 CODE >39:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+532 text3 CODE >40:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+537 text3 CODE >41:/Applications/microchip/xc8/v1.37/sources/common/awdiv.c
+5DE text2 CODE >6:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5DE text2 CODE >13:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5DF text2 CODE >14:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5E1 text2 CODE >15:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5E6 text2 CODE >16:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5E8 text2 CODE >18:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5EA text2 CODE >19:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5EF text2 CODE >20:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5F3 text2 CODE >21:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5F5 text2 CODE >22:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5F7 text2 CODE >23:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+5FC text2 CODE >24:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+600 text2 CODE >22:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+601 text2 CODE >27:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+609 text2 CODE >28:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+60D text2 CODE >29:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+612 text2 CODE >30:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+616 text2 CODE >32:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+619 text2 CODE >33:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+61E text2 CODE >34:/Applications/microchip/xc8/v1.37/sources/common/awmod.c
+623 text1 CODE >632:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+623 text1 CODE >635:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+62A text1 CODE >636:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+641 text1 CODE >637:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+652 text1 CODE >635:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+74 maintext CODE >688:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+74 maintext CODE >690:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+77 maintext CODE >699:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+78 maintext CODE >700:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+79 maintext CODE >702:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7C maintext CODE >703:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+7F maintext CODE >704:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+82 maintext CODE >705:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+85 maintext CODE >706:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+88 maintext CODE >707:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+8B maintext CODE >708:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+8E maintext CODE >709:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+91 maintext CODE >710:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+94 maintext CODE >711:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+95 maintext CODE >716:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+96 maintext CODE >717:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+A3 maintext CODE >718:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+A4 maintext CODE >722:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+A8 maintext CODE >723:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+AA maintext CODE >724:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+B2 maintext CODE >725:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+B4 maintext CODE >726:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+CD maintext CODE >728:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+D1 maintext CODE >733:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+E6 maintext CODE >734:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+ED maintext CODE >735:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+F5 maintext CODE >737:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+F9 maintext CODE >738:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+102 maintext CODE >740:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+10C maintext CODE >741:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+119 maintext CODE >742:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+12F maintext CODE >743:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+163 maintext CODE >744:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+197 maintext CODE >747:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+19B maintext CODE >748:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1A4 maintext CODE >749:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1A8 maintext CODE >750:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1B2 maintext CODE >751:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1B6 maintext CODE >752:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1C0 maintext CODE >753:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1C4 maintext CODE >754:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1CE maintext CODE >755:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1D2 maintext CODE >756:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1DC maintext CODE >757:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1E0 maintext CODE >758:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1EA maintext CODE >760:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1EC maintext CODE >761:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1ED maintext CODE >764:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1F6 maintext CODE >765:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+1FD maintext CODE >766:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+203 maintext CODE >767:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+204 maintext CODE >769:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+20D maintext CODE >770:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+225 maintext CODE >771:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+22F maintext CODE >772:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+230 maintext CODE >774:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+239 maintext CODE >775:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+251 maintext CODE >776:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+257 maintext CODE >777:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+258 maintext CODE >779:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+261 maintext CODE >780:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+279 maintext CODE >781:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+283 maintext CODE >782:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+284 maintext CODE >784:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+28D maintext CODE >785:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2A5 maintext CODE >786:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2AF maintext CODE >787:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2B0 maintext CODE >789:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2B9 maintext CODE >790:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2C1 maintext CODE >791:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2CB maintext CODE >793:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2CC maintext CODE >761:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2E6 maintext CODE >793:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2E6 maintext CODE >794:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2E8 maintext CODE >795:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2E8 maintext CODE >798:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2EB maintext CODE >799:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2EF maintext CODE >800:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+2FF maintext CODE >802:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+300 maintext CODE >803:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+309 maintext CODE >804:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+30A maintext CODE >805:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+30F maintext CODE >714:/Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+FDD clrtext CODE >1139:/tmp/xc3ScS58P
+FDD clrtext CODE >1140:/tmp/xc3ScS58P
+FDE clrtext CODE >1141:/tmp/xc3ScS58P
+FDE clrtext CODE >1142:/tmp/xc3ScS58P
+FDF clrtext CODE >1143:/tmp/xc3ScS58P
+FE0 clrtext CODE >1144:/tmp/xc3ScS58P
+FE1 clrtext CODE >1145:/tmp/xc3ScS58P
+FE2 clrtext CODE >1146:/tmp/xc3ScS58P
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -599,7 +592,7 @@ F8 maintext CODE >736:/Users/redxef/Dropbox/Prt-project/PowerSpy/Code/MICROCHIP/
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 1 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-___awdiv@counter 42 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+___awdiv@counter 20 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __LdataBANK0 D0 1E000 ABS 0 dataBANK0 -
 __Hspace_0 8009 0 ABS 0 - -
 __Hspace_1 D0 0 ABS 0 - -
@@ -609,25 +602,23 @@ __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __HidataBANK0 D0 1E000 ABS 0 idataBANK0 -
 __size_of_initPins 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_initTMR1 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-main@voltage 4D 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+main@voltage 45 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 sendUInt8@i 75 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
-__end_of_readVdd FA0 0 CODE 0 text12 dist/default/production/powerspy.X.production.obj
+__end_of_readVdd F3A 0 CODE 0 text12 dist/default/production/powerspy.X.production.obj
 __BbssBANK0 1E0D0 1E000 ABS 0 bssBANK0 -
-__BbssBANK1 1E0D0 1E000 ABS 0 bssBANK1 -
 __Heeprom_data D0 1E000 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _RD CA8 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _WR CA9 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-_so 7CA 0 CODE 0 text5 dist/default/production/powerspy.X.production.obj
+_so 764 0 CODE 0 text5 dist/default/production/powerspy.X.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ltemp1 82 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ltemp3 80 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__end_of_initPWMTMR4 EE4 0 CODE 0 text20 dist/default/production/powerspy.X.production.obj
+__end_of_initPWMTMR4 E7E 0 CODE 0 text20 dist/default/production/powerspy.X.production.obj
 __Lstringtext D0 1E000 ABS 0 stringtext -
-?_abs 39 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __Hstrings D0 1E000 ABS 0 strings -
-_initMessaging 1F52 0 CODE 0 text21 dist/default/production/powerspy.X.production.obj
+_initMessaging 1FAE 0 CODE 0 text21 dist/default/production/powerspy.X.production.obj
 _ADFM 4F7 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _ADON 4E8 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _BRGH CF2 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -654,23 +645,22 @@ _TMR1 16 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TRMT CF1 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TXEN CF5 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _WPUB 20D 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/xcuvab1Yr.obj
-_flag 69 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
-_main FE 0 CODE 0 maintext dist/default/production/powerspy.X.production.obj
-_mode 6A 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
-_sin_ 1F48 0 CODE 0 text30 dist/default/production/powerspy.X.production.obj
-abs@a 39 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+___sp 0 0 STACK 2 stack /tmp/xcFsHTcsX.obj
+_flag 67 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
+_main E8 0 CODE 0 maintext dist/default/production/powerspy.X.production.obj
+_mode 68 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
+_sin_ FF6 0 CODE 0 text30 dist/default/production/powerspy.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 setLED@b 74 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 setLED@g 75 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 setLED@r 73 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 sin@z 77 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
-start AA 0 CODE 0 init /tmp/xcuvab1Yr.obj
+start AA 0 CODE 0 init /tmp/xcFsHTcsX.obj
 ttemp 7E 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-setVal@i 49 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-setVal@v 46 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+setVal@i 3C 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+setVal@v 39 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __size_of___atdiv 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of___awmod 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -678,7 +668,7 @@ __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_sin_ 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __HbssCOMMON D0 1E000 ABS 0 bssCOMMON -
-_curr_time 63 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
+_curr_time 61 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
 ?___tmul 24 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 ?___wmul 20 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __LidataBANK0 D0 1E000 ABS 0 idataBANK0 -
@@ -692,19 +682,19 @@ ttemp3 87 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 adc@src 73 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 ?_deltaT 72 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
-intlevel0 0 0 CODE 0 functab /tmp/xcuvab1Yr.obj
-intlevel1 0 0 CODE 0 functab /tmp/xcuvab1Yr.obj
-intlevel2 0 0 CODE 0 functab /tmp/xcuvab1Yr.obj
-intlevel3 0 0 CODE 0 functab /tmp/xcuvab1Yr.obj
-intlevel4 0 0 CODE 0 functab /tmp/xcuvab1Yr.obj
-intlevel5 0 0 CODE 0 functab /tmp/xcuvab1Yr.obj
+intlevel0 0 0 CODE 0 functab /tmp/xcFsHTcsX.obj
+intlevel1 0 0 CODE 0 functab /tmp/xcFsHTcsX.obj
+intlevel2 0 0 CODE 0 functab /tmp/xcFsHTcsX.obj
+intlevel3 0 0 CODE 0 functab /tmp/xcFsHTcsX.obj
+intlevel4 0 0 CODE 0 functab /tmp/xcFsHTcsX.obj
+intlevel5 0 0 CODE 0 functab /tmp/xcFsHTcsX.obj
 __LbssCOMMON D0 1E000 ABS 0 bssCOMMON -
 _TMR1CS0 C6 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TMR1CS1 C7 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_setUnit 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-_initPins E66 0 CODE 0 text19 dist/default/production/powerspy.X.production.obj
-_initTMR1 1F98 0 CODE 0 text18 dist/default/production/powerspy.X.production.obj
-_receive_buff A0 0 BANK1 1 bssBANK1 dist/default/production/powerspy.X.production.obj
+_initPins E00 0 CODE 0 text19 dist/default/production/powerspy.X.production.obj
+_initTMR1 FCC 0 CODE 0 text18 dist/default/production/powerspy.X.production.obj
+_receive_buff 59 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 wtemp2 82 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -713,12 +703,12 @@ wtemp4 86 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 wtemp5 88 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 wtemp6 7F 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
-_led_rest 65 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
-_readCurrent ADE 0 CODE 0 text13 dist/default/production/powerspy.X.production.obj
-___awdiv@sign 43 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+_led_rest 63 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
+_readCurrent A78 0 CODE 0 text13 dist/default/production/powerspy.X.production.obj
+___awdiv@sign 21 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __Hclrtext D0 1E000 ABS 0 clrtext -
-__end_of_initPins EA6 0 CODE 0 text19 dist/default/production/powerspy.X.production.obj
-__end_of_initTMR1 1FAE 0 CODE 0 text18 dist/default/production/powerspy.X.production.obj
+__end_of_initPins E40 0 CODE 0 text19 dist/default/production/powerspy.X.production.obj
+__end_of_initTMR1 FE2 0 CODE 0 text18 dist/default/production/powerspy.X.production.obj
 setUnit@u 75 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 ___wmul@multiplicand 22 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 _ADFVR0 8B8 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -726,9 +716,9 @@ _ADFVR1 8B9 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _ADNREF 4F2 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _ANSELA 18C 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _ANSELB 18D 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-___awdiv@dividend 3F 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-__end_of_sendInt24 D78 0 CODE 0 text9 dist/default/production/powerspy.X.production.obj
-__end_of_sendUInt8 FFE 0 CODE 0 text8 dist/default/production/powerspy.X.production.obj
+___awdiv@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
+__end_of_sendInt24 D12 0 CODE 0 text9 dist/default/production/powerspy.X.production.obj
+__end_of_sendUInt8 F98 0 CODE 0 text8 dist/default/production/powerspy.X.production.obj
 _C1INTP 897 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _C1NCH0 890 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _C1NCH1 891 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -746,37 +736,37 @@ __size_of_sendUInt8 0 0 ABS 0 - dist/default/production/powerspy.X.production.ob
 __size_of_initADC 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_initFVR 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __end_of_readVoltage 8 0 CODE 0 text11 dist/default/production/powerspy.X.production.obj
-__end_of___tmul E1A 0 CODE 0 text16 dist/default/production/powerspy.X.production.obj
-__end_of___wmul F1C 0 CODE 0 text15 dist/default/production/powerspy.X.production.obj
+__end_of___tmul DB4 0 CODE 0 text16 dist/default/production/powerspy.X.production.obj
+__end_of___wmul EB6 0 CODE 0 text15 dist/default/production/powerspy.X.production.obj
 _EECON1 195 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _EEDATA 193 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TXCKSEL 8F0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __Lmaintext D0 1E000 ABS 0 maintext -
 _FVRRDY 8BE 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-___awdiv@divisor 3D 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-__end_of___atdiv 97A 0 CODE 0 text17 dist/default/production/powerspy.X.production.obj
-__end_of___awdiv ADE 0 CODE 0 text3 dist/default/production/powerspy.X.production.obj
-__end_of___awmod CAC 0 CODE 0 text2 dist/default/production/powerspy.X.production.obj
+___awdiv@divisor 72 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
+__end_of___atdiv 914 0 CODE 0 text17 dist/default/production/powerspy.X.production.obj
+__end_of___awdiv A78 0 CODE 0 text3 dist/default/production/powerspy.X.production.obj
+__end_of___awmod C46 0 CODE 0 text2 dist/default/production/powerspy.X.production.obj
 __size_of_initMessaging 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-_sendInt24 D14 0 CODE 0 text9 dist/default/production/powerspy.X.production.obj
-_sendUInt8 FE4 0 CODE 0 text8 dist/default/production/powerspy.X.production.obj
-__end_of_deltaT DCC 0 CODE 0 text27 dist/default/production/powerspy.X.production.obj
+_sendInt24 CAE 0 CODE 0 text9 dist/default/production/powerspy.X.production.obj
+_sendUInt8 F7E 0 CODE 0 text8 dist/default/production/powerspy.X.production.obj
+__end_of_deltaT D66 0 CODE 0 text27 dist/default/production/powerspy.X.production.obj
 _IOCBN5 1CAD 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ___atdiv@dividend 30 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-_eeprom_read F1C 0 CODE 0 text31 dist/default/production/powerspy.X.production.obj
+_eeprom_read EB6 0 CODE 0 text31 dist/default/production/powerspy.X.production.obj
 deltaT@tm_high 74 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__end_of_initBT F7A 0 CODE 0 text25 dist/default/production/powerspy.X.production.obj
+__end_of_initBT F14 0 CODE 0 text25 dist/default/production/powerspy.X.production.obj
 start_initialization AE 0 CODE 0 cinit dist/default/production/powerspy.X.production.obj
 __size_of_initPWMTMR4 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__end_of_setUnit E66 0 CODE 0 text4 dist/default/production/powerspy.X.production.obj
+__end_of_setUnit E00 0 CODE 0 text4 dist/default/production/powerspy.X.production.obj
 _TRISBbits 8D 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__end_of_initMessaging 1F5E 0 CODE 0 text21 dist/default/production/powerspy.X.production.obj
+__end_of_initMessaging 1FBA 0 CODE 0 text21 dist/default/production/powerspy.X.production.obj
 _ADPREF0 4F0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _ADPREF1 4F1 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __CFG_STVREN$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _GO_nDONE 4E9 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__end_of_so 8A4 0 CODE 0 text5 dist/default/production/powerspy.X.production.obj
+__end_of_so 83E 0 CODE 0 text5 dist/default/production/powerspy.X.production.obj
 __Bbank0 1E0D0 1E000 ABS 0 bank0 -
 __Bbank1 1E0D0 1E000 ABS 0 bank1 -
 __Bbank2 1E0D0 1E000 ABS 0 bank2 -
@@ -809,9 +799,10 @@ __Bsfr28 1E0D0 1E000 ABS 0 sfr28 -
 __Bsfr29 1E0D0 1E000 ABS 0 sfr29 -
 __Bsfr30 1E0D0 1E000 ABS 0 sfr30 -
 __Bsfr31 1E0D0 1E000 ABS 0 sfr31 -
+clear_ram0 1FBA 0 CODE 0 clrtext dist/default/production/powerspy.X.production.obj
 _SPLLEN 4CF 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-main@current 5B 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+main@current 53 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 _TMR1IE 488 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TMR1IF 88 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TMR1ON C0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -820,16 +811,16 @@ _TMR2IF 89 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TMR2ON E2 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TMR4IF 99 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TMR4ON 20BA 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-_readVdd F7A 0 CODE 0 text12 dist/default/production/powerspy.X.production.obj
-_reading 6B 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
+_readVdd F14 0 CODE 0 text12 dist/default/production/powerspy.X.production.obj
+_reading 69 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
 _readpos 7B 0 COMMON 1 bssCOMMON dist/default/production/powerspy.X.production.obj
 ___tmul@product 2A 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-__end_of_initADC 1F98 0 CODE 0 text26 dist/default/production/powerspy.X.production.obj
-__end_of_initFVR 1F70 0 CODE 0 text22 dist/default/production/powerspy.X.production.obj
-___int_sp 0 0 STACK 2 stack /tmp/xcuvab1Yr.obj
-_volt_time 67 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
-__end_of_setLED FC4 0 CODE 0 text6 dist/default/production/powerspy.X.production.obj
-__end_of_setVal D14 0 CODE 0 text1 dist/default/production/powerspy.X.production.obj
+__end_of_initADC 2000 0 CODE 0 text26 dist/default/production/powerspy.X.production.obj
+__end_of_initFVR 1FD8 0 CODE 0 text22 dist/default/production/powerspy.X.production.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcFsHTcsX.obj
+_volt_time 65 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
+__end_of_setLED F5E 0 CODE 0 text6 dist/default/production/powerspy.X.production.obj
+__end_of_setVal CAE 0 CODE 0 text1 dist/default/production/powerspy.X.production.obj
 __Hbank0 D0 1E000 ABS 0 bank0 -
 __Hbank1 D0 1E000 ABS 0 bank1 -
 __Hbank2 D0 1E000 ABS 0 bank2 -
@@ -840,9 +831,9 @@ __Hbank6 D0 1E000 BANK6 1 bank6 -
 __Hbank7 D0 1E000 BANK7 1 bank7 -
 __Hbank8 D0 1E000 BANK8 1 bank8 -
 __Hbank9 D0 1E000 BANK9 1 bank9 -
-__Hcinit FE 0 CODE 0 cinit -
+__Hcinit E8 0 CODE 0 cinit -
 __Hidloc 0 0 IDLOC 0 idloc -
-_sendColour 686 0 CODE 0 text7 dist/default/production/powerspy.X.production.obj
+_sendColour 620 0 CODE 0 text7 dist/default/production/powerspy.X.production.obj
 __Hsfr10 D0 1E000 ABS 0 sfr10 -
 __Hsfr11 D0 1E000 ABS 0 sfr11 -
 __Hsfr12 D0 1E000 ABS 0 sfr12 -
@@ -931,7 +922,7 @@ __Lsfr30 D0 1E000 ABS 0 sfr30 -
 __Lsfr31 D0 1E000 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
 __size_of_so 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__sendchar_ FC4 0 CODE 0 text10 dist/default/production/powerspy.X.production.obj
+__sendchar_ F5E 0 CODE 0 text10 dist/default/production/powerspy.X.production.obj
 __Babs1 1E0D0 1E000 ABS 0 abs1 -
 __Bcode 1E0D0 1E000 ABS 0 code -
 __Bsfr0 1E0D0 1E000 ABS 0 sfr0 -
@@ -974,8 +965,8 @@ __Lsfr7 D0 1E000 ABS 0 sfr7 -
 __Lsfr8 D0 1E000 ABS 0 sfr8 -
 __Lsfr9 D0 1E000 ABS 0 sfr9 -
 __Ltext D0 1E000 ABS 0 text -
-___tmul DCC 0 CODE 0 text16 dist/default/production/powerspy.X.production.obj
-___wmul EE4 0 CODE 0 text15 dist/default/production/powerspy.X.production.obj
+___tmul D66 0 CODE 0 text16 dist/default/production/powerspy.X.production.obj
+___wmul E7E 0 CODE 0 text15 dist/default/production/powerspy.X.production.obj
 _T2OUTPS0 E3 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _T2OUTPS1 E4 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _T2OUTPS2 E5 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -992,66 +983,62 @@ _RA6 66 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _RA7 67 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _RB3 6B 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __S0 8009 0 ABS 0 - -
-__S1 A8 0 ABS 0 - -
+__S1 7C 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 F068 0 ABS 0 - -
-_abs 1FE2 0 CODE 0 text32 dist/default/production/powerspy.X.production.obj
-_adc B80 0 CODE 0 text14 dist/default/production/powerspy.X.production.obj
-_cos 1F70 0 CODE 0 text28 dist/default/production/powerspy.X.production.obj
-_sin 97A 0 CODE 0 text29 dist/default/production/powerspy.X.production.obj
+_adc B1A 0 CODE 0 text14 dist/default/production/powerspy.X.production.obj
+_cos 1FD8 0 CODE 0 text28 dist/default/production/powerspy.X.production.obj
+_sin 914 0 CODE 0 text29 dist/default/production/powerspy.X.production.obj
 so@c 74 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 __size_of_readVoltage 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ?_readVdd 74 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 __Bstrings 1E0D0 1E000 ABS 0 strings -
-_deltaT D78 0 CODE 0 text27 dist/default/production/powerspy.X.production.obj
+_deltaT D12 0 CODE 0 text27 dist/default/production/powerspy.X.production.obj
 __end_of_ISR AA 0 CODE 0 intentry dist/default/production/powerspy.X.production.obj
-__end_of_abs 2000 0 CODE 0 text32 dist/default/production/powerspy.X.production.obj
-__end_of_adc C22 0 CODE 0 text14 dist/default/production/powerspy.X.production.obj
-__end_of_cos 1F84 0 CODE 0 text28 dist/default/production/powerspy.X.production.obj
-__end_of_sin A3A 0 CODE 0 text29 dist/default/production/powerspy.X.production.obj
-__end_of_sendColour 7CA 0 CODE 0 text7 dist/default/production/powerspy.X.production.obj
+__end_of_adc BBC 0 CODE 0 text14 dist/default/production/powerspy.X.production.obj
+__end_of_cos 1FEC 0 CODE 0 text28 dist/default/production/powerspy.X.production.obj
+__end_of_sin 9D4 0 CODE 0 text29 dist/default/production/powerspy.X.production.obj
+__end_of_sendColour 764 0 CODE 0 text7 dist/default/production/powerspy.X.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcuvab1Yr.obj
-__end_of_readCurrent B80 0 CODE 0 text13 dist/default/production/powerspy.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcFsHTcsX.obj
+__end_of_readCurrent B1A 0 CODE 0 text13 dist/default/production/powerspy.X.production.obj
 __BcstackBANK0 1E0D0 1E000 ABS 0 cstackBANK0 -
-_initBT F4C 0 CODE 0 text25 dist/default/production/powerspy.X.production.obj
-main@apparent 60 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-__pdataBANK0 6C 0 BANK0 1 dataBANK0 dist/default/production/powerspy.X.production.obj
+_initBT EE6 0 CODE 0 text25 dist/default/production/powerspy.X.production.obj
+main@apparent 56 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+__pdataBANK0 6A 0 BANK0 1 dataBANK0 dist/default/production/powerspy.X.production.obj
 __size_of___tmul 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of___wmul 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __LbssBANK0 D0 1E000 ABS 0 bssBANK0 -
-__LbssBANK1 D0 1E000 ABS 0 bssBANK1 -
 ___awmod@counter 77 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
-__end_of_initCOMP1 1FC8 0 CODE 0 text24 dist/default/production/powerspy.X.production.obj
-__end_of_initCOMP2 1FE2 0 CODE 0 text23 dist/default/production/powerspy.X.production.obj
-__end_of__sendchar_ FE4 0 CODE 0 text10 dist/default/production/powerspy.X.production.obj
+__end_of_initCOMP1 FCC 0 CODE 0 text24 dist/default/production/powerspy.X.production.obj
+__end_of_initCOMP2 FB2 0 CODE 0 text23 dist/default/production/powerspy.X.production.obj
+__end_of__sendchar_ F7E 0 CODE 0 text10 dist/default/production/powerspy.X.production.obj
 __size_of_initCOMP1 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_initCOMP2 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _nWPUEN 4AF 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__ptext10 FC4 0 CODE 0 text10 dist/default/production/powerspy.X.production.obj
+__ptext10 F5E 0 CODE 0 text10 dist/default/production/powerspy.X.production.obj
 __ptext11 4 0 CODE 0 text11 dist/default/production/powerspy.X.production.obj
-__ptext12 F7A 0 CODE 0 text12 dist/default/production/powerspy.X.production.obj
-__ptext13 ADE 0 CODE 0 text13 dist/default/production/powerspy.X.production.obj
-__ptext14 B80 0 CODE 0 text14 dist/default/production/powerspy.X.production.obj
-__ptext15 EE4 0 CODE 0 text15 dist/default/production/powerspy.X.production.obj
-__ptext16 DCC 0 CODE 0 text16 dist/default/production/powerspy.X.production.obj
-__ptext17 8A4 0 CODE 0 text17 dist/default/production/powerspy.X.production.obj
-__ptext18 1F98 0 CODE 0 text18 dist/default/production/powerspy.X.production.obj
-__ptext19 E66 0 CODE 0 text19 dist/default/production/powerspy.X.production.obj
-__ptext20 EA6 0 CODE 0 text20 dist/default/production/powerspy.X.production.obj
-__ptext21 1F52 0 CODE 0 text21 dist/default/production/powerspy.X.production.obj
-__ptext22 1F5E 0 CODE 0 text22 dist/default/production/powerspy.X.production.obj
-__ptext23 1FC8 0 CODE 0 text23 dist/default/production/powerspy.X.production.obj
-__ptext24 1FAE 0 CODE 0 text24 dist/default/production/powerspy.X.production.obj
-__ptext25 F4C 0 CODE 0 text25 dist/default/production/powerspy.X.production.obj
-__ptext26 1F84 0 CODE 0 text26 dist/default/production/powerspy.X.production.obj
-__ptext27 D78 0 CODE 0 text27 dist/default/production/powerspy.X.production.obj
-__ptext28 1F70 0 CODE 0 text28 dist/default/production/powerspy.X.production.obj
-__ptext29 97A 0 CODE 0 text29 dist/default/production/powerspy.X.production.obj
-__ptext30 1F48 0 CODE 0 text30 dist/default/production/powerspy.X.production.obj
-__ptext31 F1C 0 CODE 0 text31 dist/default/production/powerspy.X.production.obj
-__ptext32 1FE2 0 CODE 0 text32 dist/default/production/powerspy.X.production.obj
+__ptext12 F14 0 CODE 0 text12 dist/default/production/powerspy.X.production.obj
+__ptext13 A78 0 CODE 0 text13 dist/default/production/powerspy.X.production.obj
+__ptext14 B1A 0 CODE 0 text14 dist/default/production/powerspy.X.production.obj
+__ptext15 E7E 0 CODE 0 text15 dist/default/production/powerspy.X.production.obj
+__ptext16 D66 0 CODE 0 text16 dist/default/production/powerspy.X.production.obj
+__ptext17 83E 0 CODE 0 text17 dist/default/production/powerspy.X.production.obj
+__ptext18 FCC 0 CODE 0 text18 dist/default/production/powerspy.X.production.obj
+__ptext19 E00 0 CODE 0 text19 dist/default/production/powerspy.X.production.obj
+__ptext20 E40 0 CODE 0 text20 dist/default/production/powerspy.X.production.obj
+__ptext21 1FAE 0 CODE 0 text21 dist/default/production/powerspy.X.production.obj
+__ptext22 1FC6 0 CODE 0 text22 dist/default/production/powerspy.X.production.obj
+__ptext23 F98 0 CODE 0 text23 dist/default/production/powerspy.X.production.obj
+__ptext24 FB2 0 CODE 0 text24 dist/default/production/powerspy.X.production.obj
+__ptext25 EE6 0 CODE 0 text25 dist/default/production/powerspy.X.production.obj
+__ptext26 1FEC 0 CODE 0 text26 dist/default/production/powerspy.X.production.obj
+__ptext27 D12 0 CODE 0 text27 dist/default/production/powerspy.X.production.obj
+__ptext28 1FD8 0 CODE 0 text28 dist/default/production/powerspy.X.production.obj
+__ptext29 914 0 CODE 0 text29 dist/default/production/powerspy.X.production.obj
+__ptext30 FF6 0 CODE 0 text30 dist/default/production/powerspy.X.production.obj
+__ptext31 EB6 0 CODE 0 text31 dist/default/production/powerspy.X.production.obj
 __Bbank10 1E0D0 1E000 BANK10 1 bank10 -
 __Bbank11 1E0D0 1E000 BANK11 1 bank11 -
 __Bbank12 1E0D0 1E000 BANK12 1 bank12 -
@@ -1075,9 +1062,9 @@ __Bbank29 1E0D0 1E000 BANK29 1 bank29 -
 __Bbank30 1E0D0 1E000 BANK30 1 bank30 -
 __Bbank31 1E0D0 1E000 BANK31 1 bank31 -
 __Bbigram 1E0D0 1E000 ABS 0 bigram -
-___atdiv 8A4 0 CODE 0 text17 dist/default/production/powerspy.X.production.obj
-___awdiv A3A 0 CODE 0 text3 dist/default/production/powerspy.X.production.obj
-___awmod C22 0 CODE 0 text2 dist/default/production/powerspy.X.production.obj
+___atdiv 83E 0 CODE 0 text17 dist/default/production/powerspy.X.production.obj
+___awdiv 9D4 0 CODE 0 text3 dist/default/production/powerspy.X.production.obj
+___awmod BBC 0 CODE 0 text2 dist/default/production/powerspy.X.production.obj
 __Lbank10 D0 1E000 BANK10 1 bank10 -
 __Lbank11 D0 1E000 BANK11 1 bank11 -
 __Lbank12 D0 1E000 BANK12 1 bank12 -
@@ -1101,8 +1088,8 @@ __Lbank29 D0 1E000 BANK29 1 bank29 -
 __Lbank30 D0 1E000 BANK30 1 bank30 -
 __Lbank31 D0 1E000 BANK31 1 bank31 -
 __BcstackCOMMON 1E0D0 1E000 ABS 0 cstackCOMMON -
-_i_u_diode_offs 6F 0 BANK0 1 dataBANK0 dist/default/production/powerspy.X.production.obj
-__pmaintext FE 0 CODE 0 maintext dist/default/production/powerspy.X.production.obj
+_i_u_diode_offs 6D 0 BANK0 1 dataBANK0 dist/default/production/powerspy.X.production.obj
+__pmaintext E8 0 CODE 0 maintext dist/default/production/powerspy.X.production.obj
 __Lbigram D0 1E000 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 so@data 73 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
@@ -1116,20 +1103,20 @@ __CFG_CP$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _RXDTSEL 8EF 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ___wmul@multiplier 20 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-_initPWMTMR4 EA6 0 CODE 0 text20 dist/default/production/powerspy.X.production.obj
-_initCOMP1 1FAE 0 CODE 0 text24 dist/default/production/powerspy.X.production.obj
-_initCOMP2 1FC8 0 CODE 0 text23 dist/default/production/powerspy.X.production.obj
-main@real 50 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-main@angle 56 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-_setLED FA0 0 CODE 0 text6 dist/default/production/powerspy.X.production.obj
-_setVal CAC 0 CODE 0 text1 dist/default/production/powerspy.X.production.obj
-main@bmode 59 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+_initPWMTMR4 E40 0 CODE 0 text20 dist/default/production/powerspy.X.production.obj
+_initCOMP1 FB2 0 CODE 0 text24 dist/default/production/powerspy.X.production.obj
+_initCOMP2 F98 0 CODE 0 text23 dist/default/production/powerspy.X.production.obj
+main@real 48 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+main@angle 4E 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+_setLED F3A 0 CODE 0 text6 dist/default/production/powerspy.X.production.obj
+_setVal C46 0 CODE 0 text1 dist/default/production/powerspy.X.production.obj
+main@bmode 51 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __size_of_initBT 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 ___atdiv@divisor 2D 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-stackhi 216F 0 ABS 0 - /tmp/xcuvab1Yr.obj
-stacklo 2058 0 ABS 0 - /tmp/xcuvab1Yr.obj
-__end_of_eeprom_read F4C 0 CODE 0 text31 dist/default/production/powerspy.X.production.obj
-_setUnit E1A 0 CODE 0 text4 dist/default/production/powerspy.X.production.obj
+stackhi 216F 0 ABS 0 - /tmp/xcFsHTcsX.obj
+stacklo 204E 0 ABS 0 - /tmp/xcFsHTcsX.obj
+__end_of_eeprom_read EE6 0 CODE 0 text31 dist/default/production/powerspy.X.production.obj
+_setUnit DB4 0 CODE 0 text4 dist/default/production/powerspy.X.production.obj
 __Bmaintext 1E0D0 1E000 ABS 0 maintext -
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
@@ -1142,42 +1129,41 @@ __Lend_init AA 0 CODE 0 end_init -
 _buffpos 7A 0 COMMON 1 bssCOMMON dist/default/production/powerspy.X.production.obj
 __LcstackCOMMON D0 1E000 ABS 0 cstackCOMMON -
 ___tmul@multiplier 24 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-end_of_initialization F6 0 CODE 0 cinit dist/default/production/powerspy.X.production.obj
-_i_u_offs 6C 0 BANK0 1 dataBANK0 dist/default/production/powerspy.X.production.obj
+end_of_initialization E0 0 CODE 0 cinit dist/default/production/powerspy.X.production.obj
+_i_u_offs 6A 0 BANK0 1 dataBANK0 dist/default/production/powerspy.X.production.obj
 __Hintentry AA 0 CODE 0 intentry -
 __Lstrings D0 1E000 ABS 0 strings -
-___awdiv@quotient 44 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+___awdiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 ?___atdiv 2D 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-?___awdiv 3D 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+?___awdiv 72 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 ?___awmod 72 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 sendInt24@i 75 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 D0 1E000 ABS 0 bssBANK0 -
-__HbssBANK1 D0 1E000 ABS 0 bssBANK1 -
 __size_of_setLED 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_setVal 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-_initADC 1F84 0 CODE 0 text26 dist/default/production/powerspy.X.production.obj
-_initFVR 1F5E 0 CODE 0 text22 dist/default/production/powerspy.X.production.obj
+_initADC 1FEC 0 CODE 0 text26 dist/default/production/powerspy.X.production.obj
+_initFVR 1FC6 0 CODE 0 text22 dist/default/production/powerspy.X.production.obj
 ___awmod@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 _C1TSEL0 14F0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _C1TSEL1 14F1 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__ptext1 CAC 0 CODE 0 text1 dist/default/production/powerspy.X.production.obj
-__ptext2 C22 0 CODE 0 text2 dist/default/production/powerspy.X.production.obj
-__ptext3 A3A 0 CODE 0 text3 dist/default/production/powerspy.X.production.obj
-__ptext4 E1A 0 CODE 0 text4 dist/default/production/powerspy.X.production.obj
-__ptext5 7CA 0 CODE 0 text5 dist/default/production/powerspy.X.production.obj
-__ptext6 FA0 0 CODE 0 text6 dist/default/production/powerspy.X.production.obj
-__ptext7 686 0 CODE 0 text7 dist/default/production/powerspy.X.production.obj
-__ptext8 FE4 0 CODE 0 text8 dist/default/production/powerspy.X.production.obj
-__ptext9 D14 0 CODE 0 text9 dist/default/production/powerspy.X.production.obj
+__ptext1 C46 0 CODE 0 text1 dist/default/production/powerspy.X.production.obj
+__ptext2 BBC 0 CODE 0 text2 dist/default/production/powerspy.X.production.obj
+__ptext3 9D4 0 CODE 0 text3 dist/default/production/powerspy.X.production.obj
+__ptext4 DB4 0 CODE 0 text4 dist/default/production/powerspy.X.production.obj
+__ptext5 764 0 CODE 0 text5 dist/default/production/powerspy.X.production.obj
+__ptext6 F3A 0 CODE 0 text6 dist/default/production/powerspy.X.production.obj
+__ptext7 620 0 CODE 0 text7 dist/default/production/powerspy.X.production.obj
+__ptext8 F7E 0 CODE 0 text8 dist/default/production/powerspy.X.production.obj
+__ptext9 CAE 0 CODE 0 text9 dist/default/production/powerspy.X.production.obj
 ?_readCurrent 39 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 1E000 EEDATA 3 eeprom_data -
-__pstringtext FFE 0 STRCODE 0 stringtext dist/default/production/powerspy.X.production.obj
+__pstringtext FE2 0 STRCODE 0 stringtext dist/default/production/powerspy.X.production.obj
 ___atdiv@sign 35 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-_get_shift_byte FFE 0 STRCODE 0 stringtext dist/default/production/powerspy.X.production.obj
+_get_shift_byte FE2 0 STRCODE 0 stringtext dist/default/production/powerspy.X.production.obj
 ___atdiv@quotient 36 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
-main@reactive 53 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
+main@reactive 4B 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec -
 _readVoltage 4 0 CODE 0 text11 dist/default/production/powerspy.X.production.obj
 deltaT@tm_low 72 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
@@ -1185,11 +1171,11 @@ __size_of_readCurrent 0 0 ABS 0 - dist/default/production/powerspy.X.production.
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_readVdd 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __Bstringtext 1E0D0 1E000 ABS 0 stringtext -
-__end_of__initialization F6 0 CODE 0 cinit dist/default/production/powerspy.X.production.obj
+__end_of__initialization E0 0 CODE 0 cinit dist/default/production/powerspy.X.production.obj
 ___awmod@divisor 72 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 __Lfunctab 0 0 CODE 0 functab -
 __BdataBANK0 1E0D0 1E000 ABS 0 dataBANK0 -
-__pidataBANK0 1F40 0 CODE 0 idataBANK0 dist/default/production/powerspy.X.production.obj
+__pidataBANK0 1FA6 0 CODE 0 idataBANK0 dist/default/production/powerspy.X.production.obj
 __size_of_sendColour 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __Lclrtext D0 1E000 ABS 0 clrtext -
 _T1CKPS0 C4 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -1200,8 +1186,8 @@ _T2CKPS0 E0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _T2CKPS1 E1 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __BidataBANK0 1E0D0 1E000 ABS 0 idataBANK0 -
 __Hend_init AE 0 CODE 0 end_init -
-__end_of_main 686 0 CODE 0 maintext dist/default/production/powerspy.X.production.obj
-__end_of_sin_ 1F52 0 CODE 0 text30 dist/default/production/powerspy.X.production.obj
+__end_of_main 620 0 CODE 0 maintext dist/default/production/powerspy.X.production.obj
+__end_of_sin_ 1000 0 CODE 0 text30 dist/default/production/powerspy.X.production.obj
 __size_of__sendchar_ 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _T4CKPS0 20B8 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _T4CKPS1 20B9 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -1226,11 +1212,10 @@ _SPBRG 19B 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TRISA 8C 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TRISB 8D 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _TXREG 19A 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-_main$840 5E 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __Bram 1E0D0 1E000 ABS 0 ram -
 __Hram D0 1E000 ABS 0 ram -
 __Lram D0 1E000 ABS 0 ram -
-__end_of_get_shift_byte 1012 0 STRCODE 0 stringtext dist/default/production/powerspy.X.production.obj
+__end_of_get_shift_byte FF6 0 STRCODE 0 stringtext dist/default/production/powerspy.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 eeprom_read@addr 75 0 COMMON 1 cstackCOMMON dist/default/production/powerspy.X.production.obj
 _CCP1CON 293 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -1239,7 +1224,6 @@ __pintentry 8 0 CODE 0 intentry dist/default/production/powerspy.X.production.ob
 _CDAFVR0 8BA 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 _CDAFVR1 8BB 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_ISR 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__size_of_abs 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_adc 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_cos 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_sin 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -1247,8 +1231,7 @@ __HdataBANK0 D0 1E000 ABS 0 dataBANK0 -
 __initialization AE 0 CODE 0 cinit dist/default/production/powerspy.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
 __size_of_eeprom_read 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
-__pbssBANK0 63 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
-__pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production/powerspy.X.production.obj
+__pbssBANK0 59 0 BANK0 1 bssBANK0 dist/default/production/powerspy.X.production.obj
 __Hstringtext D0 1E000 ABS 0 stringtext -
 cos@us 22 0 BANK0 1 cstackBANK0 dist/default/production/powerspy.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production/powerspy.X.production.obj
@@ -1279,21 +1262,17 @@ __BbssCOMMON 1E0D0 1E000 ABS 0 bssCOMMON -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text18 0 FCC 1F98 B 2
-text21 0 FA9 1F52 6 2
-text22 0 FAF 1F5E 9 2
-text23 0 FE4 1FC8 D 2
-text24 0 FD7 1FAE D 2
-text26 0 FC2 1F84 A 2
-text28 0 FB8 1F70 A 2
-text30 0 FA4 1F48 5 2
-text32 0 FF1 1FE2 F 2
+text21 0 FD7 1FAE 6 2
+text22 0 FE3 1FC6 9 2
+text26 0 FF6 1FEC A 2
+text28 0 FEC 1FD8 A 2
+text30 0 7FB FF6 5 2
 cstackCOMMON 1 70 70 C 1
-cstackBANK0 1 20 20 50 1
-intentry 0 4 8 7FB 2
+cstackBANK0 1 20 20 4E 1
+intentry 0 4 8 7ED 2
 reset_vec 0 0 0 4 2
-bssBANK1 1 A0 A0 8 1
-stringtext 0 7FF FFE A 2
-idataBANK0 0 FA0 1F40 4 2
+stringtext 0 7F1 FE2 A 2
+idataBANK0 0 FD3 1FA6 4 2
 eeprom_data 3 0 1E000 68 2
+clrtext 0 FDD 1FBA 6 2
 config 0 8007 1000E 2 2

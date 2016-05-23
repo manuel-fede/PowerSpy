@@ -19,12 +19,10 @@
 package powerspy.baselib;
 
 import java.io.*;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 public class PSInputStream extends InputStream implements IODefs {
 
@@ -33,6 +31,13 @@ public class PSInputStream extends InputStream implements IODefs {
         private boolean reading;
         private boolean start_flag;
 
+        /**
+         * Creates a new InputStream which is set up for data transfer with the
+         * PIC. This InputStream will create a DataPacket and interact with it
+         * to read the values.
+         *
+         * @param is
+         */
         public PSInputStream(InputStream is)
         {
                 this.is = is;
@@ -67,6 +72,12 @@ public class PSInputStream extends InputStream implements IODefs {
                 return (byte) (read() & 0xff);
         }
 
+        /**
+         * Clears this InputStream. This method should be called after a
+         * DataPacket has been read and further data is expected to arrive.
+         *
+         * @return this PSInputStream for chaincalling
+         */
         public PSInputStream clear()
         {
                 dp = new DataPacket();
@@ -74,6 +85,14 @@ public class PSInputStream extends InputStream implements IODefs {
                 return this;
         }
 
+        /**
+         * Reads a DataPacket and returns true if the Packet is finished and
+         * ready for interacting with.
+         *
+         * @return a boolean indication the sate of the DataPacket
+         *
+         * @throws IOException
+         */
         public boolean readPackage() throws IOException
         {
                 byte r;
@@ -103,9 +122,14 @@ public class PSInputStream extends InputStream implements IODefs {
                 return dp.isFinished();
         }
 
+        /**
+         * Returns the underlying DataPacket.
+         *
+         * @return the DataPacket
+         */
         public DataPacket getDataPacket()
         {
                 return dp;
         }
-        
+
 }

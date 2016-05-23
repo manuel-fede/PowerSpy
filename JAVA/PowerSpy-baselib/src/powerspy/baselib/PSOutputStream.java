@@ -29,6 +29,10 @@ public class PSOutputStream extends OutputStream {
 
         private final OutputStream os;
 
+        /**
+         * Creates a new PSOutputStream.
+         * @param os 
+         */
         public PSOutputStream(OutputStream os)
         {
                 this.os = os;

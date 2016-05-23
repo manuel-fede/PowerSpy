@@ -25,8 +25,8 @@ import powerspy.baselib.*;
 import static powerspy.baselib.IODefs.*;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 public class Controller extends Thread {
 
@@ -45,6 +45,11 @@ public class Controller extends Thread {
         private int offs;
         private int raw_supply;
 
+        /**
+         * Constructs a new Controller for interacting with PowerSpy.
+         *
+         * @param f the Frame to link with
+         */
         public Controller(Frame f)
         {
                 keep_alive = false;
@@ -56,21 +61,41 @@ public class Controller extends Thread {
                 });
         }
 
+        /**
+         * Sets a new InputStream to read the data from.
+         *
+         * @param is the new InputStream
+         */
         public synchronized void setPSInputStream(PSInputStream is)
         {
                 this.is = is;
         }
 
+        /**
+         * Returns the currently installed InputStream
+         *
+         * @return the InputStream
+         */
         public synchronized PSInputStream getPSInputStream()
         {
                 return is;
         }
 
+        /**
+         * Sets the new OutputStream to write data to.
+         *
+         * @param os the new OutputStream
+         */
         public synchronized void setPSOutputStream(PSOutputStream os)
         {
                 this.os = os;
         }
 
+        /**
+         * Returns the currently installed OutputStream.
+         *
+         * @return the OutputStream
+         */
         public synchronized PSOutputStream getPSOutputStream()
         {
                 return os;
@@ -152,6 +177,9 @@ public class Controller extends Thread {
                 }
         }
 
+        /**
+         * Terminates this Controller and stops the update interval.
+         */
         public void terminate()
         {
                 keep_alive = false;

@@ -23,8 +23,8 @@ import java.util.Arrays;
 import static powerspy.baselib.IODefs.*;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 public class DataPacket {
 
@@ -41,6 +41,9 @@ public class DataPacket {
 
         private int position;
 
+        /**
+         * Creates a new, empty DataPacket with BUFFER_SIZE data buffer.
+         */
         public DataPacket()
         {
                 type = NONE;
@@ -50,11 +53,23 @@ public class DataPacket {
                 string_fin = false;
         }
 
+        /**
+         * Sets the type of this DataPacket. Every value is valid, but only the
+         * ones defined in IODefs are of real use.
+         *
+         * @param c the type
+         */
         public void setType(char c)
         {
                 type = c;
         }
 
+        /**
+         * Adds a Byte of data to the end of the data[] and increments the write
+         * counter.
+         *
+         * @param b the data to write
+         */
         public void addByte(byte b)
         {
                 if (!isFinished()) {
@@ -63,26 +78,50 @@ public class DataPacket {
                 }
         }
 
+        /**
+         * Sets the finished String flag.
+         */
         public void setFinishedString()
         {
                 string_fin = true;
         }
 
+        /**
+         * Returns the type of this DataPacket.
+         *
+         * @return the type
+         */
         public char getType()
         {
                 return type;
         }
 
+        /**
+         * Returns the length of this data, this is NOT the length of the
+         * byte[].
+         *
+         * @return the number of bytes in this DataPacket
+         */
         public int getLength()
         {
                 return length;
         }
 
+        /**
+         * Seeks the fornt of this DataPacket.
+         */
         public void seekFront()
         {
                 position = 0;
         }
 
+        /**
+         * Reads the next Byte of data from the array and returns it.
+         *
+         * @return the read data
+         *
+         * @throws PackageException when the end of the buffer is accessed
+         */
         public byte readNext() throws PackageException
         {
                 if (position == data.length) {
@@ -92,16 +131,35 @@ public class DataPacket {
                 return data[position++];
         }
 
+        /**
+         * Returns the next item in the buffer array. This is the same as
+         * {@code readNext()}.
+         *
+         * @return the read data
+         *
+         * @throws PackageException when the end of the buffer is accessed
+         */
         public byte getChar() throws PackageException
         {
                 return readNext();
         }
 
+        /**
+         * Returns the number of available bytes.
+         *
+         * @return the number of bytes
+         */
         public int availableChar()
         {
                 return length - position;
         }
 
+        /**
+         * Returns true if this DataPacket has no byte stored in it, otherwise
+         * false.
+         *
+         * @return if this DataPacket is empty
+         */
         public boolean isEmpty()
         {
                 for (int i = 0; i < data.length; i++) {
@@ -138,6 +196,12 @@ public class DataPacket {
                 return string_fin;
         }
 
+        /**
+         * Checks if this DataPacket is finished, effectively preventing any
+         * further modification.
+         *
+         * @return true if the Packet is finished, otherwise false
+         */
         public boolean isFinished()
         {
                 if (type >= INT8 && type <= UINT32 || type == FLOAT) {
@@ -149,56 +213,114 @@ public class DataPacket {
                 }
         }
 
+        /**
+         * Checks if this DataPacket is of type INT8.
+         *
+         * @return true if the type matches
+         */
         public boolean isInt8()
         {
                 return getType() == INT8;
         }
 
+        /**
+         * Checks if this DataPacket is of type INT16.
+         *
+         * @return true if the type matches
+         */
         public boolean isInt16()
         {
                 return getType() == INT16;
         }
 
+        /**
+         * Checks if this DataPacket is of type INT24.
+         *
+         * @return true if the type matches
+         */
         public boolean isInt24()
         {
                 return getType() == INT24;
         }
 
+        /**
+         * Checks if this DataPacket is of type INT32.
+         *
+         * @return true if the type matches
+         */
         public boolean isInt32()
         {
                 return getType() == INT32;
         }
 
+        /**
+         * Checks if this DataPacket is of type UINT8.
+         *
+         * @return true if the type matches
+         */
         public boolean isUInt8()
         {
                 return getType() == UINT8;
         }
 
+        /**
+         * Checks if this DataPacket is of type UINT16.
+         *
+         * @return true if the type matches
+         */
         public boolean isUInt16()
         {
                 return getType() == UINT16;
         }
 
+        /**
+         * Checks if this DataPacket is of type UINT24.
+         *
+         * @return true if the type matches
+         */
         public boolean isUInt24()
         {
                 return getType() == UINT24;
         }
 
+        /**
+         * Checks if this DataPacket is of type UINT32.
+         *
+         * @return true if the type matches
+         */
         public boolean isUInt32()
         {
                 return getType() == UINT32;
         }
 
+        /**
+         * Checks if this DataPacket is of type Float.
+         *
+         * @return true if the type matches
+         */
         public boolean isFloat()
         {
                 return getType() == FLOAT;
         }
 
+        /**
+         * Checks if this DataPacket is of type String.
+         *
+         * @return true if the type matches
+         */
         public boolean isString()
         {
                 return getType() == STRING;
         }
 
+        /**
+         * Reads an unsigned 8 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readUInt8() throws PackageException
         {
                 int res;
@@ -219,6 +341,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an unsigned 16 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readUInt16() throws PackageException
         {
                 int res;
@@ -238,6 +368,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an unsigned 24 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readUInt24() throws PackageException
         {
                 int res;
@@ -257,6 +395,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an unsigned 32 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readUInt32() throws PackageException
         {
                 int res;
@@ -276,6 +422,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an 8 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readInt8() throws PackageException
         {
                 int res;
@@ -301,6 +455,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an 16 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readInt16() throws PackageException
         {
                 int res;
@@ -326,6 +488,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an 24 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readInt24() throws PackageException
         {
                 int res;
@@ -351,6 +521,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an 32 bit Integer from the data[].
+         *
+         * @return the Integer
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public int readInt32() throws PackageException
         {
                 int res;
@@ -376,6 +554,14 @@ public class DataPacket {
                 return res;
         }
 
+        /**
+         * Reads an 24 bit Float from the data[].
+         *
+         * @return the Float
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public float readFloat() throws PackageException
         {
                 int res;
@@ -395,6 +581,14 @@ public class DataPacket {
                 return Float.intBitsToFloat(res << 8);
         }
 
+        /**
+         * Reads an String from the data[].
+         *
+         * @return the String
+         *
+         * @throws PackageException if the type of the packet doesn't match with
+         *                          the type to read.
+         */
         public String readString() throws PackageException
         {
                 StringBuilder sb = new StringBuilder();
@@ -410,6 +604,14 @@ public class DataPacket {
                 return sb.toString();
         }
 
+        /**
+         * Reads any type of data from the data[]. This is a convenience method
+         * intended for debugging.
+         *
+         * @return the result as Object or null if the Package is not finished
+         *
+         * @throws PackageException this Exception is never thrown
+         */
         public Object readObj() throws PackageException
         {
                 switch (getType()) {
@@ -437,17 +639,18 @@ public class DataPacket {
                                 return null;
                 }
         }
-        
+
         @Override
-        public String toString() {
+        public String toString()
+        {
                 StringBuilder sb = new StringBuilder();
-                
+
                 sb.append("type: ");
                 sb.append(type);
                 sb.append("; data: ");
                 sb.append(Arrays.toString(data));
                 sb.append(";");
-                
+
                 return sb.toString();
         }
 }

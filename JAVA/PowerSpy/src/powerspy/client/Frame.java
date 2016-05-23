@@ -31,8 +31,8 @@ import static powerspy.baselib.IODefs.*;
 import static powerspy.client.Defs.*;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 public class Frame extends JFrame {
 
@@ -107,6 +107,9 @@ public class Frame extends JFrame {
         private int prev_width;
         private long last_time;
 
+        /**
+         * Creates a new Frame for displaying the data sent from PowerSpy.
+         */
         public Frame()
         {
                 super();
@@ -135,6 +138,11 @@ public class Frame extends JFrame {
 
         }
 
+        /**
+         * Links the Controller to this Frame
+         *
+         * @param c the Controller to link
+         */
         public void installController(Controller c)
         {
                 this.c = c;
@@ -392,42 +400,77 @@ public class Frame extends JFrame {
         }
         //</editor-fold>
 
+        /**
+         * Sets the current in the Table
+         *
+         * @param d the value to set
+         */
         public void setCurrent(float d)
         {
                 t.setValueAt(String.format(FLT_FORMAT, d), 0, 1);
                 updateVals();
         }
 
+        /**
+         * Sets the real power in the Table
+         *
+         * @param d the value to set
+         */
         public void setRealPower(float d)
         {
                 t.setValueAt(String.format(FLT_FORMAT, d), 1, 1);
                 updateVals();
         }
 
+        /**
+         * Sets the apparent power in the Table
+         *
+         * @param d the value to set
+         */
         public void setApparentPower(float d)
         {
                 t.setValueAt(String.format(FLT_FORMAT, d), 2, 1);
                 updateVals();
         }
 
+        /**
+         * Sets the reactive power in the Table
+         *
+         * @param d the value to set
+         */
         public void setReactivePower(float d)
         {
                 t.setValueAt(String.format(FLT_FORMAT, d), 3, 1);
                 updateVals();
         }
 
+        /**
+         * Sets the raw current value in the Table
+         *
+         * @param d the value to set
+         */
         public void setRawCurrent(float d)
         {
                 t.setValueAt(String.format(FLT_FORMAT, d), 4, 1);
                 updateVals();
         }
 
+        /**
+         * Sets the offset of the voltage in the Table
+         *
+         * @param d the value to set
+         */
         public void setOffs(float d)
         {
                 t.setValueAt(String.format(FLT_FORMAT, d), 5, 1);
                 updateVals();
         }
 
+        /**
+         * Sets the raw voltage value in the Table
+         *
+         * @param d the value to set
+         */
         public void setRawVoltage(float d)
         {
                 t.setValueAt(String.format(FLT_FORMAT, d), 6, 1);

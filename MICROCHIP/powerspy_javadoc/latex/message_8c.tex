@@ -1,0 +1,133 @@
+\hypertarget{message_8c}{}\section{powerspy.\+X/message.c File Reference}
+\label{message_8c}\index{powerspy.\+X/message.\+c@{powerspy.\+X/message.\+c}}
+{\ttfamily \#include $<$xc.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}powerspy.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{message_8c_a01e4010741e5ee38acf158276ed9a3af}{init\+Messaging} ()
+\item 
+int8\+\_\+t \hyperlink{message_8c_aeb40694579584385585c7e39e574ed26}{char\+Available} ()
+\item 
+char \hyperlink{message_8c_a2d521f5c5511bc21deb5a3e13b422cc1}{read\+Next} ()
+\item 
+char \hyperlink{message_8c_a47e2fdede9224e382c30d55ee13e5b1b}{package\+Started} ()
+\item 
+char {\bfseries package\+Finished} ()\hypertarget{message_8c_afe58d05adb4037123536accff5de3106}{}\label{message_8c_afe58d05adb4037123536accff5de3106}
+
+\item 
+char {\bfseries get\+Type} ()\hypertarget{message_8c_ac41facd93e52b5ff8c8ab5913aa2775e}{}\label{message_8c_ac41facd93e52b5ff8c8ab5913aa2775e}
+
+\item 
+void {\bfseries seek\+Front} ()\hypertarget{message_8c_aec8d527271ad094a4fd0cf605e7c4751}{}\label{message_8c_aec8d527271ad094a4fd0cf605e7c4751}
+
+\item 
+void {\bfseries clear} ()\hypertarget{message_8c_ac8bb3912a3ce86b15842e79d0b421204}{}\label{message_8c_ac8bb3912a3ce86b15842e79d0b421204}
+
+\item 
+int8\+\_\+t {\bfseries read\+Int8} ()\hypertarget{message_8c_a24c9f312341ccfb47ae7a007ae32c39f}{}\label{message_8c_a24c9f312341ccfb47ae7a007ae32c39f}
+
+\item 
+int16\+\_\+t {\bfseries read\+Int16} ()\hypertarget{message_8c_a7cf018b7a5d7bed8aa4d201e4399fce0}{}\label{message_8c_a7cf018b7a5d7bed8aa4d201e4399fce0}
+
+\item 
+int24\+\_\+t {\bfseries read\+Int24} ()\hypertarget{message_8c_adea3200a30db84b746743790b5696598}{}\label{message_8c_adea3200a30db84b746743790b5696598}
+
+\item 
+int32\+\_\+t {\bfseries read\+Int32} ()\hypertarget{message_8c_adbc23fa2b53ee3f0bd8cc0af521900d4}{}\label{message_8c_adbc23fa2b53ee3f0bd8cc0af521900d4}
+
+\item 
+float {\bfseries read\+Float} ()\hypertarget{message_8c_aa5de12b8cd82d61b545a85ea991944a3}{}\label{message_8c_aa5de12b8cd82d61b545a85ea991944a3}
+
+\item 
+void {\bfseries read\+String} (char $\ast$$\ast$c)\hypertarget{message_8c_abae34479c3e66c8878999c3e4836dd65}{}\label{message_8c_abae34479c3e66c8878999c3e4836dd65}
+
+\item 
+void {\bfseries \+\_\+sendchar\+\_\+} (char c)\hypertarget{message_8c_aaf66edbf84a1bcbafe1a750077e995ce}{}\label{message_8c_aaf66edbf84a1bcbafe1a750077e995ce}
+
+\item 
+void {\bfseries send\+Int8} (int8\+\_\+t i)\hypertarget{message_8c_ac7621400232b4f9108bc751f447ae486}{}\label{message_8c_ac7621400232b4f9108bc751f447ae486}
+
+\item 
+void {\bfseries send\+Int16} (int16\+\_\+t i)\hypertarget{message_8c_abc1593b6987bbc3b871743e20c86c7d0}{}\label{message_8c_abc1593b6987bbc3b871743e20c86c7d0}
+
+\item 
+void {\bfseries send\+Int24} (int24\+\_\+t i)\hypertarget{message_8c_a5451b692d0059527514ddbbab9ced49f}{}\label{message_8c_a5451b692d0059527514ddbbab9ced49f}
+
+\item 
+void {\bfseries send\+Int32} (int32\+\_\+t i)\hypertarget{message_8c_a3fbb2c5d6c23e1fc978f1ae234927c88}{}\label{message_8c_a3fbb2c5d6c23e1fc978f1ae234927c88}
+
+\item 
+void {\bfseries send\+U\+Int8} (uint8\+\_\+t i)\hypertarget{message_8c_a0c25a5fe76d1638f8da153040e752c00}{}\label{message_8c_a0c25a5fe76d1638f8da153040e752c00}
+
+\item 
+void {\bfseries send\+U\+Int16} (uint16\+\_\+t i)\hypertarget{message_8c_a0fd945471da0bce0fab9ee18cd61924e}{}\label{message_8c_a0fd945471da0bce0fab9ee18cd61924e}
+
+\item 
+void {\bfseries send\+U\+Int24} (uint24\+\_\+t i)\hypertarget{message_8c_a9ee52554eb39dd8851c6dd79a3bacc5e}{}\label{message_8c_a9ee52554eb39dd8851c6dd79a3bacc5e}
+
+\item 
+void {\bfseries send\+U\+Int32} (uint32\+\_\+t i)\hypertarget{message_8c_aec24bbc16bcb0cd411f64472f4de1bb6}{}\label{message_8c_aec24bbc16bcb0cd411f64472f4de1bb6}
+
+\item 
+void {\bfseries send\+Float} (float f)\hypertarget{message_8c_a08cbc9f34ffb5422939e306a0e5f3348}{}\label{message_8c_a08cbc9f34ffb5422939e306a0e5f3348}
+
+\item 
+void {\bfseries send\+String} (char $\ast$val)\hypertarget{message_8c_a8d6be23dfc9d486b1164f13153d4173a}{}\label{message_8c_a8d6be23dfc9d486b1164f13153d4173a}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t {\bfseries readpos}\hypertarget{message_8c_a88f6f7f9f1e3fda77ed83f6687059c28}{}\label{message_8c_a88f6f7f9f1e3fda77ed83f6687059c28}
+
+\item 
+char {\bfseries reading}\hypertarget{message_8c_a25367e656c66718d1666cb947b399530}{}\label{message_8c_a25367e656c66718d1666cb947b399530}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File\+: \hyperlink{message_8c}{message.\+c} Author\+: redxef
+
+Created on 18 March 2016, 09\+:25 
+
+\subsection{Function Documentation}
+\index{message.\+c@{message.\+c}!char\+Available@{char\+Available}}
+\index{char\+Available@{char\+Available}!message.\+c@{message.\+c}}
+\subsubsection[{\texorpdfstring{char\+Available()}{charAvailable()}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t char\+Available (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8c_aeb40694579584385585c7e39e574ed26}{}\label{message_8c_aeb40694579584385585c7e39e574ed26}
+Counts the available Characters in the receive buffer and returns that number. \begin{DoxyReturn}{Returns}
+the number of available characters 
+\end{DoxyReturn}
+\index{message.\+c@{message.\+c}!init\+Messaging@{init\+Messaging}}
+\index{init\+Messaging@{init\+Messaging}!message.\+c@{message.\+c}}
+\subsubsection[{\texorpdfstring{init\+Messaging()}{initMessaging()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Messaging (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8c_a01e4010741e5ee38acf158276ed9a3af}{}\label{message_8c_a01e4010741e5ee38acf158276ed9a3af}
+Initialises the messaging buffer and pointers. \index{message.\+c@{message.\+c}!package\+Started@{package\+Started}}
+\index{package\+Started@{package\+Started}!message.\+c@{message.\+c}}
+\subsubsection[{\texorpdfstring{package\+Started()}{packageStarted()}}]{\setlength{\rightskip}{0pt plus 5cm}char package\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8c_a47e2fdede9224e382c30d55ee13e5b1b}{}\label{message_8c_a47e2fdede9224e382c30d55ee13e5b1b}
+The return value behaves in the same way as does \hyperlink{message_8h_a38b46e4932111be93e3701203451c416}{read\+Package()}. \begin{DoxyReturn}{Returns}
+0 if the package is not finshied, otherwise 1 
+\end{DoxyReturn}
+\index{message.\+c@{message.\+c}!read\+Next@{read\+Next}}
+\index{read\+Next@{read\+Next}!message.\+c@{message.\+c}}
+\subsubsection[{\texorpdfstring{read\+Next()}{readNext()}}]{\setlength{\rightskip}{0pt plus 5cm}char read\+Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{message_8c_a2d521f5c5511bc21deb5a3e13b422cc1}{}\label{message_8c_a2d521f5c5511bc21deb5a3e13b422cc1}
+Reads the next Character and advances the buffer by one. \begin{DoxyReturn}{Returns}
+the read character 
+\end{DoxyReturn}

@@ -24,8 +24,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 public class ArrayInputStream extends InputStream {
 
@@ -34,6 +34,12 @@ public class ArrayInputStream extends InputStream {
         private int write_pos;
         private int read_pos;
 
+        /**
+         * Generates a new ArrayInputStream. The data of this ArrayInputStream
+         * can be set via this.insert(). When reading from this InputStream, the
+         * data will be read in the same order.
+         *
+         */
         public ArrayInputStream()
         {
                 data = new LinkedList<>();
@@ -42,6 +48,14 @@ public class ArrayInputStream extends InputStream {
                 read_pos = 0;
         }
 
+        /**
+         * Inserts a byte[] of data into the InputStream. b is the data, data
+         * will be injected include offset until element offset+leng-1.
+         *
+         * @param b    the data
+         * @param offs the offset from which to begin reading
+         * @param leng the number of bytes to read
+         */
         public synchronized void insert(byte b[], int offs, int leng)
         {
                 for (int i = offs; i < offs + leng; i++) {
@@ -75,7 +89,7 @@ public class ArrayInputStream extends InputStream {
                         if (read_pos == buffsize) {
                                 data.remove(0);
                                 read_pos = 0;
-                                write_pos -=buffsize;
+                                write_pos -= buffsize;
                         }
                 }
 

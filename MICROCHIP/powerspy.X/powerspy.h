@@ -1,6 +1,8 @@
-/*
+/**
+ * @file
  * File:                powerspy.h
  * Author:              Manuel Federanko
+ * Version:             1.0
  * Comments:            
  * Revision history:    
  */
@@ -113,12 +115,12 @@ extern "C" {
 #define V                       0b111111111101110101101111
 #define WFIRST                  0b111011110101010101111111                         
 #define WSECOND                 0b111111001111111111111111
-                                
+
 #define AFIRST                  0b111001110101111001011111
 #define ASECOND                 0b111110101111111111111111
-        
+
 #define RSECOND                 0b111111111111111111111111
-        
+
 #define UNIT_NONE               0xffffff
 #define UNIT_VA                 (V&ASECOND)
 #define UNIT_A                  AFIRST
@@ -175,26 +177,204 @@ extern "C" {
 #define FULL_ROTATION   (QUARTER_ROTATION<<2)
 #define MIN_SIN_RES     (-100)
 #define MAX_SIN_RES     (100)
-        
+
 #define getTime()           TMR1
 
+        /**
+         * Prepares the ports of the processor.
+         * No device may be turned on. They only "exception" to this rule is the
+         * Display, which uses shift registers for storing it's information, it
+         * is cleared after all other initialisation steps have been finished.
+         * This Method also activates the pull up resistor and sets the operation
+         * frequency to 32MHz.
+         */
         void initPins();
+
+        /**
+         * Prepare the ADC module for operation. The positive reference is set
+         * to Vdd, while the negative one is set to Vss. The conversion clock
+         * speed is set to FOSC/64 since the SampleHold - Capacitor would otherwise
+         * not be fully charged and unexpected results would be the consequence.
+         */
         void initADC();
+
+        /**
+         * Prepares the Timer 2 as an refresh-rate generator. This functionality
+         * is, as of now, not used and not vital to the operation of the device.
+         */
         void initTMR2();
+
+        /**
+         * Timer 1 is set up with a resolution of 250ns. It is used to measure the
+         * phase delay between Current and Voltage.
+         */
         void initTMR1();
+
+        /**
+         * initializes both Buffers to 1.024Volts.
+         * The first one is needed to measure Vdd with the ADC-Module,
+         * the second one is used to provide the comparator with a voltage to
+         * compare the Voltage against.
+         */
         void initFVR();
+
+        /**
+         * Prepares the PWM with Timer 4. This PWM is used to provide the second
+         * reference to the second comparator, which is used for the current.
+         * Since the voltage, representing the current is small, we need to have
+         * a precise reference, this we used a PWM with a low-pass filter of
+         * second order to create a direct current.
+         * The Output is switched from RB3 to RB0.
+         */
         void initPWMTMR4();
+
+        /**
+         * Sets up the Comparator 1 Module for measuring the phase of the Voltage.
+         * The Interrupt is set to fire on falling edges only.
+         */
         void initCOMP1();
+
+        /**
+         * Sets up the Comparator 2 Module for measuring the phase of the Current.
+         * The Interrupt is set to fire on falling edges only.
+         */
         void initCOMP2();
+
+        /**
+         * Configures the USART Module as asynchronous with an baud rate of 9600
+         * and clears all previously received data.
+         */
+        void initBT();
+
+        /**
+         * Performs an AD-Conversion on the specified source. The Sources AN0 to
+         * AN11 are proportional to the source specified (setting src to 4 will
+         * read from AN4). Also the source for the FVR-Buffer1 can be selected, 
+         * which is 0x1f;
+         * 
+         * @param src the source from which to convert
+         */
         void adc(const int8_t src);
+
+        /**
+         * This method is a placeholder method and was written, in case a Voltage
+         * measurement was to be implemented. In it's current state it returns the
+         * value of 230Volts.
+         * @return the line voltage (about 230V in Europe)
+         */
         uint8_t readVoltage();
+
+        /**
+         * Measures the current which is currently flowing and returns it in mA
+         * as Integer to provide an accurate result, without the implications of
+         * using floats. The channel from which the measurement is taken is AN7.
+         * @return the measured current in mAmps.
+         */
         int24_t readCurrent();
+
+        /**
+         * Measures Vdd and returns it as an Integer in the range of 0 to 1023.
+         * This is useful, because the calculation of the current is a lot easier
+         * if first the conversion from all 10 bit values to more reasonable ones
+         * is done and only then the currect value computed.
+         * @return the supply voltage from 0 to 1023 where 0 = 0V and 1023 = 5V
+         */
+        uint16_t readVdd();
+
+        /**
+         * Shifts one byte of data into the shift registers with the least
+         * significant bit first.
+         * @param data the data to write into the shift register
+         */
         void so(const uint8_t data);
-        uint24_t combine(uint24_t nr1, uint24_t nr2);
+
+        /**
+         * Clears the display by writing 0xff into every shift register.
+         * @param leng the number of registers
+         */
         void clearDisplay(int8_t leng);
-        uint8_t setNr(uint16_t);
+
+        /**
+         * Sends one byte of colour information to the status led. Since
+         * the colour depends on the write order this function does not specify
+         * the colour of the LED.
+         * @param the intensity of the colour
+         */
+        void sendColour(uint8_t);
+
+        /**
+         * Computes the time difference of the two times. Tm_low is the time, which
+         * came chronologically before tm_high. Since these values are the values
+         * of Timer 1 at set time it could be, that tm_low>tm_high, if this is the
+         * case the difference will be computed as follos: 0xffff - tm_low + tm_high;
+         * otherwise the difference is simply tm_high-tm_low.
+         * @param tm_low the chronologically first value
+         * @param tm_high the chronologically second value
+         * @return the time difference in 250nano seconds
+         */
+        uint16_t deltaT(uint16_t tm_low, uint16_t tm_high);
+
+        /**
+         * Reads the sine from the eeprom. It is important to note, that not
+         * 360° represent a full rotation, but rather 400°. Since not every
+         * value can be stored in the eeprom (it is also not needed) it reads
+         * only the value from 0 to 100°.
+         * @param z the angle in grad (not deg!)
+         * @return the sine multiplied by 100
+         */
+        int8_t sin_(int8_t z);
+
+        /**
+         * Computes values of the sine, which are not covered by sin_().
+         * @param z the angle in grad (not deg!)
+         * @return the sine multiplied by 100
+         */
+        int8_t sin(int16_t z);
+
+        /**
+         * Behaves in the exactly same way as sin() but returns the cosine.
+         * @param z the angle ing grad (not deg!)
+         * @return the cosine multiplied by 100
+         */
+        int8_t cos(int16_t z);
+
+        /**
+         * Evaluates if the LED value can be rewritten (the LED needs a reset
+         * time of 50us). If these 50us have passed since the last write to the
+         * LED this method returns 1 otherwise 0.
+         * @return a flag if the LED can be rewritten
+         */
+        uint8_t ledReset();
+
+        /**
+         * Writes a colour to the LED. The led is programmed with an rgb profile.
+         * @param g the green colour intensity
+         * @param r the red colour intensity
+         * @param b the blue colour intensity
+         */
+        void setLED(uint8_t g, uint8_t r, uint8_t b);
+        
+        /**
+         * Writes a specified unit into the shift registers. Note, that all
+         * following registers need to be filled, in order for these values to
+         * appear in the correct register.
+         * @param u the unit to write into the registers
+         */
+        void setUnit(uint24_t u);
+        
+        /**
+         * Writes the Integer value into the registers. Typically setUnit() is 
+         * called prior to this function and only after this function has been
+         * called the display will output reasonable values.
+         * @param v
+         */
+        void setVal(int16_t v);
+        
+        /**
+         * The interrupt service routine.
+         * It handles incoming data and the phases of current and voltage.
+         */
         void __interrupt ISR();
-        void main();
 
 #ifdef	__cplusplus
 }

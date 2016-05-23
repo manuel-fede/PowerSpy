@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['seekfront',['seekFront',['../message_8h.html#aec8d527271ad094a4fd0cf605e7c4751',1,'message.c']]],
+  ['sendcolour',['sendColour',['../powerspy_8h.html#acc6c625c563afa5f78048472d71d1b85',1,'powerspy.c']]],
+  ['sendfloat',['sendFloat',['../message_8h.html#a08cbc9f34ffb5422939e306a0e5f3348',1,'message.c']]],
+  ['sendint16',['sendInt16',['../message_8h.html#abc1593b6987bbc3b871743e20c86c7d0',1,'message.c']]],
+  ['sendint24',['sendInt24',['../message_8h.html#a5451b692d0059527514ddbbab9ced49f',1,'message.c']]],
+  ['sendint32',['sendInt32',['../message_8h.html#a3fbb2c5d6c23e1fc978f1ae234927c88',1,'message.c']]],
+  ['sendint8',['sendInt8',['../message_8h.html#ac7621400232b4f9108bc751f447ae486',1,'message.c']]],
+  ['sendstring',['sendString',['../message_8h.html#a8d6be23dfc9d486b1164f13153d4173a',1,'message.c']]],
+  ['senduint16',['sendUInt16',['../message_8h.html#a0fd945471da0bce0fab9ee18cd61924e',1,'message.c']]],
+  ['senduint24',['sendUInt24',['../message_8h.html#a9ee52554eb39dd8851c6dd79a3bacc5e',1,'message.c']]],
+  ['senduint32',['sendUint32',['../message_8h.html#a02d2acd3e4151381331c134a7aaeac4e',1,'message.h']]],
+  ['senduint8',['sendUInt8',['../message_8h.html#a0c25a5fe76d1638f8da153040e752c00',1,'message.c']]],
+  ['setled',['setLED',['../powerspy_8h.html#aa76a726af97e61c931dc5c48da533842',1,'powerspy.c']]],
+  ['setunit',['setUnit',['../powerspy_8h.html#ae516f2ff48d3fcf8c5fd638c92878e66',1,'powerspy.c']]],
+  ['setval',['setVal',['../powerspy_8h.html#ac2e00b08576dfbc9457a38a93daf5cf7',1,'powerspy.c']]],
+  ['sin',['sin',['../powerspy_8h.html#ad09cda1044ebc5675a9b462e5a11978a',1,'powerspy.c']]],
+  ['sin_5f',['sin_',['../powerspy_8h.html#a49011b67fdd3b5aa99c5305c4def8688',1,'powerspy.c']]],
+  ['so',['so',['../powerspy_8h.html#a0f26c0064b568a85c7be468e2235a2f4',1,'powerspy.c']]]
+];
