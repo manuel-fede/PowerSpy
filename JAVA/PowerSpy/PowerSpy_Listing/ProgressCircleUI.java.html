@@ -1,0 +1,257 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/*</span>
+<span style="color: #888888"> * Copyright (C) 2016 redxef.</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * This library is free software; you can redistribute it and/or</span>
+<span style="color: #888888"> * modify it under the terms of the GNU Lesser General Public</span>
+<span style="color: #888888"> * License as published by the Free Software Foundation; either</span>
+<span style="color: #888888"> * version 2.1 of the License, or (at your option) any later version.</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * This library is distributed in the hope that it will be useful,</span>
+<span style="color: #888888"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span style="color: #888888"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
+<span style="color: #888888"> * Lesser General Public License for more details.</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * You should have received a copy of the GNU Lesser General Public</span>
+<span style="color: #888888"> * License along with this library; if not, write to the Free Software</span>
+<span style="color: #888888"> * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,</span>
+<span style="color: #888888"> * MA 02110-1301  USA</span>
+<span style="color: #888888"> */</span>
+<span style="color: #008800; font-weight: bold">package</span> powerspy<span style="color: #333333">.</span><span style="color: #0000CC">client</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.awt.*</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.awt.geom.*</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">javax.swing.*</span><span style="color: #333333">;</span>
+
+<span style="color: #888888">/**</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * @author redxef</span>
+<span style="color: #888888"> */</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ProgressCircleUI</span> <span style="color: #008800; font-weight: bold">extends</span> javax<span style="color: #333333">.</span><span style="color: #0000CC">swing</span><span style="color: #333333">.</span><span style="color: #0000CC">plaf</span><span style="color: #333333">.</span><span style="color: #0000CC">basic</span><span style="color: #333333">.</span><span style="color: #0000CC">BasicProgressBarUI</span> <span style="color: #333333">{</span>
+
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">int</span> ALPHA <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">double</span> ALPHA_RAD <span style="color: #333333">=</span> ALPHA <span style="color: #333333">/</span> <span style="color: #6600EE; font-weight: bold">180.0</span> <span style="color: #333333">*</span> Math<span style="color: #333333">.</span><span style="color: #0000CC">PI</span><span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">int</span> STARTANGLE <span style="color: #333333">=</span> <span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">180</span> <span style="color: #333333">-</span> ALPHA<span style="color: #333333">)</span> <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">180</span><span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">int</span> ENDANGLE <span style="color: #333333">=</span> <span style="color: #333333">-(</span><span style="color: #0000DD; font-weight: bold">180</span> <span style="color: #333333">-</span> ALPHA<span style="color: #333333">)</span> <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">int</span> RANGE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">360</span> <span style="color: #333333">-</span> ALPHA<span style="color: #333333">;</span>
+
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">int</span> boldness<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">final</span> Color bg<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">final</span> Color fg<span style="color: #333333">;</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Returns a new ProgressCircleUI Object in the PowerSpy design with the</span>
+<span style="color: #888888">         * correct colours.</span>
+<span style="color: #888888">         *</span>
+<span style="color: #888888">         * @return the ProgrssCircleUI</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> ProgressCircleUI <span style="color: #0066BB; font-weight: bold">getPSDesign</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">ProgressCircleUI</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">20</span><span style="color: #333333">,</span> Color<span style="color: #333333">.</span><span style="color: #0000CC">LIGHT_GRAY</span><span style="color: #333333">,</span> Defs<span style="color: #333333">.</span><span style="color: #0000CC">PS_ORANGE</span><span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Contructs a new ProgrssCircleUI with the boldness of the arc, a</span>
+<span style="color: #888888">         * foreground colour and a background colour.</span>
+<span style="color: #888888">         *</span>
+<span style="color: #888888">         * @param boldness the boldness of the arc</span>
+<span style="color: #888888">         * @param bg       the background colour</span>
+<span style="color: #888888">         * @param fg       the foreground colour</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #0066BB; font-weight: bold">ProgressCircleUI</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> boldness<span style="color: #333333">,</span> Color bg<span style="color: #333333">,</span> Color fg<span style="color: #333333">)</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">.</span><span style="color: #0000CC">boldness</span> <span style="color: #333333">=</span> boldness<span style="color: #333333">;</span>
+                <span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">.</span><span style="color: #0000CC">bg</span> <span style="color: #333333">=</span> bg<span style="color: #333333">;</span>
+                <span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">.</span><span style="color: #0000CC">fg</span> <span style="color: #333333">=</span> fg<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #008800; font-weight: bold">public</span> Dimension <span style="color: #0066BB; font-weight: bold">getPreferredSize</span><span style="color: #333333">(</span>JComponent c<span style="color: #333333">)</span>
+        <span style="color: #333333">{</span>
+                Dimension d <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">super</span><span style="color: #333333">.</span><span style="color: #0000CC">getPreferredSize</span><span style="color: #333333">(</span>c<span style="color: #333333">);</span>
+                <span style="color: #333399; font-weight: bold">int</span> v <span style="color: #333333">=</span> Math<span style="color: #333333">.</span><span style="color: #0000CC">max</span><span style="color: #333333">(</span>d<span style="color: #333333">.</span><span style="color: #0000CC">width</span><span style="color: #333333">,</span> d<span style="color: #333333">.</span><span style="color: #0000CC">height</span><span style="color: #333333">);</span>
+                d<span style="color: #333333">.</span><span style="color: #0000CC">setSize</span><span style="color: #333333">(</span>v<span style="color: #333333">,</span> v<span style="color: #333333">);</span>
+                <span style="color: #008800; font-weight: bold">return</span> d<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">paint</span><span style="color: #333333">(</span>Graphics g<span style="color: #333333">,</span> JComponent c<span style="color: #333333">)</span>
+        <span style="color: #333333">{</span>
+                Graphics2D g2d<span style="color: #333333">;</span>
+
+                <span style="color: #333399; font-weight: bold">int</span> width <span style="color: #333333">=</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getWidth</span><span style="color: #333333">()</span>
+                        <span style="color: #333333">-</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getInsets</span><span style="color: #333333">().</span><span style="color: #0000CC">right</span>
+                        <span style="color: #333333">-</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getInsets</span><span style="color: #333333">().</span><span style="color: #0000CC">left</span><span style="color: #333333">;</span>
+                <span style="color: #333399; font-weight: bold">int</span> heigh <span style="color: #333333">=</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getHeight</span><span style="color: #333333">()</span>
+                        <span style="color: #333333">-</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getInsets</span><span style="color: #333333">().</span><span style="color: #0000CC">top</span>
+                        <span style="color: #333333">-</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getInsets</span><span style="color: #333333">().</span><span style="color: #0000CC">bottom</span><span style="color: #333333">;</span>
+
+                heigh <span style="color: #333333">+=</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> <span style="color: #333333">(</span>heigh <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">*</span> <span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">-</span> Math<span style="color: #333333">.</span><span style="color: #0000CC">cos</span><span style="color: #333333">(</span>ALPHA_RAD <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">)));</span>
+
+                <span style="color: #333399; font-weight: bold">int</span> ratio <span style="color: #333333">=</span> <span style="color: #333333">(</span>progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">()</span> <span style="color: #333333">*</span> RANGE<span style="color: #333333">)</span> <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">;</span>
+
+                <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>width <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #333333">||</span> heigh <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span>
+                        <span style="color: #008800; font-weight: bold">return</span><span style="color: #333333">;</span>
+
+                g2d <span style="color: #333333">=</span> <span style="color: #333333">(</span>Graphics2D<span style="color: #333333">)</span> g<span style="color: #333333">.</span><span style="color: #0000CC">create</span><span style="color: #333333">();</span>
+
+                Shape o0 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Arc2D<span style="color: #333333">.</span><span style="color: #0000CC">Double</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">,</span> width<span style="color: #333333">,</span> heigh<span style="color: #333333">,</span> STARTANGLE<span style="color: #333333">,</span> <span style="color: #333333">-</span>ratio<span style="color: #333333">,</span> Arc2D<span style="color: #333333">.</span><span style="color: #0000CC">PIE</span><span style="color: #333333">);</span>
+                Shape o1 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Arc2D<span style="color: #333333">.</span><span style="color: #0000CC">Double</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">,</span> width<span style="color: #333333">,</span> heigh<span style="color: #333333">,</span> STARTANGLE<span style="color: #333333">,</span> <span style="color: #333333">-</span>RANGE<span style="color: #333333">,</span> Arc2D<span style="color: #333333">.</span><span style="color: #0000CC">PIE</span><span style="color: #333333">);</span>
+                Shape i <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Ellipse2D<span style="color: #333333">.</span><span style="color: #0000CC">Double</span><span style="color: #333333">(</span>boldness<span style="color: #333333">,</span> boldness<span style="color: #333333">,</span> width <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">*</span> boldness<span style="color: #333333">,</span> heigh <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">*</span> boldness<span style="color: #333333">);</span>
+                Area a0 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Area<span style="color: #333333">(</span>o0<span style="color: #333333">);</span>
+                Area a1 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Area<span style="color: #333333">(</span>o1<span style="color: #333333">);</span>
+                a0<span style="color: #333333">.</span><span style="color: #0000CC">subtract</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> Area<span style="color: #333333">(</span>i<span style="color: #333333">));</span>
+                a1<span style="color: #333333">.</span><span style="color: #0000CC">subtract</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> Area<span style="color: #333333">(</span>i<span style="color: #333333">));</span>
+
+                g2d<span style="color: #333333">.</span><span style="color: #0000CC">setColor</span><span style="color: #333333">(</span>Color<span style="color: #333333">.</span><span style="color: #0000CC">LIGHT_GRAY</span><span style="color: #333333">);</span>
+                g2d<span style="color: #333333">.</span><span style="color: #0000CC">fill</span><span style="color: #333333">(</span>a1<span style="color: #333333">);</span>
+                g2d<span style="color: #333333">.</span><span style="color: #0000CC">setColor</span><span style="color: #333333">(</span>getSelectionForeground<span style="color: #333333">());</span>
+                g2d<span style="color: #333333">.</span><span style="color: #0000CC">fill</span><span style="color: #333333">(</span>a0<span style="color: #333333">);</span>
+
+                <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>progressBar<span style="color: #333333">.</span><span style="color: #0000CC">isStringPainted</span><span style="color: #333333">())</span> <span style="color: #333333">{</span>
+                        paintString<span style="color: #333333">(</span>g<span style="color: #333333">,</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getInsets</span><span style="color: #333333">().</span><span style="color: #0000CC">left</span><span style="color: #333333">,</span>
+                                progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getInsets</span><span style="color: #333333">().</span><span style="color: #0000CC">top</span><span style="color: #333333">,</span>
+                                width<span style="color: #333333">,</span> heigh<span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">,</span> progressBar<span style="color: #333333">.</span><span style="color: #0000CC">getInsets</span><span style="color: #333333">());</span>
+                <span style="color: #333333">}</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #008800; font-weight: bold">protected</span> Color <span style="color: #0066BB; font-weight: bold">getSelectionForeground</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">return</span> Defs<span style="color: #333333">.</span><span style="color: #0000CC">PS_ORANGE</span><span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #008800; font-weight: bold">protected</span> Color <span style="color: #0066BB; font-weight: bold">getSelectionBackground</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">return</span> Defs<span style="color: #333333">.</span><span style="color: #0000CC">PS_ORANGE</span><span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></td></tr></table></div>
+

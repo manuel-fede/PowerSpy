@@ -24,18 +24,20 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 
 /**
-
- @author redxef
+ *
+ * @author redxef
  */
 public class PortListCellRenderer extends DefaultListCellRenderer {
 
         @Override
         public Component getListCellRendererComponent(JList list, Object value, int index,
-                boolean isSelected, boolean cellHasFocus)
-        {
-                SerialPort sp = (SerialPort) value;
+                boolean isSelected, boolean cellHasFocus) {
+                if (value != null) {
+                        SerialPort sp = (SerialPort) value;
+                        return super.getListCellRendererComponent(list,
+                                sp.getDescriptivePortName(), index, isSelected, cellHasFocus);
+                }
                 return super.getListCellRendererComponent(list,
-                        sp.getDescriptivePortName(), index, isSelected, cellHasFocus);
-
+                        "none", index, isSelected, cellHasFocus);
         }
 }

@@ -1,0 +1,1758 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="powerspy_8h" kind="file" language="C++">
+    <compoundname>powerspy.h</compoundname>
+    <includes local="no">xc.h</includes>
+    <includes refid="types_8h" local="yes">types.h</includes>
+    <includedby refid="message_8c" local="yes">powerspy.X/message.c</includedby>
+    <includedby refid="powerspy_8c" local="yes">powerspy.X/powerspy.c</includedby>
+    <incdepgraph>
+      <node id="18">
+        <label>xc.h</label>
+      </node>
+      <node id="19">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+      </node>
+      <node id="17">
+        <label>powerspy.X/powerspy.h</label>
+        <link refid="powerspy.h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="powerspy_8h_1a024148e99a7143db044a48216664d03d" prot="public" static="no">
+        <name>_XTAL_FREQ</name>
+        <initializer>32000000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="46" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a5070712bba21161ad840408134ee229f" prot="public" static="no">
+        <name>RX</name>
+        <initializer>RB1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="47" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a8b9bd4430d2377182d1c84201fbb9b68" prot="public" static="no">
+        <name>TX</name>
+        <initializer>RB2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="48" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ac5e3e13fd14bdd584cad4ac158ee4b8d" prot="public" static="no">
+        <name>IN_FREQ</name>
+        <initializer>50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="50" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a6adaccda781c8235ad0aac4a9ae3b0a5" prot="public" static="no">
+        <name>CURRENT_VAL_IN</name>
+        <initializer>RB5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="52" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a8510d151cf17c39822373f18dce56a88" prot="public" static="no">
+        <name>CURRENT_PHA_IN</name>
+        <initializer>RA0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="53" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a8e88a331f9029f0d978f2e9e15bc2e0a" prot="public" static="no">
+        <name>VOLTAGE_VAL_IN</name>
+        <initializer>RB4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="55" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a95a741e153df2682ac226ab83db6ac82" prot="public" static="no">
+        <name>VOLTAGE_PHA_IN</name>
+        <initializer>RA1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="56" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a09ce3d3f197274cd5ddfa6699804acd0" prot="public" static="no">
+        <name>DISPLAY_LAT</name>
+        <initializer>RA3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="58" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a429805a7f08a5eedeaaf96450bee71a4" prot="public" static="no">
+        <name>DISPLAY_CLK</name>
+        <initializer>RA4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="59" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a51e58eb1cf6de3f615a728727baccce6" prot="public" static="no">
+        <name>DISPLAY_DATA</name>
+        <initializer>RA7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="60" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a890fd94629dbf9f4a179b8002662ed7b" prot="public" static="no">
+        <name>SHIFT_DIR_MSBFIRST</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="62" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a9b61a622b60d917f3b7d09fca3984f2b" prot="public" static="no">
+        <name>SHIFT_DIR_LSBFIRST</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="63" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ada5d5dfeb5398ee8268bb52f84fb717e" prot="public" static="no">
+        <name>STATUS_LED</name>
+        <initializer>RA6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="65" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a064af7b2e733862c958d296e7f638c16" prot="public" static="no">
+        <name>BUTTON</name>
+        <initializer>RB3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="66" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a88b1f124b886fa2c68a201efc9661a68" prot="public" static="no">
+        <name>PWM_OUT_GEN_VOLT</name>
+        <initializer>RB0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="68" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a3703ca519a1539b165a04cc8a4ed9f5c" prot="public" static="no">
+        <name>PWM_IN_REF</name>
+        <initializer>RA2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="69" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a9a98e0bbcbdb15e374954652e6c8fde1" prot="public" static="no">
+        <name>SHIFT_REG_LEN</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="71" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1afb6b128563e4d82c27a94905e9ea1e56" prot="public" static="no">
+        <name>SHIFT_DELAY</name>
+        <initializer>NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="72" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a76117585e8ddc62f21ca0e3061b7830e" prot="public" static="no">
+        <name>RET_OK</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="83" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a99e73667f3ffd6ea8c3a732a82dc3116" prot="public" static="no">
+        <name>RET_NOK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="84" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a695226706a9709409c14bd2174e65b2f" prot="public" static="no">
+        <name>K_RAWCURRENT</name>
+        <initializer>&apos;C&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="86" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a60ec8e8607aa6c93d3195d10d33ddcda" prot="public" static="no">
+        <name>K_OFFS</name>
+        <initializer>&apos;o&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="87" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1acfc343a227dd7be4bf1d54120d1b1902" prot="public" static="no">
+        <name>K_CURRENT</name>
+        <initializer>&apos;c&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="88" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a6a095abff81e8c39fba101c8e5377cb9" prot="public" static="no">
+        <name>K_VOLTAGE</name>
+        <initializer>&apos;v&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="89" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1aaeb0d289a6c0bcd92cf00d9ba462d816" prot="public" static="no">
+        <name>K_ANGLE</name>
+        <initializer>&apos;a&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="90" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a3e9e4bee16d3e41b754ebb68d7ae64ed" prot="public" static="no">
+        <name>K_APPARENTEPOWER</name>
+        <initializer>&apos;A&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="91" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a978fa44b8c9730b5edc0e7e9eaeca64c" prot="public" static="no">
+        <name>K_REALPOWER</name>
+        <initializer>&apos;r&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="92" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1aa54e545d0e2c2c889c62770c5ee81112" prot="public" static="no">
+        <name>K_REACTIVEPOWER</name>
+        <initializer>&apos;R&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="93" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a6174485601e12c1047d532a2d31148e8" prot="public" static="no">
+        <name>K_RAWVOLTAGE</name>
+        <initializer>&apos;s&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="94" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a88a08e736371cdc83a9214a8f94cd641" prot="public" static="no">
+        <name>VOLT_TO_AMP_FACT</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="96" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a0b7a247144ca5e32e269a00b654032fe" prot="public" static="no">
+        <name>NRMASK</name>
+        <initializer>0b10000001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="98" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a58d55bbcff9204583e58148869c1c5f1" prot="public" static="no">
+        <name>NR0</name>
+        <initializer>0b10000001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="99" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a7fce797335912b277ba99e74614f3fe0" prot="public" static="no">
+        <name>NR1</name>
+        <initializer>0b10111101</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="100" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a6d256419c8470062584d13d26c605597" prot="public" static="no">
+        <name>NR2</name>
+        <initializer>0b00010011</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="101" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a50347df07cdc397accdf8b812a2206ad" prot="public" static="no">
+        <name>NR3</name>
+        <initializer>0b00011001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="102" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1abd67a3321746c8dd72cbc5e268f66427" prot="public" static="no">
+        <name>NR4</name>
+        <initializer>0b00101101</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="103" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1adb97b36dd0a37718eddd44573608fe54" prot="public" static="no">
+        <name>NR5</name>
+        <initializer>0b01001001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="104" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a52e5a8478683535351c866491fd869f2" prot="public" static="no">
+        <name>NR6</name>
+        <initializer>0b01000001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="105" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1afd7e9e4d96e8fd9dee747975ecd2d5af" prot="public" static="no">
+        <name>NR7</name>
+        <initializer>0b10011101</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="106" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ab99b71f41e41e0b49de73a930a201609" prot="public" static="no">
+        <name>NR8</name>
+        <initializer>0b00000001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="107" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1aa2e8c3466d78e8d57895f283e4d000b0" prot="public" static="no">
+        <name>NR9</name>
+        <initializer>0b00001001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="108" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ac4c8e12604e7642c4ebbc240ce3c13aa" prot="public" static="no">
+        <name>BIGMASK</name>
+        <initializer>0b110100000000000011100111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="111" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a866da1c19097212a124b5c9facd80019" prot="public" static="no">
+        <name>SMAMASK</name>
+        <initializer>0b111111111111111100011111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="112" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ae7520c5477c11965aabeedc033c9862b" prot="public" static="no">
+        <name>MASK</name>
+        <initializer>(BIGMASK|SMAMASK)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="113" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1af40a326b23c68a27cebe60f16634a2cb" prot="public" static="no">
+        <name>V</name>
+        <initializer>0b111111111101110101101111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="115" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1aec2624f7112e13eda1db538a34a2ab2f" prot="public" static="no">
+        <name>WFIRST</name>
+        <initializer>0b111011110101010101111111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="116" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a94bc5d9b5803b71a554d2cd0f5b3c57f" prot="public" static="no">
+        <name>WSECOND</name>
+        <initializer>0b111111001111111111111111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="117" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1af7fa10fe1e7dcd70d79ed62c272903c3" prot="public" static="no">
+        <name>AFIRST</name>
+        <initializer>0b111001110101111001011111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="119" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ac1b4cd737c3a8016765b8bbabd6ac37b" prot="public" static="no">
+        <name>ASECOND</name>
+        <initializer>0b111110101111111111111111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="120" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a018560be3811139bd53df8394a3cf398" prot="public" static="no">
+        <name>RSECOND</name>
+        <initializer>0b111111111111111111111111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="122" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a4066feaf28f2e26b93a1e77589dc77d7" prot="public" static="no">
+        <name>UNIT_NONE</name>
+        <initializer>0xffffff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="124" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a1785dfa38fccac8708b0917a880b6d27" prot="public" static="no">
+        <name>UNIT_VA</name>
+        <initializer>(V&amp;ASECOND)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="125" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a140f800c178a6e74a9e191e231978be4" prot="public" static="no">
+        <name>UNIT_A</name>
+        <initializer>AFIRST</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="126" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ac232252250836beefb7ebd7a607eb4a7" prot="public" static="no">
+        <name>UNIT_W</name>
+        <initializer>WFIRST</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="127" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1abcc100316da82add4cc7df82a7bb46e8" prot="public" static="no">
+        <name>UNIT_V</name>
+        <initializer>V</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="128" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a6f9d3453640c6e84c99624e025d1f85d" prot="public" static="no">
+        <name>UNIT_VR</name>
+        <initializer>(V&amp;RSECOND)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="129" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a0800f0163b8b2551706fe6523dd96a4a" prot="public" static="no">
+        <name>NNR0</name>
+        <initializer>0b111111101111100011100111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="131" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a3f2f39d6e3629f2d77380e0326377461" prot="public" static="no">
+        <name>NNR1</name>
+        <initializer>0b111111111111111011110111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="132" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a0b2d14a60c90ffb0b3eddde9e2a2f292" prot="public" static="no">
+        <name>NNR2</name>
+        <initializer>0b111110110111100111100111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="133" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ae55f820aeeab31e9209fb402cb94942f" prot="public" static="no">
+        <name>NNR3</name>
+        <initializer>0b111110110111110011100111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="134" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a6d427fe9d0dcd5fc92d8686d53dee778" prot="public" static="no">
+        <name>NNR4</name>
+        <initializer>0b111110100111111011110111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="135" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a5ae99b5fc4ba862550051256b1bcedd4" prot="public" static="no">
+        <name>NNR5</name>
+        <initializer>0b111110100111110011101111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="136" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ac92bea57c2a3317b031d2cdcdfa91fff" prot="public" static="no">
+        <name>NNR6</name>
+        <initializer>0b111110100111100011101111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="137" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a6d452616c41f7e43dc6d91344e0affbe" prot="public" static="no">
+        <name>NNR7</name>
+        <initializer>0b111111111111111011100111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="138" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ab6e1e2570afbe385eadbf0dc2e16413b" prot="public" static="no">
+        <name>NNR8</name>
+        <initializer>0b111110100111100011100111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="139" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ae59312b9990ba1b719c7e3d25dd6e60e" prot="public" static="no">
+        <name>NNR9</name>
+        <initializer>0b111110100111110011100111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="140" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a1a9fb5f2c2f2ccfe067c7ecce4113c7b" prot="public" static="no">
+        <name>WAIT_T0H</name>
+        <initializer>NOP();</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="142" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a7082988a867877a2e13f66484263954f" prot="public" static="no">
+        <name>WAIT_T0L</name>
+        <initializer>NOP();\
+                                NOP();\
+                                NOP();</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="143" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a2272efc0b29e3d9fa6e9535797eea38c" prot="public" static="no">
+        <name>WAIT_T1H</name>
+        <initializer>NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="146" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a71c07872ebceb740215d549de60e02d9" prot="public" static="no">
+        <name>WAIT_T1L</name>
+        <initializer>NOP();</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="150" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1abdfe9e1ac441f83bd9461f7d1efc19e4" prot="public" static="no">
+        <name>LED_LOWBIT</name>
+        <initializer>{\
+                                STATUS_LED=1;\
+                                WAIT_T0H\
+                                STATUS_LED=0;\
+                                WAIT_T0L\
+                                }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="152" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a5e5bcc05e5242aa2756451cb02b497d1" prot="public" static="no">
+        <name>LED_HIGHBIT</name>
+        <initializer>{\
+                                STATUS_LED=1;\
+                                WAIT_T1H\
+                                STATUS_LED=0;\
+                                WAIT_T1L\
+                                }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="158" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a8e46677e67567865e4f51005ea25d269" prot="public" static="no">
+        <name>LED_INTENSE</name>
+        <initializer>(0xff&gt;&gt;3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="164" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ae9484cfcccc0cad04efe9ed63717fdec" prot="public" static="no">
+        <name>DMODE_NONE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="166" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1af4fa8f4588bd664c77306c4fcbf3e8af" prot="public" static="no">
+        <name>DMODE_CURRENT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="167" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1aac983c21d5201ed94d817e4b0c2c7804" prot="public" static="no">
+        <name>DMODE_VOLTAGE</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="168" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1aac5e62269c982912e75a31ae98c8cba9" prot="public" static="no">
+        <name>DMODE_ANGLE</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="169" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1ae2b6226c10ba0a6be3fae1f7a3b36357" prot="public" static="no">
+        <name>DMODE_APPARENT</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="170" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1aca3a049761226e8e049f68906547c21a" prot="public" static="no">
+        <name>DMODE_REAL</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="171" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a65abbb42ae08a8aa2570645e26c79194" prot="public" static="no">
+        <name>DMODE_REACTIVE</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="172" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a06e91f92a5d5c0d6720853570627bc30" prot="public" static="no">
+        <name>DMODE_MAX</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="173" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a5b8aa7f05ed6d61bcaa2e7347ed9992d" prot="public" static="no">
+        <name>QUARTER_ROTATION</name>
+        <initializer>(100)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="175" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a031d3548816b7291b71916979f317509" prot="public" static="no">
+        <name>HALF_ROTATION</name>
+        <initializer>(QUARTER_ROTATION&lt;&lt;1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="176" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a9ec7af3c11769a1e37d737c407d413d5" prot="public" static="no">
+        <name>FULL_ROTATION</name>
+        <initializer>(QUARTER_ROTATION&lt;&lt;2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="177" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a7824de6f9383548c1e96689b7b3ccb97" prot="public" static="no">
+        <name>MIN_SIN_RES</name>
+        <initializer>(-100)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="178" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a1e13af03a25b3e6367bcb8611c023f8c" prot="public" static="no">
+        <name>MAX_SIN_RES</name>
+        <initializer>(100)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="179" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="powerspy_8h_1a72f964dba2dc0f0bbe105384b25ff27a" prot="public" static="no">
+        <name>getTime</name>
+        <param></param>
+        <initializer>TMR1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="181" column="9" bodyfile="powerspy.X/powerspy.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="powerspy_8h_1a4c3b7689564254274a0e3a2a1771d473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initPins</definition>
+        <argsstring>()</argsstring>
+        <name>initPins</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepares the ports of the processor. No device may be turned on. They only &quot;exception&quot; to this rule is the Display, which uses shift registers for storing it&apos;s information, it is cleared after all other initialisation steps have been finished. This Method also activates the pull up resistor and sets the operation frequency to 32MHz. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="191" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="63" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ab3166bd1ba3160d3bac85daddb12f947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initADC</definition>
+        <argsstring>()</argsstring>
+        <name>initADC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepare the ADC module for operation. The positive reference is set to Vdd, while the negative one is set to Vss. The conversion clock speed is set to FOSC/64 since the SampleHold - Capacitor would otherwise not be fully charged and unexpected results would be the consequence. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="199" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="97" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a4d4bd39a8d9a35c69d0274fd272bc1d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initTMR2</definition>
+        <argsstring>()</argsstring>
+        <name>initTMR2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepares the Timer 2 as an refresh-rate generator. This functionality is, as of now, not used and not vital to the operation of the device. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="205" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="122" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ac54dcca941c1bea6b7bc3d8babb5aaaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initTMR1</definition>
+        <argsstring>()</argsstring>
+        <name>initTMR1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timer 1 is set up with a resolution of 250ns. It is used to measure the phase delay between Current and Voltage. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="211" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="166" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a0103fec987197d5a370a762edbe779e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initFVR</definition>
+        <argsstring>()</argsstring>
+        <name>initFVR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>initializes both Buffers to 1.024Volts. The first one is needed to measure Vdd with the ADC-Module, the second one is used to provide the comparator with a voltage to compare the Voltage against. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="219" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="196" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a990271cb1bf71a9ad908cf95daf1eb6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initPWMTMR4</definition>
+        <argsstring>()</argsstring>
+        <name>initPWMTMR4</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepares the PWM with Timer 4. This PWM is used to provide the second reference to the second comparator, which is used for the current. Since the voltage, representing the current is small, we need to have a precise reference, this we used a PWM with a low-pass filter of second order to create a direct current. The Output is switched from RB3 to RB0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="229" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="222" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ae0b5b4551a6c8f5e5cd0bc1f8f07a8c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initCOMP1</definition>
+        <argsstring>()</argsstring>
+        <name>initCOMP1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets up the Comparator 1 Module for measuring the phase of the Voltage. The Interrupt is set to fire on falling edges only. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="235" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="282" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1acc739909b6a4e417b9af88738e662987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initCOMP2</definition>
+        <argsstring>()</argsstring>
+        <name>initCOMP2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets up the Comparator 2 Module for measuring the phase of the Current. The Interrupt is set to fire on falling edges only. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="241" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="316" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a1937a1a69f27dd9e91c099e4429731be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initBT</definition>
+        <argsstring>()</argsstring>
+        <name>initBT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures the USART Module as asynchronous with an baud rate of 9600 and clears all previously received data. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="247" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="349" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a4fbdf44d733d619a014a5a6f2315700d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adc</definition>
+        <argsstring>(const int8_t src)</argsstring>
+        <name>adc</name>
+        <param>
+          <type>const int8_t</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs an AD-Conversion on the specified source. The Sources AN0 to AN11 are proportional to the source specified (setting src to 4 will read from AN4). Also the source for the FVR-Buffer1 can be selected, which is 0x1f;</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source from which to convert </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="257" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="388" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1abad6c151b93f88becacb00a6f3727416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t readVoltage</definition>
+        <argsstring>()</argsstring>
+        <name>readVoltage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is a placeholder method and was written, in case a Voltage measurement was to be implemented. In it&apos;s current state it returns the value of 230Volts. <simplesect kind="return"><para>the line voltage (about 230V in Europe) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="265" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="432" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a69737966a3174628c469a37d6db002a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int24_t</type>
+        <definition>int24_t readCurrent</definition>
+        <argsstring>()</argsstring>
+        <name>readCurrent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Measures the current which is currently flowing and returns it in mA as Integer to provide an accurate result, without the implications of using floats. The channel from which the measurement is taken is AN7. <simplesect kind="return"><para>the measured current in mAmps. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="273" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="442" bodyend="457"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1aac2b18361514a260b77f367bb12fa77a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t readVdd</definition>
+        <argsstring>()</argsstring>
+        <name>readVdd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Measures Vdd and returns it as an Integer in the range of 0 to 1023. This is useful, because the calculation of the current is a lot easier if first the conversion from all 10 bit values to more reasonable ones is done and only then the currect value computed. <simplesect kind="return"><para>the supply voltage from 0 to 1023 where 0 = 0V and 1023 = 5V </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="282" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="459" bodyend="469"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a0f26c0064b568a85c7be468e2235a2f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void so</definition>
+        <argsstring>(const uint8_t data)</argsstring>
+        <name>so</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Shifts one byte of data into the shift registers with the least significant bit first. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data to write into the shift register </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="289" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="477" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a8f35dad172390f2c99bf58f71c4fe2fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearDisplay</definition>
+        <argsstring>(int8_t leng)</argsstring>
+        <name>clearDisplay</name>
+        <param>
+          <type>int8_t</type>
+          <declname>leng</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the display by writing 0xff into every shift register. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>leng</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of registers </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="295" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="498" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1acc6c625c563afa5f78048472d71d1b85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendColour</definition>
+        <argsstring>(uint8_t)</argsstring>
+        <name>sendColour</name>
+        <param>
+          <type>uint8_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends one byte of colour information to the status led. Since the colour depends on the write order this function does not specify the colour of the LED. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>the</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>intensity of the colour </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="303" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="508" bodyend="533"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1aa7e5cea063dbb34802dda31333eaef58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t deltaT</definition>
+        <argsstring>(uint16_t tm_low, uint16_t tm_high)</argsstring>
+        <name>deltaT</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>tm_low</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>tm_high</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the time difference of the two times. Tm_low is the time, which came chronologically before tm_high. Since these values are the values of Timer 1 at set time it could be, that tm_low&gt;tm_high, if this is the case the difference will be computed as follos: 0xffff - tm_low + tm_high; otherwise the difference is simply tm_high-tm_low. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm_low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the chronologically first value </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tm_high</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the chronologically second value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the time difference in 250nano seconds </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="315" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="543" bodyend="549"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a49011b67fdd3b5aa99c5305c4def8688" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t sin_</definition>
+        <argsstring>(int8_t z)</argsstring>
+        <name>sin_</name>
+        <param>
+          <type>int8_t</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the sine from the eeprom. It is important to note, that not 360° represent a full rotation, but rather 400°. Since not every value can be stored in the eeprom (it is also not needed) it reads only the value from 0 to 100°. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the angle in grad (not deg!) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the sine multiplied by 100 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="325" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="551" bodyend="554"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ad09cda1044ebc5675a9b462e5a11978a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t sin</definition>
+        <argsstring>(int16_t z)</argsstring>
+        <name>sin</name>
+        <param>
+          <type>int16_t</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes values of the sine, which are not covered by <ref refid="powerspy_8h_1a49011b67fdd3b5aa99c5305c4def8688" kindref="member">sin_()</ref>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the angle in grad (not deg!) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the sine multiplied by 100 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="332" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="558" bodyend="583"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ab00c5a1c9dde13d399d08c6a19f89bcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t cos</definition>
+        <argsstring>(int16_t z)</argsstring>
+        <name>cos</name>
+        <param>
+          <type>int16_t</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Behaves in the exactly same way as <ref refid="powerspy_8h_1ad09cda1044ebc5675a9b462e5a11978a" kindref="member">sin()</ref> but returns the cosine. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the angle ing grad (not deg!) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the cosine multiplied by 100 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="339" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="585" bodyend="588"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ab6dcfeb080c4fc27b28b9ac99b9a8aa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t ledReset</definition>
+        <argsstring>()</argsstring>
+        <name>ledReset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluates if the LED value can be rewritten (the LED needs a reset time of 50us). If these 50us have passed since the last write to the LED this method returns 1 otherwise 0. <simplesect kind="return"><para>a flag if the LED can be rewritten </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="347" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="590" bodyend="601"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1aa76a726af97e61c931dc5c48da533842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLED</definition>
+        <argsstring>(uint8_t g, uint8_t r, uint8_t b)</argsstring>
+        <name>setLED</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes a colour to the LED. The led is programmed with an rgb profile. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the green colour intensity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the red colour intensity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the blue colour intensity </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="355" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="606" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ae516f2ff48d3fcf8c5fd638c92878e66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUnit</definition>
+        <argsstring>(uint24_t u)</argsstring>
+        <name>setUnit</name>
+        <param>
+          <type>uint24_t</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes a specified unit into the shift registers. Note, that all following registers need to be filled, in order for these values to appear in the correct register. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the unit to write into the registers </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="363" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="614" bodyend="619"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1ac2e00b08576dfbc9457a38a93daf5cf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setVal</definition>
+        <argsstring>(int16_t v)</argsstring>
+        <name>setVal</name>
+        <param>
+          <type>int16_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the Integer value into the registers. Typically <ref refid="powerspy_8h_1ae516f2ff48d3fcf8c5fd638c92878e66" kindref="member">setUnit()</ref> is called prior to this function and only after this function has been called the display will output reasonable values. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="371" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="621" bodyend="628"/>
+      </memberdef>
+      <memberdef kind="function" id="powerspy_8h_1a085e1179e1a03b59da3a42398e8f86f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void __interrupt</type>
+        <definition>void __interrupt ISR</definition>
+        <argsstring>()</argsstring>
+        <name>ISR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The interrupt service routine. It handles incoming data and the phases of current and voltage. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/powerspy.h" line="377" column="1" bodyfile="powerspy.X/powerspy.c" bodystart="630" bodyend="672"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>File: <ref refid="powerspy_8h" kindref="compound">powerspy.h</ref> Author: Manuel Federanko Version: 1.0 Comments: Revision history: </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="10"><highlight class="preprocessor">#include<sp/>&lt;xc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="types_8h" kindref="compound">types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__POWERSPY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__POWERSPY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/><sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>FOSC<sp/>=<sp/>INTOSC<sp/><sp/><sp/><sp/>//<sp/>Oscillator<sp/>Selection<sp/>(INTOSC<sp/>oscillator:<sp/>I/O<sp/>function<sp/>on<sp/>CLKIN<sp/>pin)<sp/>-<sp/>needed<sp/>for<sp/>32mhz</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>WDTE<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Watchdog<sp/>Timer<sp/>Enable<sp/>(WDT<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>PWRTE<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Power-up<sp/>Timer<sp/>Enable<sp/>(PWRT<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>MCLRE<sp/>=<sp/>ON<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>MCLR<sp/>Pin<sp/>Function<sp/>Select<sp/>(MCLR/VPP<sp/>pin<sp/>function<sp/>is<sp/>MCLR)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>CP<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Flash<sp/>Program<sp/>Memory<sp/>Code<sp/>Protection<sp/>(Program<sp/>memory<sp/>code<sp/>protection<sp/>is<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>CPD<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Data<sp/>Memory<sp/>Code<sp/>Protection<sp/>(Data<sp/>memory<sp/>code<sp/>protection<sp/>is<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>BOREN<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Brown-out<sp/>Reset<sp/>Enable<sp/>(Brown-out<sp/>Reset<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>CLKOUTEN<sp/>=<sp/>OFF<sp/><sp/><sp/>//<sp/>Clock<sp/>Out<sp/>Enable<sp/>(CLKOUT<sp/>function<sp/>is<sp/>disabled.<sp/>I/O<sp/>or<sp/>oscillator<sp/>function<sp/>on<sp/>the<sp/>CLKOUT<sp/>pin)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>IESO<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Internal/External<sp/>Switchover<sp/>(Internal/External<sp/>Switchover<sp/>mode<sp/>is<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>FCMEN<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Fail-Safe<sp/>Clock<sp/>Monitor<sp/>Enable<sp/>(Fail-Safe<sp/>Clock<sp/>Monitor<sp/>is<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CONFIG2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>WRT<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Flash<sp/>Memory<sp/>Self-Write<sp/>Protection<sp/>(Write<sp/>protection<sp/>off)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>PLLEN<sp/>=<sp/>ON<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>PLL<sp/>Enable<sp/>(4x<sp/>PLL<sp/>disabled)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>STVREN<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/>//<sp/>Stack<sp/>Overflow/Underflow<sp/>Reset<sp/>Enable<sp/>(Stack<sp/>Overflow<sp/>or<sp/>Underflow<sp/>will<sp/>not<sp/>cause<sp/>a<sp/>Reset)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>BORV<sp/>=<sp/>LO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Brown-out<sp/>Reset<sp/>Voltage<sp/>Selection<sp/>(Brown-out<sp/>Reset<sp/>Voltage<sp/>(Vbor),<sp/>low<sp/>trip<sp/>point<sp/>selected.)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>config<sp/>LVP<sp/>=<sp/>OFF<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Low-Voltage<sp/>Programming<sp/>Enable<sp/>(High-voltage<sp/>on<sp/>MCLR/VPP<sp/>must<sp/>be<sp/>used<sp/>for<sp/>programming)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//xc8<sp/>gives<sp/>a<sp/>warning<sp/>when<sp/>converting<sp/>to<sp/>lower<sp/>data<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//even<sp/>when<sp/>casting<sp/>to<sp/>the<sp/>appropriate<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning<sp/>push</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning<sp/>disable<sp/>752</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning<sp/>disable<sp/>520</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning<sp/>pop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//print<sp/>specific<sp/>defines</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_XTAL_FREQ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>32000000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RB1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RB2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IN_FREQ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>50</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CURRENT_VAL_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RB5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CURRENT_PHA_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RA0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VOLTAGE_VAL_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RB4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VOLTAGE_PHA_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RA1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISPLAY_LAT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RA3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISPLAY_CLK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RA4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISPLAY_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RA7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHIFT_DIR_MSBFIRST<sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHIFT_DIR_LSBFIRST<sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STATUS_LED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RA6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUTTON<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RB3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PWM_OUT_GEN_VOLT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RB0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PWM_IN_REF<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RA2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHIFT_REG_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHIFT_DELAY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RET_OK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RET_NOK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_RAWCURRENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;C&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_OFFS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;o&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_CURRENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;c&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_VOLTAGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;v&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_ANGLE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;a&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_APPARENTEPOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;A&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_REALPOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;r&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_REACTIVEPOWER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;R&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>K_RAWVOLTAGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;s&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VOLT_TO_AMP_FACT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRMASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b10000001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b10000001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b10111101</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b00010011</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR3<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b00011001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b00101101</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR5<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b01001001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b01000001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR7<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b10011101</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR8<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b00000001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NR9<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b00001001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//shift<sp/>1<sp/>-<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BIGMASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b110100000000000011100111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SMAMASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111111111111111100011111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(BIGMASK|SMAMASK)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>V<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111111111101110101101111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WFIRST<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111011110101010101111111<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSECOND<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111111001111111111111111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AFIRST<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111001110101111001011111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ASECOND<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110101111111111111111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RSECOND<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111111111111111111111111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNIT_NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xffffff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNIT_VA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(V&amp;ASECOND)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNIT_A<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AFIRST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNIT_W<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WFIRST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNIT_V<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>V</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNIT_VR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(V&amp;RSECOND)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111111101111100011100111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111111111111111011110111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110110111100111100111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR3<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110110111110011100111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110100111111011110111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR5<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110100111110011101111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110100111100011101111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR7<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111111111111111011100111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR8<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110100111100011100111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNR9<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0b111110100111110011100111</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WAIT_T0H<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WAIT_T0L<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WAIT_T1H<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();\</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WAIT_T1L<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NOP();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LED_LOWBIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{\</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STATUS_LED=1;\</highlight></codeline>
+<codeline lineno="154"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WAIT_T0H\</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STATUS_LED=0;\</highlight></codeline>
+<codeline lineno="156"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WAIT_T0L\</highlight></codeline>
+<codeline lineno="157"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LED_HIGHBIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{\</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STATUS_LED=1;\</highlight></codeline>
+<codeline lineno="160"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WAIT_T1H\</highlight></codeline>
+<codeline lineno="161"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STATUS_LED=0;\</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WAIT_T1L\</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LED_INTENSE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xff&gt;&gt;3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_CURRENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_VOLTAGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_ANGLE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_APPARENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_REAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_REACTIVE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DMODE_MAX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QUARTER_ROTATION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(100)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HALF_ROTATION<sp/><sp/><sp/>(QUARTER_ROTATION&lt;&lt;1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FULL_ROTATION<sp/><sp/><sp/>(QUARTER_ROTATION&lt;&lt;2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIN_SIN_RES<sp/><sp/><sp/><sp/><sp/>(-100)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_SIN_RES<sp/><sp/><sp/><sp/><sp/>(100)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>getTime()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TMR1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a4c3b7689564254274a0e3a2a1771d473" kindref="member">initPins</ref>();</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1ab3166bd1ba3160d3bac85daddb12f947" kindref="member">initADC</ref>();</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a4d4bd39a8d9a35c69d0274fd272bc1d4" kindref="member">initTMR2</ref>();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1ac54dcca941c1bea6b7bc3d8babb5aaaf" kindref="member">initTMR1</ref>();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a0103fec987197d5a370a762edbe779e7" kindref="member">initFVR</ref>();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a990271cb1bf71a9ad908cf95daf1eb6b" kindref="member">initPWMTMR4</ref>();</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1ae0b5b4551a6c8f5e5cd0bc1f8f07a8c6" kindref="member">initCOMP1</ref>();</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1acc739909b6a4e417b9af88738e662987" kindref="member">initCOMP2</ref>();</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a1937a1a69f27dd9e91c099e4429731be" kindref="member">initBT</ref>();</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a4fbdf44d733d619a014a5a6f2315700d" kindref="member">adc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int8_t<sp/>src);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="powerspy_8h_1abad6c151b93f88becacb00a6f3727416" kindref="member">readVoltage</ref>();</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int24_t<sp/><ref refid="powerspy_8h_1a69737966a3174628c469a37d6db002a7" kindref="member">readCurrent</ref>();</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="powerspy_8h_1aac2b18361514a260b77f367bb12fa77a" kindref="member">readVdd</ref>();</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a0f26c0064b568a85c7be468e2235a2f4" kindref="member">so</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>data);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1a8f35dad172390f2c99bf58f71c4fe2fb" kindref="member">clearDisplay</ref>(int8_t<sp/>leng);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1acc6c625c563afa5f78048472d71d1b85" kindref="member">sendColour</ref>(uint8_t);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="powerspy_8h_1aa7e5cea063dbb34802dda31333eaef58" kindref="member">deltaT</ref>(uint16_t<sp/>tm_low,<sp/>uint16_t<sp/>tm_high);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="powerspy_8h_1a49011b67fdd3b5aa99c5305c4def8688" kindref="member">sin_</ref>(int8_t<sp/>z);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="powerspy_8h_1ad09cda1044ebc5675a9b462e5a11978a" kindref="member">sin</ref>(int16_t<sp/>z);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="powerspy_8h_1ab00c5a1c9dde13d399d08c6a19f89bcc" kindref="member">cos</ref>(int16_t<sp/>z);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="powerspy_8h_1ab6dcfeb080c4fc27b28b9ac99b9a8aa8" kindref="member">ledReset</ref>();</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1aa76a726af97e61c931dc5c48da533842" kindref="member">setLED</ref>(uint8_t<sp/>g,<sp/>uint8_t<sp/>r,<sp/>uint8_t<sp/>b);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1ae516f2ff48d3fcf8c5fd638c92878e66" kindref="member">setUnit</ref>(uint24_t<sp/>u);</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerspy_8h_1ac2e00b08576dfbc9457a38a93daf5cf7" kindref="member">setVal</ref>(int16_t<sp/>v);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>__interrupt<sp/><ref refid="powerspy_8h_1a085e1179e1a03b59da3a42398e8f86f5" kindref="member">ISR</ref>();</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/><sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="powerspy.X/powerspy.h"/>
+  </compounddef>
+</doxygen>

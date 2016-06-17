@@ -56,7 +56,7 @@ public class Controller extends Thread {
                 this.f = f;
                 is = null;
                 os = null;
-                update_interval = new Timer(500, (ActionEvent e) -> {
+                update_interval = new Timer(50, (ActionEvent e) -> {
                         doUpdate();
                 });
         }
@@ -112,7 +112,7 @@ public class Controller extends Thread {
                 f.setApparentPower((float) apparent_power / 1000);
                 f.setReactivePower((float) reactive_power / 1000);
                 f.setRawCurrent((float) raw_current);
-                f.setOffs((float) offs);
+                f.setOffs((float) offs / 1000);
                 f.setRawVoltage((float) raw_supply);
         }
 
@@ -169,7 +169,7 @@ public class Controller extends Thread {
                 while (keep_alive) {
                         try {
                                 read_mode = doRun(read_mode);
-                                Thread.sleep(20);
+                                Thread.sleep(10);
                         } catch (IOException | PackageException | InterruptedException | ArrayIndexOutOfBoundsException ex) {
                                 ex.printStackTrace(System.err);
                                 is.clear();

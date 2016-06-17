@@ -13,10 +13,6 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /Applications/microchip/xc8/v1.37/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.37/sources/common/lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"6 /Applications/microchip/xc8/v1.37/sources/common/lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "15 /Applications/microchip/xc8/v1.37/sources/common/Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 /Applications/microchip/xc8/v1.37/sources/common/Umul24.c
@@ -71,25 +67,27 @@
 [v _readVdd readVdd `(us  1 e 2 0 ]
 "477
 [v _so so `(v  1 e 1 0 ]
-"519
+"498
+[v _clearDisplay clearDisplay `(v  1 e 1 0 ]
+"508
 [v _sendColour sendColour `(v  1 e 1 0 ]
-"554
+"543
 [v _deltaT deltaT `(us  1 e 2 0 ]
-"562
+"551
 [v _sin_ sin_ `(c  1 e 1 0 ]
-"569
+"558
 [v _sin sin `(c  1 e 1 0 ]
-"596
+"585
 [v _cos cos `(c  1 e 1 0 ]
-"617
+"606
 [v _setLED setLED `(v  1 e 1 0 ]
-"625
+"614
 [v _setUnit setUnit `(v  1 e 1 0 ]
-"632
+"621
 [v _setVal setVal `(v  1 e 1 0 ]
-"641
+"630
 [v _ISR ISR `II(v  1 e 1 0 ]
-"688
+"677
 [v _main main `(v  1 e 1 0 ]
 "414 /Applications/microchip/xc8/v1.37/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -325,9 +323,9 @@
 [v _readpos readpos `c  1 e 1 0 ]
 "14
 [v _reading reading `uc  1 e 1 0 ]
-"34 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.h
+"36 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.h
 [v _receive_buff receive_buff `[8]uc  1 e 8 0 ]
-"35
+"37
 [v _buffpos buffpos `c  1 e 1 0 ]
 "33 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _get_shift_byte get_shift_byte `DCC[10]uc  1 e 10 0 ]
@@ -345,33 +343,33 @@
 [v _led_rest led_rest `us  1 e 2 0 ]
 "53
 [v _mode mode `VEuc  1 e 1 0 ]
-"688
+"677
 [v _main main `(v  1 e 1 0 ]
 {
-"694
-[v main@apparent apparent `m  1 a 3 54 ]
-"692
-[v main@current current `m  1 a 3 51 ]
-"691
+"681
+[v main@current current `m  1 a 3 54 ]
+"683
+[v main@apparent apparent `m  1 a 3 51 ]
+"680
 [v main@angle angle `m  1 a 3 46 ]
-"696
+"685
 [v main@reactive reactive `m  1 a 3 43 ]
-"695
+"684
 [v main@real real `m  1 a 3 40 ]
-"693
+"682
 [v main@voltage voltage `m  1 a 3 37 ]
-"690
+"679
 [v main@bmode bmode `i  1 a 2 49 ]
-"808
+"800
 } 0
-"632
+"621
 [v _setVal setVal `(v  1 e 1 0 ]
 {
-"634
+"623
 [v setVal@i i `c  1 a 1 28 ]
-"632
+"621
 [v setVal@v v `s  1 p 2 25 ]
-"639
+"628
 } 0
 "6 /Applications/microchip/xc8/v1.37/sources/common/awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -397,43 +395,31 @@
 [v ___awdiv@dividend dividend `i  1 p 2 4 ]
 "42
 } 0
-"625 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"614 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
 [v _setUnit setUnit `(v  1 e 1 0 ]
 {
 [v setUnit@u u `um  1 p 3 5 ]
-"630
+"619
 } 0
-"477
-[v _so so `(v  1 e 1 0 ]
-{
-[v so@data data `DCCuc  1 a 1 wreg ]
-"479
-[v so@c c `uc  1 a 1 4 ]
-"477
-[v so@data data `DCCuc  1 a 1 wreg ]
-"480
-[v so@data data `DCCuc  1 a 1 3 ]
-"493
-} 0
-"617
+"606
 [v _setLED setLED `(v  1 e 1 0 ]
 {
 [v setLED@g g `uc  1 a 1 wreg ]
 [v setLED@g g `uc  1 a 1 wreg ]
 [v setLED@r r `uc  1 p 1 3 ]
 [v setLED@b b `uc  1 p 1 4 ]
-"619
+"608
 [v setLED@g g `uc  1 a 1 5 ]
-"623
+"612
 } 0
-"519
+"508
 [v _sendColour sendColour `(v  1 e 1 0 ]
 {
 [v sendColour@c c `uc  1 a 1 wreg ]
 [v sendColour@c c `uc  1 a 1 wreg ]
-"521
+"510
 [v sendColour@c c `uc  1 a 1 2 ]
-"544
+"533
 } 0
 "200 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/message.c
 [v _sendUInt8 sendUInt8 `(v  1 e 1 0 ]
@@ -561,36 +547,36 @@
 {
 "116
 } 0
-"554
+"543
 [v _deltaT deltaT `(us  1 e 2 0 ]
 {
 [v deltaT@tm_low tm_low `us  1 p 2 2 ]
 [v deltaT@tm_high tm_high `us  1 p 2 4 ]
-"560
+"549
 } 0
-"596
+"585
 [v _cos cos `(c  1 e 1 0 ]
 {
 [v cos@us us `s  1 p 2 2 ]
-"599
+"588
 } 0
-"569
+"558
 [v _sin sin `(c  1 e 1 0 ]
 {
-"572
+"561
 [v sin@buff buff `s  1 a 2 0 ]
-"569
+"558
 [v sin@z z `s  1 p 2 7 ]
-"594
+"583
 } 0
-"562
+"551
 [v _sin_ sin_ `(c  1 e 1 0 ]
 {
 [v sin_@z z `c  1 a 1 wreg ]
 [v sin_@z z `c  1 a 1 wreg ]
-"564
+"553
 [v sin_@z z `c  1 a 1 6 ]
-"565
+"554
 } 0
 "6 /Applications/microchip/xc8/v1.37/sources/pic/eeread.c
 [v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
@@ -601,8 +587,29 @@
 [v eeprom_read@addr addr `uc  1 a 1 5 ]
 "12
 } 0
-"641 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+"498 /Users/redxef/Documents/ElectronicProjects/PowerSpy/MICROCHIP/powerspy.X/powerspy.c
+[v _clearDisplay clearDisplay `(v  1 e 1 0 ]
+{
+[v clearDisplay@leng leng `c  1 a 1 wreg ]
+[v clearDisplay@leng leng `c  1 a 1 wreg ]
+"500
+[v clearDisplay@leng leng `c  1 a 1 6 ]
+"502
+} 0
+"477
+[v _so so `(v  1 e 1 0 ]
+{
+[v so@data data `DCCuc  1 a 1 wreg ]
+"479
+[v so@c c `uc  1 a 1 4 ]
+"477
+[v so@data data `DCCuc  1 a 1 wreg ]
+"480
+[v so@data data `DCCuc  1 a 1 3 ]
+"493
+} 0
+"630
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"683
+"672
 } 0

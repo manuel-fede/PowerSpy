@@ -1,0 +1,375 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/**</span>
+<span style="color: #888888"> * @file</span>
+<span style="color: #888888"> * File:                message.h</span>
+<span style="color: #888888"> * Author:              Manuel Federanko</span>
+<span style="color: #888888"> * Version:             1.0</span>
+<span style="color: #888888"> * Comments:            </span>
+<span style="color: #888888"> * Revision history:    </span>
+<span style="color: #888888"> */</span>
+
+<span style="color: #557799">#ifndef __MESSAGE_H</span>
+<span style="color: #557799">#define	__MESSAGE_H</span>
+
+<span style="color: #557799">#include &lt;xc.h&gt; </span>
+<span style="color: #557799">#include &quot;types.h&quot;</span>
+
+<span style="color: #557799">#ifdef	__cplusplus</span>
+<span style="color: #008800; font-weight: bold">extern</span> <span style="background-color: #fff0f0">&quot;C&quot;</span> {
+<span style="color: #557799">#endif</span>
+
+<span style="color: #557799">#define NONE                    &#39;0&#39;</span>
+<span style="color: #557799">#define STRING                  &#39;1&#39;</span>
+<span style="color: #557799">#define INT8                    &#39;2&#39;</span>
+<span style="color: #557799">#define INT16                   &#39;3&#39;</span>
+<span style="color: #557799">#define INT24                   &#39;4&#39;</span>
+<span style="color: #557799">#define INT32                   &#39;5&#39;</span>
+<span style="color: #557799">#define UINT8                   &#39;6&#39;</span>
+<span style="color: #557799">#define UINT16                  &#39;7&#39;</span>
+<span style="color: #557799">#define UINT24                  &#39;8&#39;</span>
+<span style="color: #557799">#define UINT32                  &#39;9&#39;</span>
+<span style="color: #557799">#define FLOAT                   &#39;F&#39;</span>
+
+<span style="color: #557799">#define START_OF_TEXT             2</span>
+<span style="color: #557799">#define END_OF_TEXT               3</span>
+<span style="color: #557799">#define RECEIVEBUFF_SIZE          8</span>
+
+        <span style="color: #333399; font-weight: bold">char</span> receive_buff[RECEIVEBUFF_SIZE];
+        <span style="color: #333399; font-weight: bold">int8_t</span> buffpos;
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Initialises the messaging buffer and pointers.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initMessaging</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Counts the available Characters in the receive buffer and returns</span>
+<span style="color: #888888">         * that number.</span>
+<span style="color: #888888">         * @return the number of available characters</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">charAvailable</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads the next Character and advances the buffer by one.</span>
+<span style="color: #888888">         * @return the read character</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">char</span> <span style="color: #0066BB; font-weight: bold">readNext</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads a package of data and returns a value unequal to 0 if the package</span>
+<span style="color: #888888">         * is finished.</span>
+<span style="color: #888888">         * @return 0 if the package is not finshied, otherwise 1</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">char</span> <span style="color: #0066BB; font-weight: bold">readPackage</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Returns 1 if at least one byte has been written to the buffer,</span>
+<span style="color: #888888">         * otherwise 0.</span>
+<span style="color: #888888">         * @return 1 if a byte is in the buffer, otherwise 0</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">char</span> <span style="color: #0066BB; font-weight: bold">packageStarted</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * The return value behaves in the same way as does readPackage().</span>
+<span style="color: #888888">         * @return 0 if the package is not finshied, otherwise 1</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">char</span> <span style="color: #0066BB; font-weight: bold">packageFinished</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Returns the type of the package as a Character.</span>
+<span style="color: #888888">         * @return the type</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">char</span> <span style="color: #0066BB; font-weight: bold">getType</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sets the position of the buffer to the beginning of the buffer</span>
+<span style="color: #888888">         * effectively resetting the buffer.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">seekFront</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Clears the whole buffer with 0s (zeros).</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">clear</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads an 8 bit signed Integer from the buffer.</span>
+<span style="color: #888888">         * @return the 8 bit Integer</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">readInt8</span>();
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads an 16 bit signed Integer from the buffer.</span>
+<span style="color: #888888">         * @return the 16 bit Integer</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int16_t</span> <span style="color: #0066BB; font-weight: bold">readInt16</span>();
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads an 24 bit signed Integer from the buffer.</span>
+<span style="color: #888888">         * @return the 24 bit Integer</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int24_t</span> <span style="color: #0066BB; font-weight: bold">readInt24</span>();
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads an 32 bit signed Integer from the buffer.</span>
+<span style="color: #888888">         * @return the 32 bit Integer</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int32_t</span> <span style="color: #0066BB; font-weight: bold">readInt32</span>();
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads an 3 byte Float from the buffer.</span>
+<span style="color: #888888">         * @return the Float</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">float</span> <span style="color: #0066BB; font-weight: bold">readFloat</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads a string from the buffer into the specified char array.</span>
+<span style="color: #888888">         * @param c the destination</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">readString</span>(<span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">**</span>c);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 8 bit wide Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendInt8</span>(<span style="color: #333399; font-weight: bold">int8_t</span> i);
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 16 bit wide Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendInt16</span>(<span style="color: #333399; font-weight: bold">int16_t</span> i);
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 24 bit wide Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendInt24</span>(<span style="color: #333399; font-weight: bold">int24_t</span> i);
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 32 bit wide Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendInt32</span>(<span style="color: #333399; font-weight: bold">int32_t</span> i);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 8 bit wide unsigned Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendUInt8</span>(<span style="color: #333399; font-weight: bold">uint8_t</span> i);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 16 bit wide unsigned Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendUInt16</span>(<span style="color: #333399; font-weight: bold">uint16_t</span> i);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 24 bit wide unsigned Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendUInt24</span>(<span style="color: #333399; font-weight: bold">uint24_t</span> i);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends an 32 bit wide unsigned Integer variable over the USART register</span>
+<span style="color: #888888">         * @param i the data</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendUint32</span>(<span style="color: #333399; font-weight: bold">uint32_t</span> i);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends a 3 byte wide Float over the USART module.</span>
+<span style="color: #888888">         * @param f the Float to send</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendFloat</span>(<span style="color: #333399; font-weight: bold">float</span> f);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends a null-terminated String over the USART module.</span>
+<span style="color: #888888">         * @param val the pointer to the first element of the String</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendString</span>(<span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span>val);
+
+<span style="color: #557799">#ifdef	__cplusplus</span>
+}
+<span style="color: #557799">#endif</span>
+
+<span style="color: #557799">#endif</span>
+</pre></td></tr></table></div>
+

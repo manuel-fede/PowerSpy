@@ -1,0 +1,767 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="message_8h" kind="file" language="C++">
+    <compoundname>message.h</compoundname>
+    <includes local="no">xc.h</includes>
+    <includes refid="types_8h" local="yes">types.h</includes>
+    <includedby refid="message_8c" local="yes">powerspy.X/message.c</includedby>
+    <includedby refid="powerspy_8c" local="yes">powerspy.X/powerspy.c</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>xc.h</label>
+      </node>
+      <node id="8">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+      </node>
+      <node id="6">
+        <label>powerspy.X/message.h</label>
+        <link refid="message.h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="message_8h_1a655c84af1b0034986ff56e12e84f983d" prot="public" static="no">
+        <name>NONE</name>
+        <initializer>&apos;0&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="20" column="9" bodyfile="powerspy.X/message.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1a0f4d394a3ab4e09bff60f714c66dc5ee" prot="public" static="no">
+        <name>STRING</name>
+        <initializer>&apos;1&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="21" column="9" bodyfile="powerspy.X/message.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1a7e125472d65b57f10905accbed140b99" prot="public" static="no">
+        <name>INT8</name>
+        <initializer>&apos;2&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="22" column="9" bodyfile="powerspy.X/message.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1abc743ce126c3ada10501baffb3ca2295" prot="public" static="no">
+        <name>INT16</name>
+        <initializer>&apos;3&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="23" column="9" bodyfile="powerspy.X/message.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1a2739d646ed99b37efdcb6ff59a0e560f" prot="public" static="no">
+        <name>INT24</name>
+        <initializer>&apos;4&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="24" column="9" bodyfile="powerspy.X/message.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1aac92c5ec332dafe0abb24688dad1b795" prot="public" static="no">
+        <name>INT32</name>
+        <initializer>&apos;5&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="25" column="9" bodyfile="powerspy.X/message.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1ad8ce12d83f204245685f98caf9d03944" prot="public" static="no">
+        <name>UINT8</name>
+        <initializer>&apos;6&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="26" column="9" bodyfile="powerspy.X/message.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1ab1922c2d8643eb7da964d427604e992e" prot="public" static="no">
+        <name>UINT16</name>
+        <initializer>&apos;7&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="27" column="9" bodyfile="powerspy.X/message.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1afe24db52e8fc3b73e2131ea54d6891c0" prot="public" static="no">
+        <name>UINT24</name>
+        <initializer>&apos;8&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="28" column="9" bodyfile="powerspy.X/message.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1a69afa2e50b905f4eab1f2df8a3fd9f23" prot="public" static="no">
+        <name>UINT32</name>
+        <initializer>&apos;9&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="29" column="9" bodyfile="powerspy.X/message.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1ae8690abbffa85934d64d545920e2b108" prot="public" static="no">
+        <name>FLOAT</name>
+        <initializer>&apos;F&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="30" column="9" bodyfile="powerspy.X/message.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1a6edf1e14b6d4e2c1671b0a7eab07c79d" prot="public" static="no">
+        <name>START_OF_TEXT</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="32" column="9" bodyfile="powerspy.X/message.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1a56a578a96af22a00a930694b128ee9b9" prot="public" static="no">
+        <name>END_OF_TEXT</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="33" column="9" bodyfile="powerspy.X/message.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message_8h_1ada86d032bf834dd573609e6fe292b678" prot="public" static="no">
+        <name>RECEIVEBUFF_SIZE</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="34" column="9" bodyfile="powerspy.X/message.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="message_8h_1a22827c77541f996ffad3512ebb19b82d" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char receive_buff[RECEIVEBUFF_SIZE]</definition>
+        <argsstring>[RECEIVEBUFF_SIZE]</argsstring>
+        <name>receive_buff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="36" column="1" bodyfile="powerspy.X/message.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="message_8h_1ae7482f4801d11d7b275429aad907b13b" prot="public" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t buffpos</definition>
+        <argsstring></argsstring>
+        <name>buffpos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="37" column="1" bodyfile="powerspy.X/message.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="message_8h_1a01e4010741e5ee38acf158276ed9a3af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initMessaging</definition>
+        <argsstring>()</argsstring>
+        <name>initMessaging</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialises the messaging buffer and pointers. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="42" column="1" bodyfile="powerspy.X/message.c" bodystart="16" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1aeb40694579584385585c7e39e574ed26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t charAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>charAvailable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counts the available Characters in the receive buffer and returns that number. <simplesect kind="return"><para>the number of available characters </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="49" column="1" bodyfile="powerspy.X/message.c" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a2d521f5c5511bc21deb5a3e13b422cc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char readNext</definition>
+        <argsstring>()</argsstring>
+        <name>readNext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the next Character and advances the buffer by one. <simplesect kind="return"><para>the read character </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="55" column="1" bodyfile="powerspy.X/message.c" bodystart="31" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a38b46e4932111be93e3701203451c416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char readPackage</definition>
+        <argsstring>()</argsstring>
+        <name>readPackage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a package of data and returns a value unequal to 0 if the package is finished. <simplesect kind="return"><para>0 if the package is not finshied, otherwise 1 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="62" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a47e2fdede9224e382c30d55ee13e5b1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char packageStarted</definition>
+        <argsstring>()</argsstring>
+        <name>packageStarted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns 1 if at least one byte has been written to the buffer, otherwise 0. <simplesect kind="return"><para>1 if a byte is in the buffer, otherwise 0 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="69" column="1" bodyfile="powerspy.X/message.c" bodystart="39" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1afe58d05adb4037123536accff5de3106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char packageFinished</definition>
+        <argsstring>()</argsstring>
+        <name>packageFinished</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The return value behaves in the same way as does <ref refid="message_8h_1a38b46e4932111be93e3701203451c416" kindref="member">readPackage()</ref>. <simplesect kind="return"><para>0 if the package is not finshied, otherwise 1 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="75" column="1" bodyfile="powerspy.X/message.c" bodystart="49" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1ac41facd93e52b5ff8c8ab5913aa2775e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char getType</definition>
+        <argsstring>()</argsstring>
+        <name>getType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the type of the package as a Character. <simplesect kind="return"><para>the type </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="81" column="1" bodyfile="powerspy.X/message.c" bodystart="60" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1aec8d527271ad094a4fd0cf605e7c4751" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void seekFront</definition>
+        <argsstring>()</argsstring>
+        <name>seekFront</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the position of the buffer to the beginning of the buffer effectively resetting the buffer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="87" column="1" bodyfile="powerspy.X/message.c" bodystart="71" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the whole buffer with 0s (zeros). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="92" column="1" bodyfile="powerspy.X/message.c" bodystart="81" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a24c9f312341ccfb47ae7a007ae32c39f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t readInt8</definition>
+        <argsstring>()</argsstring>
+        <name>readInt8</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an 8 bit signed Integer from the buffer. <simplesect kind="return"><para>the 8 bit Integer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="98" column="1" bodyfile="powerspy.X/message.c" bodystart="91" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a7cf018b7a5d7bed8aa4d201e4399fce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t readInt16</definition>
+        <argsstring>()</argsstring>
+        <name>readInt16</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an 16 bit signed Integer from the buffer. <simplesect kind="return"><para>the 16 bit Integer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="103" column="1" bodyfile="powerspy.X/message.c" bodystart="102" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1adea3200a30db84b746743790b5696598" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int24_t</type>
+        <definition>int24_t readInt24</definition>
+        <argsstring>()</argsstring>
+        <name>readInt24</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an 24 bit signed Integer from the buffer. <simplesect kind="return"><para>the 24 bit Integer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="108" column="1" bodyfile="powerspy.X/message.c" bodystart="115" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1adbc23fa2b53ee3f0bd8cc0af521900d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t readInt32</definition>
+        <argsstring>()</argsstring>
+        <name>readInt32</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an 32 bit signed Integer from the buffer. <simplesect kind="return"><para>the 32 bit Integer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="113" column="1" bodyfile="powerspy.X/message.c" bodystart="130" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1aa5de12b8cd82d61b545a85ea991944a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float readFloat</definition>
+        <argsstring>()</argsstring>
+        <name>readFloat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an 3 byte Float from the buffer. <simplesect kind="return"><para>the Float </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="118" column="1" bodyfile="powerspy.X/message.c" bodystart="147" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1abae34479c3e66c8878999c3e4836dd65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void readString</definition>
+        <argsstring>(char **c)</argsstring>
+        <name>readString</name>
+        <param>
+          <type>char **</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a string from the buffer into the specified char array. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the destination </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="124" column="1" bodyfile="powerspy.X/message.c" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1ac7621400232b4f9108bc751f447ae486" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendInt8</definition>
+        <argsstring>(int8_t i)</argsstring>
+        <name>sendInt8</name>
+        <param>
+          <type>int8_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 8 bit wide Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="130" column="1" bodyfile="powerspy.X/message.c" bodystart="166" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1abc1593b6987bbc3b871743e20c86c7d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendInt16</definition>
+        <argsstring>(int16_t i)</argsstring>
+        <name>sendInt16</name>
+        <param>
+          <type>int16_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 16 bit wide Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="135" column="1" bodyfile="powerspy.X/message.c" bodystart="173" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a5451b692d0059527514ddbbab9ced49f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendInt24</definition>
+        <argsstring>(int24_t i)</argsstring>
+        <name>sendInt24</name>
+        <param>
+          <type>int24_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 24 bit wide Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="140" column="1" bodyfile="powerspy.X/message.c" bodystart="181" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a3fbb2c5d6c23e1fc978f1ae234927c88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendInt32</definition>
+        <argsstring>(int32_t i)</argsstring>
+        <name>sendInt32</name>
+        <param>
+          <type>int32_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 32 bit wide Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="145" column="1" bodyfile="powerspy.X/message.c" bodystart="190" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a0c25a5fe76d1638f8da153040e752c00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendUInt8</definition>
+        <argsstring>(uint8_t i)</argsstring>
+        <name>sendUInt8</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 8 bit wide unsigned Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="151" column="1" bodyfile="powerspy.X/message.c" bodystart="200" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a0fd945471da0bce0fab9ee18cd61924e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendUInt16</definition>
+        <argsstring>(uint16_t i)</argsstring>
+        <name>sendUInt16</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 16 bit wide unsigned Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="157" column="1" bodyfile="powerspy.X/message.c" bodystart="207" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a9ee52554eb39dd8851c6dd79a3bacc5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendUInt24</definition>
+        <argsstring>(uint24_t i)</argsstring>
+        <name>sendUInt24</name>
+        <param>
+          <type>uint24_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 24 bit wide unsigned Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="163" column="1" bodyfile="powerspy.X/message.c" bodystart="215" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a02d2acd3e4151381331c134a7aaeac4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendUint32</definition>
+        <argsstring>(uint32_t i)</argsstring>
+        <name>sendUint32</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends an 32 bit wide unsigned Integer variable over the USART register <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="169" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a08cbc9f34ffb5422939e306a0e5f3348" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendFloat</definition>
+        <argsstring>(float f)</argsstring>
+        <name>sendFloat</name>
+        <param>
+          <type>float</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a 3 byte wide Float over the USART module. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the Float to send </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="175" column="1" bodyfile="powerspy.X/message.c" bodystart="234" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="message_8h_1a8d6be23dfc9d486b1164f13153d4173a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendString</definition>
+        <argsstring>(char *val)</argsstring>
+        <name>sendString</name>
+        <param>
+          <type>char *</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a null-terminated String over the USART module. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the pointer to the first element of the String </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="powerspy.X/message.h" line="181" column="1" bodyfile="powerspy.X/message.c" bodystart="244" bodyend="253"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>File: <ref refid="message_8h" kindref="compound">message.h</ref> Author: Manuel Federanko Version: 1.0 Comments: Revision history: </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="10"><highlight class="preprocessor">#ifndef<sp/>__MESSAGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__MESSAGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xc.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="types_8h" kindref="compound">types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/><sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;0&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STRING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;1&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INT8<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;2&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INT16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;3&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INT24<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;4&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INT32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;5&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UINT8<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;6&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UINT16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;7&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UINT24<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;8&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UINT32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;9&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FLOAT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;F&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>START_OF_TEXT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>END_OF_TEXT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RECEIVEBUFF_SIZE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>receive_buff[RECEIVEBUFF_SIZE];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/>buffpos;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a01e4010741e5ee38acf158276ed9a3af" kindref="member">initMessaging</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="message_8h_1aeb40694579584385585c7e39e574ed26" kindref="member">charAvailable</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a2d521f5c5511bc21deb5a3e13b422cc1" kindref="member">readNext</ref>();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a38b46e4932111be93e3701203451c416" kindref="member">readPackage</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a47e2fdede9224e382c30d55ee13e5b1b" kindref="member">packageStarted</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="message_8h_1afe58d05adb4037123536accff5de3106" kindref="member">packageFinished</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="message_8h_1ac41facd93e52b5ff8c8ab5913aa2775e" kindref="member">getType</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1aec8d527271ad094a4fd0cf605e7c4751" kindref="member">seekFront</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1ac8bb3912a3ce86b15842e79d0b421204" kindref="member">clear</ref>();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="message_8h_1a24c9f312341ccfb47ae7a007ae32c39f" kindref="member">readInt8</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="message_8h_1a7cf018b7a5d7bed8aa4d201e4399fce0" kindref="member">readInt16</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int24_t<sp/><ref refid="message_8h_1adea3200a30db84b746743790b5696598" kindref="member">readInt24</ref>();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32_t<sp/><ref refid="message_8h_1adbc23fa2b53ee3f0bd8cc0af521900d4" kindref="member">readInt32</ref>();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="message_8h_1aa5de12b8cd82d61b545a85ea991944a3" kindref="member">readFloat</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1abae34479c3e66c8878999c3e4836dd65" kindref="member">readString</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**c);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1ac7621400232b4f9108bc751f447ae486" kindref="member">sendInt8</ref>(int8_t<sp/>i);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1abc1593b6987bbc3b871743e20c86c7d0" kindref="member">sendInt16</ref>(int16_t<sp/>i);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a5451b692d0059527514ddbbab9ced49f" kindref="member">sendInt24</ref>(int24_t<sp/>i);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a3fbb2c5d6c23e1fc978f1ae234927c88" kindref="member">sendInt32</ref>(int32_t<sp/>i);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a0c25a5fe76d1638f8da153040e752c00" kindref="member">sendUInt8</ref>(uint8_t<sp/>i);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a0fd945471da0bce0fab9ee18cd61924e" kindref="member">sendUInt16</ref>(uint16_t<sp/>i);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a9ee52554eb39dd8851c6dd79a3bacc5e" kindref="member">sendUInt24</ref>(uint24_t<sp/>i);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a02d2acd3e4151381331c134a7aaeac4e" kindref="member">sendUint32</ref>(uint32_t<sp/>i);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a08cbc9f34ffb5422939e306a0e5f3348" kindref="member">sendFloat</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>f);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="message_8h_1a8d6be23dfc9d486b1164f13153d4173a" kindref="member">sendString</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*val);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/><sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="powerspy.X/message.h"/>
+  </compounddef>
+</doxygen>

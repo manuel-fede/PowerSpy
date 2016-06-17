@@ -1,0 +1,360 @@
+.TH "powerspy.X/message.h" 3 "Tue May 24 2016" "Version 1.0" "PowerSpy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+powerspy.X/message.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <xc\&.h>\fP
+.br
+\fC#include 'types\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNONE\fP   '0'"
+.br
+.ti -1c
+.RI "#define \fBSTRING\fP   '1'"
+.br
+.ti -1c
+.RI "#define \fBINT8\fP   '2'"
+.br
+.ti -1c
+.RI "#define \fBINT16\fP   '3'"
+.br
+.ti -1c
+.RI "#define \fBINT24\fP   '4'"
+.br
+.ti -1c
+.RI "#define \fBINT32\fP   '5'"
+.br
+.ti -1c
+.RI "#define \fBUINT8\fP   '6'"
+.br
+.ti -1c
+.RI "#define \fBUINT16\fP   '7'"
+.br
+.ti -1c
+.RI "#define \fBUINT24\fP   '8'"
+.br
+.ti -1c
+.RI "#define \fBUINT32\fP   '9'"
+.br
+.ti -1c
+.RI "#define \fBFLOAT\fP   'F'"
+.br
+.ti -1c
+.RI "#define \fBSTART_OF_TEXT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBEND_OF_TEXT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRECEIVEBUFF_SIZE\fP   8"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitMessaging\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBcharAvailable\fP ()"
+.br
+.ti -1c
+.RI "char \fBreadNext\fP ()"
+.br
+.ti -1c
+.RI "char \fBreadPackage\fP ()"
+.br
+.ti -1c
+.RI "char \fBpackageStarted\fP ()"
+.br
+.ti -1c
+.RI "char \fBpackageFinished\fP ()"
+.br
+.ti -1c
+.RI "char \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "void \fBseekFront\fP ()"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBreadInt8\fP ()"
+.br
+.ti -1c
+.RI "int16_t \fBreadInt16\fP ()"
+.br
+.ti -1c
+.RI "int24_t \fBreadInt24\fP ()"
+.br
+.ti -1c
+.RI "int32_t \fBreadInt32\fP ()"
+.br
+.ti -1c
+.RI "float \fBreadFloat\fP ()"
+.br
+.ti -1c
+.RI "void \fBreadString\fP (char **c)"
+.br
+.ti -1c
+.RI "void \fBsendInt8\fP (int8_t i)"
+.br
+.ti -1c
+.RI "void \fBsendInt16\fP (int16_t i)"
+.br
+.ti -1c
+.RI "void \fBsendInt24\fP (int24_t i)"
+.br
+.ti -1c
+.RI "void \fBsendInt32\fP (int32_t i)"
+.br
+.ti -1c
+.RI "void \fBsendUInt8\fP (uint8_t i)"
+.br
+.ti -1c
+.RI "void \fBsendUInt16\fP (uint16_t i)"
+.br
+.ti -1c
+.RI "void \fBsendUInt24\fP (uint24_t i)"
+.br
+.ti -1c
+.RI "void \fBsendUint32\fP (uint32_t i)"
+.br
+.ti -1c
+.RI "void \fBsendFloat\fP (float f)"
+.br
+.ti -1c
+.RI "void \fBsendString\fP (char *val)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "char \fBreceive_buff\fP [RECEIVEBUFF_SIZE]"
+.br
+.ti -1c
+.RI "int8_t \fBbuffpos\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+File: \fBmessage\&.h\fP Author: Manuel Federanko Version: 1\&.0 Comments: Revision history: 
+.SH "Function Documentation"
+.PP 
+.SS "int8_t charAvailable ()"
+Counts the available Characters in the receive buffer and returns that number\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of available characters 
+.RE
+.PP
+
+.SS "void clear ()"
+Clears the whole buffer with 0s (zeros)\&. 
+.SS "char getType ()"
+Returns the type of the package as a Character\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the type 
+.RE
+.PP
+
+.SS "void initMessaging ()"
+Initialises the messaging buffer and pointers\&. 
+.SS "char packageFinished ()"
+The return value behaves in the same way as does \fBreadPackage()\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0 if the package is not finshied, otherwise 1 
+.RE
+.PP
+
+.SS "char packageStarted ()"
+Returns 1 if at least one byte has been written to the buffer, otherwise 0\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+1 if a byte is in the buffer, otherwise 0 
+.RE
+.PP
+
+.SS "float readFloat ()"
+Reads an 3 byte Float from the buffer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the Float 
+.RE
+.PP
+
+.SS "int16_t readInt16 ()"
+Reads an 16 bit signed Integer from the buffer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the 16 bit Integer 
+.RE
+.PP
+
+.SS "int24_t readInt24 ()"
+Reads an 24 bit signed Integer from the buffer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the 24 bit Integer 
+.RE
+.PP
+
+.SS "int32_t readInt32 ()"
+Reads an 32 bit signed Integer from the buffer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the 32 bit Integer 
+.RE
+.PP
+
+.SS "int8_t readInt8 ()"
+Reads an 8 bit signed Integer from the buffer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the 8 bit Integer 
+.RE
+.PP
+
+.SS "char readNext ()"
+Reads the next Character and advances the buffer by one\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the read character 
+.RE
+.PP
+
+.SS "char readPackage ()"
+Reads a package of data and returns a value unequal to 0 if the package is finished\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0 if the package is not finshied, otherwise 1 
+.RE
+.PP
+
+.SS "void readString (char ** c)"
+Reads a string from the buffer into the specified char array\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the destination 
+.RE
+.PP
+
+.SS "void seekFront ()"
+Sets the position of the buffer to the beginning of the buffer effectively resetting the buffer\&. 
+.SS "void sendFloat (float f)"
+Sends a 3 byte wide Float over the USART module\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP the Float to send 
+.RE
+.PP
+
+.SS "void sendInt16 (int16_t i)"
+Sends an 16 bit wide Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SS "void sendInt24 (int24_t i)"
+Sends an 24 bit wide Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SS "void sendInt32 (int32_t i)"
+Sends an 32 bit wide Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SS "void sendInt8 (int8_t i)"
+Sends an 8 bit wide Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SS "void sendString (char * val)"
+Sends a null-terminated String over the USART module\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIval\fP the pointer to the first element of the String 
+.RE
+.PP
+
+.SS "void sendUInt16 (uint16_t i)"
+Sends an 16 bit wide unsigned Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SS "void sendUInt24 (uint24_t i)"
+Sends an 24 bit wide unsigned Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SS "void sendUint32 (uint32_t i)"
+Sends an 32 bit wide unsigned Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SS "void sendUInt8 (uint8_t i)"
+Sends an 8 bit wide unsigned Integer variable over the USART register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the data 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for PowerSpy from the source code\&.

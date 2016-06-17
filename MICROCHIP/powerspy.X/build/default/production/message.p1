@@ -2761,101 +2761,109 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;types.h: 15: typedef signed char byte;
-[; ;types.h: 16: typedef signed char int8_t;
-[; ;types.h: 17: typedef unsigned char uint8_t;
-[; ;types.h: 18: typedef signed short int16_t;
-[; ;types.h: 19: typedef unsigned short uint16_t;
-[; ;types.h: 20: typedef signed short long int24_t;
-[; ;types.h: 21: typedef unsigned short long uint24_t;
-[; ;types.h: 22: typedef signed long int32_t;
-[; ;types.h: 23: typedef unsigned long uint32_t;
-"34 message.h
+[; ;types.h: 17: typedef signed char byte;
+[; ;types.h: 18: typedef signed char int8_t;
+[; ;types.h: 19: typedef unsigned char uint8_t;
+[; ;types.h: 20: typedef signed short int16_t;
+[; ;types.h: 21: typedef unsigned short uint16_t;
+[; ;types.h: 22: typedef signed short long int24_t;
+[; ;types.h: 23: typedef unsigned short long uint24_t;
+[; ;types.h: 24: typedef signed long int32_t;
+[; ;types.h: 25: typedef unsigned long uint32_t;
+"36 message.h
 [v _receive_buff `uc ~T0 @X0 -> 8 `i e ]
-[; ;message.h: 34: char receive_buff[8];
-"35
+[; ;message.h: 36: char receive_buff[8];
+"37
 [v _buffpos `c ~T0 @X0 1 e ]
-[; ;message.h: 35: int8_t buffpos;
-[; ;message.h: 36: void initMessaging();
-[; ;message.h: 37: int8_t charAvailable();
-[; ;message.h: 38: char readNext();
-[; ;message.h: 39: char readPackage();
-[; ;message.h: 40: char packageStarted();
-[; ;message.h: 41: char packageFinished();
-[; ;message.h: 42: char getType();
-[; ;message.h: 43: void seekFront();
-[; ;message.h: 44: int8_t readInt8();
-[; ;message.h: 45: int16_t readInt16();
-[; ;message.h: 46: int24_t readInt24();
-[; ;message.h: 47: int32_t readInt32();
-[; ;message.h: 48: float readFloat();
-[; ;message.h: 49: void readString(char **c);
-[; ;message.h: 50: void clear();
-[; ;message.h: 51: void sendInt8(int8_t i);
-[; ;message.h: 52: void sendInt16(int16_t i);
-[; ;message.h: 53: void sendInt24(int24_t i);
-[; ;message.h: 54: void sendInt32(int32_t i);
-[; ;message.h: 55: void sendUInt8(uint8_t i);
-[; ;message.h: 56: void sendUInt16(uint16_t i);
-[; ;message.h: 57: void sendUInt24(uint24_t i);
-[; ;message.h: 58: void sendUint32(uint32_t i);
-[; ;message.h: 59: void sendFloat(float f);
-[; ;message.h: 60: void sendString(char *val);
-"18 powerspy.h
+[; ;message.h: 37: int8_t buffpos;
+[; ;message.h: 42: void initMessaging();
+[; ;message.h: 49: int8_t charAvailable();
+[; ;message.h: 55: char readNext();
+[; ;message.h: 62: char readPackage();
+[; ;message.h: 69: char packageStarted();
+[; ;message.h: 75: char packageFinished();
+[; ;message.h: 81: char getType();
+[; ;message.h: 87: void seekFront();
+[; ;message.h: 92: void clear();
+[; ;message.h: 98: int8_t readInt8();
+[; ;message.h: 103: int16_t readInt16();
+[; ;message.h: 108: int24_t readInt24();
+[; ;message.h: 113: int32_t readInt32();
+[; ;message.h: 118: float readFloat();
+[; ;message.h: 124: void readString(char **c);
+[; ;message.h: 130: void sendInt8(int8_t i);
+[; ;message.h: 135: void sendInt16(int16_t i);
+[; ;message.h: 140: void sendInt24(int24_t i);
+[; ;message.h: 145: void sendInt32(int32_t i);
+[; ;message.h: 151: void sendUInt8(uint8_t i);
+[; ;message.h: 157: void sendUInt16(uint16_t i);
+[; ;message.h: 163: void sendUInt24(uint24_t i);
+[; ;message.h: 169: void sendUint32(uint32_t i);
+[; ;message.h: 175: void sendFloat(float f);
+[; ;message.h: 181: void sendString(char *val);
+"20 powerspy.h
 [p x FOSC=INTOSC ]
-"19
-[p x WDTE=OFF ]
-"20
-[p x PWRTE=OFF ]
 "21
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "22
-[p x CP=OFF ]
+[p x PWRTE=OFF ]
 "23
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "24
-[p x BOREN=OFF ]
+[p x CP=OFF ]
 "25
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "26
-[p x IESO=OFF ]
+[p x BOREN=OFF ]
 "27
+[p x CLKOUTEN=OFF ]
+"28
+[p x IESO=OFF ]
+"29
 [p x FCMEN=OFF ]
-"30
-[p x WRT=OFF ]
-"31
-[p x PLLEN=ON ]
 "32
-[p x STVREN=OFF ]
+[p x WRT=OFF ]
 "33
-[p x BORV=LO ]
+[p x PLLEN=ON ]
 "34
+[p x STVREN=OFF ]
+"35
+[p x BORV=LO ]
+"36
 [p x LVP=OFF ]
-"38
-[p k ]
-"39
-[p n 752 ]
 "40
-[p n 520 ]
+[p k ]
 "41
+[p n 752 ]
+"42
+[p n 520 ]
+"43
 [p o ]
-[; ;powerspy.h: 181: void initPins();
-[; ;powerspy.h: 182: void initADC();
-[; ;powerspy.h: 183: void initTMR2();
-[; ;powerspy.h: 184: void initTMR1();
-[; ;powerspy.h: 185: void initFVR();
-[; ;powerspy.h: 186: void initPWMTMR4();
-[; ;powerspy.h: 187: void initCOMP1();
-[; ;powerspy.h: 188: void initCOMP2();
-[; ;powerspy.h: 189: void adc(const int8_t src);
-[; ;powerspy.h: 190: uint8_t readVoltage();
-[; ;powerspy.h: 191: int24_t readCurrent();
-[; ;powerspy.h: 192: void so(const uint8_t data);
-[; ;powerspy.h: 193: uint24_t combine(uint24_t nr1, uint24_t nr2);
-[; ;powerspy.h: 194: void clearDisplay(int8_t leng);
-[; ;powerspy.h: 195: uint8_t setNr(uint16_t);
-[; ;powerspy.h: 196: void __interrupt ISR();
-[; ;powerspy.h: 197: void main();
+[; ;powerspy.h: 195: void initPins();
+[; ;powerspy.h: 203: void initADC();
+[; ;powerspy.h: 209: void initTMR2();
+[; ;powerspy.h: 215: void initTMR1();
+[; ;powerspy.h: 223: void initFVR();
+[; ;powerspy.h: 233: void initPWMTMR4();
+[; ;powerspy.h: 239: void initCOMP1();
+[; ;powerspy.h: 245: void initCOMP2();
+[; ;powerspy.h: 251: void initBT();
+[; ;powerspy.h: 261: void adc(const int8_t src);
+[; ;powerspy.h: 269: uint8_t readVoltage();
+[; ;powerspy.h: 277: int24_t readCurrent();
+[; ;powerspy.h: 286: uint16_t readVdd();
+[; ;powerspy.h: 293: void so(const uint8_t data);
+[; ;powerspy.h: 299: void clearDisplay(int8_t leng);
+[; ;powerspy.h: 307: void sendColour(uint8_t);
+[; ;powerspy.h: 319: uint16_t deltaT(uint16_t tm_low, uint16_t tm_high);
+[; ;powerspy.h: 329: int8_t sin_(int8_t z);
+[; ;powerspy.h: 336: int8_t sin(int16_t z);
+[; ;powerspy.h: 343: int8_t cos(int16_t z);
+[; ;powerspy.h: 351: uint8_t ledReset();
+[; ;powerspy.h: 359: void setLED(uint8_t g, uint8_t r, uint8_t b);
+[; ;powerspy.h: 367: void setUnit(uint24_t u);
+[; ;powerspy.h: 375: void setVal(int16_t v);
+[; ;powerspy.h: 381: void __interrupt ISR();
 "13 message.c
 [v _readpos `c ~T0 @X0 1 e ]
 [; ;message.c: 13: int8_t readpos;

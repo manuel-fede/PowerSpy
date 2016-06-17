@@ -29,10 +29,17 @@ import javax.swing.*;
 class ProgressCircleUI extends javax.swing.plaf.basic.BasicProgressBarUI {
 
         private static final int ALPHA = 80;
-        private static final double ALPHA_RAD = ALPHA / 180.0 * Math.PI;
-        private static final int STARTANGLE = (180 - ALPHA) / 2 + 180;
-        private static final int ENDANGLE = -(180 - ALPHA) / 2;
-        private static final int RANGE = 360 - ALPHA;
+        private static final int FULLROT = 360;
+        private static final int HALFROT = FULLROT / 2;
+        private static final int RANGE = FULLROT - ALPHA;
+        private static final int GAMMA = (HALFROT - ALPHA) / 2;
+        private static final int STARTANGLE = HALFROT + GAMMA;
+        private static final double ALPHA_RAD = ALPHA * Math.PI / 180;
+        private static final double FULLROT_RAD = 2 * Math.PI;
+        private static final double HALFROT_RAD = Math.PI;
+        private static final double RANGE_RAD = HALFROT * Math.PI / 180;
+        private static final double GAMMA_RAD = GAMMA * Math.PI / 180;
+        private static final double STARTANGLE_RAD = STARTANGLE * Math.PI / 180;
 
         private final int boldness;
         private final Color bg;
@@ -54,8 +61,8 @@ class ProgressCircleUI extends javax.swing.plaf.basic.BasicProgressBarUI {
          * foreground colour and a background colour.
          *
          * @param boldness the boldness of the arc
-         * @param bg       the background colour
-         * @param fg       the foreground colour
+         * @param bg the background colour
+         * @param fg the foreground colour
          */
         public ProgressCircleUI(int boldness, Color bg, Color fg)
         {
@@ -71,6 +78,19 @@ class ProgressCircleUI extends javax.swing.plaf.basic.BasicProgressBarUI {
                 int v = Math.max(d.width, d.height);
                 d.setSize(v, v);
                 return d;
+        }
+
+        private static void fillRoundArc(Graphics g, int x, int y, int width, int height, int thickness)
+        {
+                g.fillArc(x, y, width, height, -GAMMA, RANGE);
+
+                int x_ = (int) (-Math.cos(GAMMA_RAD - 0.13) * ((width - thickness)/2 + 1));
+                int y_ = (int) (Math.sin(GAMMA_RAD - 0.13) * ((height - thickness)/2 + 1));
+                g.setColor(Color.RED);
+                g.fillArc(x_, y_, thickness, thickness, 0, 360);
+                
+                x_ = (int) (Math.cos(GAMMA_RAD + 0.13) * ((width - thickness)/2 + 5));
+                g.fillArc(x_, y_, thickness, thickness, 0, 360);
         }
 
         @Override
@@ -113,7 +133,7 @@ class ProgressCircleUI extends javax.swing.plaf.basic.BasicProgressBarUI {
                                 width, heigh, 0, progressBar.getInsets());
                 }
         }
-
+        
         @Override
         protected Color getSelectionForeground()
         {

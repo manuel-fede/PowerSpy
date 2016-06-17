@@ -120,13 +120,17 @@ extern "C" {
 #define ASECOND                 0b111110101111111111111111
 
 #define RSECOND                 0b111111111111111111111111
-
+                              //0b111110100101101011111111
+#define S_MFIRST                0b111110100101101011011111
+#define MFIRST                  0b111101001111101011110111
+    
 #define UNIT_NONE               0xffffff
 #define UNIT_VA                 (V&ASECOND)
 #define UNIT_A                  AFIRST
 #define UNIT_W                  WFIRST
 #define UNIT_V                  V
 #define UNIT_VR                 (V&RSECOND)
+#define UNIT_MA                 (S_MFIRST&ASECOND)
 
 #define NNR0                    0b111111101111100011100111
 #define NNR1                    0b111111111111111011110111
@@ -161,7 +165,7 @@ extern "C" {
                                 STATUS_LED=0;\
                                 WAIT_T1L\
                                 }
-#define LED_INTENSE              (0xff>>3)
+#define LED_INTENSE             (0xff>>0)
 
 #define DMODE_NONE              0
 #define DMODE_CURRENT           1

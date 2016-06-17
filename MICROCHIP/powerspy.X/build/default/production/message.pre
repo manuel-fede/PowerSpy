@@ -3718,7 +3718,7 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 15 "types.h"
+# 17 "types.h"
 typedef signed char byte;
 typedef signed char int8_t;
 typedef unsigned char uint8_t;
@@ -3729,37 +3729,87 @@ typedef unsigned short long uint24_t;
 typedef signed long int32_t;
 typedef unsigned long uint32_t;
 
-# 34 "message.h"
+# 36 "message.h"
 char receive_buff[8];
 int8_t buffpos;
+
+# 42
 void initMessaging();
+
+# 49
 int8_t charAvailable();
+
+# 55
 char readNext();
+
+# 62
 char readPackage();
+
+# 69
 char packageStarted();
+
+# 75
 char packageFinished();
+
+# 81
 char getType();
+
+# 87
 void seekFront();
-int8_t readInt8();
-int16_t readInt16();
-int24_t readInt24();
-int32_t readInt32();
-float readFloat();
-void readString(char **c);
+
+# 92
 void clear();
+
+# 98
+int8_t readInt8();
+
+# 103
+int16_t readInt16();
+
+# 108
+int24_t readInt24();
+
+# 113
+int32_t readInt32();
+
+# 118
+float readFloat();
+
+# 124
+void readString(char **c);
+
+# 130
 void sendInt8(int8_t i);
+
+# 135
 void sendInt16(int16_t i);
+
+# 140
 void sendInt24(int24_t i);
+
+# 145
 void sendInt32(int32_t i);
+
+# 151
 void sendUInt8(uint8_t i);
+
+# 157
 void sendUInt16(uint16_t i);
+
+# 163
 void sendUInt24(uint24_t i);
+
+# 169
 void sendUint32(uint32_t i);
+
+# 175
 void sendFloat(float f);
+
+# 181
 void sendString(char *val);
 
 
-# 18 "powerspy.h"
+# 20 "powerspy.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -3785,24 +3835,80 @@ void sendString(char *val);
 #pragma warning disable 520
 #pragma warning pop
 
-# 181
+# 195
 void initPins();
+
+# 203
 void initADC();
+
+# 209
 void initTMR2();
+
+# 215
 void initTMR1();
+
+# 223
 void initFVR();
+
+# 233
 void initPWMTMR4();
+
+# 239
 void initCOMP1();
+
+# 245
 void initCOMP2();
+
+# 251
+void initBT();
+
+# 261
 void adc(const int8_t src);
+
+# 269
 uint8_t readVoltage();
+
+# 277
 int24_t readCurrent();
+
+# 286
+uint16_t readVdd();
+
+# 293
 void so(const uint8_t data);
-uint24_t combine(uint24_t nr1, uint24_t nr2);
+
+# 299
 void clearDisplay(int8_t leng);
-uint8_t setNr(uint16_t);
+
+# 307
+void sendColour(uint8_t);
+
+# 319
+uint16_t deltaT(uint16_t tm_low, uint16_t tm_high);
+
+# 329
+int8_t sin_(int8_t z);
+
+# 336
+int8_t sin(int16_t z);
+
+# 343
+int8_t cos(int16_t z);
+
+# 351
+uint8_t ledReset();
+
+# 359
+void setLED(uint8_t g, uint8_t r, uint8_t b);
+
+# 367
+void setUnit(uint24_t u);
+
+# 375
+void setVal(int16_t v);
+
+# 381
 void __interrupt ISR();
-void main();
 
 # 13 "message.c"
 int8_t readpos;

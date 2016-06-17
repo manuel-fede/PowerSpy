@@ -1,0 +1,767 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/**</span>
+<span style="color: #888888"> * @file</span>
+<span style="color: #888888"> * File:                powerspy.h</span>
+<span style="color: #888888"> * Author:              Manuel Federanko</span>
+<span style="color: #888888"> * Version:             1.0</span>
+<span style="color: #888888"> * Comments:            </span>
+<span style="color: #888888"> * Revision history:    </span>
+<span style="color: #888888"> */</span>
+
+<span style="color: #557799">#include &lt;xc.h&gt;</span>
+<span style="color: #557799">#include &quot;types.h&quot;</span>
+
+<span style="color: #557799">#ifndef __POWERSPY_H</span>
+<span style="color: #557799">#define	__POWERSPY_H</span>
+
+<span style="color: #557799">#ifdef	__cplusplus</span>
+<span style="color: #008800; font-weight: bold">extern</span> <span style="background-color: #fff0f0">&quot;C&quot;</span> {
+<span style="color: #557799">#endif</span>
+
+<span style="color: #557799">#pragma config FOSC = INTOSC    </span><span style="color: #888888">// Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin) - needed for 32mhz</span>
+<span style="color: #557799">#pragma config WDTE = OFF       </span><span style="color: #888888">// Watchdog Timer Enable (WDT disabled)</span>
+<span style="color: #557799">#pragma config PWRTE = OFF      </span><span style="color: #888888">// Power-up Timer Enable (PWRT disabled)</span>
+<span style="color: #557799">#pragma config MCLRE = ON       </span><span style="color: #888888">// MCLR Pin Function Select (MCLR/VPP pin function is MCLR)</span>
+<span style="color: #557799">#pragma config CP = OFF         </span><span style="color: #888888">// Flash Program Memory Code Protection (Program memory code protection is disabled)</span>
+<span style="color: #557799">#pragma config CPD = OFF        </span><span style="color: #888888">// Data Memory Code Protection (Data memory code protection is disabled)</span>
+<span style="color: #557799">#pragma config BOREN = OFF      </span><span style="color: #888888">// Brown-out Reset Enable (Brown-out Reset disabled)</span>
+<span style="color: #557799">#pragma config CLKOUTEN = OFF   </span><span style="color: #888888">// Clock Out Enable (CLKOUT function is disabled. I/O or oscillator function on the CLKOUT pin)</span>
+<span style="color: #557799">#pragma config IESO = OFF       </span><span style="color: #888888">// Internal/External Switchover (Internal/External Switchover mode is disabled)</span>
+<span style="color: #557799">#pragma config FCMEN = OFF      </span><span style="color: #888888">// Fail-Safe Clock Monitor Enable (Fail-Safe Clock Monitor is disabled)</span>
+
+        <span style="color: #888888">// CONFIG2</span>
+<span style="color: #557799">#pragma config WRT = OFF        </span><span style="color: #888888">// Flash Memory Self-Write Protection (Write protection off)</span>
+<span style="color: #557799">#pragma config PLLEN = ON       </span><span style="color: #888888">// PLL Enable (4x PLL disabled)</span>
+<span style="color: #557799">#pragma config STVREN = OFF     </span><span style="color: #888888">// Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will not cause a Reset)</span>
+<span style="color: #557799">#pragma config BORV = LO        </span><span style="color: #888888">// Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)</span>
+<span style="color: #557799">#pragma config LVP = OFF        </span><span style="color: #888888">// Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)</span>
+
+        <span style="color: #888888">//xc8 gives a warning when converting to lower data types</span>
+        <span style="color: #888888">//even when casting to the appropriate type</span>
+<span style="color: #557799">#pragma warning push</span>
+<span style="color: #557799">#pragma warning disable 752</span>
+<span style="color: #557799">#pragma warning disable 520</span>
+<span style="color: #557799">#pragma warning pop</span>
+
+        <span style="color: #888888">//print specific defines</span>
+<span style="color: #557799">#define _XTAL_FREQ              32000000</span>
+<span style="color: #557799">#define RX                      RB1</span>
+<span style="color: #557799">#define TX                      RB2</span>
+
+<span style="color: #557799">#define IN_FREQ                 50</span>
+
+<span style="color: #557799">#define CURRENT_VAL_IN          RB5</span>
+<span style="color: #557799">#define CURRENT_PHA_IN          RA0</span>
+
+<span style="color: #557799">#define VOLTAGE_VAL_IN          RB4</span>
+<span style="color: #557799">#define VOLTAGE_PHA_IN          RA1</span>
+
+<span style="color: #557799">#define DISPLAY_LAT             RA3</span>
+<span style="color: #557799">#define DISPLAY_CLK             RA4</span>
+<span style="color: #557799">#define DISPLAY_DATA            RA7</span>
+
+<span style="color: #557799">#define SHIFT_DIR_MSBFIRST      1</span>
+<span style="color: #557799">#define SHIFT_DIR_LSBFIRST      0</span>
+
+<span style="color: #557799">#define STATUS_LED              RA6</span>
+<span style="color: #557799">#define BUTTON                  RB3</span>
+
+<span style="color: #557799">#define PWM_OUT_GEN_VOLT        RB0</span>
+<span style="color: #557799">#define PWM_IN_REF              RA2</span>
+
+<span style="color: #557799">#define SHIFT_REG_LEN           7</span>
+<span style="color: #557799">#define SHIFT_DELAY             NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();</span>
+
+<span style="color: #557799">#define RET_OK                  0</span>
+<span style="color: #557799">#define RET_NOK                 1</span>
+
+<span style="color: #557799">#define K_RAWCURRENT            &#39;C&#39;</span>
+<span style="color: #557799">#define K_OFFS                  &#39;o&#39;</span>
+<span style="color: #557799">#define K_CURRENT               &#39;c&#39;</span>
+<span style="color: #557799">#define K_VOLTAGE               &#39;v&#39;</span>
+<span style="color: #557799">#define K_ANGLE                 &#39;a&#39;</span>
+<span style="color: #557799">#define K_APPARENTEPOWER        &#39;A&#39;</span>
+<span style="color: #557799">#define K_REALPOWER             &#39;r&#39;</span>
+<span style="color: #557799">#define K_REACTIVEPOWER         &#39;R&#39;</span>
+<span style="color: #557799">#define K_RAWVOLTAGE            &#39;s&#39;</span>
+
+<span style="color: #557799">#define VOLT_TO_AMP_FACT        5</span>
+
+<span style="color: #557799">#define NRMASK                  0b10000001</span>
+<span style="color: #557799">#define NR0                     0b10000001</span>
+<span style="color: #557799">#define NR1                     0b10111101</span>
+<span style="color: #557799">#define NR2                     0b00010011</span>
+<span style="color: #557799">#define NR3                     0b00011001</span>
+<span style="color: #557799">#define NR4                     0b00101101</span>
+<span style="color: #557799">#define NR5                     0b01001001</span>
+<span style="color: #557799">#define NR6                     0b01000001</span>
+<span style="color: #557799">#define NR7                     0b10011101</span>
+<span style="color: #557799">#define NR8                     0b00000001</span>
+<span style="color: #557799">#define NR9                     0b00001001</span>
+
+        <span style="color: #888888">//shift 1 - 3</span>
+<span style="color: #557799">#define BIGMASK                 0b110100000000000011100111</span>
+<span style="color: #557799">#define SMAMASK                 0b111111111111111100011111</span>
+<span style="color: #557799">#define MASK                    (BIGMASK|SMAMASK)</span>
+
+<span style="color: #557799">#define V                       0b111111111101110101101111</span>
+<span style="color: #557799">#define WFIRST                  0b111011110101010101111111                         </span>
+<span style="color: #557799">#define WSECOND                 0b111111001111111111111111</span>
+
+<span style="color: #557799">#define AFIRST                  0b111001110101111001011111</span>
+<span style="color: #557799">#define ASECOND                 0b111110101111111111111111</span>
+
+<span style="color: #557799">#define RSECOND                 0b111111111111111111111111</span>
+
+<span style="color: #557799">#define UNIT_NONE               0xffffff</span>
+<span style="color: #557799">#define UNIT_VA                 (V&amp;ASECOND)</span>
+<span style="color: #557799">#define UNIT_A                  AFIRST</span>
+<span style="color: #557799">#define UNIT_W                  WFIRST</span>
+<span style="color: #557799">#define UNIT_V                  V</span>
+<span style="color: #557799">#define UNIT_VR                 (V&amp;RSECOND)</span>
+
+<span style="color: #557799">#define NNR0                    0b111111101111100011100111</span>
+<span style="color: #557799">#define NNR1                    0b111111111111111011110111</span>
+<span style="color: #557799">#define NNR2                    0b111110110111100111100111</span>
+<span style="color: #557799">#define NNR3                    0b111110110111110011100111</span>
+<span style="color: #557799">#define NNR4                    0b111110100111111011110111</span>
+<span style="color: #557799">#define NNR5                    0b111110100111110011101111</span>
+<span style="color: #557799">#define NNR6                    0b111110100111100011101111</span>
+<span style="color: #557799">#define NNR7                    0b111111111111111011100111</span>
+<span style="color: #557799">#define NNR8                    0b111110100111100011100111</span>
+<span style="color: #557799">#define NNR9                    0b111110100111110011100111</span>
+
+<span style="color: #557799">#define WAIT_T0H                NOP();</span>
+<span style="color: #557799">#define WAIT_T0L                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();</span>
+<span style="color: #557799">#define WAIT_T1H                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();\</span>
+<span style="color: #557799">                                NOP();</span>
+<span style="color: #557799">#define WAIT_T1L                NOP();</span>
+
+<span style="color: #557799">#define LED_LOWBIT              {\</span>
+<span style="color: #557799">                                STATUS_LED=1;\</span>
+<span style="color: #557799">                                WAIT_T0H\</span>
+<span style="color: #557799">                                STATUS_LED=0;\</span>
+<span style="color: #557799">                                WAIT_T0L\</span>
+<span style="color: #557799">                                }</span>
+<span style="color: #557799">#define LED_HIGHBIT             {\</span>
+<span style="color: #557799">                                STATUS_LED=1;\</span>
+<span style="color: #557799">                                WAIT_T1H\</span>
+<span style="color: #557799">                                STATUS_LED=0;\</span>
+<span style="color: #557799">                                WAIT_T1L\</span>
+<span style="color: #557799">                                }</span>
+<span style="color: #557799">#define LED_INTENSE              (0xff&gt;&gt;3)</span>
+
+<span style="color: #557799">#define DMODE_NONE              0</span>
+<span style="color: #557799">#define DMODE_CURRENT           1</span>
+<span style="color: #557799">#define DMODE_VOLTAGE           2</span>
+<span style="color: #557799">#define DMODE_ANGLE             3</span>
+<span style="color: #557799">#define DMODE_APPARENT          4</span>
+<span style="color: #557799">#define DMODE_REAL              5</span>
+<span style="color: #557799">#define DMODE_REACTIVE          6</span>
+<span style="color: #557799">#define DMODE_MAX               7</span>
+
+<span style="color: #557799">#define QUARTER_ROTATION           (100)</span>
+<span style="color: #557799">#define HALF_ROTATION   (QUARTER_ROTATION&lt;&lt;1)</span>
+<span style="color: #557799">#define FULL_ROTATION   (QUARTER_ROTATION&lt;&lt;2)</span>
+<span style="color: #557799">#define MIN_SIN_RES     (-100)</span>
+<span style="color: #557799">#define MAX_SIN_RES     (100)</span>
+
+<span style="color: #557799">#define getTime()           TMR1</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Prepares the ports of the processor.</span>
+<span style="color: #888888">         * No device may be turned on. They only &quot;exception&quot; to this rule is the</span>
+<span style="color: #888888">         * Display, which uses shift registers for storing it&#39;s information, it</span>
+<span style="color: #888888">         * is cleared after all other initialisation steps have been finished.</span>
+<span style="color: #888888">         * This Method also activates the pull up resistor and sets the operation</span>
+<span style="color: #888888">         * frequency to 32MHz.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> initPins();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Prepare the ADC module for operation. The positive reference is set</span>
+<span style="color: #888888">         * to Vdd, while the negative one is set to Vss. The conversion clock</span>
+<span style="color: #888888">         * speed is set to FOSC/64 since the SampleHold - Capacitor would otherwise</span>
+<span style="color: #888888">         * not be fully charged and unexpected results would be the consequence.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initADC</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Prepares the Timer 2 as an refresh-rate generator. This functionality</span>
+<span style="color: #888888">         * is, as of now, not used and not vital to the operation of the device.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initTMR2</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Timer 1 is set up with a resolution of 250ns. It is used to measure the</span>
+<span style="color: #888888">         * phase delay between Current and Voltage.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initTMR1</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * initializes both Buffers to 1.024Volts.</span>
+<span style="color: #888888">         * The first one is needed to measure Vdd with the ADC-Module,</span>
+<span style="color: #888888">         * the second one is used to provide the comparator with a voltage to</span>
+<span style="color: #888888">         * compare the Voltage against.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initFVR</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Prepares the PWM with Timer 4. This PWM is used to provide the second</span>
+<span style="color: #888888">         * reference to the second comparator, which is used for the current.</span>
+<span style="color: #888888">         * Since the voltage, representing the current is small, we need to have</span>
+<span style="color: #888888">         * a precise reference, this we used a PWM with a low-pass filter of</span>
+<span style="color: #888888">         * second order to create a direct current.</span>
+<span style="color: #888888">         * The Output is switched from RB3 to RB0.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initPWMTMR4</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sets up the Comparator 1 Module for measuring the phase of the Voltage.</span>
+<span style="color: #888888">         * The Interrupt is set to fire on falling edges only.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initCOMP1</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sets up the Comparator 2 Module for measuring the phase of the Current.</span>
+<span style="color: #888888">         * The Interrupt is set to fire on falling edges only.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initCOMP2</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Configures the USART Module as asynchronous with an baud rate of 9600</span>
+<span style="color: #888888">         * and clears all previously received data.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initBT</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Performs an AD-Conversion on the specified source. The Sources AN0 to</span>
+<span style="color: #888888">         * AN11 are proportional to the source specified (setting src to 4 will</span>
+<span style="color: #888888">         * read from AN4). Also the source for the FVR-Buffer1 can be selected, </span>
+<span style="color: #888888">         * which is 0x1f;</span>
+<span style="color: #888888">         * </span>
+<span style="color: #888888">         * @param src the source from which to convert</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">adc</span>(<span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">int8_t</span> src);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * This method is a placeholder method and was written, in case a Voltage</span>
+<span style="color: #888888">         * measurement was to be implemented. In it&#39;s current state it returns the</span>
+<span style="color: #888888">         * value of 230Volts.</span>
+<span style="color: #888888">         * @return the line voltage (about 230V in Europe)</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">uint8_t</span> <span style="color: #0066BB; font-weight: bold">readVoltage</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Measures the current which is currently flowing and returns it in mA</span>
+<span style="color: #888888">         * as Integer to provide an accurate result, without the implications of</span>
+<span style="color: #888888">         * using floats. The channel from which the measurement is taken is AN7.</span>
+<span style="color: #888888">         * @return the measured current in mAmps.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int24_t</span> <span style="color: #0066BB; font-weight: bold">readCurrent</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Measures Vdd and returns it as an Integer in the range of 0 to 1023.</span>
+<span style="color: #888888">         * This is useful, because the calculation of the current is a lot easier</span>
+<span style="color: #888888">         * if first the conversion from all 10 bit values to more reasonable ones</span>
+<span style="color: #888888">         * is done and only then the currect value computed.</span>
+<span style="color: #888888">         * @return the supply voltage from 0 to 1023 where 0 = 0V and 1023 = 5V</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">uint16_t</span> <span style="color: #0066BB; font-weight: bold">readVdd</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Shifts one byte of data into the shift registers with the least</span>
+<span style="color: #888888">         * significant bit first.</span>
+<span style="color: #888888">         * @param data the data to write into the shift register</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">so</span>(<span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">uint8_t</span> data);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Clears the display by writing 0xff into every shift register.</span>
+<span style="color: #888888">         * @param leng the number of registers</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">clearDisplay</span>(<span style="color: #333399; font-weight: bold">int8_t</span> leng);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sends one byte of colour information to the status led. Since</span>
+<span style="color: #888888">         * the colour depends on the write order this function does not specify</span>
+<span style="color: #888888">         * the colour of the LED.</span>
+<span style="color: #888888">         * @param the intensity of the colour</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendColour</span>(<span style="color: #333399; font-weight: bold">uint8_t</span>);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Computes the time difference of the two times. Tm_low is the time, which</span>
+<span style="color: #888888">         * came chronologically before tm_high. Since these values are the values</span>
+<span style="color: #888888">         * of Timer 1 at set time it could be, that tm_low&gt;tm_high, if this is the</span>
+<span style="color: #888888">         * case the difference will be computed as follos: 0xffff - tm_low + tm_high;</span>
+<span style="color: #888888">         * otherwise the difference is simply tm_high-tm_low.</span>
+<span style="color: #888888">         * @param tm_low the chronologically first value</span>
+<span style="color: #888888">         * @param tm_high the chronologically second value</span>
+<span style="color: #888888">         * @return the time difference in 250nano seconds</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">uint16_t</span> <span style="color: #0066BB; font-weight: bold">deltaT</span>(<span style="color: #333399; font-weight: bold">uint16_t</span> tm_low, <span style="color: #333399; font-weight: bold">uint16_t</span> tm_high);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Reads the sine from the eeprom. It is important to note, that not</span>
+<span style="color: #888888">         * 360° represent a full rotation, but rather 400°. Since not every</span>
+<span style="color: #888888">         * value can be stored in the eeprom (it is also not needed) it reads</span>
+<span style="color: #888888">         * only the value from 0 to 100°.</span>
+<span style="color: #888888">         * @param z the angle in grad (not deg!)</span>
+<span style="color: #888888">         * @return the sine multiplied by 100</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">sin_</span>(<span style="color: #333399; font-weight: bold">int8_t</span> z);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Computes values of the sine, which are not covered by sin_().</span>
+<span style="color: #888888">         * @param z the angle in grad (not deg!)</span>
+<span style="color: #888888">         * @return the sine multiplied by 100</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">sin</span>(<span style="color: #333399; font-weight: bold">int16_t</span> z);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Behaves in the exactly same way as sin() but returns the cosine.</span>
+<span style="color: #888888">         * @param z the angle ing grad (not deg!)</span>
+<span style="color: #888888">         * @return the cosine multiplied by 100</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">cos</span>(<span style="color: #333399; font-weight: bold">int16_t</span> z);
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Evaluates if the LED value can be rewritten (the LED needs a reset</span>
+<span style="color: #888888">         * time of 50us). If these 50us have passed since the last write to the</span>
+<span style="color: #888888">         * LED this method returns 1 otherwise 0.</span>
+<span style="color: #888888">         * @return a flag if the LED can be rewritten</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">uint8_t</span> <span style="color: #0066BB; font-weight: bold">ledReset</span>();
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Writes a colour to the LED. The led is programmed with an rgb profile.</span>
+<span style="color: #888888">         * @param g the green colour intensity</span>
+<span style="color: #888888">         * @param r the red colour intensity</span>
+<span style="color: #888888">         * @param b the blue colour intensity</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setLED</span>(<span style="color: #333399; font-weight: bold">uint8_t</span> g, <span style="color: #333399; font-weight: bold">uint8_t</span> r, <span style="color: #333399; font-weight: bold">uint8_t</span> b);
+        
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Writes a specified unit into the shift registers. Note, that all</span>
+<span style="color: #888888">         * following registers need to be filled, in order for these values to</span>
+<span style="color: #888888">         * appear in the correct register.</span>
+<span style="color: #888888">         * @param u the unit to write into the registers</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setUnit</span>(<span style="color: #333399; font-weight: bold">uint24_t</span> u);
+        
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Writes the Integer value into the registers. Typically setUnit() is </span>
+<span style="color: #888888">         * called prior to this function and only after this function has been</span>
+<span style="color: #888888">         * called the display will output reasonable values.</span>
+<span style="color: #888888">         * @param v</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setVal</span>(<span style="color: #333399; font-weight: bold">int16_t</span> v);
+        
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * The interrupt service routine.</span>
+<span style="color: #888888">         * It handles incoming data and the phases of current and voltage.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #333399; font-weight: bold">void</span> __interrupt <span style="color: #0066BB; font-weight: bold">ISR</span>();
+
+<span style="color: #557799">#ifdef	__cplusplus</span>
+}
+<span style="color: #557799">#endif</span>
+
+<span style="color: #557799">#endif</span>
+</pre></td></tr></table></div>
+

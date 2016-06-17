@@ -728,6 +728,8 @@ void main()
                         sendInt24(ADRES);
                         
                         current = readCurrent();
+                        current -= 300;
+                        current = (current < 0) ? -current : current;
                         voltage = readVoltage();
                         apparent = voltage * current;
                         real = (apparent * cos(angle)) / MAX_SIN_RES;
@@ -753,11 +755,11 @@ void main()
                                 default:
                                         setUnit(UNIT_NONE);
                                         setVal(0);
-                                        setLED(0x00, 0x00, 0x00); //out
+                                        setLED(0xff, 0xff, 0xff); //out
                                         break;
                                 case DMODE_CURRENT:
-                                        setUnit(UNIT_A);
-                                        setVal(current / 1000);
+                                        setUnit(UNIT_MA);
+                                        setVal(current);
                                         setLED(0x00, LED_INTENSE, 0x00); //red
                                         break;
                                 case DMODE_REAL:

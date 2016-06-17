@@ -1,0 +1,379 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/*</span>
+<span style="color: #888888"> * Copyright (C) 2016 redxef.</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * This library is free software; you can redistribute it and/or</span>
+<span style="color: #888888"> * modify it under the terms of the GNU Lesser General Public</span>
+<span style="color: #888888"> * License as published by the Free Software Foundation; either</span>
+<span style="color: #888888"> * version 2.1 of the License, or (at your option) any later version.</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * This library is distributed in the hope that it will be useful,</span>
+<span style="color: #888888"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span style="color: #888888"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
+<span style="color: #888888"> * Lesser General Public License for more details.</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * You should have received a copy of the GNU Lesser General Public</span>
+<span style="color: #888888"> * License along with this library; if not, write to the Free Software</span>
+<span style="color: #888888"> * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,</span>
+<span style="color: #888888"> * MA 02110-1301  USA</span>
+<span style="color: #888888"> */</span>
+<span style="color: #008800; font-weight: bold">package</span> powerspy<span style="color: #333333">.</span><span style="color: #0000CC">client</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.awt.event.ActionEvent</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.IOException</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">javax.swing.Timer</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">powerspy.baselib.*</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">static</span> powerspy<span style="color: #333333">.</span><span style="color: #0000CC">baselib</span><span style="color: #333333">.</span><span style="color: #0000CC">IODefs</span><span style="color: #333333">.*;</span>
+
+<span style="color: #888888">/**</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * @author redxef</span>
+<span style="color: #888888"> */</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Controller</span> <span style="color: #008800; font-weight: bold">extends</span> Thread <span style="color: #333333">{</span>
+
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">final</span> Frame f<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">final</span> Timer update_interval<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> PSInputStream is<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> PSOutputStream os<span style="color: #333333">;</span>
+
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">boolean</span> keep_alive<span style="color: #333333">;</span>
+
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> current<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> real_power<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> apparent_power<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> reactive_power<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> raw_current<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> offs<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> raw_supply<span style="color: #333333">;</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Constructs a new Controller for interacting with PowerSpy.</span>
+<span style="color: #888888">         *</span>
+<span style="color: #888888">         * @param f the Frame to link with</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #0066BB; font-weight: bold">Controller</span><span style="color: #333333">(</span>Frame f<span style="color: #333333">)</span>
+        <span style="color: #333333">{</span>
+                keep_alive <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">;</span>
+                <span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">.</span><span style="color: #0000CC">f</span> <span style="color: #333333">=</span> f<span style="color: #333333">;</span>
+                is <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+                os <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+                update_interval <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Timer<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">500</span><span style="color: #333333">,</span> <span style="color: #333333">(</span>ActionEvent e<span style="color: #333333">)</span> <span style="color: #333333">-&gt;</span> <span style="color: #333333">{</span>
+                        doUpdate<span style="color: #333333">();</span>
+                <span style="color: #333333">});</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sets a new InputStream to read the data from.</span>
+<span style="color: #888888">         *</span>
+<span style="color: #888888">         * @param is the new InputStream</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">synchronized</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setPSInputStream</span><span style="color: #333333">(</span>PSInputStream is<span style="color: #333333">)</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">.</span><span style="color: #0000CC">is</span> <span style="color: #333333">=</span> is<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Returns the currently installed InputStream</span>
+<span style="color: #888888">         *</span>
+<span style="color: #888888">         * @return the InputStream</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">synchronized</span> PSInputStream <span style="color: #0066BB; font-weight: bold">getPSInputStream</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">return</span> is<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Sets the new OutputStream to write data to.</span>
+<span style="color: #888888">         *</span>
+<span style="color: #888888">         * @param os the new OutputStream</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">synchronized</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setPSOutputStream</span><span style="color: #333333">(</span>PSOutputStream os<span style="color: #333333">)</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">.</span><span style="color: #0000CC">os</span> <span style="color: #333333">=</span> os<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Returns the currently installed OutputStream.</span>
+<span style="color: #888888">         *</span>
+<span style="color: #888888">         * @return the OutputStream</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">synchronized</span> PSOutputStream <span style="color: #0066BB; font-weight: bold">getPSOutputStream</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">return</span> os<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">synchronized</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">doUpdate</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;curr: &quot;</span> <span style="color: #333333">+</span> current<span style="color: #333333">);</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;real: &quot;</span> <span style="color: #333333">+</span> real_power<span style="color: #333333">);</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;appa: &quot;</span> <span style="color: #333333">+</span> apparent_power<span style="color: #333333">);</span>
+                System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;reac: &quot;</span> <span style="color: #333333">+</span> reactive_power<span style="color: #333333">);</span>
+                f<span style="color: #333333">.</span><span style="color: #0000CC">setCurrent</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">float</span><span style="color: #333333">)</span> current <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span><span style="color: #333333">);</span>
+                f<span style="color: #333333">.</span><span style="color: #0000CC">setRealPower</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">float</span><span style="color: #333333">)</span> real_power <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span><span style="color: #333333">);</span>
+                f<span style="color: #333333">.</span><span style="color: #0000CC">setApparentPower</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">float</span><span style="color: #333333">)</span> apparent_power <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span><span style="color: #333333">);</span>
+                f<span style="color: #333333">.</span><span style="color: #0000CC">setReactivePower</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">float</span><span style="color: #333333">)</span> reactive_power <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span><span style="color: #333333">);</span>
+                f<span style="color: #333333">.</span><span style="color: #0000CC">setRawCurrent</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">float</span><span style="color: #333333">)</span> raw_current<span style="color: #333333">);</span>
+                f<span style="color: #333333">.</span><span style="color: #0000CC">setOffs</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">float</span><span style="color: #333333">)</span> offs<span style="color: #333333">);</span>
+                f<span style="color: #333333">.</span><span style="color: #0000CC">setRawVoltage</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">float</span><span style="color: #333333">)</span> raw_supply<span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">synchronized</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">start</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                keep_alive <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">;</span>
+                update_interval<span style="color: #333333">.</span><span style="color: #0000CC">start</span><span style="color: #333333">();</span>
+                <span style="color: #008800; font-weight: bold">super</span><span style="color: #333333">.</span><span style="color: #0000CC">start</span><span style="color: #333333">();</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">synchronized</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #0066BB; font-weight: bold">doRun</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">char</span> read_mode<span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">throws</span> IOException<span style="color: #333333">,</span> PackageException
+        <span style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>is<span style="color: #333333">.</span><span style="color: #0000CC">readPackage</span><span style="color: #333333">())</span> <span style="color: #333333">{</span>
+                        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>read_mode <span style="color: #333333">==</span> NONE <span style="color: #333333">&amp;&amp;</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">isUInt8</span><span style="color: #333333">())</span> <span style="color: #333333">{</span>
+                                read_mode <span style="color: #333333">=</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">char</span><span style="color: #333333">)</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readUInt8</span><span style="color: #333333">();</span>
+                        <span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>read_mode <span style="color: #333333">!=</span> NONE <span style="color: #333333">&amp;&amp;</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">isInt24</span><span style="color: #333333">())</span> <span style="color: #333333">{</span>
+                                <span style="color: #008800; font-weight: bold">switch</span> <span style="color: #333333">(</span>read_mode<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+                                        <span style="color: #008800; font-weight: bold">case</span> <span style="color: #997700; font-weight: bold">K_CURRENT:</span>
+                                                current <span style="color: #333333">=</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readInt24</span><span style="color: #333333">();</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                        <span style="color: #008800; font-weight: bold">case</span> <span style="color: #997700; font-weight: bold">K_REALPOWER:</span>
+                                                real_power <span style="color: #333333">=</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readInt24</span><span style="color: #333333">();</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                        <span style="color: #008800; font-weight: bold">case</span> <span style="color: #997700; font-weight: bold">K_APPARENTEPOWER:</span>
+                                                apparent_power <span style="color: #333333">=</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readInt24</span><span style="color: #333333">();</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                        <span style="color: #008800; font-weight: bold">case</span> <span style="color: #997700; font-weight: bold">K_REACTIVEPOWER:</span>
+                                                reactive_power <span style="color: #333333">=</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readInt24</span><span style="color: #333333">();</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                        <span style="color: #008800; font-weight: bold">case</span> <span style="color: #997700; font-weight: bold">K_RAWCURRENT:</span>
+                                                raw_current <span style="color: #333333">=</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readInt24</span><span style="color: #333333">();</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                        <span style="color: #008800; font-weight: bold">case</span> <span style="color: #997700; font-weight: bold">K_OFFS:</span>
+                                                offs <span style="color: #333333">=</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readInt24</span><span style="color: #333333">();</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                        <span style="color: #008800; font-weight: bold">case</span> <span style="color: #997700; font-weight: bold">K_RAWVOLTAGE:</span>
+                                                raw_supply <span style="color: #333333">=</span> is<span style="color: #333333">.</span><span style="color: #0000CC">getDataPacket</span><span style="color: #333333">().</span><span style="color: #0000CC">readInt24</span><span style="color: #333333">();</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                        <span style="color: #008800; font-weight: bold">default</span><span style="color: #333333">:</span>
+                                                <span style="color: #008800; font-weight: bold">break</span><span style="color: #333333">;</span>
+                                <span style="color: #333333">}</span>
+                                read_mode <span style="color: #333333">=</span> NONE<span style="color: #333333">;</span>
+                        <span style="color: #333333">}</span>
+                        is<span style="color: #333333">.</span><span style="color: #0000CC">clear</span><span style="color: #333333">();</span>
+                <span style="color: #333333">}</span>
+                <span style="color: #008800; font-weight: bold">return</span> read_mode<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">run</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                <span style="color: #333399; font-weight: bold">char</span> read_mode <span style="color: #333333">=</span> NONE<span style="color: #333333">;</span>
+                <span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">(</span>keep_alive<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+                        <span style="color: #008800; font-weight: bold">try</span> <span style="color: #333333">{</span>
+                                read_mode <span style="color: #333333">=</span> doRun<span style="color: #333333">(</span>read_mode<span style="color: #333333">);</span>
+                                Thread<span style="color: #333333">.</span><span style="color: #0000CC">sleep</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">20</span><span style="color: #333333">);</span>
+                        <span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>IOException <span style="color: #333333">|</span> PackageException <span style="color: #333333">|</span> InterruptedException <span style="color: #333333">|</span> ArrayIndexOutOfBoundsException ex<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+                                ex<span style="color: #333333">.</span><span style="color: #0000CC">printStackTrace</span><span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">err</span><span style="color: #333333">);</span>
+                                is<span style="color: #333333">.</span><span style="color: #0000CC">clear</span><span style="color: #333333">();</span>
+                        <span style="color: #333333">}</span>
+                <span style="color: #333333">}</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #888888">/**</span>
+<span style="color: #888888">         * Terminates this Controller and stops the update interval.</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">terminate</span><span style="color: #333333">()</span>
+        <span style="color: #333333">{</span>
+                keep_alive <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">;</span>
+                update_interval<span style="color: #333333">.</span><span style="color: #0000CC">stop</span><span style="color: #333333">();</span>
+        <span style="color: #333333">}</span>
+
+<span style="color: #333333">}</span>
+</pre></td></tr></table></div>
+

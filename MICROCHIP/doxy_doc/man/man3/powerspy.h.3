@@ -1,0 +1,605 @@
+.TH "powerspy.X/powerspy.h" 3 "Tue May 24 2016" "Version 1.0" "PowerSpy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+powerspy.X/powerspy.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <xc\&.h>\fP
+.br
+\fC#include 'types\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_XTAL_FREQ\fP   32000000"
+.br
+.ti -1c
+.RI "#define \fBRX\fP   RB1"
+.br
+.ti -1c
+.RI "#define \fBTX\fP   RB2"
+.br
+.ti -1c
+.RI "#define \fBIN_FREQ\fP   50"
+.br
+.ti -1c
+.RI "#define \fBCURRENT_VAL_IN\fP   RB5"
+.br
+.ti -1c
+.RI "#define \fBCURRENT_PHA_IN\fP   RA0"
+.br
+.ti -1c
+.RI "#define \fBVOLTAGE_VAL_IN\fP   RB4"
+.br
+.ti -1c
+.RI "#define \fBVOLTAGE_PHA_IN\fP   RA1"
+.br
+.ti -1c
+.RI "#define \fBDISPLAY_LAT\fP   RA3"
+.br
+.ti -1c
+.RI "#define \fBDISPLAY_CLK\fP   RA4"
+.br
+.ti -1c
+.RI "#define \fBDISPLAY_DATA\fP   RA7"
+.br
+.ti -1c
+.RI "#define \fBSHIFT_DIR_MSBFIRST\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSHIFT_DIR_LSBFIRST\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_LED\fP   RA6"
+.br
+.ti -1c
+.RI "#define \fBBUTTON\fP   RB3"
+.br
+.ti -1c
+.RI "#define \fBPWM_OUT_GEN_VOLT\fP   RB0"
+.br
+.ti -1c
+.RI "#define \fBPWM_IN_REF\fP   RA2"
+.br
+.ti -1c
+.RI "#define \fBSHIFT_REG_LEN\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSHIFT_DELAY\fP"
+.br
+.ti -1c
+.RI "#define \fBRET_OK\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRET_NOK\fP   1"
+.br
+.ti -1c
+.RI "#define \fBK_RAWCURRENT\fP   'C'"
+.br
+.ti -1c
+.RI "#define \fBK_OFFS\fP   'o'"
+.br
+.ti -1c
+.RI "#define \fBK_CURRENT\fP   'c'"
+.br
+.ti -1c
+.RI "#define \fBK_VOLTAGE\fP   'v'"
+.br
+.ti -1c
+.RI "#define \fBK_ANGLE\fP   'a'"
+.br
+.ti -1c
+.RI "#define \fBK_APPARENTEPOWER\fP   'A'"
+.br
+.ti -1c
+.RI "#define \fBK_REALPOWER\fP   'r'"
+.br
+.ti -1c
+.RI "#define \fBK_REACTIVEPOWER\fP   'R'"
+.br
+.ti -1c
+.RI "#define \fBK_RAWVOLTAGE\fP   's'"
+.br
+.ti -1c
+.RI "#define \fBVOLT_TO_AMP_FACT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBNRMASK\fP   0b10000001"
+.br
+.ti -1c
+.RI "#define \fBNR0\fP   0b10000001"
+.br
+.ti -1c
+.RI "#define \fBNR1\fP   0b10111101"
+.br
+.ti -1c
+.RI "#define \fBNR2\fP   0b00010011"
+.br
+.ti -1c
+.RI "#define \fBNR3\fP   0b00011001"
+.br
+.ti -1c
+.RI "#define \fBNR4\fP   0b00101101"
+.br
+.ti -1c
+.RI "#define \fBNR5\fP   0b01001001"
+.br
+.ti -1c
+.RI "#define \fBNR6\fP   0b01000001"
+.br
+.ti -1c
+.RI "#define \fBNR7\fP   0b10011101"
+.br
+.ti -1c
+.RI "#define \fBNR8\fP   0b00000001"
+.br
+.ti -1c
+.RI "#define \fBNR9\fP   0b00001001"
+.br
+.ti -1c
+.RI "#define \fBBIGMASK\fP   0b110100000000000011100111"
+.br
+.ti -1c
+.RI "#define \fBSMAMASK\fP   0b111111111111111100011111"
+.br
+.ti -1c
+.RI "#define \fBMASK\fP   (BIGMASK|SMAMASK)"
+.br
+.ti -1c
+.RI "#define \fBV\fP   0b111111111101110101101111"
+.br
+.ti -1c
+.RI "#define \fBWFIRST\fP   0b111011110101010101111111"
+.br
+.ti -1c
+.RI "#define \fBWSECOND\fP   0b111111001111111111111111"
+.br
+.ti -1c
+.RI "#define \fBAFIRST\fP   0b111001110101111001011111"
+.br
+.ti -1c
+.RI "#define \fBASECOND\fP   0b111110101111111111111111"
+.br
+.ti -1c
+.RI "#define \fBRSECOND\fP   0b111111111111111111111111"
+.br
+.ti -1c
+.RI "#define \fBUNIT_NONE\fP   0xffffff"
+.br
+.ti -1c
+.RI "#define \fBUNIT_VA\fP   (V&ASECOND)"
+.br
+.ti -1c
+.RI "#define \fBUNIT_A\fP   AFIRST"
+.br
+.ti -1c
+.RI "#define \fBUNIT_W\fP   WFIRST"
+.br
+.ti -1c
+.RI "#define \fBUNIT_V\fP   V"
+.br
+.ti -1c
+.RI "#define \fBUNIT_VR\fP   (V&RSECOND)"
+.br
+.ti -1c
+.RI "#define \fBNNR0\fP   0b111111101111100011100111"
+.br
+.ti -1c
+.RI "#define \fBNNR1\fP   0b111111111111111011110111"
+.br
+.ti -1c
+.RI "#define \fBNNR2\fP   0b111110110111100111100111"
+.br
+.ti -1c
+.RI "#define \fBNNR3\fP   0b111110110111110011100111"
+.br
+.ti -1c
+.RI "#define \fBNNR4\fP   0b111110100111111011110111"
+.br
+.ti -1c
+.RI "#define \fBNNR5\fP   0b111110100111110011101111"
+.br
+.ti -1c
+.RI "#define \fBNNR6\fP   0b111110100111100011101111"
+.br
+.ti -1c
+.RI "#define \fBNNR7\fP   0b111111111111111011100111"
+.br
+.ti -1c
+.RI "#define \fBNNR8\fP   0b111110100111100011100111"
+.br
+.ti -1c
+.RI "#define \fBNNR9\fP   0b111110100111110011100111"
+.br
+.ti -1c
+.RI "#define \fBWAIT_T0H\fP   NOP();"
+.br
+.ti -1c
+.RI "#define \fBWAIT_T0L\fP"
+.br
+.ti -1c
+.RI "#define \fBWAIT_T1H\fP"
+.br
+.ti -1c
+.RI "#define \fBWAIT_T1L\fP   NOP();"
+.br
+.ti -1c
+.RI "#define \fBLED_LOWBIT\fP"
+.br
+.ti -1c
+.RI "#define \fBLED_HIGHBIT\fP"
+.br
+.ti -1c
+.RI "#define \fBLED_INTENSE\fP   (0xff>>3)"
+.br
+.ti -1c
+.RI "#define \fBDMODE_NONE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDMODE_CURRENT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDMODE_VOLTAGE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBDMODE_ANGLE\fP   3"
+.br
+.ti -1c
+.RI "#define \fBDMODE_APPARENT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBDMODE_REAL\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDMODE_REACTIVE\fP   6"
+.br
+.ti -1c
+.RI "#define \fBDMODE_MAX\fP   7"
+.br
+.ti -1c
+.RI "#define \fBQUARTER_ROTATION\fP   (100)"
+.br
+.ti -1c
+.RI "#define \fBHALF_ROTATION\fP   (QUARTER_ROTATION<<1)"
+.br
+.ti -1c
+.RI "#define \fBFULL_ROTATION\fP   (QUARTER_ROTATION<<2)"
+.br
+.ti -1c
+.RI "#define \fBMIN_SIN_RES\fP   (\-100)"
+.br
+.ti -1c
+.RI "#define \fBMAX_SIN_RES\fP   (100)"
+.br
+.ti -1c
+.RI "#define \fBgetTime\fP()                     TMR1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitPins\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitADC\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitTMR2\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitTMR1\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitFVR\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitPWMTMR4\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitCOMP1\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitCOMP2\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitBT\fP ()"
+.br
+.ti -1c
+.RI "void \fBadc\fP (const int8_t src)"
+.br
+.ti -1c
+.RI "uint8_t \fBreadVoltage\fP ()"
+.br
+.ti -1c
+.RI "int24_t \fBreadCurrent\fP ()"
+.br
+.ti -1c
+.RI "uint16_t \fBreadVdd\fP ()"
+.br
+.ti -1c
+.RI "void \fBso\fP (const uint8_t data)"
+.br
+.ti -1c
+.RI "void \fBclearDisplay\fP (int8_t leng)"
+.br
+.ti -1c
+.RI "void \fBsendColour\fP (uint8_t)"
+.br
+.ti -1c
+.RI "uint16_t \fBdeltaT\fP (uint16_t tm_low, uint16_t tm_high)"
+.br
+.ti -1c
+.RI "int8_t \fBsin_\fP (int8_t z)"
+.br
+.ti -1c
+.RI "int8_t \fBsin\fP (int16_t z)"
+.br
+.ti -1c
+.RI "int8_t \fBcos\fP (int16_t z)"
+.br
+.ti -1c
+.RI "uint8_t \fBledReset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetLED\fP (uint8_t g, uint8_t r, uint8_t b)"
+.br
+.ti -1c
+.RI "void \fBsetUnit\fP (uint24_t u)"
+.br
+.ti -1c
+.RI "void \fBsetVal\fP (int16_t v)"
+.br
+.ti -1c
+.RI "void __interrupt \fBISR\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+File: \fBpowerspy\&.h\fP Author: Manuel Federanko Version: 1\&.0 Comments: Revision history: 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LED_HIGHBIT"
+\fBValue:\fP
+.PP
+.nf
+{\
+                                STATUS_LED=1;\
+                                WAIT_T1H\
+                                STATUS_LED=0;\
+                                WAIT_T1L\
+                                }
+.fi
+.SS "#define LED_LOWBIT"
+\fBValue:\fP
+.PP
+.nf
+{\
+                                STATUS_LED=1;\
+                                WAIT_T0H\
+                                STATUS_LED=0;\
+                                WAIT_T0L\
+                                }
+.fi
+.SS "#define SHIFT_DELAY"
+\fBValue:\fP
+.PP
+.nf
+NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();
+.fi
+.SS "#define WAIT_T0L"
+\fBValue:\fP
+.PP
+.nf
+NOP();\
+                                NOP();\
+                                NOP();
+.fi
+.SS "#define WAIT_T1H"
+\fBValue:\fP
+.PP
+.nf
+NOP();\
+                                NOP();\
+                                NOP();\
+                                NOP();
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "void adc (const int8_t src)"
+Performs an AD-Conversion on the specified source\&. The Sources AN0 to AN11 are proportional to the source specified (setting src to 4 will read from AN4)\&. Also the source for the FVR-Buffer1 can be selected, which is 0x1f;
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsrc\fP the source from which to convert 
+.RE
+.PP
+
+.SS "void clearDisplay (int8_t leng)"
+Clears the display by writing 0xff into every shift register\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIleng\fP the number of registers 
+.RE
+.PP
+
+.SS "int8_t cos (int16_t z)"
+Behaves in the exactly same way as \fBsin()\fP but returns the cosine\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIz\fP the angle ing grad (not deg!) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the cosine multiplied by 100 
+.RE
+.PP
+
+.SS "uint16_t deltaT (uint16_t tm_low, uint16_t tm_high)"
+Computes the time difference of the two times\&. Tm_low is the time, which came chronologically before tm_high\&. Since these values are the values of Timer 1 at set time it could be, that tm_low>tm_high, if this is the case the difference will be computed as follos: 0xffff - tm_low + tm_high; otherwise the difference is simply tm_high-tm_low\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItm_low\fP the chronologically first value 
+.br
+\fItm_high\fP the chronologically second value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the time difference in 250nano seconds 
+.RE
+.PP
+
+.SS "void initADC ()"
+Prepare the ADC module for operation\&. The positive reference is set to Vdd, while the negative one is set to Vss\&. The conversion clock speed is set to FOSC/64 since the SampleHold - Capacitor would otherwise not be fully charged and unexpected results would be the consequence\&. 
+.SS "void initBT ()"
+Configures the USART Module as asynchronous with an baud rate of 9600 and clears all previously received data\&. 
+.SS "void initCOMP1 ()"
+Sets up the Comparator 1 Module for measuring the phase of the Voltage\&. The Interrupt is set to fire on falling edges only\&. 
+.SS "void initCOMP2 ()"
+Sets up the Comparator 2 Module for measuring the phase of the Current\&. The Interrupt is set to fire on falling edges only\&. 
+.SS "void initFVR ()"
+initializes both Buffers to 1\&.024Volts\&. The first one is needed to measure Vdd with the ADC-Module, the second one is used to provide the comparator with a voltage to compare the Voltage against\&. 
+.SS "void initPins ()"
+Prepares the ports of the processor\&. No device may be turned on\&. They only 'exception' to this rule is the Display, which uses shift registers for storing it's information, it is cleared after all other initialisation steps have been finished\&. This Method also activates the pull up resistor and sets the operation frequency to 32MHz\&. 
+.SS "void initPWMTMR4 ()"
+Prepares the PWM with Timer 4\&. This PWM is used to provide the second reference to the second comparator, which is used for the current\&. Since the voltage, representing the current is small, we need to have a precise reference, this we used a PWM with a low-pass filter of second order to create a direct current\&. The Output is switched from RB3 to RB0\&. 
+.SS "void initTMR1 ()"
+Timer 1 is set up with a resolution of 250ns\&. It is used to measure the phase delay between Current and Voltage\&. 
+.SS "void initTMR2 ()"
+Prepares the Timer 2 as an refresh-rate generator\&. This functionality is, as of now, not used and not vital to the operation of the device\&. 
+.SS "void __interrupt ISR ()"
+The interrupt service routine\&. It handles incoming data and the phases of current and voltage\&. 
+.SS "uint8_t ledReset ()"
+Evaluates if the LED value can be rewritten (the LED needs a reset time of 50us)\&. If these 50us have passed since the last write to the LED this method returns 1 otherwise 0\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+a flag if the LED can be rewritten 
+.RE
+.PP
+
+.SS "int24_t readCurrent ()"
+Measures the current which is currently flowing and returns it in mA as Integer to provide an accurate result, without the implications of using floats\&. The channel from which the measurement is taken is AN7\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the measured current in mAmps\&. 
+.RE
+.PP
+
+.SS "uint16_t readVdd ()"
+Measures Vdd and returns it as an Integer in the range of 0 to 1023\&. This is useful, because the calculation of the current is a lot easier if first the conversion from all 10 bit values to more reasonable ones is done and only then the currect value computed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the supply voltage from 0 to 1023 where 0 = 0V and 1023 = 5V 
+.RE
+.PP
+
+.SS "uint8_t readVoltage ()"
+This method is a placeholder method and was written, in case a Voltage measurement was to be implemented\&. In it's current state it returns the value of 230Volts\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the line voltage (about 230V in Europe) 
+.RE
+.PP
+
+.SS "void sendColour (uint8_t)"
+Sends one byte of colour information to the status led\&. Since the colour depends on the write order this function does not specify the colour of the LED\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthe\fP intensity of the colour 
+.RE
+.PP
+
+.SS "void setLED (uint8_t g, uint8_t r, uint8_t b)"
+Writes a colour to the LED\&. The led is programmed with an rgb profile\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIg\fP the green colour intensity 
+.br
+\fIr\fP the red colour intensity 
+.br
+\fIb\fP the blue colour intensity 
+.RE
+.PP
+
+.SS "void setUnit (uint24_t u)"
+Writes a specified unit into the shift registers\&. Note, that all following registers need to be filled, in order for these values to appear in the correct register\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIu\fP the unit to write into the registers 
+.RE
+.PP
+
+.SS "void setVal (int16_t v)"
+Writes the Integer value into the registers\&. Typically \fBsetUnit()\fP is called prior to this function and only after this function has been called the display will output reasonable values\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+
+.SS "int8_t sin (int16_t z)"
+Computes values of the sine, which are not covered by \fBsin_()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIz\fP the angle in grad (not deg!) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the sine multiplied by 100 
+.RE
+.PP
+
+.SS "int8_t sin_ (int8_t z)"
+Reads the sine from the eeprom\&. It is important to note, that not 360° represent a full rotation, but rather 400°\&. Since not every value can be stored in the eeprom (it is also not needed) it reads only the value from 0 to 100°\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIz\fP the angle in grad (not deg!) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the sine multiplied by 100 
+.RE
+.PP
+
+.SS "void so (const uint8_t data)"
+Shifts one byte of data into the shift registers with the least significant bit first\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP the data to write into the shift register 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for PowerSpy from the source code\&.

@@ -23,11 +23,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-import java.util.Random;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.table.DefaultTableCellRenderer;
 import powerspy.baselib.*;
-import static powerspy.baselib.IODefs.*;
 import static powerspy.client.Defs.*;
 
 /**
@@ -36,63 +35,10 @@ import static powerspy.client.Defs.*;
  */
 public class Frame extends JFrame {
 
-        private static final String FLT_FORMAT = "%.2f";
-
-        private static final ArrayInputStream dummy_is;
-        private static final Thread dummy_stream;
-        private static final Random r = new Random();
-
-        static {
-                dummy_is = new ArrayInputStream();
-
-                dummy_stream = new Thread() {
-
-                        private void insertKey(char key)
-                        {
-                                byte[] b = new byte[3];
-                                b[0] = START_OF_TEXT;
-                                b[1] = UINT8;
-                                b[2] = (byte) (key & 0xff);
-
-                                dummy_is.insert(b, 0, b.length);
-                        }
-
-                        private void insertValue(int i)
-                        {
-                                byte[] b = new byte[5];
-                                b[0] = START_OF_TEXT;
-                                b[1] = INT24;
-                                b[2] = (byte) (i >> 16 & 0xff);
-                                b[3] = (byte) (i >> 8 & 0xff);
-                                b[4] = (byte) (i & 0xff);
-
-                                dummy_is.insert(b, 0, b.length);
-                        }
-
-                        @Override
-                        public void run()
-                        {
-                                while (true) {
-                                        insertKey(K_CURRENT);
-                                        insertValue(r.nextInt(5000));
-                                        insertKey(K_APPARENTEPOWER);
-                                        insertValue(r.nextInt(1150000));
-                                        insertKey(K_REALPOWER);
-                                        insertValue(r.nextInt(1150000));
-                                        insertKey(K_REACTIVEPOWER);
-                                        insertValue(r.nextInt(1150000));
-
-                                        try {
-                                                Thread.sleep(1000);
-                                        } catch (InterruptedException ex) {
-                                        }
-                                }
-                        }
-                };
-        }
+        private static final String FLT_FORMAT = "%+.2f  ";
 
         private static final float FIXMUL = 0.88f;
-        private final Dimension BASIC_SIZE = new Dimension(250, 370);
+        private final Dimension BASIC_SIZE = new Dimension(250, 450);
         private Controller c;
         protected JComboBox<SerialPort> ports;
         private JLabel info;
@@ -106,13 +52,18 @@ public class Frame extends JFrame {
 
         private int prev_width;
         private long last_time;
+        
+        private final Font f;
 
         /**
          * Creates a new Frame for displaying the data sent from PowerSpy.
+         * And sets the Font for the JTable.
+         * @param f the font to use
          */
-        public Frame()
+        public Frame(Font f)
         {
                 super();
+                this.f = f;
                 setDefaultCloseOperation(EXIT_ON_CLOSE);
                 getContentPane()
                         .setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
@@ -135,7 +86,60 @@ public class Frame extends JFrame {
                 curr_port = null;
                 prev_width = BASIC_SIZE.width;
                 last_time = System.currentTimeMillis();
+        }
 
+        @Override
+        public final void setDefaultCloseOperation(int op)
+        {
+                super.setDefaultCloseOperation(op);
+        }
+
+        @Override
+        public final Container getContentPane()
+        {
+                return super.getContentPane();
+        }
+
+        @Override
+        public final void pack()
+        {
+                super.pack();
+        }
+
+        @Override
+        public final void setSize(Dimension d)
+        {
+                super.setSize(d);
+        }
+
+        @Override
+        public final Dimension getSize()
+        {
+                return super.getSize();
+        }
+
+        @Override
+        public final void setPreferredSize(Dimension d)
+        {
+                super.setPreferredSize(d);
+        }
+
+        @Override
+        public final void setMinimumSize(Dimension d)
+        {
+                super.setMinimumSize(d);
+        }
+
+        @Override
+        public final void setMaximumSize(Dimension d)
+        {
+                super.setMaximumSize(d);
+        }
+
+        @Override
+        public final void setLocationRelativeTo(Component c)
+        {
+                super.setLocationRelativeTo(c);
         }
 
         /**
@@ -241,7 +245,10 @@ public class Frame extends JFrame {
         //<editor-fold defaultstate="collapsed" desc="init table">
         private void initJTable()
         {
-                t = new JTable(7, 2) {
+                DefaultTableCellRenderer render = new DefaultTableCellRenderer();
+                render.setHorizontalAlignment(JLabel.RIGHT);
+                
+                t = new JTable(7, 3) {
 
                         @Override
                         public boolean isCellEditable(int row, int column)
@@ -253,6 +260,9 @@ public class Frame extends JFrame {
                 t.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
                         updateVals();
                 });
+                t.getColumnModel().getColumn(2).setMaxWidth(40);
+                t.getColumnModel().getColumn(1).setCellRenderer(render);
+                t.setFont(new Font("Agency FB", Font.PLAIN, 15));
                 t.setValueAt("Current", 0, 0);
                 t.setValueAt("Real Power", 1, 0);
                 t.setValueAt("Apparent Power", 2, 0);
@@ -260,6 +270,14 @@ public class Frame extends JFrame {
                 t.setValueAt("Raw Current", 4, 0);
                 t.setValueAt("Offset", 5, 0);
                 t.setValueAt("Raw Supply", 6, 0);
+                
+                t.setValueAt("A", 0 , 2);
+                t.setValueAt("W", 1 , 2);
+                t.setValueAt("VA", 2 , 2);
+                t.setValueAt("VAr", 3 , 2);
+                t.setValueAt("1024/5", 4 , 2);
+                t.setValueAt("V", 5 , 2);
+                t.setValueAt("1024/5", 6 , 2);
                 add(t);
         }
         //</editor-fold>
@@ -344,11 +362,7 @@ public class Frame extends JFrame {
                                 if (curr_port.isOpen()) {
                                         info.setText("connected");
                                 } else {
-                                        info.setText("failed to connect; setting dummy stream");
-                                        c.terminate();
-                                        c.setPSInputStream(new PSInputStream(dummy_is).clear());
-                                        dummy_stream.start();
-                                        c.start();
+                                        info.setText("failed to connect");
                                         return;
                                 }
 
@@ -377,24 +391,29 @@ public class Frame extends JFrame {
         {
                 Object val_;
                 float val;
-                if (t.getSelectedRow() == -1) {
-                        target = 70;
-                } else if (t.getSelectedRow() == 0) {//current
-                        val_ = t.getValueAt(0, 1);
-                        if (val_ == null)
-                                return;
-                        val = Float.parseFloat((String) val_);
-                        target = (int) ((val * 100) / (MAX_AMPS - MIN_AMPS));
-                        setMin(Integer.toString(MIN_AMPS));
-                        setMax(Integer.toString(MAX_AMPS));
-                } else {
-                        val_ = t.getValueAt(t.getSelectedRow(), 1);
-                        if (val_ == null)
-                                return;
-                        val = Float.parseFloat((String) val_);
-                        target = (int) ((val * 100) / (MAX_POWER - MIN_POWER));
-                        setMin(Integer.toString(MIN_POWER));
-                        setMax(Integer.toString(MAX_POWER));
+                switch (t.getSelectedRow()) {
+                        case -1:
+                                target = 70;
+                                break;
+                        case 0:
+                                //current
+                                val_ = t.getValueAt(0, 1);
+                                if (val_ == null)
+                                        return;
+                                val = Float.parseFloat((String) val_);
+                                target = (int) ((val * 100) / (MAX_AMPS - MIN_AMPS));
+                                setMin(Integer.toString(MIN_AMPS));
+                                setMax(Integer.toString(MAX_AMPS));
+                                break;
+                        default:
+                                val_ = t.getValueAt(t.getSelectedRow(), 1);
+                                if (val_ == null)
+                                        return;
+                                val = Float.parseFloat((String) val_);
+                                target = (int) ((val * 100) / (MAX_POWER - MIN_POWER));
+                                setMin(Integer.toString(MIN_POWER));
+                                setMax(Integer.toString(MAX_POWER));
+                                break;
                 }
                 progress_update.start();
         }

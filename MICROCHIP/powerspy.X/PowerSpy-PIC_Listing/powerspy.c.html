@@ -1,0 +1,1597 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/*</span>
+<span style="color: #888888"> * File:   powerspy.c</span>
+<span style="color: #888888"> * Author: Manuel Federanko</span>
+<span style="color: #888888"> *</span>
+<span style="color: #888888"> * Created on 27 November 2015, 18:58</span>
+<span style="color: #888888"> * </span>
+<span style="color: #888888"> * All information regarding correlation between pins, registers and such</span>
+<span style="color: #888888"> * has been taken from microchips data sheet for PIC16(L)F1826/27 (DS41391D)</span>
+<span style="color: #888888"> */</span>
+
+
+<span style="color: #557799">#include &lt;xc.h&gt;</span>
+<span style="color: #557799">#include &lt;limits.h&gt;</span>
+<span style="color: #557799">#include &quot;types.h&quot;</span>
+<span style="color: #557799">#include &quot;message.h&quot;</span>
+<span style="color: #557799">#include &quot;powerspy.h&quot;</span>
+
+<span style="color: #888888">//sin in scale of 0 to 100</span>
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">2</span>, <span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">9</span>, <span style="color: #0000DD; font-weight: bold">11</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">13</span>, <span style="color: #0000DD; font-weight: bold">14</span>, <span style="color: #0000DD; font-weight: bold">16</span>, <span style="color: #0000DD; font-weight: bold">17</span>, <span style="color: #0000DD; font-weight: bold">19</span>, <span style="color: #0000DD; font-weight: bold">20</span>, <span style="color: #0000DD; font-weight: bold">22</span>, <span style="color: #0000DD; font-weight: bold">23</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">25</span>, <span style="color: #0000DD; font-weight: bold">26</span>, <span style="color: #0000DD; font-weight: bold">28</span>, <span style="color: #0000DD; font-weight: bold">29</span>, <span style="color: #0000DD; font-weight: bold">31</span>, <span style="color: #0000DD; font-weight: bold">32</span>, <span style="color: #0000DD; font-weight: bold">34</span>, <span style="color: #0000DD; font-weight: bold">35</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">37</span>, <span style="color: #0000DD; font-weight: bold">38</span>, <span style="color: #0000DD; font-weight: bold">40</span>, <span style="color: #0000DD; font-weight: bold">41</span>, <span style="color: #0000DD; font-weight: bold">43</span>, <span style="color: #0000DD; font-weight: bold">44</span>, <span style="color: #0000DD; font-weight: bold">45</span>, <span style="color: #0000DD; font-weight: bold">47</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">48</span>, <span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #0000DD; font-weight: bold">51</span>, <span style="color: #0000DD; font-weight: bold">52</span>, <span style="color: #0000DD; font-weight: bold">54</span>, <span style="color: #0000DD; font-weight: bold">55</span>, <span style="color: #0000DD; font-weight: bold">56</span>, <span style="color: #0000DD; font-weight: bold">58</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">59</span>, <span style="color: #0000DD; font-weight: bold">60</span>, <span style="color: #0000DD; font-weight: bold">61</span>, <span style="color: #0000DD; font-weight: bold">63</span>, <span style="color: #0000DD; font-weight: bold">64</span>, <span style="color: #0000DD; font-weight: bold">65</span>, <span style="color: #0000DD; font-weight: bold">66</span>, <span style="color: #0000DD; font-weight: bold">67</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">68</span>, <span style="color: #0000DD; font-weight: bold">70</span>, <span style="color: #0000DD; font-weight: bold">71</span>, <span style="color: #0000DD; font-weight: bold">72</span>, <span style="color: #0000DD; font-weight: bold">73</span>, <span style="color: #0000DD; font-weight: bold">74</span>, <span style="color: #0000DD; font-weight: bold">75</span>, <span style="color: #0000DD; font-weight: bold">76</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">77</span>, <span style="color: #0000DD; font-weight: bold">78</span>, <span style="color: #0000DD; font-weight: bold">79</span>, <span style="color: #0000DD; font-weight: bold">80</span>, <span style="color: #0000DD; font-weight: bold">81</span>, <span style="color: #0000DD; font-weight: bold">82</span>, <span style="color: #0000DD; font-weight: bold">83</span>, <span style="color: #0000DD; font-weight: bold">84</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">84</span>, <span style="color: #0000DD; font-weight: bold">85</span>, <span style="color: #0000DD; font-weight: bold">86</span>, <span style="color: #0000DD; font-weight: bold">87</span>, <span style="color: #0000DD; font-weight: bold">88</span>, <span style="color: #0000DD; font-weight: bold">88</span>, <span style="color: #0000DD; font-weight: bold">89</span>, <span style="color: #0000DD; font-weight: bold">90</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">90</span>, <span style="color: #0000DD; font-weight: bold">91</span>, <span style="color: #0000DD; font-weight: bold">92</span>, <span style="color: #0000DD; font-weight: bold">92</span>, <span style="color: #0000DD; font-weight: bold">93</span>, <span style="color: #0000DD; font-weight: bold">94</span>, <span style="color: #0000DD; font-weight: bold">94</span>, <span style="color: #0000DD; font-weight: bold">95</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">95</span>, <span style="color: #0000DD; font-weight: bold">96</span>, <span style="color: #0000DD; font-weight: bold">96</span>, <span style="color: #0000DD; font-weight: bold">96</span>, <span style="color: #0000DD; font-weight: bold">97</span>, <span style="color: #0000DD; font-weight: bold">97</span>, <span style="color: #0000DD; font-weight: bold">98</span>, <span style="color: #0000DD; font-weight: bold">98</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">98</span>, <span style="color: #0000DD; font-weight: bold">99</span>, <span style="color: #0000DD; font-weight: bold">99</span>, <span style="color: #0000DD; font-weight: bold">99</span>, <span style="color: #0000DD; font-weight: bold">99</span>, <span style="color: #0000DD; font-weight: bold">99</span>, <span style="color: #0000DD; font-weight: bold">100</span>, <span style="color: #0000DD; font-weight: bold">100</span>);
+__EEPROM_DATA(<span style="color: #0000DD; font-weight: bold">100</span>, <span style="color: #0000DD; font-weight: bold">100</span>, <span style="color: #0000DD; font-weight: bold">100</span>, <span style="color: #0000DD; font-weight: bold">100</span>, <span style="color: #0000DD; font-weight: bold">100</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>);
+
+<span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">uint8_t</span> get_shift_byte[<span style="color: #0000DD; font-weight: bold">10</span>] <span style="color: #333333">=</span> {NR0, NR1, NR2, NR3, NR4, NR5, NR6, NR7, NR8, NR9};
+
+
+<span style="color: #888888">//remember interrupt time for deltat</span>
+<span style="color: #333399; font-weight: bold">uint16_t</span> volt_time <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+<span style="color: #333399; font-weight: bold">uint16_t</span> curr_time <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+<span style="color: #888888">//0th bit: volts set</span>
+<span style="color: #888888">//1st bit: current set</span>
+<span style="color: #888888">//2nd bit: volts first</span>
+<span style="color: #888888">//3rd bit: current first</span>
+<span style="color: #888888">//4th bit: button</span>
+<span style="color: #008800; font-weight: bold">volatile</span> <span style="color: #333399; font-weight: bold">uint8_t</span> flag <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+<span style="color: #888888">//config for current measurement</span>
+<span style="color: #333399; font-weight: bold">int24_t</span> i_u_offs <span style="color: #333333">=</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">12500</span>;
+<span style="color: #333399; font-weight: bold">uint8_t</span> i_u_diode_offs <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">7</span>;
+
+<span style="color: #333399; font-weight: bold">uint16_t</span> led_rest <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+<span style="color: #008800; font-weight: bold">volatile</span> <span style="color: #333399; font-weight: bold">uint8_t</span> mode <span style="color: #333333">=</span> DMODE_NONE;
+
+<span style="color: #888888">/******************************************************************************</span>
+<span style="color: #888888"> *init methods*****************************************************************</span>
+<span style="color: #888888"> ******************************************************************************/</span>
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * prepare the processor, nothing may be turned on</span>
+<span style="color: #888888"> * according to Pinlayout version 1.4</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initPins</span>()
+{
+        PORTA <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00000000;
+        ANSELA <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00000111;
+        TRISA <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00000111;
+
+        PORTB <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00000000;
+        ANSELB <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00110000;
+        TRISB <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00111010;
+
+        nWPUEN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        WPUB <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00001000;
+
+        <span style="color: #888888">//see data sheet page 65 &amp; 58 FOSC set in pragmas</span>
+        <span style="color: #888888">//set the frequency to 32MHz</span>
+        SCS0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        SCS1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        IRCF0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        IRCF1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        IRCF2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        IRCF3 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        SPLLEN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        <span style="color: #888888">//config int for RB5 (see data sheet page 81)</span>
+        IOCBN5 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        IOCIE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * set up the adc for an 8 bit conversion</span>
+<span style="color: #888888"> * with Vdd and Vss as references</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initADC</span>()
+{
+        <span style="color: #888888">//see page 139 of datasheet</span>
+        <span style="color: #888888">//left justify, we have a resolution of 10 bit, 8 bit in ADRESH</span>
+        ADFM <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//see data sheet page 146</span>
+        <span style="color: #888888">//set the conversion clock speed to FOSC/64</span>
+        ADCS0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        ADCS1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        ADCS2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        <span style="color: #888888">//see data sheet page 146 || 139</span>
+        <span style="color: #888888">//set the references to Vdd and Vss</span>
+        ADPREF0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        ADPREF1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        ADNREF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        ADON <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * this timer might be used as a screen refresch rate generator</span>
+<span style="color: #888888"> * in a later release</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initTMR2</span>()
+{
+        <span style="color: #888888">/*</span>
+<span style="color: #888888">         * prescaler vals for timers 2/4/6</span>
+<span style="color: #888888">         * overflow_freq(*) = fosc_val/UCHAR_MAX</span>
+<span style="color: #888888">         * </span>
+<span style="color: #888888">         * *calculated with _XTAL_FREQ = 4_000_000</span>
+<span style="color: #888888">         *  </span>
+<span style="color: #888888">         * |TxCKPS1|TxCKPS0|PRESCALER|FOSC_VAL|OVERFLOW_FREQ|RATE@50|</span>
+<span style="color: #888888">         * |-------|-------|---------|--------|-------------|-------|</span>
+<span style="color: #888888">         * |      0|      0|      1:1|  FOSC/4|       15_625|  312.5|</span>
+<span style="color: #888888">         * |      0|      1|      1:4| FOSC/16|     3_906.25| 78.125|</span>
+<span style="color: #888888">         * |      1|      0|     1:16| FOSC/64|      976.562|19.5312|</span>
+<span style="color: #888888">         * |      1|      1|     1:64|FOSC/256|      244.141|4.88282|</span>
+<span style="color: #888888">         * </span>
+<span style="color: #888888">         */</span>
+
+        <span style="color: #888888">//see data sheet page 189 &amp; 191</span>
+        <span style="color: #888888">//set the prescaler to 1:4 to get a rate of ~80</span>
+        T2CKPS0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        T2CKPS1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//see data sheet page 189 &amp; 191</span>
+        <span style="color: #888888">//set the postscaler to 1:1</span>
+        T2OUTPS0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        T2OUTPS1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        T2OUTPS2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        T2OUTPS3 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//see data sheet page 190</span>
+        <span style="color: #888888">//defaults to 0xff on reset, i want to be clear of what i want</span>
+        PR2 <span style="color: #333333">=</span> <span style="color: #005588; font-weight: bold">0xff</span>;
+
+
+        TMR2IE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        TMR2IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//see data sheet page 191</span>
+        TMR2ON <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * used to measure real time for deltat and the led</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initTMR1</span>()
+{
+        <span style="color: #888888">/*</span>
+<span style="color: #888888">         * see data sheet page 177</span>
+<span style="color: #888888">         * set the clock source</span>
+<span style="color: #888888">         * |TMR1CS1|TMR1CS0|              CLK SRC|</span>
+<span style="color: #888888">         * |------:|------:|--------------------:|</span>
+<span style="color: #888888">         * |      0|      0|               FOSC/4|</span>
+<span style="color: #888888">         * |      0|      1|                 FOSC|</span>
+<span style="color: #888888">         * |      1|      0|External CLK on T1CKI|</span>
+<span style="color: #888888">         * |      1|      1|          Cap. S. OSC|</span>
+<span style="color: #888888">         */</span>
+
+        TMR1CS0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        TMR1CS1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//set prescaler, ranges from 1 - 8</span>
+        <span style="color: #888888">//we have a frequency of 32MHz with prescale of 2 (FOSC/8 = 4MHz) --&gt; dt = 1/4MHz = 250ns (real time, nice)</span>
+        T1CKPS0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        T1CKPS1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        TMR1IE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        TMR1IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        TMR1ON <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * used to compare to voltage signal</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initFVR</span>()
+{
+        <span style="color: #888888">/*</span>
+<span style="color: #888888">         * |CDAFVR1|CDAFVR0|VOLTS|</span>
+<span style="color: #888888">         * |------:|------:|----:|</span>
+<span style="color: #888888">         * |      0|      0|1.024|</span>
+<span style="color: #888888">         * |      0|      1|2.048|</span>
+<span style="color: #888888">         * |      1|      0|4.096|</span>
+<span style="color: #888888">         * |      1|      1|    -|</span>
+<span style="color: #888888">         */</span>
+
+        <span style="color: #888888">//set the fvr for adc to 1.024 volts</span>
+        ADFVR0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        ADFVR1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        <span style="color: #888888">//set FVR Buffer2 for comparing</span>
+        CDAFVR0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        CDAFVR1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        FVREN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; <span style="color: #888888">//enable ref</span>
+        <span style="color: #008800; font-weight: bold">while</span> (<span style="color: #333333">!</span>FVRRDY); <span style="color: #888888">//wait until its ready</span>
+}
+
+<span style="color: #888888">//see data sheet page 208 and 209</span>
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * used to compare amps signal</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initPWMTMR4</span>()
+{
+
+        <span style="color: #888888">//see data sheet page 119</span>
+        CCP1SEL <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; <span style="color: #888888">//switch output from RB3 to RB0</span>
+
+        <span style="color: #888888">//1</span>
+        TRISBbits.TRISB0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; <span style="color: #888888">//disable output driver for RB0</span>
+
+        <span style="color: #888888">//2</span>
+        PR2 <span style="color: #333333">=</span> <span style="color: #005588; font-weight: bold">0xff</span>; <span style="color: #888888">//set duty cycle</span>
+        CCP1CON <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00110000; <span style="color: #888888">//lsbs of duty cycle for 10 bit thingy, data sheet page 226</span>
+
+        <span style="color: #888888">//3</span>
+        CCP1CON <span style="color: #333333">|=</span> <span style="color: #0000DD; font-weight: bold">0</span>b00001100;
+
+        <span style="color: #888888">//4</span>
+        <span style="color: #888888">//set the duty (1023 = 100%, 0 = 0%)</span>
+        <span style="color: #888888">//0x7f + 1 + 1 == 511 = 50%</span>
+        <span style="color: #888888">//8 higher bits</span>
+        CCPR1L <span style="color: #333333">=</span> <span style="color: #005588; font-weight: bold">0x7f</span>; <span style="color: #888888">//Weil besser.... kommen auf 2.48V</span>
+
+        <span style="color: #888888">//2 lower bits</span>
+        DC1B0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        DC1B1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        <span style="color: #888888">//5</span>
+        <span style="color: #888888">//see data sheet page 227, tmr 4 is used</span>
+        C1TSEL0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        C1TSEL1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        TMR4IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//see data sheet page 189</span>
+        T4CKPS0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        T4CKPS1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        TMR4ON <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        <span style="color: #888888">//6</span>
+        <span style="color: #888888">//while (!TMR4IF); //wait until overflow occured</span>
+        TMR4IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        TRISBbits.TRISB0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * see data sheet page 164</span>
+<span style="color: #888888"> * input for both comparators</span>
+<span style="color: #888888"> * |C1NCH1|C1NCH0|    SRC|ON PIN|</span>
+<span style="color: #888888"> * |-----:|-----:|------:|-----:|</span>
+<span style="color: #888888"> * |     0|     0|C12IN0-|   RA0|</span>
+<span style="color: #888888"> * |     0|     1|C12IN1-|   RA1|</span>
+<span style="color: #888888"> * |     1|     0|C12IN2-|   RA2|</span>
+<span style="color: #888888"> * |     1|     1|C12IN3-|   RA3|</span>
+<span style="color: #888888"> */</span>
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * Comparator for phase measurement of the Voltage</span>
+<span style="color: #888888"> * uses FVR Buffer2</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initCOMP1</span>()
+{
+        <span style="color: #888888">//select input channel</span>
+        <span style="color: #888888">//see data sheet page 164</span>
+        <span style="color: #888888">//C12IN1-</span>
+        C1NCH0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        C1NCH1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+
+        <span style="color: #888888">/* </span>
+<span style="color: #888888">         * |C1PCH1|C1PCH0|     SRC|ON PIN|</span>
+<span style="color: #888888">         * |-----:|-----:|-------:|-----:|</span>
+<span style="color: #888888">         * |     0|     0|   C1IN+|   RA3|</span>
+<span style="color: #888888">         * |     0|     1|     DAC|     -|</span>
+<span style="color: #888888">         * |     1|     0|FVR BUF2|     -|</span>
+<span style="color: #888888">         * |     1|     1|  C12IN+|   RA2|</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #888888">//select compare source</span>
+        <span style="color: #888888">//see data sheet page 164</span>
+        <span style="color: #888888">//FVR BUF2</span>
+        C1PCH0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        C1PCH1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        <span style="color: #888888">//turn comp 1 on</span>
+        C1INTP <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; <span style="color: #888888">//falling edge, since the edges are reversed</span>
+        C1IE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        C1IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        C1ON <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * Comparator for phase measurement of the Amps</span>
+<span style="color: #888888"> * uses Voltage reference generated by the pwm</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initCOMP2</span>()
+{
+        <span style="color: #888888">//select input channel</span>
+        <span style="color: #888888">//see data sheet page 165</span>
+        <span style="color: #888888">//C12IN0-</span>
+        C2NCH0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        C2NCH1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">/* </span>
+<span style="color: #888888">         * |C2PCH1|C2PCH0|     SRC|ON PIN|</span>
+<span style="color: #888888">         * |-----:|-----:|-------:|-----:|</span>
+<span style="color: #888888">         * |     0|     0|  C12IN+|   RA2|</span>
+<span style="color: #888888">         * |     0|     1|     DAC|     -|</span>
+<span style="color: #888888">         * |     1|     0|FVR BUF2|     -|</span>
+<span style="color: #888888">         * |     1|     1|     VSS|     -|</span>
+<span style="color: #888888">         */</span>
+        <span style="color: #888888">//select compare source</span>
+        <span style="color: #888888">//see data sheet page 165</span>
+        <span style="color: #888888">//C12IN+</span>
+        C2PCH0 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        C2PCH1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//turn comp 2 on</span>
+        C2INTP <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; <span style="color: #888888">//falling edge, since the edges are reversed, actually it doesn&#39;t matter, since we only need to use the same edges on both signals</span>
+        C2IE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        C2IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        C2ON <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * Init the USART module for communication with the bt module</span>
+<span style="color: #888888"> * the bauderate is 9600</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">initBT</span>()
+{
+
+        <span style="color: #888888">//select output pin</span>
+        RXDTSEL <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        TXCKSEL <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        <span style="color: #888888">//Configure TX</span>
+        TXEN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        SYNC <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        SPEN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        <span style="color: #888888">//Configure RX</span>
+        CREN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        SYNC <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        SPEN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        <span style="color: #888888">//Set Baudrate for BT Module to 9600</span>
+        BRGH <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        BRG16 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        SPBRG <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">51</span>; <span style="color: #888888">//Datasheet Page 299</span>
+
+        <span style="color: #008800; font-weight: bold">while</span> (RCIF) {
+                RCREG;
+        }
+
+        RCIE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+
+<span style="color: #888888">/******************************************************************************/</span>
+<span style="color: #888888">/*core methods*****************************************************************/</span>
+<span style="color: #888888">/******************************************************************************/</span>
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * give the desired channel &lt;n&gt;</span>
+<span style="color: #888888"> * where n ranges from 0 to 11</span>
+<span style="color: #888888"> * </span>
+<span style="color: #888888"> * src: the desired channel</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">adc</span>(<span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">int8_t</span> src)
+{
+        <span style="color: #888888">/*</span>
+<span style="color: #888888">         * src is an char ranging from 0 to 11</span>
+<span style="color: #888888">         * </span>
+<span style="color: #888888">         * |SOURCE|REGISTER_PIN|EXTERNAL PIN/18|</span>
+<span style="color: #888888">         * |------|------------|---------------|</span>
+<span style="color: #888888">         * |AN0   |RA0         |17             |</span>
+<span style="color: #888888">         * |AN1   |RA1         |18             |</span>
+<span style="color: #888888">         * |AN2   |RA2         | 1             |</span>
+<span style="color: #888888">         * |AN3   |RA3         | 2             |</span>
+<span style="color: #888888">         * |AN4   |RA4         | 3             |</span>
+<span style="color: #888888">         * |AN5   |RB6         |12             |</span>
+<span style="color: #888888">         * |AN6   |RB7         |13             |</span>
+<span style="color: #888888">         * |AN7   |RB5         |11             |</span>
+<span style="color: #888888">         * |AN8   |RB4         |10             |</span>
+<span style="color: #888888">         * |AN9   |RB3         | 9             |</span>
+<span style="color: #888888">         * |AN10  |RB2         | 8             |</span>
+<span style="color: #888888">         * |AN11  |RB1         | 7             |</span>
+<span style="color: #888888">         * select the channel</span>
+<span style="color: #888888">         * since the bit combination is sorted we can do this:</span>
+<span style="color: #888888">         */</span>
+
+        CHS0 <span style="color: #333333">=</span> (bit) (src <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span>) <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>;
+        CHS1 <span style="color: #333333">=</span> (bit) (src <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>;
+        CHS2 <span style="color: #333333">=</span> (bit) (src <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">2</span>) <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>;
+        CHS3 <span style="color: #333333">=</span> (bit) (src <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">3</span>) <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>;
+        CHS4 <span style="color: #333333">=</span> (bit) (src <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">4</span>) <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>;
+
+        __delay_us(<span style="color: #0000DD; font-weight: bold">5</span>);
+
+        <span style="color: #888888">//convert</span>
+        GO_nDONE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        <span style="color: #008800; font-weight: bold">while</span> (GO_nDONE);
+        <span style="color: #888888">//the result is in ADRESH and ADRESL</span>
+}
+
+<span style="color: #888888">/******************************************************************************/</span>
+<span style="color: #888888">/*convenient methods***********************************************************/</span>
+<span style="color: #888888">/******************************************************************************/</span>
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * unused as of now, will probably not be implemented</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">uint8_t</span> <span style="color: #0066BB; font-weight: bold">readVoltage</span>()
+{
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">230</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * returns the current in amps as float</span>
+<span style="color: #888888"> * since the voltage is regulated, we can just</span>
+<span style="color: #888888"> * measure at any time</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">int24_t</span> <span style="color: #0066BB; font-weight: bold">readCurrent</span>()
+{
+        <span style="color: #888888">/*</span>
+<span style="color: #888888">         * function for current: curr(volt)=5*volt-12.5</span>
+<span style="color: #888888">         * note: this only applies, when the processor is powered with 5Volts</span>
+<span style="color: #888888">         * to convert from unitless to 0-5V we need to multiply ADRESH with 5</span>
+<span style="color: #888888">         * and divide it thru 256 since we only use the 8 highest order bits</span>
+<span style="color: #888888">         */</span>
+        ADFM <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        adc(<span style="color: #0000DD; font-weight: bold">7</span>);
+
+        <span style="color: #888888">//return (ADRES * 5000 / 1024 + i_u_diode_offs) * 5.0 + i_u_offs;</span>
+        <span style="color: #888888">//measured val * value range / scale + offset</span>
+        <span style="color: #888888">//return ((ADRES + i_u_diode_offs) * 5000) / 1024 + i_u_offs;</span>
+        <span style="color: #008800; font-weight: bold">return</span> (<span style="color: #0000DD; font-weight: bold">1000</span> <span style="color: #333333">*</span> (<span style="color: #0000DD; font-weight: bold">5</span> <span style="color: #333333">*</span> (ADRES <span style="color: #333333">+</span> i_u_diode_offs) <span style="color: #333333">+</span> i_u_offs)) <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1024</span>;
+}
+
+<span style="color: #333399; font-weight: bold">uint16_t</span> <span style="color: #0066BB; font-weight: bold">readVdd</span>()
+{
+        ADFM <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+        adc(<span style="color: #0000DD; font-weight: bold">0</span>b00011111); <span style="color: #888888">//fvr buffer output</span>
+
+        <span style="color: #888888">//return (1024.0 / ADRES) * 1.024;</span>
+        <span style="color: #888888">// flt_vdd = (1024.0/ ADRES) * 1.024</span>
+        <span style="color: #888888">// int1000 = (1024 * 1000) / ADRES</span>
+        <span style="color: #888888">//return (1024000) / ADRES</span>
+        <span style="color: #008800; font-weight: bold">return</span> ADRES<span style="color: #333333">&lt;&lt;</span><span style="color: #0000DD; font-weight: bold">2</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * shift a char of data out of the pic</span>
+<span style="color: #888888"> * the latch is not handled</span>
+<span style="color: #888888"> * datapin: DISPLAY_DATA</span>
+<span style="color: #888888"> * clockpin: DISPLAY_CLK</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">so</span>(<span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">uint8_t</span> data)
+{
+        <span style="color: #333399; font-weight: bold">uint8_t</span> c;
+        <span style="color: #008800; font-weight: bold">for</span> (c <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; c <span style="color: #333333">&lt;</span> CHAR_BIT; c<span style="color: #333333">++</span>) {
+                DISPLAY_DATA <span style="color: #333333">=</span> (data <span style="color: #333333">&gt;&gt;</span> c) <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>;
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
+                DISPLAY_CLK <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
+                SHIFT_DELAY
+                DISPLAY_CLK <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        }
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * well, clears the display</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">clearDisplay</span>(<span style="color: #333399; font-weight: bold">int8_t</span> leng)
+{
+        <span style="color: #008800; font-weight: bold">for</span> (; leng <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">0</span>; leng<span style="color: #333333">--</span>)
+                so(<span style="color: #005588; font-weight: bold">0xff</span>);
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * sends one byte of colour information to the led</span>
+<span style="color: #888888"> * - highest bit first</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sendColour</span>(<span style="color: #333399; font-weight: bold">uint8_t</span> c)
+{
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b10000000) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b01000000) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b00100000) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b00010000) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b00001000) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b00000100) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b00000010) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+
+        <span style="color: #008800; font-weight: bold">if</span> (c <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">0</span>b00000001) LED_HIGHBIT
+        <span style="color: #008800; font-weight: bold">else</span> LED_LOWBIT;
+}
+
+<span style="color: #888888">/******************************************************************************</span>
+<span style="color: #888888"> *main program*****************************************************************</span>
+<span style="color: #888888"> ******************************************************************************/</span>
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * compute the time difference, is only invoked by the interrupt service routine</span>
+<span style="color: #888888"> * the flag byte should be cleared afterwards</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">uint16_t</span> <span style="color: #0066BB; font-weight: bold">deltaT</span>(<span style="color: #333399; font-weight: bold">uint16_t</span> tm_low, <span style="color: #333399; font-weight: bold">uint16_t</span> tm_high)
+{
+        <span style="color: #008800; font-weight: bold">if</span> (tm_low <span style="color: #333333">&lt;</span> tm_high) <span style="color: #888888">//no overflow bc obv</span>
+                <span style="color: #008800; font-weight: bold">return</span> tm_high <span style="color: #333333">-</span> tm_low;
+        <span style="color: #008800; font-weight: bold">else</span> <span style="color: #888888">//no overflow bc now tm_low &gt;= tm_high</span>
+                <span style="color: #008800; font-weight: bold">return</span> <span style="color: #005588; font-weight: bold">0xffff</span> <span style="color: #333333">-</span> tm_low <span style="color: #333333">+</span> tm_high;
+}
+
+<span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">sin_</span>(<span style="color: #333399; font-weight: bold">int8_t</span> z)
+{
+        <span style="color: #008800; font-weight: bold">return</span> eeprom_read(z);
+}
+
+<span style="color: #888888">//z is in the range of 0 ... 100</span>
+
+<span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">sin</span>(<span style="color: #333399; font-weight: bold">int16_t</span> z)
+{
+        <span style="color: #888888">//us /= 50; //convert from us to winkel grad (not deg)</span>
+        <span style="color: #333399; font-weight: bold">int16_t</span> buff;
+        <span style="color: #008800; font-weight: bold">while</span> (z <span style="color: #333333">&gt;</span> FULL_ROTATION)
+                z <span style="color: #333333">-=</span> FULL_ROTATION;
+
+        <span style="color: #008800; font-weight: bold">if</span> (z <span style="color: #333333">&gt;</span> (HALF_ROTATION) <span style="color: #333333">+</span> QUARTER_ROTATION) { <span style="color: #888888">//4th quad</span>
+                buff <span style="color: #333333">=</span> FULL_ROTATION;
+                buff <span style="color: #333333">-=</span> z;
+                <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span>sin_((<span style="color: #333399; font-weight: bold">int8_t</span>) buff);
+        }
+        <span style="color: #008800; font-weight: bold">if</span> (z <span style="color: #333333">&gt;</span> HALF_ROTATION) {<span style="color: #888888">//3rd quad</span>
+                buff <span style="color: #333333">=</span> z;
+                buff <span style="color: #333333">-=</span> HALF_ROTATION;
+                <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span>sin_((<span style="color: #333399; font-weight: bold">int8_t</span>) buff);
+        }
+        <span style="color: #008800; font-weight: bold">if</span> (z <span style="color: #333333">&gt;</span> QUARTER_ROTATION) {<span style="color: #888888">//2nd quad</span>
+                buff <span style="color: #333333">=</span> HALF_ROTATION;
+                buff <span style="color: #333333">-=</span> z;
+                <span style="color: #008800; font-weight: bold">return</span> sin_((<span style="color: #333399; font-weight: bold">int8_t</span>) buff);
+        }
+
+        <span style="color: #888888">//1st quad</span>
+        <span style="color: #008800; font-weight: bold">return</span> sin_((<span style="color: #333399; font-weight: bold">int8_t</span>) z);
+}
+
+<span style="color: #333399; font-weight: bold">int8_t</span> <span style="color: #0066BB; font-weight: bold">cos</span>(<span style="color: #333399; font-weight: bold">int16_t</span> us)
+{
+        <span style="color: #008800; font-weight: bold">return</span> sin(QUARTER_ROTATION <span style="color: #333333">+</span> us);
+}
+
+<span style="color: #333399; font-weight: bold">uint8_t</span> <span style="color: #0066BB; font-weight: bold">ledReset</span>()
+{
+        <span style="color: #888888">//because we have a prescale of 1:2 we can use only half of the required step count</span>
+        <span style="color: #008800; font-weight: bold">if</span> (led_rest <span style="color: #333333">&lt;</span> getTime()) {
+                <span style="color: #008800; font-weight: bold">if</span> (getTime() <span style="color: #333333">-</span> led_rest <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">200</span>) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+                <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        } <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span> (led_rest <span style="color: #333333">&gt;</span> getTime()) {
+                <span style="color: #008800; font-weight: bold">if</span> (<span style="color: #005588; font-weight: bold">0xffff</span> <span style="color: #333333">-</span> led_rest <span style="color: #333333">+</span> getTime() <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">200</span>) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+                <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        }
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * reprograms the led to the desired colour</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setLED</span>(<span style="color: #333399; font-weight: bold">uint8_t</span> g, <span style="color: #333399; font-weight: bold">uint8_t</span> r, <span style="color: #333399; font-weight: bold">uint8_t</span> b)
+{
+        sendColour(g);
+        sendColour(r);
+        sendColour(b);
+        led_rest <span style="color: #333333">=</span> getTime();
+}
+
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setUnit</span>(<span style="color: #333399; font-weight: bold">uint24_t</span> u)
+{
+        so(u <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">16</span> <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0xff</span>);
+        so(u <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">8</span> <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0xff</span>);
+        so(u <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0xff</span>);
+}
+
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setVal</span>(<span style="color: #333399; font-weight: bold">int16_t</span> v)
+{
+        <span style="color: #333399; font-weight: bold">int8_t</span> i;
+        <span style="color: #008800; font-weight: bold">for</span> (i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> SHIFT_REG_LEN <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">3</span>; i<span style="color: #333333">++</span>) {
+                so(get_shift_byte[v <span style="color: #333333">%</span> <span style="color: #0000DD; font-weight: bold">10</span>]);
+                v <span style="color: #333333">/=</span> <span style="color: #0000DD; font-weight: bold">10</span>;
+        }
+}
+
+<span style="color: #333399; font-weight: bold">void</span> __interrupt <span style="color: #0066BB; font-weight: bold">ISR</span>()
+{
+        <span style="color: #888888">//usart data received</span>
+        <span style="color: #008800; font-weight: bold">if</span> (RCIE <span style="color: #333333">&amp;&amp;</span> RCIF) {
+                receive_buff[buffpos] <span style="color: #333333">=</span> RCREG;
+                buffpos<span style="color: #333333">++</span>;
+                buffpos <span style="color: #333333">%=</span> RECEIVEBUFF_SIZE;
+                RCIF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        }
+
+        <span style="color: #888888">//in us</span>
+        <span style="color: #008800; font-weight: bold">if</span> (TMR1IE <span style="color: #333333">&amp;&amp;</span> TMR1IF) {
+                TMR1IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        }
+
+        <span style="color: #888888">//volts</span>
+        <span style="color: #008800; font-weight: bold">if</span> (C1IE <span style="color: #333333">&amp;&amp;</span> C1IF) {
+                <span style="color: #008800; font-weight: bold">if</span> (<span style="color: #333333">!</span>(flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>)) { <span style="color: #888888">//is volt not set</span>
+                        volt_time <span style="color: #333333">=</span> getTime();
+                        <span style="color: #008800; font-weight: bold">if</span> (flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x02</span>) <span style="color: #888888">//is current set</span>
+                                flag <span style="color: #333333">|=</span> <span style="color: #005588; font-weight: bold">0x08</span>;
+                        flag <span style="color: #333333">|=</span> <span style="color: #005588; font-weight: bold">0x01</span>;
+                }
+
+                C1IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        }
+
+        <span style="color: #888888">//amps</span>
+        <span style="color: #008800; font-weight: bold">if</span> (C2IE <span style="color: #333333">&amp;&amp;</span> C2IF) {
+                <span style="color: #008800; font-weight: bold">if</span> (<span style="color: #333333">!</span>(flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x02</span>)) { <span style="color: #888888">//is current not set</span>
+                        curr_time <span style="color: #333333">=</span> getTime();
+                        <span style="color: #008800; font-weight: bold">if</span> (flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>) <span style="color: #888888">//is volt set</span>
+                                flag <span style="color: #333333">|=</span> <span style="color: #005588; font-weight: bold">0x04</span>;
+                        flag <span style="color: #333333">|=</span> <span style="color: #005588; font-weight: bold">0x02</span>;
+                }
+
+                C2IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        }
+
+        <span style="color: #008800; font-weight: bold">if</span> (TMR2IE <span style="color: #333333">&amp;&amp;</span> TMR2IF) {
+                TMR2IF <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        }
+}
+
+<span style="color: #888888">/*</span>
+<span style="color: #888888"> * main method, guess what it does!</span>
+<span style="color: #888888"> */</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span>()
+{
+        <span style="color: #333399; font-weight: bold">int</span> bmode <span style="color: #333333">=</span> DMODE_NONE;
+        <span style="color: #333399; font-weight: bold">int24_t</span> angle;
+        <span style="color: #333399; font-weight: bold">int24_t</span> current;
+        <span style="color: #333399; font-weight: bold">int24_t</span> voltage;
+        <span style="color: #333399; font-weight: bold">int24_t</span> apparent;
+        <span style="color: #333399; font-weight: bold">int24_t</span> real;
+        <span style="color: #333399; font-weight: bold">int24_t</span> reactive;
+        <span style="color: #333399; font-weight: bold">int8_t</span> i;
+
+        PEIE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+        GIE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+        initPins();
+        initFVR();
+        initADC();
+        initTMR1();
+        initPWMTMR4();
+        initCOMP1();
+        initCOMP2();
+        initBT();
+        initMessaging();
+        PEIE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+        clearDisplay(SHIFT_REG_LEN);
+
+        <span style="color: #008800; font-weight: bold">while</span> (<span style="color: #0000DD; font-weight: bold">1</span>) {
+
+                GIE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+                __delay_ms(<span style="color: #0000DD; font-weight: bold">50</span>);
+                GIE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+
+                <span style="color: #888888">//calculate the values and send only of both phases have been recorded</span>
+                <span style="color: #008800; font-weight: bold">if</span> ((flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x02</span>) <span style="color: #333333">&amp;&amp;</span> (flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x01</span>)) { <span style="color: #888888">//volts and current</span>
+                        <span style="color: #008800; font-weight: bold">if</span> (flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x04</span>) <span style="color: #888888">//volts first</span>
+                                angle <span style="color: #333333">=</span> (deltaT(volt_time, curr_time) <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">2</span>); <span style="color: #888888">// (*250/1000) == (/4) == (&gt;&gt;2)</span>
+                        <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span> (flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x08</span>) <span style="color: #888888">//current first</span>
+                                angle <span style="color: #333333">=</span> (deltaT(curr_time, volt_time) <span style="color: #333333">&gt;&gt;</span> <span style="color: #0000DD; font-weight: bold">2</span>);
+
+                        flag <span style="color: #333333">&amp;=</span> <span style="color: #005588; font-weight: bold">0xf0</span>;
+
+                        <span style="color: #888888">//angle now in us</span>
+
+                        <span style="color: #888888">//d = -5/2 vdd</span>
+                        i_u_offs <span style="color: #333333">=</span> readVdd() <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">5</span>;
+                        i_u_offs <span style="color: #333333">&gt;&gt;=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+                        i_u_offs <span style="color: #333333">=</span> <span style="color: #333333">-</span>i_u_offs;
+                        
+                        sendUInt8(K_RAWVOLTAGE);
+                        sendInt24(ADRES);
+                        
+                        current <span style="color: #333333">=</span> readCurrent();
+                        voltage <span style="color: #333333">=</span> readVoltage();
+                        apparent <span style="color: #333333">=</span> voltage <span style="color: #333333">*</span> current;
+                        real <span style="color: #333333">=</span> (apparent <span style="color: #333333">*</span> cos(angle)) <span style="color: #333333">/</span> MAX_SIN_RES;
+                        reactive <span style="color: #333333">=</span> (apparent <span style="color: #333333">*</span> sin(angle)) <span style="color: #333333">/</span> MAX_SIN_RES;
+
+
+                        sendUInt8(K_RAWCURRENT);
+                        sendInt24(ADRES);
+                        sendUInt8(K_OFFS);
+                        sendInt24(i_u_offs);
+                        sendUInt8(K_CURRENT);
+                        sendInt24(current);
+                        sendUInt8(K_APPARENTEPOWER);
+                        sendInt24(apparent);
+                        sendUInt8(K_REALPOWER);
+                        sendInt24(real);
+                        sendUInt8(K_REACTIVEPOWER);
+                        sendInt24(reactive);
+
+                        DISPLAY_LAT <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+                        <span style="color: #008800; font-weight: bold">switch</span> (bmode) {
+                                <span style="color: #008800; font-weight: bold">case</span> DMODE_NONE:
+                                <span style="color: #997700; font-weight: bold">default:</span>
+                                        setUnit(UNIT_NONE);
+                                        setVal(<span style="color: #0000DD; font-weight: bold">0</span>);
+                                        setLED(<span style="color: #005588; font-weight: bold">0x00</span>, <span style="color: #005588; font-weight: bold">0x00</span>, <span style="color: #005588; font-weight: bold">0x00</span>); <span style="color: #888888">//out</span>
+                                        <span style="color: #008800; font-weight: bold">break</span>;
+                                <span style="color: #008800; font-weight: bold">case</span> DMODE_CURRENT:
+                                        setUnit(UNIT_A);
+                                        setVal(current <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span>);
+                                        setLED(<span style="color: #005588; font-weight: bold">0x00</span>, LED_INTENSE, <span style="color: #005588; font-weight: bold">0x00</span>); <span style="color: #888888">//red</span>
+                                        <span style="color: #008800; font-weight: bold">break</span>;
+                                <span style="color: #008800; font-weight: bold">case</span> DMODE_REAL:
+                                        setUnit(UNIT_W);
+                                        setVal(real <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span>);
+                                        setLED(LED_INTENSE, <span style="color: #005588; font-weight: bold">0x00</span>, <span style="color: #005588; font-weight: bold">0x00</span>); <span style="color: #888888">//green</span>
+                                        <span style="color: #008800; font-weight: bold">break</span>;
+                                <span style="color: #008800; font-weight: bold">case</span> DMODE_APPARENT:
+                                        setUnit(UNIT_VA);
+                                        setVal(apparent <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span>);
+                                        setLED(<span style="color: #005588; font-weight: bold">0x00</span>, <span style="color: #005588; font-weight: bold">0x00</span>, LED_INTENSE); <span style="color: #888888">//blue</span>
+                                        <span style="color: #008800; font-weight: bold">break</span>;
+                                <span style="color: #008800; font-weight: bold">case</span> DMODE_REACTIVE:
+                                        setUnit(UNIT_VA);
+                                        setVal(reactive <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">1000</span>);
+                                        setLED(LED_INTENSE, <span style="color: #005588; font-weight: bold">0x00</span>, LED_INTENSE); <span style="color: #888888">//green + blue</span>
+                                        <span style="color: #008800; font-weight: bold">break</span>;
+                                <span style="color: #008800; font-weight: bold">case</span> DMODE_VOLTAGE:
+                                        setUnit(UNIT_V);
+                                        setVal(voltage);
+                                        setLED(LED_INTENSE, LED_INTENSE, <span style="color: #005588; font-weight: bold">0x00</span>); <span style="color: #888888">//green + red</span>
+                                        <span style="color: #008800; font-weight: bold">break</span>;
+                        }
+                        DISPLAY_LAT <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+                }
+
+
+                <span style="color: #008800; font-weight: bold">if</span> (<span style="color: #333333">!</span>BUTTON <span style="color: #333333">&amp;&amp;</span> <span style="color: #333333">!</span>(flag <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0x10</span>)) { <span style="color: #888888">//button has not been set</span>
+                        bmode<span style="color: #333333">++</span>;
+                        bmode <span style="color: #333333">%=</span> DMODE_MAX;
+
+                        flag <span style="color: #333333">|=</span> <span style="color: #005588; font-weight: bold">0x10</span>;
+                        __delay_ms(<span style="color: #0000DD; font-weight: bold">10</span>);
+                } <span style="color: #008800; font-weight: bold">else</span> {
+                        flag <span style="color: #333333">&amp;=</span> <span style="color: #333333">~</span><span style="color: #005588; font-weight: bold">0x10</span>;
+                }
+        }
+}
+</pre></td></tr></table></div>
+
